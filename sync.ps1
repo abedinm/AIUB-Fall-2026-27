@@ -32,6 +32,7 @@ $after = (& git rev-parse HEAD).Trim()
 
 if ($after -ne $before) {
     foreach ($f in (& git -c core.quotepath=false diff --name-only --diff-filter=AM $before $after)) {
+        if ($f.StartsWith('inbox/') -and $f -ne 'inbox/.gitkeep') { "New in inbox: $f" }
         foreach ($k in $map.Keys) {
             if ($f.StartsWith("$k/")) {
                 $dst = Join-Path $map[$k] ($f.Substring($k.Length + 1) -replace '/', '\')
