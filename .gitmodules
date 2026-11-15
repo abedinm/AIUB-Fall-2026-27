@@ -1,0 +1,15 @@
+[submodule "AI/repo"]
+	path = AI/repo
+	url = https://github.com/abedinm/AI-Expert-System.git
+[submodule "EM/repo"]
+	path = EM/repo
+	url = https://github.com/abedinm/Engineering-Management.git
+[submodule "MIS/repo"]
+	path = MIS/repo
+	url = https://github.com/abedinm/Management-Information-Systems.git
+[submodule "OOP2/repo"]
+	path = OOP2/repo
+	url = https://github.com/abedinm/OOP2.git
+[submodule "Python/repo"]
+	path = Python/repo
+	url = https://github.com/abedinm/Programming-in-Python-Labs.git
