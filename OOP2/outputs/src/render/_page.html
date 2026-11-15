@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cover</title>
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    width: 210mm; height: 296.5mm; overflow: hidden; position: relative;
+    background: #15233b;
+    color: #f4efe4;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  .frame { position: absolute; top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; border: 0.6pt solid rgba(200,169,106,0.5); }
+  .frame2 { position: absolute; top: 12.6mm; left: 12.6mm; right: 12.6mm; bottom: 12.6mm; border: 0.3pt solid rgba(200,169,106,0.28); }
+  .top { position: absolute; top: 27mm; left: 25mm; right: 25mm; }
+  .top .l1 { font-size: 8.4pt; letter-spacing: 2.6pt; text-transform: uppercase; color: #c8a96a; font-weight: 600; }
+  .top .l2 { font-size: 7.6pt; letter-spacing: 1.8pt; text-transform: uppercase; color: rgba(244,239,228,0.62); margin-top: 4pt; }
+  .title { position: absolute; top: 60mm; left: 25mm; right: 25mm; }
+  .pre { font-family: "Palatino Linotype", Georgia, serif; font-style: italic; font-size: 15pt; color: #c8a96a; }
+  h1 { font-family: "Palatino Linotype", Georgia, serif; font-weight: normal; font-size: 47pt; line-height: 1.03; margin: 8pt 0 0; color: #f8f3e8; }
+  h1 .amp { font-style: italic; color: #c8a96a; font-size: 40pt; }
+  .rule { width: 44mm; border-top: 1pt solid #c8a96a; margin: 18pt 0 14pt; }
+  .sub { font-size: 10.6pt; line-height: 1.6; color: rgba(244,239,228,0.84); max-width: 132mm; margin: 0; }
+  .bottom { position: absolute; left: 25mm; right: 25mm; bottom: 25mm; }
+  .rt { font-size: 7.6pt; letter-spacing: 2pt; text-transform: uppercase; color: #c8a96a; font-weight: 600; margin-bottom: 6pt; }
+  table { border-collapse: collapse; width: 100%; font-size: 9pt; }
+  td { padding: 5pt 0; border-bottom: 0.4pt solid rgba(200,169,106,0.25); vertical-align: baseline; }
+  tr:last-child td { border-bottom: none; }
+  td.n { font-family: "Palatino Linotype", Georgia, serif; color: #c8a96a; font-size: 12.5pt; width: 9mm; }
+  td.t { color: rgba(244,239,228,0.6); width: 28mm; letter-spacing: 0.3pt; }
+  td.f { color: #f4efe4; }
+  td.m { color: rgba(244,239,228,0.6); text-align: right; width: 26mm; font-variant-numeric: tabular-nums; }
+  .short { margin-top: 12pt; padding: 8pt 11pt; border: 0.6pt solid rgba(200,169,106,0.45); border-radius: 3pt; font-size: 8.8pt; line-height: 1.5; color: rgba(244,239,228,0.86); }
+  .short b { color: #c8a96a; font-weight: 600; }
+  .meta { margin-top: 14pt; font-size: 7.6pt; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(244,239,228,0.6); line-height: 1.9; }
+  .meta b { color: #c8a96a; font-weight: 600; }
+</style></head>
+<body>
+  <div class="frame"></div><div class="frame2"></div>
+
+  <div class="top">
+    <div class="l1">CSC 3115 &#183; Object Oriented Programming 2 &#183; Section C</div>
+    <div class="l2">American International University-Bangladesh &#183; Fall 2026&#8211;27</div>
+  </div>
+
+  <div class="title">
+    <div class="pre">The midterm in three days</div>
+    <h1>From zero<br><span class="amp">to</span> the paper</h1>
+    <div class="rule"></div>
+    <p class="sub">A workbook for someone who has never written C#. Built from the real Fall 2024-25 midterm, the Quiz-Mid and the course's own code: lessons, paper drills, both old traces, the old 25-mark code question, the old MCQs, a full mock exam and its key. Every program in it was compiled and run.</p>
+  </div>
+
+  <div class="bottom">
+    <div class="rt">The route</div>
+    <table>
+      <tr><td class="n">1</td><td class="t">Day 1</td><td class="f">Read C#: values, printing, loops, jagged arrays &#183; 2 old traces</td><td class="m">p. 2</td></tr>
+      <tr><td class="n">2</td><td class="t">Day 2</td><td class="f">Write C#: one class, child classes, the BPL question</td><td class="m">p. 11</td></tr>
+      <tr><td class="n">3</td><td class="t">Day 3</td><td class="f">The facts: access, static, types, ref/out/params &#183; the old paper</td><td class="m">p. 21</td></tr>
+      <tr><td class="n">M</td><td class="t">Mock</td><td class="f">Two hours, timed, then mark it with the key</td><td class="m">p. 34</td></tr>
+      <tr><td class="n">&#167;</td><td class="t">Sunday 10:00</td><td class="f">Exam-morning sheet and your Miss log</td><td class="m">p. 47</td></tr>
+    </table>
+    <div class="short"><b>Short on time?</b> Day 2 first (25 marks), then the old paper in Day 3 Session 3, then Day 1 Session 3. Never skip the Miss log.</div>
+    <div class="meta"><div>Midterm &#183; <b>Sunday 15 November 2026 &#183; 12:00 PM</b></div><div>Visual Studio 2022 &#183; C# 7.3 &#183; .NET Framework</div></div>
+  </div>
+</body></html>

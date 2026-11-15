@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Midterm Mode: Fall 2026-27 study guide</title><style>
+@font-face { font-family: "Bahn"; src: url("file:///C:/Windows/Fonts/bahnschrift.ttf"); font-weight: 300 700; font-stretch: 75% 100%; }
+:root {
+  --ink: #15151b; --muted: #6b6b76; --line: #e6e3dc; --soft: #f7f5f0; --gold: #facc15;
+  --em: #2563eb; --ai: #7c3aed; --mis: #ea580c; --oop: #059669; --py: #b7791f; --exam: #dc2626; --adm: #6b7280;
+  --em-t: #eaf1ff; --ai-t: #f2ecff; --mis-t: #fff0e6; --oop-t: #e6f6ef; --py-t: #fbf3dc; --exam-t: #fdecec; --adm-t: #f1f2f4;
+}
+@page { size: A4; margin: 11mm 12mm 13mm;
+  @bottom-left { content: "MIDTERM MODE  ·  open today's page, do the next box"; font: 7pt "Segoe UI"; color: #a3a3ab; }
+  @bottom-right { content: "p. " counter(page); font: 600 8pt "Segoe UI"; color: #8a8a93; } }
+@page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font: 9.4pt/1.36 "Segoe UI", sans-serif; color: var(--ink); }
+.d, .dname, .badge, .cname, .tile b, .time, .bigt, .rule b, .step b, h3 { font-family: "Bahn", "Segoe UI", sans-serif; font-stretch: 75%; font-weight: 700; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); margin: 0; }
+code, pre, .f { font-family: "Cascadia Mono", Consolas, monospace; }
+a { color: inherit; text-decoration: none; }
+
+/* cover */
+.cover { page: cover; width: 210mm; height: 297mm; background: var(--ink); color: #fff; padding: 20mm 18mm 16mm; position: relative; overflow: hidden; break-after: page; }
+.spines { position: absolute; right: 0; top: 0; bottom: 0; display: flex; }
+.spines i { width: 5mm; height: 100%; display: block; }
+.kicker { font: 600 8.5pt "Segoe UI"; letter-spacing: .32em; color: #b9b9c4; }
+.bigt { font-size: 96pt; line-height: .82; margin: 8mm 0 0; letter-spacing: -.01em; }
+.bigt span { color: var(--gold); display: block; }
+.lede { font-size: 14pt; margin: 7mm 0 10mm; color: #e8e8ee; max-width: 150mm; }
+.lede b { color: var(--gold); }
+.xgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; width: 160mm; }
+.xt { padding: 5mm 5.5mm; border-radius: 3mm; }
+.xt .k { font: 700 8pt "Segoe UI"; letter-spacing: .2em; opacity: .9; }
+.xt .w { font-family: "Bahn"; font-stretch: 75%; font-weight: 700; font-size: 26pt; line-height: 1; margin-top: 2mm; }
+.xt .h { font-size: 11pt; margin-top: 1mm; opacity: .95; }
+.pystrip { width: 160mm; margin-top: 4mm; border: .5mm solid var(--py); color: #f5d98b; border-radius: 3mm; padding: 3mm 5mm; font-size: 10pt; }
+.rules { position: absolute; left: 18mm; right: 30mm; bottom: 16mm; }
+.rules h3 { font-size: 15pt; letter-spacing: .06em; color: var(--gold); margin: 0 0 3mm; }
+.rule { display: grid; grid-template-columns: 11mm 1fr; align-items: baseline; font-size: 13pt; margin: 2mm 0; }
+.rule b { font-size: 26pt; color: var(--gold); line-height: 1; }
+.only { margin-top: 5mm; font: 600 10pt "Segoe UI"; color: #b9b9c4; letter-spacing: .04em; }
+
+/* how-to page */
+.howto h1 { font-family: "Bahn"; font-stretch: 75%; font-size: 30pt; margin: 0 0 1mm; letter-spacing: .01em; }
+.howto .sub { color: var(--muted); margin: 0 0 5mm; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 6mm; }
+.step { border: 1px solid var(--line); border-radius: 3mm; padding: 4mm; background: var(--soft); }
+.step b { display: block; font-size: 30pt; line-height: 1; color: var(--exam); }
+.step p { margin: 2mm 0 0; font-weight: 600; }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 6mm; }
+.tri { border-left: 1.6mm solid var(--ink); padding: 1mm 0 1mm 3.5mm; }
+.tri h3 { margin: 0 0 1mm; font-size: 14pt; }
+.tri p { margin: 0; font-size: 9pt; }
+.howto h2.sec { font-family: "Bahn"; font-stretch: 75%; font-size: 15pt; letter-spacing: .06em; margin: 0 0 2.5mm; }
+.tiles { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2mm; margin-bottom: 6mm; }
+.tile { border: 1px solid var(--line); border-radius: 2.5mm; padding: 2mm 2.5mm; text-align: center; background: #fff; }
+.tile span { display: block; font: 700 7pt "Segoe UI"; letter-spacing: .15em; color: var(--muted); }
+.tile b { display: block; font-size: 22pt; line-height: 1.05; }
+.tile em { font: italic 600 8pt "Segoe UI"; color: var(--muted); }
+.tile.t-exam { border-color: var(--exam); background: var(--exam-t); }
+.tile.t-exam b { color: var(--exam); }
+.ctiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; margin-bottom: 6mm; }
+.ctile { border-radius: 2.5mm; padding: 3mm; color: #fff; }
+.ctile b { display: block; font-size: 9.5pt; line-height: 1.2; }
+.ctile em { font: italic 600 8pt "Segoe UI"; opacity: .9; }
+.ctile.c-em { background: var(--em); } .ctile.c-ai { background: var(--ai); } .ctile.c-mis { background: var(--mis); } .ctile.c-oop { background: var(--oop); } .ctile.c-py { background: var(--py); }
+.where { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; font-size: 8.6pt; }
+.where div { border-top: 1px solid var(--line); padding-top: 1.5mm; }
+.where b { display: block; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* day pages */
+.day { break-before: page; }
+.dhead { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.3mm solid var(--ink); padding-bottom: 2mm; margin-bottom: 3mm; }
+.dnum { font: 700 7.5pt "Segoe UI"; letter-spacing: .25em; color: var(--muted); }
+.dname { font-size: 36pt; line-height: .95; letter-spacing: .01em; }
+.dname em { font-style: normal; color: var(--exam); }
+.dmonth { font: 700 7.5pt "Segoe UI"; letter-spacing: .3em; color: var(--muted); }
+.dright { text-align: right; }
+.badge { display: inline-block; background: var(--exam); color: #fff; font-size: 12.5pt; padding: 1.4mm 3.5mm; border-radius: 1.6mm; text-transform: uppercase; letter-spacing: .03em; }
+.tally { margin-top: 2mm; font: 600 8pt "Segoe UI"; color: var(--muted); }
+.tally .sq { display: flex; gap: 1.2mm; justify-content: flex-end; margin-top: 1mm; flex-wrap: wrap; max-width: 80mm; margin-left: auto; }
+.tally .sq i { width: 3.6mm; height: 3.6mm; border: .45mm solid var(--ink); border-radius: .8mm; display: block; }
+.one { background: var(--ink); color: #fff; padding: 3mm 4.5mm; border-radius: 2.5mm; font-size: 12.5pt; font-weight: 600; margin-bottom: 2mm; }
+.one span { display: block; font: 700 7.5pt "Segoe UI"; letter-spacing: .25em; color: var(--gold); margin-bottom: .6mm; }
+.focus { display: flex; flex-wrap: wrap; gap: 1.6mm; margin-bottom: 3mm; }
+.focus b { font: 700 7pt "Segoe UI"; letter-spacing: .08em; text-transform: uppercase; border: .35mm solid var(--ink); border-radius: 10mm; padding: .6mm 2.4mm; }
+.callout { border-radius: 2mm; padding: 2.2mm 3.2mm; margin-bottom: 3mm; font-size: 8.8pt; border-left: 1.6mm solid; }
+.callout.oop { background: var(--oop-t); border-color: var(--oop); }
+.callout.em { background: var(--em-t); border-color: var(--em); }
+.callout code { font-size: 8pt; }
+.card { display: grid; grid-template-columns: 19mm 1fr 8mm; gap: 3mm; align-items: start; padding: 2.1mm 3mm; border: 1px solid var(--line); border-left: 2.2mm solid var(--c); border-radius: 2.4mm; margin-bottom: 1.6mm; break-inside: avoid; background: #fff; }
+.time { font-size: 16pt; line-height: 1; color: var(--c); }
+.time span { display: block; font: 600 7.5pt "Segoe UI"; color: var(--muted); margin-top: .8mm; }
+.pill { display: inline-block; font: 700 6.8pt "Segoe UI"; letter-spacing: .12em; color: #fff; background: var(--c); padding: .4mm 2mm; border-radius: 1mm; margin: 0 1.2mm .9mm 0; }
+.task { font-weight: 600; font-size: 9.4pt; }
+.done { margin-top: 1.1mm; background: var(--t); border-radius: 1.2mm; padding: 1mm 2.2mm; font-size: 8.4pt; }
+.done b { font: 700 6.6pt "Segoe UI"; letter-spacing: .14em; color: var(--c); margin-right: 1.8mm; }
+.box { width: 7mm; height: 7mm; border: .55mm solid var(--ink); border-radius: 1.3mm; align-self: center; }
+.box.ghost { border: none; }
+.card.class { border: 1px dashed #a8a8b0; border-left: 2.2mm solid #a8a8b0; background: var(--soft); }
+.card.class .time { color: #7a7a84; }
+.card.quiz { border: .55mm solid var(--exam); border-left: 2.2mm solid var(--exam); background: var(--exam-t); }
+.card.quiz .time { color: var(--exam); }
+.pill.p-quiz { background: var(--exam); }
+.pill.p-class { background: #7a7a84; }
+.c-em { --c: var(--em); --t: var(--em-t); } .c-ai { --c: var(--ai); --t: var(--ai-t); } .c-mis { --c: var(--mis); --t: var(--mis-t); }
+.c-oop { --c: var(--oop); --t: var(--oop-t); } .c-py { --c: var(--py); --t: var(--py-t); } .c-adm { --c: var(--adm); --t: var(--adm-t); } .c-exam { --c: var(--exam); --t: var(--exam-t); }
+.exam.card-x { display: grid; grid-template-columns: 19mm 1fr 14mm; gap: 3mm; align-items: center; background: var(--exam); color: #fff; border-radius: 2.4mm; padding: 3.2mm 3mm; margin: 2.4mm 0; break-inside: avoid; }
+.exam .time { color: #fff; font-size: 18pt; }
+.exam .time span { color: #ffd6d6; }
+.etxt { font-size: 12pt; font-weight: 700; }
+.xlabel { display: inline-block; background: #fff; color: var(--exam); font: 700 7pt "Segoe UI"; letter-spacing: .16em; padding: .5mm 2mm; border-radius: 1mm; margin-right: 2.5mm; vertical-align: middle; }
+.xbadge { font-family: "Bahn"; font-stretch: 75%; font-weight: 700; font-size: 18pt; text-align: center; border: .6mm solid #fff; border-radius: 2mm; padding: .5mm 0; }
+.rest { display: flex; gap: 3mm; align-items: center; font-size: 8pt; color: var(--muted); margin: 1.2mm 0 2mm; padding-left: 3mm; }
+.rest span { font-weight: 700; min-width: 19mm; }
+.rest::after { content: ""; flex: 1; border-top: 1px dotted #c9c6bf; }
+.foot { margin-top: 3mm; break-inside: avoid; }
+.park { border: 1px solid var(--line); border-radius: 2.4mm; height: 24mm; padding: 2mm 3mm; background: repeating-linear-gradient(to bottom, #fff 0, #fff 6.3mm, #ece9e2 6.3mm, #ece9e2 6.6mm); }
+.plabel { font: 700 7.5pt "Segoe UI"; letter-spacing: .2em; }
+.plabel span { font-weight: 400; letter-spacing: .02em; color: var(--muted); margin-left: 2mm; }
+.stuck { margin-top: 2mm; font-size: 8.4pt; }
+.chip { display: inline-block; font: 600 7.4pt "Segoe UI"; border: 1px solid var(--line); background: var(--soft); border-radius: 10mm; padding: .3mm 2.2mm; margin: .6mm .6mm 0 0; }
+
+/* cheat sheets */
+.cheat { break-before: page; }
+.chead { background: var(--c); color: #fff; border-radius: 3mm; padding: 5mm 6mm; margin-bottom: 4mm; }
+.ckey { font: 700 7.5pt "Segoe UI"; letter-spacing: .3em; opacity: .85; }
+.cname { font-size: 30pt; line-height: 1; margin-top: 1mm; }
+.csub { font-size: 9.5pt; margin-top: 1.5mm; opacity: .95; }
+.cbody { column-count: 2; column-gap: 5mm; }
+.blk { break-inside: avoid; border: 1px solid var(--line); border-radius: 2.4mm; padding: 2.6mm 3mm; margin: 0 0 3mm; background: #fff; }
+.blk.wide { column-span: all; }
+.blk h4 { margin: 0 0 1.4mm; font-family: "Bahn"; font-stretch: 75%; font-weight: 700; font-size: 12.5pt; color: var(--c); text-transform: uppercase; letter-spacing: .04em; }
+.blk p { margin: 1mm 0; font-size: 8.7pt; }
+.blk .f { background: var(--t); border-radius: 1.2mm; padding: .9mm 2mm; margin: .9mm 0; font-size: 8.1pt; }
+.blk.trap { border: .5mm solid var(--exam); background: var(--exam-t); }
+.blk.trap h4 { color: var(--exam); }
+.small { font-size: 7.6pt !important; color: var(--muted); }
+pre { background: var(--t); border-radius: 1.6mm; padding: 2.4mm 3mm; font-size: 8pt; line-height: 1.4; margin: 1mm 0 1.6mm; white-space: pre; }
+table.t { width: 100%; border-collapse: collapse; font-size: 8.4pt; margin: 1mm 0; }
+table.t th, table.t td { border-bottom: 1px solid var(--line); padding: 1.1mm 1.6mm; text-align: left; }
+table.t th { font-weight: 600; color: var(--ink); background: var(--soft); }
+table.t td { font-family: "Cascadia Mono", Consolas, monospace; }
+
+/* exam day */
+.examday { break-before: page; }
+.examday .chead { background: var(--exam); }
+.ck { display: grid; grid-template-columns: 9mm 1fr; gap: 3mm; align-items: center; padding: 2.4mm 0; border-bottom: 1px solid var(--line); font-size: 11pt; font-weight: 600; }
+.ck i { width: 7mm; height: 7mm; border: .55mm solid var(--ink); border-radius: 1.3mm; display: block; }
+.ck small { display: block; font-weight: 400; font-size: 8.8pt; color: var(--muted); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.two h3 { font-size: 16pt; margin: 0 0 1mm; letter-spacing: .04em; }
+</style></head>
+<body>
+<section class="cover">
+  <div class="spines"><i style="background: var(--em)"></i><i style="background: var(--ai)"></i><i style="background: var(--mis)"></i><i style="background: var(--oop)"></i><i style="background: var(--py)"></i></div>
+  <div class="kicker">AIUB · FALL 2026-27 · NOV 3 TO NOV 16</div>
+  <h2 class="sr">Cover</h2>
+  <div class="bigt">MIDTERM<span>MODE</span></div>
+  <div class="lede">One guide. <b>Open today's page. Do the next box.</b> No new plans, no re-planning: the planning is finished.</div>
+  <div class="xgrid">
+    <div class="xt" style="background: var(--ai)"><div class="k">AI AND EXPERT SYSTEM</div><div class="w">SUN 8 NOV</div><div class="h">09:00 to 11:00</div></div>
+    <div class="xt" style="background: var(--em)"><div class="k">ENGINEERING MANAGEMENT</div><div class="w">SUN 8 NOV</div><div class="h">15:00 to 17:00</div></div>
+    <div class="xt" style="background: var(--mis)"><div class="k">MANAGEMENT INFO SYSTEMS</div><div class="w">TUE 10 NOV</div><div class="h">09:00 to 11:00</div></div>
+    <div class="xt" style="background: var(--oop)"><div class="k">OOP2 (C#)</div><div class="w">SUN 15 NOV</div><div class="h">12:00 to 14:00</div></div>
+  </div>
+  <div class="pystrip"><b>PYTHON</b> has no exam: project email Sat 14 Nov, demo Mon 16 Nov. Before that: OOP2 + EM quizzes Wed 4 Nov, AI lab test Thu 5 Nov, MIS assignment Fri 6 Nov.</div>
+  <div class="rules">
+    <h3>THE ONLY THREE RULES</h3>
+    <div class="rule"><b>1</b><span>When your calendar pops up, open today's page.</span></div>
+    <div class="rule"><b>2</b><span>Phone in another room, timer on, do the next empty box.</span></div>
+    <div class="rule"><b>3</b><span>Tick it only when its "done when" line is true. Then the next one.</span></div>
+    <div class="only">This is the only plan. Don't make another one.</div>
+  </div>
+</section>
+
+<section class="howto">
+  <h2 class="sr">How this works</h2>
+  <h1>HOW THIS WORKS</h1>
+  <p class="sub">Every day has its own page. Every box is one block of study with a clear finish line.</p>
+  <div class="steps">
+    <div class="step"><b>1</b><p>Calendar pops up. Open today's page.</p></div>
+    <div class="step"><b>2</b><p>Phone away. Start a timer for the block.</p></div>
+    <div class="step"><b>3</b><p>Do the box. Check its "done when" line.</p></div>
+    <div class="step"><b>4</b><p>Tick. 10-minute break. Next box.</p></div>
+  </div>
+  <div class="trio">
+    <div class="tri"><h3>MIND DRIFTING?</h3><p>Write the thought in the parking lot at the bottom of the page. Say the box's task out loud. Restart the timer for just 10 minutes.</p></div>
+    <div class="tri"><h3>STUCK?</h3><p>10 minutes on one step is the limit. Circle it, do the next step, and ask that course's Claude session after the block.</p></div>
+    <div class="tri"><h3>MISSED A BLOCK?</h3><p>Don't start over and don't catch up now. Jump to the box for the current time. The 22:51 check-in moves what you missed.</p></div>
+  </div>
+  <h2 class="sec">FIND YOUR DAY</h2>
+  <div class="tiles"><a class="tile" href="#day-0"><span>TUE</span><b>03</b><em>p. 3</em></a><a class="tile" href="#day-1"><span>WED</span><b>04</b><em>p. 5</em></a><a class="tile t-exam" href="#day-2"><span>THU</span><b>05</b><em>p. 7</em></a><a class="tile" href="#day-3"><span>FRI</span><b>06</b><em>p. 9</em></a><a class="tile" href="#day-4"><span>SAT</span><b>07</b><em>p. 11</em></a><a class="tile t-exam" href="#day-5"><span>SUN</span><b>08</b><em>p. 12</em></a><a class="tile" href="#day-6"><span>MON</span><b>09</b><em>p. 14</em></a><a class="tile t-exam" href="#day-7"><span>TUE</span><b>10</b><em>p. 16</em></a><a class="tile" href="#day-8"><span>WED</span><b>11</b><em>p. 17</em></a><a class="tile" href="#day-9"><span>THU</span><b>12</b><em>p. 18</em></a><a class="tile" href="#day-10"><span>FRI</span><b>13</b><em>p. 19</em></a><a class="tile" href="#day-11"><span>SAT</span><b>14</b><em>p. 20</em></a><a class="tile t-exam" href="#day-12"><span>SUN</span><b>15</b><em>p. 21</em></a><a class="tile" href="#day-13"><span>MON</span><b>16</b><em>p. 22</em></a></div>
+  <h2 class="sec">CHEAT SHEETS</h2>
+  <div class="ctiles"><a class="ctile c-em" href="#cheat-em"><b>Engineering Management</b><em>p. 23</em></a><a class="ctile c-ai" href="#cheat-ai"><b>AI and Expert System</b><em>p. 24</em></a><a class="ctile c-mis" href="#cheat-mis"><b>Management Information Systems</b><em>p. 25</em></a><a class="ctile c-oop" href="#cheat-oop"><b>OOP2 (C#)</b><em>p. 26</em></a><a class="ctile c-py" href="#cheat-py"><b>Programming in Python</b><em>p. 27</em></a></div>
+  <h2 class="sec">WHERE EVERYTHING IS</h2>
+  <div class="where">
+    <div><b>Course files</b>D:\Personal\Downloads\AIUB &lt;course&gt; Notes\</div>
+    <div><b>AI notes</b>F:\outputs\ai-midterm\AI-Midterm-Study-Notes-Ch1-3.pdf</div>
+    <div><b>OOP2 Quiz 2 (19 pages)</b>F:\outputs\aiub-oop2\OOP2-Quiz2-90-Minutes.pdf</div>
+    <div><b>OOP2 slides and code</b>Slides.zip and Codes.zip on your Desktop (unzip Wed 11 Nov)</div>
+    <div><b>Plan with tick boxes</b>F:\outputs\midterm-plan\Midterm-Study-Plan.html</div>
+    <div><b>Claude sessions</b>Engineering Management · AI mid note · Management Information Systems · Object-Oriented Programming 2 · Programming in Python</div>
+  </div>
+</section>
+
+
+<section class="day" id="day-0">
+  <h2 class="sr">Tuesday 03 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 01 OF 14</div>
+      <div class="dname">TUESDAY <em>03</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Quizzes tomorrow · 5 days to AI + EM</div>
+      <div class="tally"><span>11 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Get enough C# into your head for tomorrow's OOP2 quiz, and lock in the EM capacity maths.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  <div class="callout oop"><b>OOP2 tonight = one 19-page PDF, plain C#:</b> <code>F:\outputs\aiub-oop2\OOP2-Quiz2-90-Minutes.pdf</code>. Page numbers = the number at the bottom. Answers on p. 17-18.</div>
+  <div class="rows"><div class="card c-adm"><div class="time">18:00<span>to 18:10</span></div><div class="body"><span class="pill">ADMIN</span><div class="task">Send the 3 messages from the 18:00 calendar event: EM group (Slide 4 data by 21:30), MIS group (Assignment 1 split), Sadman Rafi (Lab Mid Task).</div><div class="done"><b>DONE WHEN</b>All 3 sent.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">18:10<span>to 19:05</span></div><div class="body"><span class="pill">OOP2</span><div class="task">OOP2-Quiz2-90-Minutes.pdf (page numbers = the number at the bottom). 18:10-18:35 read Part 1, p. 1-2: C# from zero. Break. 18:40-19:05 Q1-Q2 on paper, check on p. 17.</div><div class="done"><b>DONE WHEN</b>You can say what class, new, a constructor and Console.WriteLine do.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">19:10<span>to 20:05</span></div><div class="body"><span class="pill">OOP2</span><div class="task">19:10-19:35 read Part 2, p. 4-5: inheritance, constructor order, base(...), protected, hiding with new. Break. 19:40-20:05 Q3-Q5 on paper, check on p. 17.</div><div class="done"><b>DONE WHEN</b>Your traces match the key; every miss re-traced, not just read.</div></div><div class="box"></div></div>
+<div class="rest"><span>20:05-20:20</span>Break: stand up, water, no phone</div>
+<div class="card c-oop"><div class="time">20:20<span>to 21:15</span></div><div class="body"><span class="pill">OOP2</span><div class="task">20:20-20:45 read Part 3, p. 7-8: parent variable holding a child, virtual/override vs new. Break. 20:50-21:15 read p. 9: abstract, sealed, overloading.</div><div class="done"><b>DONE WHEN</b>You can say which method runs for override vs new without looking.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">21:20<span>to 21:45</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Q6-Q8 on paper (p. 10-11), check on p. 17-18.</div><div class="done"><b>DONE WHEN</b>Every miss re-traced.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">21:50<span>to 22:45</span></div><div class="body"><span class="pill">EM</span><div class="task">Slide 4 with your own numbers and the group's data. 21:50-22:15 demand 2027-30 (conservative = 0.8 x Series 1; policy = Series 2) and capacity from slide 2's plan. Break. 22:20-22:45 volume = min(demand, capacity), profit with slide 3's numbers, unmet demand x margin; draft it in the team template; send your working to the EM session.</div><div class="done"><b>DONE WHEN</b>Both scenarios done for every year; slide drafted and sent to the group.</div></div><div class="box"></div></div>
+<div class="rest"><span>22:45-23:05</span>Break, snack</div>
+<div class="card c-em"><div class="time">23:05<span>to 00:30</span></div><div class="body"><span class="pill">EM</span><div class="task">Strategic Capacity Planning.pdf. Solve each problem slide on paper before the next slide shows the answer. 23:05-23:30 sl. 4-5 and 13-16, solve sl. 5. Break. 23:35-00:00 sl. 17-22, solve sl. 17 and 19. Break. 00:05-00:30 sl. 23-26, solve sl. 25.</div><div class="done"><b>DONE WHEN</b>Sl. 5 = 90% and 72%. Pies 1,200 / -$1,000 / 2,000 / $7.50. Chargers 10,500 and $46,000 at 22,000. Make/buy 7,500 units, make $870k vs buy $960k.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">00:35<span>to 01:00</span></div><div class="body"><span class="pill">EM</span><div class="task">EM WS3 CP Q&amp;A.pdf Q1-Q2 (page 1) without notes.</div><div class="done"><b>DONE WHEN</b>Q1 4 machines. Q2 39,683 and $1.71.</div></div><div class="box"></div></div>
+<div class="rest"><span>01:00-01:15</span>Break, snack</div>
+<div class="card c-em"><div class="time">01:15<span>to 01:40</span></div><div class="body"><span class="pill">EM</span><div class="task">WS3 Q3-Q4, then mark all four with the key on page 2.</div><div class="done"><b>DONE WHEN</b>Q3 46,000; $3,000 / $8,200; 126,000. Q4 6,000; -7,000; 7,000; Tk 61.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">01:45<span>to 02:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Q9-Q12 compile-or-not (p. 11), check on p. 18.</div><div class="done"><b>DONE WHEN</b>Every miss explained by a rule from p. 7-9.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">02:15<span>to 03:05</span></div><div class="body"><span class="pill">OOP2</span><div class="task">02:15-02:40 Part 4, p. 12-15: closed book, 20-minute timer. Break. 02:45-03:05 mark it with p. 17-18, re-read the rule behind every miss, then say the cheat sheet (p. 16) out loud.</div><div class="done"><b>DONE WHEN</b>Most answers right; every rule said without looking.</div></div><div class="box"></div></div>
+<div class="rest"><span>03:10-06:10</span>Sleep, 2 cycles. Phone alarm at 06:10.</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Engineering Management</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-1">
+  <h2 class="sr">Wednesday 04 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 02 OF 14</div>
+      <div class="dname">WEDNESDAY <em>04</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Quiz day · 4 days to AI + EM</div>
+      <div class="tally"><span>10 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Two quizzes and your Slide 4. After that, prepare for the AI lab test.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  <div class="callout em"><b>Slide 4 rule:</b> the course allows AI only for analysis and preparation. You build and say your own slide; the EM session only checks your numbers and asks you questions.</div>
+  <div class="rows"><div class="rest"><span>06:10-06:45</span>Up, wash, eat</div>
+<div class="card c-oop"><div class="time">06:45<span>to 07:30</span></div><div class="body"><span class="pill">OOP2</span><div class="task">OOP2-Quiz2-90-Minutes.pdf: cheat sheet p. 16, then redo every question you missed last night. No new pages.</div><div class="done"><b>DONE WHEN</b>Every missed question now right; constructor order and override vs new said without looking.</div></div><div class="box"></div></div>
+<div class="card class c-py"><div class="time">08:00<span>to 10:00</span></div><div class="body"><span class="pill">PYTHON</span><span class="pill p-class">CLASS</span><div class="task">Theory class, room 9305 (attendance mandatory).</div></div><div class="box ghost"></div></div>
+<div class="card c-oop"><div class="time">10:00<span>to 10:20</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Cheat sheet once more before the quiz. No new material.</div></div><div class="box"></div></div>
+<div class="card quiz c-oop"><div class="time">10:20<span>to 12:20</span></div><div class="body"><span class="pill">OOP2</span><span class="pill p-quiz">QUIZ</span><div class="task">Class, room 9303: Quiz 2 (inheritance and polymorphism).</div></div><div class="box ghost"></div></div>
+<div class="rest"><span>12:20-12:45</span>Lunch</div>
+<div class="card c-em"><div class="time">12:45<span>to 13:15</span></div><div class="body"><span class="pill">EM</span><div class="task">Slide 4: say it aloud 3 times with a 60-second timer (scenarios 20 s, recommendation 15 s, commitment and outcome 15 s, cost of delay 10 s). Then answer 5 management questions from the EM session.</div><div class="done"><b>DONE WHEN</b>Under 60 seconds each time; an answer ready for each of the 5 questions.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">13:15<span>to 14:05</span></div><div class="body"><span class="pill">EM</span><div class="task">Write all capacity formulas from memory (5 min). Then in the EM session take its 15-question numeric MCQ test (30 min, closed book), send answers as 1C 2B 3A..., redo every miss. No new problems.</div><div class="done"><b>DONE WHEN</b>At least 13/15; every miss explained (wrong formula, units or rounding) and redone.</div></div><div class="box"></div></div>
+<div class="card quiz c-em"><div class="time">14:40<span>to 16:10</span></div><div class="body"><span class="pill">EM</span><span class="pill p-quiz">QUIZ</span><div class="task">Class, room 2102: Quiz 2 (capacity planning) and the group presentation (you present Slide 4).</div></div><div class="box ghost"></div></div>
+<div class="card c-ai"><div class="time">16:30<span>to 17:15</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Blank Colab: Lab 01 Python Fundamentals P1-7 (operators, math, strings, list stack, list queue, nested dict, tuple/set).</div><div class="done"><b>DONE WHEN</b>All 7 run without peeking; stack pop gives 30, queue pop(0) gives 10.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">17:15<span>to 18:15</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Lab 02 P1-7: grade evaluator, evens reversed, add_lists, unique words, student dict, char frequency, shopping cart.</div><div class="done"><b>DONE WHEN</b>Grades for [85,92,78,60,45,95] give B A C D F A; add_lists gives [9,11,7,9]; cart {Apple:3, Milk:1} gives 10.5.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">18:15<span>to 19:00</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Lab01_Python__Tools exercises 1-2 (character frequency from input(), progressive tax) plus one matplotlib plot with title and axis labels.</div><div class="done"><b>DONE WHEN</b>&quot;hello world&quot; gives l:3, o:2; income 60,000 gives tax 6,500; plot has title and both labels.</div></div><div class="box"></div></div>
+<div class="rest"><span>19:00-19:45</span>Dinner</div>
+<div class="card c-ai"><div class="time">19:45<span>to 20:30</span></div><div class="body"><span class="pill">AI</span><div class="task">Notes p1-3; Week 1,2 deck sl. 4-34; solve sl. 36 (robot soccer PEAS + environment types).</div><div class="done"><b>DONE WHEN</b>Blank page: 4 AI views, agent types + learning agent, 6 environment pairs, robot soccer PEAS.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">20:30<span>to 21:30</span></div><div class="body"><span class="pill">AI</span><div class="task">Notes p3-5; Week 3,4 deck sl. 7-45 and 49-50; solve sl. 57-58 (tree vs graph search) and 60 (wall painter).</div><div class="done"><b>DONE WHEN</b>5 problem components; wall painter = 144 x 2^144 states; BFS/DFS traces show frontier, explored set and path.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">21:30<span>to 22:45</span></div><div class="body"><span class="pill">AI</span><div class="task">Notes p4 table, p6-7; Week 3,4 sl. 46-55; solve sl. 61 and 62-63 (3-room vacuum).</div><div class="done"><b>DONE WHEN</b>UCS to goal H costs 25; p4 complexity table rewritten from memory.</div></div><div class="box"></div></div>
+<div class="rest"><span>23:15</span>Sleep</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Engineering Management</span> <span class="chip">AI mid note</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-2">
+  <h2 class="sr">Thursday 05 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 03 OF 14</div>
+      <div class="dname">THURSDAY <em>05</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">AI lab test 15:00 · 3 days to AI + EM</div>
+      <div class="tally"><span>10 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Walk into the 15:00 lab test able to code Lab 01 and Lab 02 from a blank notebook.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-em"><div class="time">09:00<span>to 10:00</span></div><div class="body"><span class="pill">EM</span><div class="task">Productivity sl. 4-5, 12-17 and class practice 18-21; WS1 Q1-Q4 without notes.</div><div class="done"><b>DONE WHEN</b>Q1 2.5 tires/hr, 0.025, +2.56%. Q2 $57. Q3 4 workers, 1.6%. Q4 0.67 / 0.30 and 238.10 / 141.41 / 179.01. Smart-watch MFP 0.0987 to 0.103.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">10:00<span>to 11:15</span></div><div class="body"><span class="pill">EM</span><div class="task">Forecasting sl. 16-33 and 36-41; WS2 Q1(a-c) without notes; redo the exponential smoothing example (sl. 22-25).</div><div class="done"><b>DONE WHEN</b>Q1 2,200 and 2,180; MAD 191.68 (alpha 0.3) vs 193.66 (alpha 0.6), so 0.3 is better; F(6) = 11.43.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">11:15<span>to 12:00</span></div><div class="body"><span class="pill">EM</span><div class="task">WS2 Q2 and Q3; Practice #1-3 (sl. 34-35, 43-49).</div><div class="done"><b>DONE WHEN</b>Q2 F(t) = 606.65 + 274.29t, F7 2,526.68, F8 2,800.97, MAD 62.855, MSE 7,352.38, MAPE 5.04%. Q3 782, 790. Practice #1 F7 2,133.34.</div></div><div class="box"></div></div>
+<div class="rest"><span>12:00-13:00</span>Lunch</div>
+<div class="card c-ai"><div class="time">13:00<span>to 13:45</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Timed: 3 random Lab 01/02 problems from a blank notebook, 15 min each, no notes.</div><div class="done"><b>DONE WHEN</b>All 3 correct on first run.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">13:45<span>to 14:15</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Stretch: BFS with a list queue and DFS with a list stack on the notes p5 trees (dict adjacency).</div><div class="done"><b>DONE WHEN</b>BFS prints S A B C D G H E F I K; left-first DFS prints A B D G.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">14:15<span>to 14:30</span></div><div class="body"><span class="pill">AI LAB</span><div class="task">Syntax recap: input()/int(), f-strings, dict.get, set(), zip, [::-1], list comprehension, def/return. Check Colab sign-in.</div><div class="done"><b>DONE WHEN</b>Each typed once from memory and runs; Colab opens on your account.</div></div><div class="box"></div></div>
+<div class="exam card-x"><div class="time">15:00<span>to 17:20</span></div><div class="etxt"><span class="xlabel">EXAM</span>AI Midterm Lab Test, room DS0208 (per the Oct 29 Teams post: &quot;next lab class&quot;).</div><div class="xbadge">GO</div></div>
+<div class="rest"><span>17:30-18:30</span>Break</div>
+<div class="card c-mis"><div class="time">18:30<span>to 19:30</span></div><div class="body"><span class="pill">MIS</span><div class="task">Write your Assignment 1 question in Word. Model: Group Discussion Note; definitions: Ch 3 deck sl. 6-8, 15-19.</div><div class="done"><b>DONE WHEN</b>Every force rated strong/low with a reason; diagram drawn; sent to the group before 20:00.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">19:30<span>to 20:20</span></div><div class="body"><span class="pill">AI</span><div class="task">Notes p7 (bottom)-8; Week 5 sl. 4-15; redo the p8 greedy and A* traces on paper.</div><div class="done"><b>DONE WHEN</b>A*: P-R-S-T, cost 7. Greedy: S-B-F-G.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">20:20<span>to 21:10</span></div><div class="body"><span class="pill">AI</span><div class="task">Notes p8 (bottom)-9; Week 5 sl. 14-18; p8 Ex 1-2 and sl. 23 (Ex 4).</div><div class="done"><b>DONE WHEN</b>Ex 2 admissible but not consistent (P to R: 7 &gt; 6); sl. 23: any consistent set, e.g. S6 A4 B6 C4 D3 E2 F1 G0.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">21:10<span>to 22:00</span></div><div class="body"><span class="pill">AI</span><div class="task">Week 5 sl. 20-22: A* on the 3x3 grid (Manhattan, then Euclidean); 8-puzzle with h1 using A* and greedy.</div><div class="done"><b>DONE WHEN</b>Grid path cost 4 with expanded tree drawn; sl. 18 start state h1 = 8, h2 = 18.</div></div><div class="box"></div></div>
+<div class="rest"><span>23:00</span>Sleep</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Engineering Management</span> <span class="chip">AI mid note</span> <span class="chip">Management Information Systems</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-3">
+  <h2 class="sr">Friday 06 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 04 OF 14</div>
+      <div class="dname">FRIDAY <em>06</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">MIS assignment due · 2 days to AI + EM</div>
+      <div class="tally"><span>9 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>MIS Assignment 1 visible on the Teams wall by 21:00.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-em"><div class="time">09:00<span>to 09:50</span></div><div class="body"><span class="pill">EM</span><div class="task">Timed, back to back: WS1 Q4, WS2 Q2, WS3 Q3 and Q4; mark against keys.</div><div class="done"><b>DONE WHEN</b>All match keys; time per question noted; slowest topic flagged.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">09:50<span>to 11:00</span></div><div class="body"><span class="pill">EM</span><div class="task">Mid-Case Study Solaric Q1-Q5: least squares to 2030, Series 2, gap, MFP, three options.</div><div class="done"><b>DONE WHEN</b>Series 1, Series 2, gap and MFP rows filled for 2027-30; one option recommended with a reason.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">11:00<span>to 12:00</span></div><div class="body"><span class="pill">EM</span><div class="task">Mid-Group Project Solaric sl. 2-3: team capacity (teams x days x hours x 0.9 / 200 h per MWp), then break-even, $3M-profit volume, indifference volume.</div><div class="done"><b>DONE WHEN</b>All three volumes compared with the 2027-30 forecasts; cost-volume graph sketched.</div></div><div class="box"></div></div>
+<div class="rest"><span>12:00-13:00</span>Lunch</div>
+<div class="card c-mis"><div class="time">13:00<span>to 15:00</span></div><div class="body"><span class="pill">MIS</span><div class="task">Merge the group's answers into one Word file, add the cover sheet, check Q1 has a diagram and strong/low reasons per force, post on the Teams wall.</div><div class="done"><b>DONE WHEN</b>Posted and visible on the wall by 21:00 (due 23:00).</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">15:30<span>to 16:15</span></div><div class="body"><span class="pill">AI</span><div class="task">Closed book: 4 AI views, PEAS for a taxi, 6 environment pairs, 4 agent types, 5 problem components, p4 complexity table.</div><div class="done"><b>DONE WHEN</b>Matches notes p1-4 with zero misses.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">16:15<span>to 17:30</span></div><div class="body"><span class="pill">AI</span><div class="task">Timed traces: UCS on the notes p6 graph (goal F); IDS on the p7 tree (goal K); Week 3,4 sl. 65 (8-puzzle BFS/DFS/UCS).</div><div class="done"><b>DONE WHEN</b>UCS gives A-C-B-E-F, cost 13; IDS finds K at limit 3; sl. 65 trees drawn within 40 min.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">17:30<span>to 18:30</span></div><div class="body"><span class="pill">AI</span><div class="task">A* on the notes p8 Ex 2 graph twice: tree search, then graph search with a closed list. Then Week 5 sl. 22.</div><div class="done"><b>DONE WHEN</b>Tree search gives P-Q-R-S-T, cost 8; graph search cost 9; you can explain why (h is inconsistent).</div></div><div class="box"></div></div>
+<div class="rest"><span>18:30-19:30</span>Dinner</div>
+<div class="card c-em"><div class="time">19:30<span>to 20:30</span></div><div class="body"><span class="pill">EM</span><div class="task">Theory is about 20% of the exam (modified true/false, short answer). Read both Intro decks: Intro to EM+Ops sl. 6-24, then Intro of Ops Mgmt sl. 2-13.</div><div class="done"><b>DONE WHEN</b>One-line definition per term; Tesla: business reports to CEO, engineering to CTO; PDCA steps; efficiency vs effectiveness; goal vs objective.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">20:30<span>to 21:30</span></div><div class="body"><span class="pill">EM</span><div class="task">The EM session's theory drill (20 items, already in its chat): 35 min closed book, send answers as &quot;1 F: replacement, 2 T, ... 16: ...&quot;, then fix every miss.</div><div class="done"><b>DONE WHEN</b>Every false item corrected with the right word; every miss reread on its slide.</div></div><div class="box"></div></div>
+<div class="rest"><span>23:00</span>Sleep</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Engineering Management</span> <span class="chip">Management Information Systems</span> <span class="chip">AI mid note</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-4">
+  <h2 class="sr">Saturday 07 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 05 OF 14</div>
+      <div class="dname">SATURDAY <em>07</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">AI + EM tomorrow</div>
+      <div class="tally"><span>7 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>AI first, then EM math from zero. Slept 01:15.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="rest"><span>10:08-11:15</span>Up, wash, breakfast</div>
+<div class="card c-ai"><div class="time">11:15<span>to 11:40</span></div><div class="body"><span class="pill">AI</span><div class="task">Coder Bhai video, chapter 1 at normal speed, then solve it on paper (the AI session gives each chapter).</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">11:45<span>to 12:10</span></div><div class="body"><span class="pill">AI</span><div class="task">Video chapter 2, then solve it on paper.</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">12:15<span>to 12:40</span></div><div class="body"><span class="pill">AI</span><div class="task">Video chapter 3, then solve it on paper.</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">12:45<span>to 13:10</span></div><div class="body"><span class="pill">AI</span><div class="task">Video chapter 4, then solve it on paper.</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">13:15<span>to 13:40</span></div><div class="body"><span class="pill">AI</span><div class="task">Video chapter 5, then solve it on paper.</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="card c-ai"><div class="time">13:45<span>to 14:10</span></div><div class="body"><span class="pill">AI</span><div class="task">Video chapter 6, then solve it on paper.</div><div class="done"><b>DONE WHEN</b>Your answer matches the AI session's check.</div></div><div class="box"></div></div>
+<div class="rest"><span>14:20-15:35</span>Shower (10 min), lunch (20 min)</div>
+<div class="card c-ai"><div class="time">23:15<span>to 01:15</span></div><div class="body"><span class="pill">AI</span><div class="task">AI only, with the AI session: UCS done on paper. A*, diagrams and theory moved to Sun 07:30.</div><div class="done"><b>DONE WHEN</b>The AI session's checks.</div></div><div class="box"></div></div>
+<div class="rest"><span>01:15</span>Sleep. Phone alarm 07:00 (AI exam at 9:00).</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">AI mid note</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-5">
+  <h2 class="sr">Sunday 08 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 06 OF 14</div>
+      <div class="dname">SUNDAY <em>08</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Exam day · AI 09:00 · EM 15:00</div>
+      <div class="tally"><span>9 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Two exams. AI read-only in the morning, EM blocks between the exams.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="rest"><span>06:26-06:50</span>Up (woke 06:26), shower, breakfast. Pack calculator, and laptop or phone with the EM PDFs.</div>
+<div class="card c-ai"><div class="time">06:50<span>to 08:15</span></div><div class="body"><span class="pill">AI</span><div class="task">With the AI session: A* from notes p8, the 5 agent diagrams p11-12, p10 traps and the p4 table. Waiting before the exam: p1-p3 if there's time.</div><div class="done"><b>DONE WHEN</b>A* gives cost 7; 5 diagrams drawn; traps said without looking.</div></div><div class="box"></div></div>
+<div class="exam card-x"><div class="time">09:00<span>to 11:00</span></div><div class="etxt"><span class="xlabel">EXAM</span>AI midterm. Bring your permit.</div><div class="xbadge">GO</div></div>
+<div class="rest"><span>11:00-11:15</span>Out of the hall: water, toilet. Don't discuss the AI paper.</div>
+<div class="card c-em"><div class="time">11:15<span>to 11:40</span></div><div class="body"><span class="pill">EM</span><div class="task">Productivity: EM WS1 Productivity.pdf Q4 (a)-(c) alone, key covered.</div><div class="done"><b>DONE WHEN</b>0.67 / 0.30 and 238.10 / 141.41 / 179.01.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">11:45<span>to 12:10</span></div><div class="body"><span class="pill">EM</span><div class="task">Capacity: the EM session posts sl. 5 (efficiency, utilization) and the pies example (sl. 17) as short steps; redo pies covered.</div><div class="done"><b>DONE WHEN</b>All four answers match sl. 18.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">12:15<span>to 12:40</span></div><div class="body"><span class="pill">EM</span><div class="task">Forecasting &amp; Accuracy.pdf Practice #3 (a)-(d) on sl. 46, alone.</div><div class="done"><b>DONE WHEN</b>Matches sl. 47-48.</div></div><div class="box"></div></div>
+<div class="rest"><span>12:40-13:05</span>Lunch</div>
+<div class="rest"><span>13:05-13:20</span>Rest: eyes closed, phone alarm for 13:20.</div>
+<div class="card c-em"><div class="time">13:20<span>to 13:45</span></div><div class="body"><span class="pill">EM</span><div class="task">Practice #1 least squares alone (15 min), then MAD, MSE (n-1), MAPE worked with the EM session on the Practice #3 data.</div><div class="done"><b>DONE WHEN</b>Practice #1 matches sl. 35. Sl. 49's MAPE is wrong: use the EM session's.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">13:50<span>to 14:10</span></div><div class="body"><span class="pill">EM</span><div class="task">Capacity: sl. 10 machines, make vs buy (sl. 25-26), chargers (sl. 19) as the EM session's short steps, each redone covered.</div><div class="done"><b>DONE WHEN</b>Make/buy matches sl. 26. Chargers 10,500 and $46,000 at 22,000.</div></div><div class="box"></div></div>
+<div class="card c-em"><div class="time">14:10<span>to 14:30</span></div><div class="body"><span class="pill">EM</span><div class="task">One page from memory: every formula from today, plus the lists (8 determinants, 3 strategies).</div><div class="done"><b>DONE WHEN</b>Written without looking, then checked against the slides.</div></div><div class="box"></div></div>
+<div class="rest"><span>14:30-14:45</span>Walk to the exam room. Read your one-page sheet only.</div>
+<div class="exam card-x"><div class="time">15:00<span>to 17:00</span></div><div class="etxt"><span class="xlabel">EXAM</span>EM midterm. Bring your permit and calculator.</div><div class="xbadge">GO</div></div>
+<div class="card c-mis"><div class="time">19:30<span>to 20:30</span></div><div class="body"><span class="pill">MIS</span><div class="task">Ch 1 deck (MIS18-Chapter 01_.pptx) sl. 8-39, counted in the file, not the footer; MIS18_Case_1 Q1-4 (UPS) in bullets.</div><div class="done"><b>DONE WHEN</b>4 answers (2-3 lines each); six business objectives and the organization/management/technology dimensions listed.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">20:30<span>to 21:30</span></div><div class="body"><span class="pill">MIS</span><div class="task">Ch 2 deck sl. 5-8, 12-23, 27-29, 32-36, 40-45, 63-64, 68-69, 77-78; MIS18_Case_2 Q1-4.</div><div class="done"><b>DONE WHEN</b>4 answers; who uses TPS/MIS/DSS/ESS and what ERP/SCM/CRM/KMS do, from memory.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">AI mid note</span> <span class="chip">Engineering Management</span> <span class="chip">Management Information Systems</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-6">
+  <h2 class="sr">Monday 09 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 07 OF 14</div>
+      <div class="dname">MONDAY <em>09</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">MIS tomorrow 09:00</div>
+      <div class="tally"><span>14 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>MIS from zero: two study packs, chapter by chapter, sleep at 23:00.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="rest"><span>12:20-13:15</span>Lunch and rest. Both packs are in F:\outputs\midterm-plan: MIS-Pack-1-Ch1-3.pdf and MIS-Pack-2-Ch5-9-Practice.pdf</div>
+<div class="card c-mis"><div class="time">13:15<span>to 13:55</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p2-5: Ch 1 notes.</div><div class="done"><b>DONE WHEN</b>Six business objectives and the 3 dimensions said without looking; self-check right.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">14:05<span>to 14:30</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p6-7: Case 1 (UPS) Q1-4. Read the model answers, then say each one with the page covered.</div><div class="done"><b>DONE WHEN</b>All 4 said covered.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">14:35<span>to 15:20</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p8-13: Ch 2 notes: TPS/MIS/DSS/ESS table, ERP/SCM/CRM/KMS, collaboration, IS roles.</div><div class="done"><b>DONE WHEN</b>System-types table redrawn from memory; self-check right.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">15:25<span>to 15:50</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p14-17: Case 2 Q1-4 covered, then the 27 Ch 2 MCQs before reading the key.</div><div class="done"><b>DONE WHEN</b>Every miss written down with its right answer.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">16:05<span>to 16:50</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p18-20: Ch 3 five forces (memorize the wording) and the four strategies.</div><div class="done"><b>DONE WHEN</b>Five forces and four strategies written from memory, one example each.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">16:55<span>to 17:20</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 1 p21-24: Ch 3 rest (value chain vs value web, synergies, scalability, airline table), then the sl. 20-21 MCQs.</div><div class="done"><b>DONE WHEN</b>MCQs answered before checking; misses written down.</div></div><div class="box"></div></div>
+<div class="rest"><span>17:20-17:40</span>Snack, walk, no phone.</div>
+<div class="card c-mis"><div class="time">17:40<span>to 18:10</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p2-4: Ch 5 IT infrastructure and cloud.</div><div class="done"><b>DONE WHEN</b>Self-check right.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">18:15<span>to 18:45</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p5-7: Ch 6 databases and blockchain.</div><div class="done"><b>DONE WHEN</b>File vs database problems listed; blockchain in 4 sentences.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">18:50<span>to 19:10</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p8-9: Ch 7 networks.</div><div class="done"><b>DONE WHEN</b>Self-check right.</div></div><div class="box"></div></div>
+<div class="rest"><span>19:10-19:50</span>Dinner</div>
+<div class="card c-mis"><div class="time">19:50<span>to 20:20</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p10-13: Ch 9, only if it's in the midterm (ask a classmate). Otherwise redo today's missed MCQs.</div><div class="done"><b>DONE WHEN</b>Self-check right.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">20:25<span>to 21:05</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p14-15: 30 mixed MCQs closed-book, then the key on p16.</div><div class="done"><b>DONE WHEN</b>Score written down; every miss has its right answer.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">21:10<span>to 21:50</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p17-20: case-answer template (p17), then long answer 1 closed-book: five forces of any company, with diagram. Then compare with the bKash model.</div><div class="done"><b>DONE WHEN</b>One page with diagram; every force rated with a reason.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">21:55<span>to 22:25</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p21-22: 6 short answers aloud, then long answers 2-3 (p17-20: system types, file vs database) aloud.</div><div class="done"><b>DONE WHEN</b>All said without looking.</div></div><div class="box"></div></div>
+<div class="card c-mis"><div class="time">22:30<span>to 22:45</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p23: read the one-page morning sheet once. Nothing new.</div></div><div class="box"></div></div>
+<div class="rest"><span>23:00</span>Sleep. Phone alarm 06:45 (MIS exam at 9:00).</div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Management Information Systems</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-7">
+  <h2 class="sr">Tuesday 10 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 08 OF 14</div>
+      <div class="dname">TUESDAY <em>10</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Exam day · MIS 09:00</div>
+      <div class="tally"><span>4 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>MIS exam, then start the Python project with your group.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="rest"><span>06:45-07:30</span>Up, wash, breakfast. Pack your permit and pens.</div>
+<div class="card c-mis"><div class="time">07:30<span>to 08:15</span></div><div class="body"><span class="pill">MIS</span><div class="task">Pack 2 p23 morning sheet: rewrite from memory five forces + four strategies, six business objectives, TPS/MIS/DSS/ESS users. No new material.</div><div class="done"><b>DONE WHEN</b>Each list written once without notes.</div></div><div class="box"></div></div>
+<div class="exam card-x"><div class="time">09:00<span>to 11:00</span></div><div class="etxt"><span class="xlabel">EXAM</span>MIS midterm. Bring your permit.</div><div class="xbadge">GO</div></div>
+<div class="card c-py"><div class="time">14:00<span>to 14:50</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Project kickoff: choose the idea; problem statement, 3 objectives, users, app type; confirm library (NumPy, Tkinter or Pygame) and Google Sheet registration.</div><div class="done"><b>DONE WHEN</b>Rubric &quot;Problem overview and project design&quot; (4) written in one shared doc.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">14:50<span>to 16:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Define the data-model and manager classes (attributes, methods), 5+ operations, file format (.csv or .json), 10 sample records, the library's role.</div><div class="done"><b>DONE WHEN</b>Rubric &quot;OOP&quot; (5) and &quot;Functions and modularity&quot; (4): classes, attributes, methods, five operations listed.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">16:00<span>to 17:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">GitHub repo with main file and function stubs; split so each member owns functions they can explain.</div><div class="done"><b>DONE WHEN</b>Repo shared; every function has an owner.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Management Information Systems</span> <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-8">
+  <h2 class="sr">Wednesday 11 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 09 OF 14</div>
+      <div class="dname">WEDNESDAY <em>11</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">4 days to OOP2 · Python due in 3</div>
+      <div class="tally"><span>6 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>OOP2 Weeks 1-3 in the morning, Python build in the afternoon.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-oop"><div class="time">09:00<span>to 09:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Unzip Slides.zip and Codes.zip from the Desktop into the OOP2 notes folder.</div><div class="done"><b>DONE WHEN</b>5 decks, 14 project folders, output.txt and REST.txt present.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">09:10<span>to 10:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Week 1 sl. 27-49, Week 2 sl. 4-45; predict, then run Codes/Basic_operation (types, casting).</div><div class="done"><b>DONE WHEN</b>CLR, MSIL, JIT, FCL explained aloud; every cast predicted before running.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">10:10<span>to 11:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Week 2 sl. 46-75; predict, then run class_object and Constructor_all; read REST.txt (static, const, readonly).</div><div class="done"><b>DONE WHEN</b>Four constructor types named; Constructor_all call order predicted.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">11:10<span>to 12:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Week 3 sl. 3-40; predict output.txt, then run Encapsulation, Properties, Access_Modifier, ref_out, param, Jagged_array, enum, Structt.</div><div class="done"><b>DONE WHEN</b>output.txt = 15, 20, 3, 100, 80, 1; ref vs out vs params and enum values explained.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">14:00<span>to 16:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Code the data-model and manager classes, plus save/load functions with try-except; create the sample file with 10 records.</div><div class="done"><b>DONE WHEN</b>Records save, the program restarts, the same records load back.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">16:00<span>to 18:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Menu or GUI loop with add, view and search as separate functions calling the manager class.</div><div class="done"><b>DONE WHEN</b>You can add, view and search records through the menu or GUI.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-9">
+  <h2 class="sr">Thursday 12 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 10 OF 14</div>
+      <div class="dname">THURSDAY <em>12</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">3 days to OOP2 · Python due in 2</div>
+      <div class="tally"><span>5 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>OOP2 Weeks 4-5 and coding, then the Python library feature.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-oop"><div class="time">09:00<span>to 09:50</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Week 4 sl. 3-23 and Week 5 sl. 3-12 again; retrace A1-A7 on paper.</div><div class="done"><b>DONE WHEN</b>All seven traces match on the first pass.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">09:50<span>to 10:50</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Codes INHERITANCE and poly: predict output, then rewrite D1 and D3 from blank, 20 min each.</div><div class="done"><b>DONE WHEN</b>Both compile and match within 20 min each.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">10:50<span>to 12:00</span></div><div class="body"><span class="pill">OOP2</span><div class="task">CSharp_Basic_Practice_Problems.pdf Problems 1-5 in Visual Studio from the problem text only.</div><div class="done"><b>DONE WHEN</b>P1 26/14/120/3/2; P2 85 and A; P3 sum 15; P4 avg 21.5; P5 avg 58.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">14:00<span>to 16:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Update, delete and summary operations; list for records, tuple for categories, set for unique IDs, dict per record.</div><div class="done"><b>DONE WHEN</b>All four data structures present, each with a purpose you can state in one sentence.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">16:00<span>to 18:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Library feature: NumPy total/average/min/max by category, or the Tkinter/Pygame screens, wired to real records.</div><div class="done"><b>DONE WHEN</b>Library output comes from saved records, not hardcoded values.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-10">
+  <h2 class="sr">Friday 13 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 11 OF 14</div>
+      <div class="dname">FRIDAY <em>13</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">2 days to OOP2 · Python due tomorrow</div>
+      <div class="tally"><span>6 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Sit the OOP2 mock exam. Make the Python project crash-proof.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-oop"><div class="time">09:00<span>to 09:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Ask the OOP2 session for a fresh closed-book 2-hour mock covering Weeks 1-5 (no answers shown until you submit).</div><div class="done"><b>DONE WHEN</b>Paper received; phone away, notes closed, 2-hour timer set.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">09:10<span>to 11:10</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Sit the mock in Visual Studio plus paper: traces and MCQs first, coding last, no slides.</div><div class="done"><b>DONE WHEN</b>Every question attempted before the timer ends.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">11:10<span>to 12:00</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Send answers for marking; for each miss reread its slide, rewrite the answer, redo it blank.</div><div class="done"><b>DONE WHEN</b>Score logged; every miss redone; top 3 weak topics named for Saturday.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">14:00<span>to 15:30</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">All six error cases: invalid menu choice, non-numeric input, out-of-range, duplicate ID, record not found, file error.</div><div class="done"><b>DONE WHEN</b>Each tested by hand; the program never crashes.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">15:30<span>to 17:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Full run on the 10 sample records; fix bugs; confirm data persists after restart; check calculations by hand.</div><div class="done"><b>DONE WHEN</b>Totals and averages match your hand calculation.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">17:00<span>to 18:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Screenshots of every major feature, the menu/GUI, the saved data file and the summary output, in one folder.</div><div class="done"><b>DONE WHEN</b>Screenshot set complete.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-11">
+  <h2 class="sr">Saturday 14 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 12 OF 14</div>
+      <div class="dname">SATURDAY <em>14</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Python submission today · OOP2 tomorrow</div>
+      <div class="tally"><span>5 boxes today</span><div class="sq"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Email the Python project by 16:00. Then OOP2 final revision.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-py"><div class="time">10:00<span>to 13:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Report, max 5 pages, in the ten sections required by Section 13 of the requirements PDF; insert screenshots and sample input/output.</div><div class="done"><b>DONE WHEN</b>PDF is 5 pages or fewer with all ten sections.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">13:00<span>to 14:30</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Final code pass: comments, main file named, dead code removed; run once from a clean folder with the data files.</div><div class="done"><b>DONE WHEN</b>Runs from a clean folder.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">14:30<span>to 16:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Email the .py files, data files and report PDF named 22-xxxx-3_23-xxxx-2_21-xxxx-1_mid-term_project.pdf (your group's real IDs); subject = the same text without .pdf.</div><div class="done"><b>DONE WHEN</b>All attachments present; file name and subject match exactly.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">19:00<span>to 20:00</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Evening before, hour 1: skim headings W1 27-49, W2 4-75, W3 3-40, W4 3-23, W5 3-12; recall one fact per heading, then check.</div><div class="done"><b>DONE WHEN</b>Every heading has one fact; gaps reread once.</div></div><div class="box"></div></div>
+<div class="card c-oop"><div class="time">20:00<span>to 21:00</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Evening before, hour 2: redo only your misses (Part A traces, Part B, Part C, mock), then D3 from blank.</div><div class="done"><b>DONE WHEN</b>No repeated misses; D3 correct in under 20 min.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Programming in Python</span> <span class="chip">Object-Oriented Programming 2</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-12">
+  <h2 class="sr">Sunday 15 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 13 OF 14</div>
+      <div class="dname">SUNDAY <em>15</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Exam day · OOP2 12:00</div>
+      <div class="tally"><span>2 boxes today</span><div class="sq"><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>OOP2 exam. Read only in the morning.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card c-oop"><div class="time">10:00<span>to 10:30</span></div><div class="body"><span class="pill">OOP2</span><div class="task">Cheat sheet and miss list; skim Codes/output.txt and REST.txt once. No new material.</div><div class="done"><b>DONE WHEN</b>Constructor order, override rules, ref vs out, casting rules recited.</div></div><div class="box"></div></div>
+<div class="exam card-x"><div class="time">12:00<span>to 14:00</span></div><div class="etxt"><span class="xlabel">EXAM</span>OOP2 midterm. Bring your permit.</div><div class="xbadge">GO</div></div>
+<div class="card c-py"><div class="time">18:00<span>to 19:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Demo rehearsal: the five Section 14 demo items; each member explains their own functions and modifies one condition live.</div><div class="done"><b>DONE WHEN</b>All five run without errors; each member answers one library and one fundamentals question.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Object-Oriented Programming 2</span> <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+<section class="day" id="day-13">
+  <h2 class="sr">Monday 16 November</h2>
+  <div class="dhead">
+    <div>
+      <div class="dnum">DAY 14 OF 14</div>
+      <div class="dname">MONDAY <em>16</em></div>
+      <div class="dmonth">NOVEMBER 2026</div>
+    </div>
+    <div class="dright">
+      <div class="badge">Python demo today</div>
+      <div class="tally"><span>3 boxes today</span><div class="sq"><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div class="one"><span>TODAY'S ONE THING</span>Demo the project, then prepare for Python Quiz 2.</div>
+  <div class="focus"><b>Phone in another room</b><b>Timer on</b><b>One box at a time</b><b>Tick only when "done when" is true</b></div>
+  
+  <div class="rows"><div class="card class c-py"><div class="time">Lab class</div><div class="body"><span class="pill">PYTHON</span><span class="pill p-class">DEMO</span><div class="task">Project demo (instructor's date: Nov 16 lab class; no slides needed). Second date: Wed Nov 18 theory class.</div></div><div class="box ghost"></div></div>
+<div class="card c-py"><div class="time">19:00<span>to 20:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Quiz 2 prep (moves when the date is announced): Lec 07 sl. 2-35; hand-code Lab 6 P1-P3 (BankAccount, Bus, Shape).</div><div class="done"><b>DONE WHEN</b>Outputs match; Bus fare 4400.0 for 40 seats.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">20:00<span>to 20:50</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Lec 08 sl. 2-6, Lec 09 sl. 2-9; hand-code Lab 7 P1-P4 (try/except/else/finally, file modes r/w/a/x).</div><div class="done"><b>DONE WHEN</b>Missing-file, missing-directory and existing-file errors each caught with the right exception.</div></div><div class="box"></div></div>
+<div class="card c-py"><div class="time">20:50<span>to 22:00</span></div><div class="body"><span class="pill">PYTHON</span><div class="task">Lec 10 sl. 2-53 only (arrays, indexing, slicing, dtypes, copy vs view, shape, reshape, iteration).</div><div class="done"><b>DONE WHEN</b>One snippet per topic, output predicted before running.</div></div><div class="box"></div></div></div>
+  <div class="foot">
+    <div class="park"><div class="plabel">PARKING LOT <span>a stray thought? write it here, then go straight back to the box</span></div></div>
+    <div class="stuck"><b>Stuck for 10 minutes?</b> Circle the step, move to the next one, and ask after the block. Today's Claude sessions: <span class="chip">Programming in Python</span></div>
+  </div>
+</section>
+
+
+<section class="cheat c-em" id="cheat-em">
+  <h2 class="sr">Engineering Management cheat sheet</h2>
+  <div class="chead"><div class="ckey">CHEAT EM</div><div class="cname">Engineering Management</div><div class="csub">Midterm Sun 8 Nov, 15:00-17:00 · Quiz 2, case study, presentations after midterms</div></div>
+  <div class="cbody">
+<div class="blk"><h4>Productivity</h4>
+<div class="f">Productivity = Output / Input</div>
+<div class="f">Labour productivity = Output / Labour hours</div>
+<div class="f">MFP = Output / (Labour + Materials + Overhead + Energy ...) in money</div>
+<div class="f">Growth % = (This period - Last period) / Last period x 100</div></div>
+<div class="blk"><h4>Forecasting</h4>
+<div class="f">Naive: F(t) = A(t-1)</div>
+<div class="f">Moving average: F(t) = (A(t-1) + ... + A(t-n)) / n</div>
+<div class="f">Weighted MA: F(t) = sum of w x A, weights add to 1</div>
+<div class="f">Exp. smoothing: F(t) = F(t-1) + alpha [A(t-1) - F(t-1)]</div>
+<div class="f">Trend: F(t) = a + b t</div>
+<div class="f">b = (n Sum ty - Sum t Sum y) / (n Sum t&sup2; - (Sum t)&sup2;)</div>
+<div class="f">a = (Sum y - b Sum t) / n</div>
+<div class="f">e = A - F &nbsp; MAD = Sum|e| / n</div>
+<div class="f">MSE = Sum e&sup2; / (n - 1) &nbsp;(your slides use n - 1)</div>
+<div class="f">MAPE = Sum(|e| / A x 100) / n</div>
+<p>Lower MAD, MSE or MAPE = the more accurate method.</p></div>
+<div class="blk"><h4>Capacity</h4>
+<div class="f">Efficiency = Actual output / Effective capacity</div>
+<div class="f">Utilization = Actual output / Design capacity</div>
+<div class="f">Machines = Sum(Demand x Time per unit) / Hours per machine per year &rarr; ROUND UP</div>
+<p>Design &ge; Effective &ge; Actual.</p></div>
+<div class="blk"><h4>Cost-volume and make/buy</h4>
+<div class="f">TC = FC + vQ &nbsp; TR = RQ</div>
+<div class="f">Profit P = Q(R - v) - FC</div>
+<div class="f">Break-even Q = FC / (R - v)</div>
+<div class="f">Q for target profit = (P + FC) / (R - v)</div>
+<div class="f">Price for target profit = (P + FC) / Q + v</div>
+<div class="f">Make vs buy: Q = FC / (Buy price - v) &rarr; above: make, below: buy</div>
+<div class="f">Two options: Q = (FC_A - FC_B) / (v_B - v_A)</div></div>
+<div class="blk"><h4>Theory lists</h4>
+<p><b>8 determinants:</b> facilities, product/service, process, human, policy, operational, supply chain, external.</p>
+<p><b>8 planning steps:</b> estimate requirements · evaluate existing capacity and gaps · identify alternatives · financial analysis · qualitative issues · select the best · implement · monitor.</p>
+<p><b>3 strategies:</b> leading (build ahead of demand) · following (build after demand exceeds capacity) · tracking (small steps).</p></div>
+<div class="blk trap"><h4>MCQ traps</h4>
+<p>Effective vs design in the denominator. Machines always round UP. It is R - v, not R + v. Percent vs decimal. MSE divides by n - 1 in your slides. At break-even TR = TC.</p></div></div>
+</section>
+
+<section class="cheat c-ai" id="cheat-ai">
+  <h2 class="sr">AI and Expert System cheat sheet</h2>
+  <div class="chead"><div class="ckey">CHEAT AI</div><div class="cname">AI and Expert System</div><div class="csub">Midterm Sun 8 Nov, 09:00-11:00 (Ch 1-3) · Lab test Thu 5 Nov, 15:00</div></div>
+  <div class="cbody">
+<div class="blk"><h4>Ch 1-2 lists</h4>
+<p><b>4 approaches:</b> thinking humanly · thinking rationally · acting humanly (Turing test) · acting rationally (rational agent).</p>
+<p><b>PEAS:</b> Performance measure, Environment, Actuators, Sensors.</p>
+<p><b>Environment pairs:</b> fully / partially observable · single / multi-agent · deterministic / stochastic · episodic / sequential · static / dynamic · discrete / continuous.</p>
+<p><b>Agents:</b> simple reflex &rarr; model-based reflex &rarr; goal-based &rarr; utility-based, plus the learning agent.</p>
+<p><b>A problem has 5 parts:</b> initial state, actions, transition model, goal test, path cost.</p></div>
+<div class="blk trap"><h4>Exam traps</h4>
+<p>UCS tests the goal when a node is popped, not when it is generated. Expand children left first (your class order). Graph search keeps an explored (closed) set. Bidirectional is b<sup>d/2</sup>, not b<sup>d</sup>/2.</p>
+<p>Tree vs graph search: graph search never re-expands a state already in the explored set.</p></div>
+<div class="blk wide"><h4>Uninformed search</h4>
+<table class="t"><tr><th></th><th>BFS</th><th>UCS</th><th>DFS</th><th>DLS</th><th>IDS</th><th>Bidirectional</th></tr>
+<tr><th>Complete</th><td>Yes</td><td>Yes*</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+<tr><th>Optimal</th><td>Yes**</td><td>Yes</td><td>No</td><td>No</td><td>Yes**</td><td>Yes**</td></tr>
+<tr><th>Time</th><td>b<sup>d</sup></td><td>b<sup>1+C*/&epsilon;</sup></td><td>b<sup>m</sup></td><td>b<sup>l</sup></td><td>b<sup>d</sup></td><td>b<sup>d/2</sup></td></tr>
+<tr><th>Space</th><td>b<sup>d</sup></td><td>b<sup>1+C*/&epsilon;</sup></td><td>bm</td><td>bl</td><td>bd</td><td>b<sup>d/2</sup></td></tr></table>
+<p class="small">All are O(...). * if every step cost &ge; &epsilon; &gt; 0. ** if all step costs are equal. b = branching factor, d = goal depth, m = max depth, l = depth limit.</p></div>
+<div class="blk"><h4>Informed search</h4>
+<div class="f">Greedy best-first: f(n) = h(n) &nbsp;(not optimal)</div>
+<div class="f">A*: f(n) = g(n) + h(n)</div>
+<div class="f">Admissible: h(n) &le; h*(n) &nbsp;(never overestimates)</div>
+<div class="f">Consistent: h(n) &le; c(n, n') + h(n')</div>
+<p>Consistent &rArr; admissible. A* is optimal with an admissible h (tree search) or a consistent h (graph search).</p></div>
+<div class="blk"><h4>Lab test (Python)</h4>
+<div class="f">stack: s.append(x); s.pop()</div>
+<div class="f">queue: q.append(x); q.pop(0)</div>
+<div class="f">count: d[k] = d.get(k, 0) + 1</div>
+<div class="f">unique: set(words) &nbsp; reverse: L[::-1]</div>
+<div class="f">evens = [x for x in L if x % 2 == 0]</div>
+<div class="f">print(f"{total:.2f}")</div></div></div>
+</section>
+
+<section class="cheat c-mis" id="cheat-mis">
+  <h2 class="sr">Management Information Systems cheat sheet</h2>
+  <div class="chead"><div class="ckey">CHEAT MIS</div><div class="cname">Management Information Systems</div><div class="csub">Midterm Tue 10 Nov, 09:00-11:00 · Assignment 1 due Fri 6 Nov, 23:00</div></div>
+  <div class="cbody">
+<div class="blk"><h4>Ch 1 · Information systems</h4>
+<p><b>IS:</b> components that collect, process, store and distribute information to support decisions, coordination and control.</p>
+<p><b>3 dimensions:</b> organization, management, technology. Data &rarr; information &rarr; knowledge.</p>
+<p><b>6 business objectives:</b> operational excellence · new products, services and business models · customer and supplier intimacy · improved decision making · competitive advantage · survival.</p></div>
+<div class="blk"><h4>Ch 2 · Systems by level</h4>
+<p><b>TPS</b> operational managers, daily transactions · <b>MIS</b> middle managers, routine reports · <b>DSS</b> middle managers, non-routine decisions · <b>ESS</b> senior managers, strategy.</p>
+<p><b>Enterprise apps:</b> ERP · SCM · CRM · KMS.</p></div>
+<div class="blk"><h4>Ch 3 · Competitive advantage</h4>
+<p><b>5 forces:</b> traditional competitors · new market entrants · substitute products and services · customers · suppliers.</p>
+<p><b>4 strategies:</b> low-cost leadership · product differentiation · focus on market niche · customer and supplier intimacy.</p>
+<p><b>Value chain:</b> primary (inbound logistics, operations, outbound logistics, sales and marketing, service) and support (infrastructure, HR, technology, procurement). Value web = network of firms.</p></div>
+<div class="blk"><h4>Ch 5 · IT infrastructure</h4>
+<p><b>7 components:</b> hardware platforms · OS platforms · enterprise software · data management and storage · networking/telecom · internet platforms · consulting and integration services.</p>
+<p><b>Drivers:</b> Moore's law · digital storage · Metcalfe's law · falling communication costs · standards. <b>Cloud:</b> IaaS · PaaS · SaaS; public · private · hybrid.</p></div>
+<div class="blk"><h4>Ch 6 · Databases</h4>
+<p><b>File problems:</b> redundancy and inconsistency · program-data dependence · inflexibility · poor security · little sharing.</p>
+<p>Primary key = unique row ID. Foreign key = links tables. Normalization · ERD · data warehouse · OLAP · data mining. <b>Blockchain:</b> shared ledger of hash-linked blocks agreed by consensus.</p></div>
+<div class="blk"><h4>Ch 7 and Ch 9</h4>
+<p>LAN / MAN / WAN · client/server · packet switching · TCP/IP · DNS · Wi-Fi vs Bluetooth · RFID.</p>
+<p><b>ERP:</b> one database across functions. <b>SCM:</b> bullwhip effect, push (build-to-stock) vs pull (build-to-order), JIT. <b>CRM:</b> operational vs analytical.</p></div>
+<div class="blk trap"><h4>Long answer recipe (five forces)</h4>
+<p>Name the company &rarr; each force: strong or low + one reason &rarr; draw the diagram &rarr; one IS-based strategy per force &rarr; one-line conclusion.</p></div></div>
+</section>
+
+<section class="cheat c-oop" id="cheat-oop">
+  <h2 class="sr">OOP2 (C#) cheat sheet</h2>
+  <div class="chead"><div class="ckey">CHEAT OOP2</div><div class="cname">OOP2 (C#)</div><div class="csub">Midterm Sun 15 Nov, 12:00-14:00 · Quiz 2 Wed 18 Nov (inheritance, polymorphism)</div></div>
+  <div class="cbody">
+<div class="blk"><h4>The C# words</h4>
+<p><code>class B : A</code> = B inherits A &nbsp; <code>: base(...)</code> = run A's constructor first &nbsp; <code>base.M()</code> = A's version &nbsp; <code>sealed</code> = no more inheriting</p>
+<p>Methods are NOT virtual unless marked <code>virtual</code>, and the child must write <code>override</code>.</p></div>
+<div class="blk"><h4>Also know</h4>
+<p><b>Overloading:</b> same name, different parameters, decided at compile time. <b>Overriding:</b> same signature, virtual/override, decided at run time.</p>
+<p><b>Casting:</b> upcast is automatic (<code>Animal a = dog;</code>); downcast needs <code>(Dog)a</code>, <code>as</code> or <code>is</code>.</p>
+<p><b>Access:</b> private (class only) · protected (class + children) · public.</p></div>
+<div class="blk wide"><h4>The pattern</h4>
+<pre>class Animal {
+    protected string name;
+    public Animal(string n) { name = n; Console.WriteLine("Animal ctor"); }
+    public virtual void Speak() { Console.WriteLine("..."); }
+}
+class Dog : Animal {
+    public Dog(string n) : base(n) { Console.WriteLine("Dog ctor"); }
+    public override void Speak() { Console.WriteLine("Woof"); }
+}</pre>
+<p><code>new Dog("Rex")</code> prints <b>Animal ctor</b> then <b>Dog ctor</b>: the parent's constructor always runs first.</p></div>
+<div class="blk"><h4>Which method runs?</h4>
+<div class="f">Animal a = new Dog("Rex"); a.Speak();</div>
+<p><b>virtual + override</b> &rarr; the object's version (Dog): "Woof".</p>
+<p><b>new (hiding) or not virtual</b> &rarr; the variable's type (Animal).</p>
+<p><b>base.Speak()</b> inside Dog &rarr; Animal's version.</p></div>
+<div class="blk trap"><h4>Won't compile</h4>
+<p>override on a non-virtual method · <code>new</code> on an abstract class · an abstract method with a body · a non-abstract child that skips an abstract method · inheriting a sealed class · a Dog-only method called through an Animal variable · no <code>: base(...)</code> when the parent has no parameterless constructor · two base classes.</p>
+<p class="small">Hiding without the <code>new</code> keyword is only a warning: it still compiles.</p></div>
+<div class="blk"><h4>Quiz 2 pages</h4><p><code>F:\outputs\aiub-oop2\OOP2-Quiz2-90-Minutes.pdf</code> (19 pages, plain C#). The 53-page booklet is reference only.</p></div></div>
+</section>
+
+<section class="cheat c-py" id="cheat-py">
+  <h2 class="sr">Programming in Python cheat sheet</h2>
+  <div class="chead"><div class="ckey">CHEAT PYTHON</div><div class="cname">Programming in Python</div><div class="csub">No midterm exam · Project email Sat 14 Nov (deadline Sun 15) · Demo Mon 16 Nov · Quiz 2 after midterms</div></div>
+  <div class="cbody">
+<div class="blk wide"><h4>Project rubric (40 marks)</h4>
+<table class="t"><tr><th>Problem overview and design</th><td>4</td><th>Data structures</th><td>5</td></tr>
+<tr><th>User interaction and interface</th><td>5</td><th>File handling</th><td>4</td></tr>
+<tr><th>Variables, operators, conditionals, loops</th><td>4</td><th>Exceptions and validation</th><td>3</td></tr>
+<tr><th>Functions and modularity</th><td>4</td><th>OOP</th><td>5</td></tr>
+<tr><th>Library use and analysis</th><td>4</td><th>Code quality, report, presentation</th><td>2</td></tr></table></div>
+<div class="blk"><h4>Must be in the code</h4>
+<p>At least 5 functions · at least 1 class · a list, tuple, set and dict, each with a purpose · save and load from a file · try/except for the 6 error cases · one approved library: NumPy, Tkinter or Pygame.</p></div>
+<div class="blk trap"><h4>Submission (penalty if wrong)</h4>
+<p>Email the .py files, data files and the report PDF (5 pages max).</p>
+<div class="f">22-xxxx-3_23-xxxx-2_21-xxxx-1_mid-term_project.pdf</div>
+<p>Subject = the same text without .pdf. Use your group's real IDs.</p></div>
+<div class="blk"><h4>Quiz 2 syntax</h4>
+<div class="f">class B(A): def __init__(self, x): super().__init__(x)</div>
+<div class="f">try: ... except ValueError: ... else: ... finally: ...</div>
+<p>else runs only if no exception; finally always runs.</p>
+<div class="f">with open("f.txt", "r" | "w" | "a" | "x") as f:</div>
+<p>r: missing file &rarr; FileNotFoundError · w: overwrites · a: appends · x: fails if the file exists.</p>
+<div class="f">a = np.array([[1,2],[3,4]]); a.shape; a.reshape(4, 1)</div>
+<p>A slice is a view (changes the original); <code>.copy()</code> is independent. Iterate with <code>for x in np.nditer(a):</code></p></div></div>
+</section>
+
+<section class="examday c-exam">
+  <h2 class="sr">Exam day checklist</h2>
+  <div class="chead"><div class="ckey">EXAM DAY</div><div class="cname">Exam morning checklist</div><div class="csub">AI and EM Sun 8 Nov · MIS Tue 10 Nov · OOP2 Sun 15 Nov · venue: AIUB, All Annexes</div></div>
+  <div class="two">
+    <div>
+      <h3>BEFORE YOU LEAVE</h3>
+      <div class="ck"><i></i><span>Exam permit<small>No permit, no exam.</small></span></div>
+      <div class="ck"><i></i><span>Two pens, pencil, eraser</span></div>
+      <div class="ck"><i></i><span>Calculator<small>EM especially.</small></span></div>
+      <div class="ck"><i></i><span>Watch and water</span></div>
+      <div class="ck"><i></i><span>The 30-minute exam-morning box done<small>Read only. No new material.</small></span></div>
+      <div class="ck"><i></i><span>At the venue 20 minutes early</span></div>
+    </div>
+    <div>
+      <h3>IN THE HALL</h3>
+      <div class="ck"><i></i><span>Read the whole paper first (3 minutes)</span></div>
+      <div class="ck"><i></i><span>Do the questions you're sure of first</span></div>
+      <div class="ck"><i></i><span>Split your time by marks</span></div>
+      <div class="ck"><i></i><span>Show every step of a calculation<small>Method marks count even if the final number is off.</small></span></div>
+      <div class="ck"><i></i><span>Check units, rounding and percent vs decimal</span></div>
+      <div class="ck"><i></i><span>Last 10 minutes: review, don't start anything new</span></div>
+    </div>
+  </div>
+  <div class="callout em" style="margin-top: 8mm; font-size: 10pt;"><b>After the exam:</b> no post-mortem. Eat, rest 20 minutes, then open the next page of this guide.</div>
+</section>
+</body></html>

@@ -23,11 +23,11 @@ $map = [ordered]@{
 $xd = @('.git', 'node_modules', '__pycache__', '.venv', 'venv', '.pytest_cache', 'bin', 'obj', '.vs', "$guide\chrome-prof", "$guide\cp")
 $xf = @('plan-backup-*.html', '*.err', '~$*', 'Thumbs.db', 'desktop.ini', '.DS_Store')
 
-function Git { & git -c core.quotepath=false @args; if ($LASTEXITCODE -ne 0) { throw "git $args failed ($LASTEXITCODE)" } }
+function Invoke-Git { & git.exe -c core.quotepath=false @args; if ($LASTEXITCODE -ne 0) { throw "git $args failed ($LASTEXITCODE)" } }
 
 Set-Location $repo
 $before = (& git rev-parse HEAD).Trim()
-Git pull -q --rebase --autostash origin main
+Invoke-Git pull -q --rebase --autostash origin main
 $after = (& git rev-parse HEAD).Trim()
 
 if ($after -ne $before) {
@@ -55,14 +55,14 @@ foreach ($k in $map.Keys) {
     if ($LASTEXITCODE -ge 8) { throw "robocopy failed for $src ($LASTEXITCODE)" }
 }
 
-Git submodule update -q --init --remote
-Git add -A
+Invoke-Git submodule update -q --init --remote
+Invoke-Git add -A
 & git diff --cached --quiet
 if ($LASTEXITCODE -ne 0) {
-    Git commit -q -m "Sync from PC $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+    Invoke-Git commit -q -m "Sync from PC $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
     "Committed: $((& git show --stat --oneline HEAD | Select-Object -Last 1).Trim())"
 } else { 'No changes.' }
-if (-not $NoPush) { Git push -q origin main }
+if (-not $NoPush) { Invoke-Git push -q origin main }
 
 $inbox = Get-ChildItem -LiteralPath (Join-Path $repo 'inbox') -File -Recurse | Where-Object Name -ne '.gitkeep'
 if ($inbox) { 'Inbox:'; $inbox | ForEach-Object { '  ' + $_.FullName.Substring($repo.Length + 1) } } else { 'Inbox: empty' }

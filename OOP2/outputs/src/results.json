@@ -1,0 +1,886 @@
+{
+ "m1_skel": {
+  "kind": "full",
+  "display": "using System;\n\nnamespace FirstApp\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(\"Hello\");\n            Console.Write(\"AI\");\n            Console.WriteLine(\"UB\");\n            Console.WriteLine();\n            Console.WriteLine(\"Bye\");\n        }\n    }\n}",
+  "program": "using System;\n\nnamespace FirstApp\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(\"Hello\");\n            Console.Write(\"AI\");\n            Console.WriteLine(\"UB\");\n            Console.WriteLine();\n            Console.WriteLine(\"Bye\");\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Hello\nAIUB\n\nBye",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_vars": {
+  "kind": "run",
+  "display": "int age = 20;\ndouble cgpa = 3.75;\nstring name = \"Nila\";\nchar grade = 'A';\nbool passed = true;\n\nConsole.WriteLine(name + \" is \" + age);\nConsole.WriteLine(\"CGPA: \" + cgpa);\nConsole.WriteLine(\"Passed: \" + passed);\nConsole.WriteLine(\"Sum: \" + 2 + 3);\nConsole.WriteLine(2 + 3 + \" is the sum\");\nConsole.WriteLine(7 / 2);\nConsole.WriteLine(7.0 / 2);\nConsole.WriteLine(7 % 2);\nConsole.WriteLine(\"{0} got {1}\", name, grade);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int age = 20;\n        double cgpa = 3.75;\n        string name = \"Nila\";\n        char grade = 'A';\n        bool passed = true;\n\n        Console.WriteLine(name + \" is \" + age);\n        Console.WriteLine(\"CGPA: \" + cgpa);\n        Console.WriteLine(\"Passed: \" + passed);\n        Console.WriteLine(\"Sum: \" + 2 + 3);\n        Console.WriteLine(2 + 3 + \" is the sum\");\n        Console.WriteLine(7 / 2);\n        Console.WriteLine(7.0 / 2);\n        Console.WriteLine(7 % 2);\n        Console.WriteLine(\"{0} got {1}\", name, grade);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Nila is 20\nCGPA: 3.75\nPassed: True\nSum: 23\n5 is the sum\n3\n3.5\n1\nNila got A",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_cast": {
+  "kind": "run",
+  "display": "double price = 10.75;\nint whole = (int)price;\nConsole.WriteLine(whole);\n\nint count = 10;\ndouble d = count;\nConsole.WriteLine(d);\n\nchar letter = 'A';\nint code = letter;\nConsole.WriteLine(code);\nConsole.WriteLine((char)66);\nConsole.WriteLine(letter + 1);\n\nint x = 5;\nx += 3;\nx++;\nConsole.WriteLine(x);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        double price = 10.75;\n        int whole = (int)price;\n        Console.WriteLine(whole);\n\n        int count = 10;\n        double d = count;\n        Console.WriteLine(d);\n\n        char letter = 'A';\n        int code = letter;\n        Console.WriteLine(code);\n        Console.WriteLine((char)66);\n        Console.WriteLine(letter + 1);\n\n        int x = 5;\n        x += 3;\n        x++;\n        Console.WriteLine(x);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "10\n10\n65\nB\n66\n9",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_q1": {
+  "kind": "run",
+  "display": "int a = 9;\nint b = 4;\nConsole.WriteLine(a / b);\nConsole.WriteLine(a % b);\nConsole.WriteLine(\"a + b = \" + a + b);\nConsole.WriteLine(\"a + b = \" + (a + b));\nConsole.Write(a);\nConsole.Write(b);\nConsole.WriteLine();\nConsole.WriteLine(\"{1} {0}\", a, b);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int a = 9;\n        int b = 4;\n        Console.WriteLine(a / b);\n        Console.WriteLine(a % b);\n        Console.WriteLine(\"a + b = \" + a + b);\n        Console.WriteLine(\"a + b = \" + (a + b));\n        Console.Write(a);\n        Console.Write(b);\n        Console.WriteLine();\n        Console.WriteLine(\"{1} {0}\", a, b);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "2\n1\na + b = 94\na + b = 13\n94\n4 9",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_q2": {
+  "kind": "run",
+  "display": "double m = 9.99;\nint n = (int)m;\nchar c = 'C';\nConsole.WriteLine(n);\nConsole.WriteLine((int)c);\nConsole.WriteLine(n + m);\nbool ok = n > 9;\nConsole.WriteLine(ok);\nn *= 2;\nn--;\nConsole.WriteLine(\"n = \" + n);\nConsole.WriteLine(\"Done\\nNow\");",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        double m = 9.99;\n        int n = (int)m;\n        char c = 'C';\n        Console.WriteLine(n);\n        Console.WriteLine((int)c);\n        Console.WriteLine(n + m);\n        bool ok = n > 9;\n        Console.WriteLine(ok);\n        n *= 2;\n        n--;\n        Console.WriteLine(\"n = \" + n);\n        Console.WriteLine(\"Done\\nNow\");\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "9\n67\n18.99\nFalse\nn = 17\nDone\nNow",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_loop": {
+  "kind": "run",
+  "display": "for (int i = 1; i <= 3; i++)\n{\n    Console.WriteLine(\"i = \" + i);\n}\n\nint total = 0;\nfor (int i = 0; i < 6; i += 2)\n{\n    total += i;\n}\nConsole.WriteLine(\"total = \" + total);\n\nint[] marks = { 70, 85, 40 };\nforeach (int m in marks)\n{\n    if (m >= 50)\n    {\n        Console.WriteLine(m + \" pass\");\n    }\n    else\n    {\n        Console.WriteLine(m + \" fail\");\n    }\n}",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        for (int i = 1; i <= 3; i++)\n        {\n            Console.WriteLine(\"i = \" + i);\n        }\n\n        int total = 0;\n        for (int i = 0; i < 6; i += 2)\n        {\n            total += i;\n        }\n        Console.WriteLine(\"total = \" + total);\n\n        int[] marks = { 70, 85, 40 };\n        foreach (int m in marks)\n        {\n            if (m >= 50)\n            {\n                Console.WriteLine(m + \" pass\");\n            }\n            else\n            {\n                Console.WriteLine(m + \" fail\");\n            }\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "i = 1\ni = 2\ni = 3\ntotal = 6\n70 pass\n85 pass\n40 fail",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_arr": {
+  "kind": "run",
+  "display": "int[] a = { 10, 20, 30 };\nConsole.WriteLine(a[0]);\nConsole.WriteLine(a.Length);\n\nint[] b = new int[3];\nConsole.WriteLine(b[1]);\n\nint[] c = a;\nc[0] = 99;\nConsole.WriteLine(a[0]);\n\nfor (int i = a.Length - 1; i >= 0; i--)\n{\n    Console.Write(a[i] + \" \");\n}\nConsole.WriteLine();",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[] a = { 10, 20, 30 };\n        Console.WriteLine(a[0]);\n        Console.WriteLine(a.Length);\n\n        int[] b = new int[3];\n        Console.WriteLine(b[1]);\n\n        int[] c = a;\n        c[0] = 99;\n        Console.WriteLine(a[0]);\n\n        for (int i = a.Length - 1; i >= 0; i--)\n        {\n            Console.Write(a[i] + \" \");\n        }\n        Console.WriteLine();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "10\n3\n0\n99\n30 20 99 ",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_jag": {
+  "kind": "run",
+  "display": "int[][] j = new int[3][];\nj[0] = new int[] { 1, 2, 3 };\nj[1] = new int[] { 4, 5 };\nj[2] = new int[4];\n\nConsole.WriteLine(j.Length);\nConsole.WriteLine(j[0].Length);\nConsole.WriteLine(j[1][1]);\nConsole.WriteLine(j[2][3]);\n\nfor (int r = 0; r < j.Length; r++)\n{\n    for (int c = 0; c < j[r].Length; c++)\n    {\n        Console.Write(j[r][c] + \" \");\n    }\n    Console.WriteLine();\n}\n\nforeach (int[] row in j)\n{\n    Console.Write(row.Length + \" \");\n}\nConsole.WriteLine();",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[][] j = new int[3][];\n        j[0] = new int[] { 1, 2, 3 };\n        j[1] = new int[] { 4, 5 };\n        j[2] = new int[4];\n\n        Console.WriteLine(j.Length);\n        Console.WriteLine(j[0].Length);\n        Console.WriteLine(j[1][1]);\n        Console.WriteLine(j[2][3]);\n\n        for (int r = 0; r < j.Length; r++)\n        {\n            for (int c = 0; c < j[r].Length; c++)\n            {\n                Console.Write(j[r][c] + \" \");\n            }\n            Console.WriteLine();\n        }\n\n        foreach (int[] row in j)\n        {\n            Console.Write(row.Length + \" \");\n        }\n        Console.WriteLine();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "3\n3\n5\n0\n1 2 3 \n4 5 \n0 0 0 0 \n3 2 4 ",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_rte": {
+  "kind": "rte",
+  "display": "int[][] j = new int[2][];\nj[0] = new int[] { 1, 2 };\nj[1] = new int[] { 3, 4, 5 };\nConsole.WriteLine(j[1][2]);\nConsole.WriteLine(j[0][2]);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[][] j = new int[2][];\n        j[0] = new int[] { 1, 2 };\n        j[1] = new int[] { 3, 4, 5 };\n        Console.WriteLine(j[1][2]);\n        Console.WriteLine(j[0][2]);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "5",
+  "exc": "Unhandled Exception: System.IndexOutOfRangeException: Index was outside the bounds of the array.",
+  "exit": 3762504530
+ },
+ "m1_q3": {
+  "kind": "run",
+  "display": "int sum = 0;\nfor (int i = 1; i <= 5; i++)\n{\n    if (i % 2 == 0)\n    {\n        sum += i;\n    }\n    else\n    {\n        Console.Write(i + \" \");\n    }\n}\nConsole.WriteLine();\nConsole.WriteLine(\"sum = \" + sum);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int sum = 0;\n        for (int i = 1; i <= 5; i++)\n        {\n            if (i % 2 == 0)\n            {\n                sum += i;\n            }\n            else\n            {\n                Console.Write(i + \" \");\n            }\n        }\n        Console.WriteLine();\n        Console.WriteLine(\"sum = \" + sum);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "1 3 5 \nsum = 6",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_q4": {
+  "kind": "run",
+  "display": "int[] n = { 4, 7, 1, 9 };\nint big = n[0];\nforeach (int x in n)\n{\n    if (x > big)\n    {\n        big = x;\n    }\n}\nConsole.WriteLine(\"big = \" + big);\nn[2] = n[1] + n[3];\nConsole.WriteLine(n[2]);\nConsole.WriteLine(n.Length - 1);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[] n = { 4, 7, 1, 9 };\n        int big = n[0];\n        foreach (int x in n)\n        {\n            if (x > big)\n            {\n                big = x;\n            }\n        }\n        Console.WriteLine(\"big = \" + big);\n        n[2] = n[1] + n[3];\n        Console.WriteLine(n[2]);\n        Console.WriteLine(n.Length - 1);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "big = 9\n16\n3",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_q5": {
+  "kind": "run",
+  "display": "int[][] g = new int[3][];\ng[0] = new int[] { 2, 4, 6, 8 };\ng[1] = new int[] { 1, 3 };\ng[2] = new int[3];\n\nfor (int i = 0; i < g[2].Length; i++)\n{\n    g[2][i] = g[0][i] + g[0][i + 1];\n}\n\nfor (int r = 0; r < g.Length; r++)\n{\n    for (int c = 0; c < g[r].Length; c += 2)\n    {\n        Console.Write(g[r][c] + \" \");\n    }\n    Console.WriteLine();\n}",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[][] g = new int[3][];\n        g[0] = new int[] { 2, 4, 6, 8 };\n        g[1] = new int[] { 1, 3 };\n        g[2] = new int[3];\n\n        for (int i = 0; i < g[2].Length; i++)\n        {\n            g[2][i] = g[0][i] + g[0][i + 1];\n        }\n\n        for (int r = 0; r < g.Length; r++)\n        {\n            for (int c = 0; c < g[r].Length; c += 2)\n            {\n                Console.Write(g[r][c] + \" \");\n            }\n            Console.WriteLine();\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "2 6 \n1 \n6 14 ",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_old1": {
+  "kind": "full",
+  "display": "using System;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        double[][] jaggedArray = new double[][]\n        {\n            new double[] { 1.5, 2.5, 3.5 },\n            new double[] { 4.3, 5.8 },\n            new double[] { 6.2, 7.7, 8.2, 9.4 }\n        };\n\n        Console.WriteLine(\"Jagged Array:\");\n\n        for (int i = 0; i < jaggedArray.Length; i++)\n        {\n            for (int j = 0; j < jaggedArray[i].Length - 1; j++)\n            {\n                Console.Write(jaggedArray[i][j] + \" \");\n            }\n            Console.WriteLine();\n        }\n\n        double element1 = jaggedArray[0][0];\n        double element2 = jaggedArray[1][1];\n        double element3 = jaggedArray[2][3];\n\n        Console.WriteLine(\"Accessed Elements:\");\n        Console.WriteLine(\"\\nElement1: \" + element1);\n        Console.Write(\"Element2: \" + element2);\n        Console.WriteLine(\"Element3: \" + element3);\n\n        Console.WriteLine(jaggedArray[1][1] - jaggedArray[0][1]);\n        Console.Write((int)jaggedArray[2][1]);\n        Console.WriteLine(\"The end\");\n    }\n}",
+  "program": "using System;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        double[][] jaggedArray = new double[][]\n        {\n            new double[] { 1.5, 2.5, 3.5 },\n            new double[] { 4.3, 5.8 },\n            new double[] { 6.2, 7.7, 8.2, 9.4 }\n        };\n\n        Console.WriteLine(\"Jagged Array:\");\n\n        for (int i = 0; i < jaggedArray.Length; i++)\n        {\n            for (int j = 0; j < jaggedArray[i].Length - 1; j++)\n            {\n                Console.Write(jaggedArray[i][j] + \" \");\n            }\n            Console.WriteLine();\n        }\n\n        double element1 = jaggedArray[0][0];\n        double element2 = jaggedArray[1][1];\n        double element3 = jaggedArray[2][3];\n\n        Console.WriteLine(\"Accessed Elements:\");\n        Console.WriteLine(\"\\nElement1: \" + element1);\n        Console.Write(\"Element2: \" + element2);\n        Console.WriteLine(\"Element3: \" + element3);\n\n        Console.WriteLine(jaggedArray[1][1] - jaggedArray[0][1]);\n        Console.Write((int)jaggedArray[2][1]);\n        Console.WriteLine(\"The end\");\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Jagged Array:\n1.5 2.5 \n4.3 \n6.2 7.7 8.2 \nAccessed Elements:\n\nElement1: 1.5\nElement2: 5.8Element3: 9.4\n3.3\n7The end",
+  "exc": null,
+  "exit": 0
+ },
+ "m1_old2": {
+  "kind": "full",
+  "display": "using System;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        int[][] myArray = new int[4][];\n        myArray[0] = new int[] { 1, 3, 5, 7, 9, -2 };\n        myArray[1] = new int[4];\n        myArray[2] = new int[] { 2, 4, 6, 8, 5, 3 };\n        myArray[3] = new int[4];\n\n        for (int row = 0; row < 4; row += 2)\n        {\n            for (int column = 1; column < myArray[row].Length; column += 3)\n            {\n                Console.Write(\"{0}  \", myArray[row][column]);\n            }\n            Console.WriteLine();\n        }\n\n        for (int index = 0; index < myArray[1].Length; index++)\n        {\n            myArray[1][index] = myArray[0][index + 1] * 2;\n        }\n\n        for (int index = 0; index < myArray[3].Length; index++)\n        {\n            myArray[3][index] = myArray[2][index] + myArray[2][index + 2];\n        }\n\n        for (int row = 1; row < 4; row += 2)\n        {\n            for (int column = 0; column < myArray[row].Length; column++)\n            {\n                Console.Write(\"{0}  \", myArray[row][column]);\n            }\n            Console.WriteLine();\n        }\n    }\n}",
+  "program": "using System;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        int[][] myArray = new int[4][];\n        myArray[0] = new int[] { 1, 3, 5, 7, 9, -2 };\n        myArray[1] = new int[4];\n        myArray[2] = new int[] { 2, 4, 6, 8, 5, 3 };\n        myArray[3] = new int[4];\n\n        for (int row = 0; row < 4; row += 2)\n        {\n            for (int column = 1; column < myArray[row].Length; column += 3)\n            {\n                Console.Write(\"{0}  \", myArray[row][column]);\n            }\n            Console.WriteLine();\n        }\n\n        for (int index = 0; index < myArray[1].Length; index++)\n        {\n            myArray[1][index] = myArray[0][index + 1] * 2;\n        }\n\n        for (int index = 0; index < myArray[3].Length; index++)\n        {\n            myArray[3][index] = myArray[2][index] + myArray[2][index + 2];\n        }\n\n        for (int row = 1; row < 4; row += 2)\n        {\n            for (int column = 0; column < myArray[row].Length; column++)\n            {\n                Console.Write(\"{0}  \", myArray[row][column]);\n            }\n            Console.WriteLine();\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "3  9  \n4  5  \n6  10  14  18  \n8  12  11  11  ",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_staff": {
+  "kind": "full",
+  "display": "using System;\n\nclass Staff\n{\n    // STEP 1  fields: the data it keeps\n    private string name;\n    private int staffID;\n    private double basePay;\n\n    // STEP 2  properties: public doors\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public int StaffID\n    {\n        get { return staffID; }\n        set { staffID = value; }\n    }\n\n    public double BasePay\n    {\n        get { return basePay; }\n        set { basePay = value; }\n    }\n\n    // STEP 3  default constructor\n    public Staff()\n    {\n        name = \"\";\n        staffID = 0;\n        basePay = 0.0;\n    }\n\n    // STEP 4  parameterized constructor\n    public Staff(string name, int staffID, double basePay)\n    {\n        this.name = name;\n        this.staffID = staffID;\n        this.basePay = basePay;\n    }\n\n    // STEP 5  method: prints the details\n    public void display_info()\n    {\n        Console.WriteLine(\"Name: \" + name);\n        Console.WriteLine(\"Staff ID: \" + staffID);\n        Console.WriteLine(\"Base pay: \" + basePay);\n    }\n}\n\nclass Program\n{\n    // STEP 6  Main: make objects, use them\n    static void Main(string[] args)\n    {\n        Staff s1 = new Staff();\n        Staff s2 = new Staff(\"Rahim\", 101, 45000.50);\n\n        s1.display_info();\n        Console.WriteLine();\n        s2.display_info();\n\n        s1.Name = \"Karim\";\n        Console.WriteLine(s1.Name);\n    }\n}",
+  "program": "using System;\n\nclass Staff\n{\n    // STEP 1  fields: the data it keeps\n    private string name;\n    private int staffID;\n    private double basePay;\n\n    // STEP 2  properties: public doors\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public int StaffID\n    {\n        get { return staffID; }\n        set { staffID = value; }\n    }\n\n    public double BasePay\n    {\n        get { return basePay; }\n        set { basePay = value; }\n    }\n\n    // STEP 3  default constructor\n    public Staff()\n    {\n        name = \"\";\n        staffID = 0;\n        basePay = 0.0;\n    }\n\n    // STEP 4  parameterized constructor\n    public Staff(string name, int staffID, double basePay)\n    {\n        this.name = name;\n        this.staffID = staffID;\n        this.basePay = basePay;\n    }\n\n    // STEP 5  method: prints the details\n    public void display_info()\n    {\n        Console.WriteLine(\"Name: \" + name);\n        Console.WriteLine(\"Staff ID: \" + staffID);\n        Console.WriteLine(\"Base pay: \" + basePay);\n    }\n}\n\nclass Program\n{\n    // STEP 6  Main: make objects, use them\n    static void Main(string[] args)\n    {\n        Staff s1 = new Staff();\n        Staff s2 = new Staff(\"Rahim\", 101, 45000.50);\n\n        s1.display_info();\n        Console.WriteLine();\n        s2.display_info();\n\n        s1.Name = \"Karim\";\n        Console.WriteLine(s1.Name);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Name: \nStaff ID: 0\nBase pay: 0\n\nName: Rahim\nStaff ID: 101\nBase pay: 45000.5\nKarim",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_ctors": {
+  "kind": "run",
+  "display": "class Student\n{\n    public int id;\n    public string name;\n    public static string uni;\n    public static int count = 0;\n\n    static Student()\n    {\n        uni = \"AIUB\";\n        Console.WriteLine(\"static constructor\");\n    }\n\n    public Student()\n    {\n        id = -1;\n        name = \"unknown\";\n        count++;\n        Console.WriteLine(\"default constructor\");\n    }\n\n    public Student(int id, string name)\n    {\n        this.id = id;\n        this.name = name;\n        count++;\n        Console.WriteLine(\"parameterized constructor\");\n    }\n\n    public Student(Student other)\n    {\n        id = other.id;\n        name = other.name;\n        count++;\n        Console.WriteLine(\"copy constructor\");\n    }\n\n    public void Show()\n    {\n        Console.WriteLine(id + \" \" + name + \" \" + uni);\n    }\n}\n// Main\nConsole.WriteLine(\"Main starts\");\nStudent a = new Student();\nStudent b = new Student(7, \"Nila\");\nStudent c = new Student(b);\nc.name = \"Rafi\";\na.Show();\nb.Show();\nc.Show();\nConsole.WriteLine(\"count = \" + Student.count);",
+  "program": "using System;\n\nclass Student\n{\n    public int id;\n    public string name;\n    public static string uni;\n    public static int count = 0;\n\n    static Student()\n    {\n        uni = \"AIUB\";\n        Console.WriteLine(\"static constructor\");\n    }\n\n    public Student()\n    {\n        id = -1;\n        name = \"unknown\";\n        count++;\n        Console.WriteLine(\"default constructor\");\n    }\n\n    public Student(int id, string name)\n    {\n        this.id = id;\n        this.name = name;\n        count++;\n        Console.WriteLine(\"parameterized constructor\");\n    }\n\n    public Student(Student other)\n    {\n        id = other.id;\n        name = other.name;\n        count++;\n        Console.WriteLine(\"copy constructor\");\n    }\n\n    public void Show()\n    {\n        Console.WriteLine(id + \" \" + name + \" \" + uni);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Main starts\");\n        Student a = new Student();\n        Student b = new Student(7, \"Nila\");\n        Student c = new Student(b);\n        c.name = \"Rafi\";\n        a.Show();\n        b.Show();\n        c.Show();\n        Console.WriteLine(\"count = \" + Student.count);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Main starts\nstatic constructor\ndefault constructor\nparameterized constructor\ncopy constructor\n-1 unknown AIUB\n7 Nila AIUB\n7 Rafi AIUB\ncount = 3",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_book_blank": {
+  "kind": "show",
+  "display": "class Book\n{\n    ______ string title;\n    private double price;\n\n    public string Title\n    {\n        get { ______ title; }\n        set { title = ______; }\n    }\n\n    public double Price\n    {\n        get { return price; }\n        set { price = value; }\n    }\n\n    public ______()\n    {\n        title = \"None\";\n        price = 0;\n    }\n\n    public Book(string title, double price)\n    {\n        ______.title = title;\n        this.price = price;\n    }\n\n    public ______ ShowInfo()\n    {\n        Console.WriteLine(title + \" costs \" + price);\n    }\n}\n// Main\nBook b1 = ______ Book();\nBook b2 = new Book(\"C# Basics\", 450.5);\nb1.ShowInfo();\nb2.ShowInfo();\nb1.______ = 200;\nConsole.WriteLine(b1.Price);",
+  "program": "using System;\n\nclass Book\n{\n    ______ string title;\n    private double price;\n\n    public string Title\n    {\n        get { ______ title; }\n        set { title = ______; }\n    }\n\n    public double Price\n    {\n        get { return price; }\n        set { price = value; }\n    }\n\n    public ______()\n    {\n        title = \"None\";\n        price = 0;\n    }\n\n    public Book(string title, double price)\n    {\n        ______.title = title;\n        this.price = price;\n    }\n\n    public ______ ShowInfo()\n    {\n        Console.WriteLine(title + \" costs \" + price);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Book b1 = ______ Book();\n        Book b2 = new Book(\"C# Basics\", 450.5);\n        b1.ShowInfo();\n        b2.ShowInfo();\n        b1.______ = 200;\n        Console.WriteLine(b1.Price);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 5,
+    "code": "CS1519",
+    "msg": "Invalid token 'string' in a member declaration"
+   },
+   {
+    "line": 42,
+    "code": "CS1002",
+    "msg": "; expected"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m2_book": {
+  "kind": "run",
+  "display": "class Book\n{\n    private string title;\n    private double price;\n\n    public string Title\n    {\n        get { return title; }\n        set { title = value; }\n    }\n\n    public double Price\n    {\n        get { return price; }\n        set { price = value; }\n    }\n\n    public Book()\n    {\n        title = \"None\";\n        price = 0;\n    }\n\n    public Book(string title, double price)\n    {\n        this.title = title;\n        this.price = price;\n    }\n\n    public void ShowInfo()\n    {\n        Console.WriteLine(title + \" costs \" + price);\n    }\n}\n// Main\nBook b1 = new Book();\nBook b2 = new Book(\"C# Basics\", 450.5);\nb1.ShowInfo();\nb2.ShowInfo();\nb1.Price = 200;\nConsole.WriteLine(b1.Price);",
+  "program": "using System;\n\nclass Book\n{\n    private string title;\n    private double price;\n\n    public string Title\n    {\n        get { return title; }\n        set { title = value; }\n    }\n\n    public double Price\n    {\n        get { return price; }\n        set { price = value; }\n    }\n\n    public Book()\n    {\n        title = \"None\";\n        price = 0;\n    }\n\n    public Book(string title, double price)\n    {\n        this.title = title;\n        this.price = price;\n    }\n\n    public void ShowInfo()\n    {\n        Console.WriteLine(title + \" costs \" + price);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Book b1 = new Book();\n        Book b2 = new Book(\"C# Basics\", 450.5);\n        b1.ShowInfo();\n        b2.ShowInfo();\n        b1.Price = 200;\n        Console.WriteLine(b1.Price);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "None costs 0\nC# Basics costs 450.5\n200",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_course": {
+  "kind": "full",
+  "display": "using System;\n\nclass Course\n{\n    private string courseCode;\n    private string courseTitle;\n    private int credit;\n\n    public string CourseCode\n    {\n        get { return courseCode; }\n        set { courseCode = value; }\n    }\n\n    public string CourseTitle\n    {\n        get { return courseTitle; }\n        set { courseTitle = value; }\n    }\n\n    public int Credit\n    {\n        get { return credit; }\n        set { credit = value; }\n    }\n\n    public Course()\n    {\n        courseCode = \"N/A\";\n        courseTitle = \"N/A\";\n        credit = 0;\n    }\n\n    public Course(string courseCode, string courseTitle, int credit)\n    {\n        this.courseCode = courseCode;\n        this.courseTitle = courseTitle;\n        this.credit = credit;\n    }\n\n    public void ShowCourse()\n    {\n        Console.WriteLine(courseCode + \", \" + courseTitle + \", \" + credit + \" credits\");\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Course c1 = new Course();\n        Course c2 = new Course(\"CSC 3115\", \"OOP 2\", 3);\n        c1.ShowCourse();\n        c2.ShowCourse();\n    }\n}",
+  "program": "using System;\n\nclass Course\n{\n    private string courseCode;\n    private string courseTitle;\n    private int credit;\n\n    public string CourseCode\n    {\n        get { return courseCode; }\n        set { courseCode = value; }\n    }\n\n    public string CourseTitle\n    {\n        get { return courseTitle; }\n        set { courseTitle = value; }\n    }\n\n    public int Credit\n    {\n        get { return credit; }\n        set { credit = value; }\n    }\n\n    public Course()\n    {\n        courseCode = \"N/A\";\n        courseTitle = \"N/A\";\n        credit = 0;\n    }\n\n    public Course(string courseCode, string courseTitle, int credit)\n    {\n        this.courseCode = courseCode;\n        this.courseTitle = courseTitle;\n        this.credit = credit;\n    }\n\n    public void ShowCourse()\n    {\n        Console.WriteLine(courseCode + \", \" + courseTitle + \", \" + credit + \" credits\");\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Course c1 = new Course();\n        Course c2 = new Course(\"CSC 3115\", \"OOP 2\", 3);\n        c1.ShowCourse();\n        c2.ShowCourse();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "N/A, N/A, 0 credits\nCSC 3115, OOP 2, 3 credits",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_inh": {
+  "kind": "run",
+  "display": "class Person\n{\n    protected string name;\n\n    public Person(string name)\n    {\n        this.name = name;\n        Console.WriteLine(\"Person constructor\");\n    }\n\n    public virtual void Show()\n    {\n        Console.WriteLine(\"Name: \" + name);\n    }\n}\n\nclass Student : Person\n{\n    private double cgpa;\n\n    public Student(string name, double cgpa) : base(name)\n    {\n        this.cgpa = cgpa;\n        Console.WriteLine(\"Student constructor\");\n    }\n\n    public override void Show()\n    {\n        base.Show();\n        Console.WriteLine(\"CGPA: \" + cgpa);\n    }\n}\n// Main\nPerson p = new Student(\"Nila\", 3.8);\np.Show();",
+  "program": "using System;\n\nclass Person\n{\n    protected string name;\n\n    public Person(string name)\n    {\n        this.name = name;\n        Console.WriteLine(\"Person constructor\");\n    }\n\n    public virtual void Show()\n    {\n        Console.WriteLine(\"Name: \" + name);\n    }\n}\nclass Student : Person\n{\n    private double cgpa;\n\n    public Student(string name, double cgpa) : base(name)\n    {\n        this.cgpa = cgpa;\n        Console.WriteLine(\"Student constructor\");\n    }\n\n    public override void Show()\n    {\n        base.Show();\n        Console.WriteLine(\"CGPA: \" + cgpa);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Person p = new Student(\"Nila\", 3.8);\n        p.Show();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Person constructor\nStudent constructor\nName: Nila\nCGPA: 3.8",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_poly": {
+  "kind": "run",
+  "display": "class Animal\n{\n    public virtual string Sound()\n    {\n        return \"...\";\n    }\n}\n\nclass Dog : Animal\n{\n    public override string Sound()\n    {\n        return \"Woof\";\n    }\n}\n\nclass Cat : Animal\n{\n    public override string Sound()\n    {\n        return \"Meow\";\n    }\n\n    public void Purr()\n    {\n        Console.WriteLine(\"Purr\");\n    }\n}\n// Main\nAnimal[] pets = new Animal[3];\npets[0] = new Dog();\npets[1] = new Cat();\npets[2] = new Animal();\n\nforeach (Animal a in pets)\n{\n    Console.WriteLine(a.Sound());\n}\n\nif (pets[1] is Cat)\n{\n    Cat c = (Cat)pets[1];\n    c.Purr();\n}",
+  "program": "using System;\n\nclass Animal\n{\n    public virtual string Sound()\n    {\n        return \"...\";\n    }\n}\nclass Dog : Animal\n{\n    public override string Sound()\n    {\n        return \"Woof\";\n    }\n}\nclass Cat : Animal\n{\n    public override string Sound()\n    {\n        return \"Meow\";\n    }\n\n    public void Purr()\n    {\n        Console.WriteLine(\"Purr\");\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Animal[] pets = new Animal[3];\n        pets[0] = new Dog();\n        pets[1] = new Cat();\n        pets[2] = new Animal();\n\n        foreach (Animal a in pets)\n        {\n            Console.WriteLine(a.Sound());\n        }\n\n        if (pets[1] is Cat)\n        {\n            Cat c = (Cat)pets[1];\n            c.Purr();\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Woof\nMeow\n...\nPurr",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_purr_err": {
+  "kind": "err",
+  "display": "class Animal\n{\n    public virtual string Sound()\n    {\n        return \"...\";\n    }\n}\n\nclass Cat : Animal\n{\n    public void Purr()\n    {\n        Console.WriteLine(\"Purr\");\n    }\n}\n// Main\nAnimal a = new Cat();\na.Purr();",
+  "program": "using System;\n\nclass Animal\n{\n    public virtual string Sound()\n    {\n        return \"...\";\n    }\n}\nclass Cat : Animal\n{\n    public void Purr()\n    {\n        Console.WriteLine(\"Purr\");\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Animal a = new Cat();\n        a.Purr();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 23,
+    "code": "CS1061",
+    "msg": "'Animal' does not contain a definition for 'Purr' and no accessible extension method 'Purr' accepting a first argument of type 'Animal' could be found (are you missing a using directive or an assembly reference?)"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m2_emp": {
+  "kind": "full",
+  "display": "using System;\n\nclass Employee\n{\n    private string name;\n    private int id;\n\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public int Id\n    {\n        get { return id; }\n        set { id = value; }\n    }\n\n    public Employee(string name, int id)\n    {\n        this.name = name;\n        this.id = id;\n    }\n\n    public virtual double CalculateSalary()\n    {\n        return 0;\n    }\n}\n\nclass FullTimeEmployee : Employee\n{\n    private double monthlySalary;\n\n    public FullTimeEmployee(string name, int id, double monthlySalary) : base(name, id)\n    {\n        this.monthlySalary = monthlySalary;\n    }\n\n    public override double CalculateSalary()\n    {\n        return monthlySalary;\n    }\n}\n\nclass PartTimeEmployee : Employee\n{\n    private double hourlyRate;\n    private int hoursWorked;\n\n    public PartTimeEmployee(string name, int id, double hourlyRate, int hoursWorked) : base(name, id)\n    {\n        this.hourlyRate = hourlyRate;\n        this.hoursWorked = hoursWorked;\n    }\n\n    public override double CalculateSalary()\n    {\n        return hourlyRate * hoursWorked;\n    }\n}\n\nclass SeniorEmployee : FullTimeEmployee\n{\n    private double bonus;\n\n    public SeniorEmployee(string name, int id, double monthlySalary, double bonus)\n        : base(name, id, monthlySalary)\n    {\n        this.bonus = bonus;\n    }\n\n    public override double CalculateSalary()\n    {\n        return base.CalculateSalary() + bonus;\n    }\n\n    public double Bonus\n    {\n        get { return bonus; }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Employee[] employees = new Employee[3];\n        employees[0] = new FullTimeEmployee(\"Rafi\", 1, 50000);\n        employees[1] = new PartTimeEmployee(\"Nila\", 2, 300, 40);\n        employees[2] = new SeniorEmployee(\"Karim\", 3, 60000, 10000);\n\n        int[][] hours =\n        {\n            new int[] { 8, 8, 8, 8, 8 },\n            new int[] { 5, 6, 4, 5, 6, 4, 5, 5 },\n            new int[] { 9, 9, 10, 9, 9, 8 }\n        };\n\n        for (int i = 0; i < employees.Length; i++)\n        {\n            Console.WriteLine(\"ID: \" + employees[i].Id + \", Name: \" + employees[i].Name\n                + \", Salary: \" + employees[i].CalculateSalary());\n            Console.Write(\"Hours: \");\n            foreach (int h in hours[i])\n            {\n                Console.Write(h + \" \");\n            }\n            Console.WriteLine();\n        }\n\n        if (employees[2] is SeniorEmployee)\n        {\n            SeniorEmployee senior = (SeniorEmployee)employees[2];\n            Console.WriteLine(senior.Name + \" gets a bonus of \" + senior.Bonus);\n        }\n    }\n}",
+  "program": "using System;\n\nclass Employee\n{\n    private string name;\n    private int id;\n\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public int Id\n    {\n        get { return id; }\n        set { id = value; }\n    }\n\n    public Employee(string name, int id)\n    {\n        this.name = name;\n        this.id = id;\n    }\n\n    public virtual double CalculateSalary()\n    {\n        return 0;\n    }\n}\n\nclass FullTimeEmployee : Employee\n{\n    private double monthlySalary;\n\n    public FullTimeEmployee(string name, int id, double monthlySalary) : base(name, id)\n    {\n        this.monthlySalary = monthlySalary;\n    }\n\n    public override double CalculateSalary()\n    {\n        return monthlySalary;\n    }\n}\n\nclass PartTimeEmployee : Employee\n{\n    private double hourlyRate;\n    private int hoursWorked;\n\n    public PartTimeEmployee(string name, int id, double hourlyRate, int hoursWorked) : base(name, id)\n    {\n        this.hourlyRate = hourlyRate;\n        this.hoursWorked = hoursWorked;\n    }\n\n    public override double CalculateSalary()\n    {\n        return hourlyRate * hoursWorked;\n    }\n}\n\nclass SeniorEmployee : FullTimeEmployee\n{\n    private double bonus;\n\n    public SeniorEmployee(string name, int id, double monthlySalary, double bonus)\n        : base(name, id, monthlySalary)\n    {\n        this.bonus = bonus;\n    }\n\n    public override double CalculateSalary()\n    {\n        return base.CalculateSalary() + bonus;\n    }\n\n    public double Bonus\n    {\n        get { return bonus; }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Employee[] employees = new Employee[3];\n        employees[0] = new FullTimeEmployee(\"Rafi\", 1, 50000);\n        employees[1] = new PartTimeEmployee(\"Nila\", 2, 300, 40);\n        employees[2] = new SeniorEmployee(\"Karim\", 3, 60000, 10000);\n\n        int[][] hours =\n        {\n            new int[] { 8, 8, 8, 8, 8 },\n            new int[] { 5, 6, 4, 5, 6, 4, 5, 5 },\n            new int[] { 9, 9, 10, 9, 9, 8 }\n        };\n\n        for (int i = 0; i < employees.Length; i++)\n        {\n            Console.WriteLine(\"ID: \" + employees[i].Id + \", Name: \" + employees[i].Name\n                + \", Salary: \" + employees[i].CalculateSalary());\n            Console.Write(\"Hours: \");\n            foreach (int h in hours[i])\n            {\n                Console.Write(h + \" \");\n            }\n            Console.WriteLine();\n        }\n\n        if (employees[2] is SeniorEmployee)\n        {\n            SeniorEmployee senior = (SeniorEmployee)employees[2];\n            Console.WriteLine(senior.Name + \" gets a bonus of \" + senior.Bonus);\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "ID: 1, Name: Rafi, Salary: 50000\nHours: 8 8 8 8 8 \nID: 2, Name: Nila, Salary: 12000\nHours: 5 6 4 5 6 4 5 5 \nID: 3, Name: Karim, Salary: 70000\nHours: 9 9 10 9 9 8 \nKarim gets a bonus of 10000",
+  "exc": null,
+  "exit": 0
+ },
+ "m2_bpl": {
+  "kind": "full",
+  "display": "using System;\n\nclass Player\n{\n    private string playerId;\n    private string playerName;\n    private string teamName;\n\n    public string PlayerId\n    {\n        get { return playerId; }\n        set { playerId = value; }\n    }\n\n    public string PlayerName\n    {\n        get { return playerName; }\n        set { playerName = value; }\n    }\n\n    public string TeamName\n    {\n        get { return teamName; }\n        set { teamName = value; }\n    }\n\n    public Player(string playerId,\n        string playerName, string teamName)\n    {\n        this.playerId = playerId;\n        this.playerName = playerName;\n        this.teamName = teamName;\n    }\n\n    public virtual bool PlayerPerformance()\n    {\n        return false;\n    }\n\n    public virtual void ShowInfo()\n    {\n        Console.WriteLine(\"ID: \" + playerId);\n        Console.WriteLine(\"Name: \" + playerName);\n        Console.WriteLine(\"Team: \" + teamName);\n    }\n}\n\nclass Batsman : Player\n{\n    private int totalRuns;\n    private double battingAverage;\n    private int highestScore;\n\n    public Batsman(string playerId,\n        string playerName, string teamName,\n        int totalRuns, double battingAverage,\n        int highestScore)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalRuns = totalRuns;\n        this.battingAverage = battingAverage;\n        this.highestScore = highestScore;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return battingAverage > 50;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Runs: \" + totalRuns);\n        Console.WriteLine(\"Average: \" + battingAverage);\n        Console.WriteLine(\"Highest: \" + highestScore);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass Bowler : Player\n{\n    private int totalWickets;\n    private double bowlingAverage;\n\n    public Bowler(string playerId,\n        string playerName, string teamName,\n        int totalWickets, double bowlingAverage)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalWickets = totalWickets;\n        this.bowlingAverage = bowlingAverage;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return totalWickets > 100;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Wickets: \" + totalWickets);\n        Console.WriteLine(\"Average: \" + bowlingAverage);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass AllRounder : Player\n{\n    private int totalRuns;\n    private int totalWickets;\n\n    public AllRounder(string playerId,\n        string playerName, string teamName,\n        int totalRuns, int totalWickets)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalRuns = totalRuns;\n        this.totalWickets = totalWickets;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return totalRuns > 1000 && totalWickets > 50;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Runs: \" + totalRuns);\n        Console.WriteLine(\"Wickets: \" + totalWickets);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Player[] players = new Player[4];\n        players[0] = new Batsman(\"P-1\", \"Tom Latham\",\n            \"NZ\", 6789, 57.3, 183);\n        players[1] = new Bowler(\"P-2\", \"Taskin Ahmed\",\n            \"BD\", 104, 23.2);\n        players[2] = new AllRounder(\"P-3\", \"Glenn Maxwell\",\n            \"AUS\", 7598, 98);\n        players[3] = new AllRounder(\"P-4\", \"Sam Curran\",\n            \"Eng\", 781, 60);\n\n        foreach (Player player in players)\n        {\n            player.ShowInfo();\n            Console.WriteLine();\n        }\n    }\n}",
+  "program": "using System;\n\nclass Player\n{\n    private string playerId;\n    private string playerName;\n    private string teamName;\n\n    public string PlayerId\n    {\n        get { return playerId; }\n        set { playerId = value; }\n    }\n\n    public string PlayerName\n    {\n        get { return playerName; }\n        set { playerName = value; }\n    }\n\n    public string TeamName\n    {\n        get { return teamName; }\n        set { teamName = value; }\n    }\n\n    public Player(string playerId,\n        string playerName, string teamName)\n    {\n        this.playerId = playerId;\n        this.playerName = playerName;\n        this.teamName = teamName;\n    }\n\n    public virtual bool PlayerPerformance()\n    {\n        return false;\n    }\n\n    public virtual void ShowInfo()\n    {\n        Console.WriteLine(\"ID: \" + playerId);\n        Console.WriteLine(\"Name: \" + playerName);\n        Console.WriteLine(\"Team: \" + teamName);\n    }\n}\n\nclass Batsman : Player\n{\n    private int totalRuns;\n    private double battingAverage;\n    private int highestScore;\n\n    public Batsman(string playerId,\n        string playerName, string teamName,\n        int totalRuns, double battingAverage,\n        int highestScore)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalRuns = totalRuns;\n        this.battingAverage = battingAverage;\n        this.highestScore = highestScore;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return battingAverage > 50;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Runs: \" + totalRuns);\n        Console.WriteLine(\"Average: \" + battingAverage);\n        Console.WriteLine(\"Highest: \" + highestScore);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass Bowler : Player\n{\n    private int totalWickets;\n    private double bowlingAverage;\n\n    public Bowler(string playerId,\n        string playerName, string teamName,\n        int totalWickets, double bowlingAverage)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalWickets = totalWickets;\n        this.bowlingAverage = bowlingAverage;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return totalWickets > 100;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Wickets: \" + totalWickets);\n        Console.WriteLine(\"Average: \" + bowlingAverage);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass AllRounder : Player\n{\n    private int totalRuns;\n    private int totalWickets;\n\n    public AllRounder(string playerId,\n        string playerName, string teamName,\n        int totalRuns, int totalWickets)\n        : base(playerId, playerName, teamName)\n    {\n        this.totalRuns = totalRuns;\n        this.totalWickets = totalWickets;\n    }\n\n    public override bool PlayerPerformance()\n    {\n        return totalRuns > 1000 && totalWickets > 50;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Runs: \" + totalRuns);\n        Console.WriteLine(\"Wickets: \" + totalWickets);\n        if (PlayerPerformance())\n        {\n            Console.WriteLine(\"Eligible: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Eligible: No\");\n        }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Player[] players = new Player[4];\n        players[0] = new Batsman(\"P-1\", \"Tom Latham\",\n            \"NZ\", 6789, 57.3, 183);\n        players[1] = new Bowler(\"P-2\", \"Taskin Ahmed\",\n            \"BD\", 104, 23.2);\n        players[2] = new AllRounder(\"P-3\", \"Glenn Maxwell\",\n            \"AUS\", 7598, 98);\n        players[3] = new AllRounder(\"P-4\", \"Sam Curran\",\n            \"Eng\", 781, 60);\n\n        foreach (Player player in players)\n        {\n            player.ShowInfo();\n            Console.WriteLine();\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "ID: P-1\nName: Tom Latham\nTeam: NZ\nRuns: 6789\nAverage: 57.3\nHighest: 183\nEligible: Yes\n\nID: P-2\nName: Taskin Ahmed\nTeam: BD\nWickets: 104\nAverage: 23.2\nEligible: Yes\n\nID: P-3\nName: Glenn Maxwell\nTeam: AUS\nRuns: 7598\nWickets: 98\nEligible: Yes\n\nID: P-4\nName: Sam Curran\nTeam: Eng\nRuns: 781\nWickets: 60\nEligible: No\n",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_static": {
+  "kind": "run",
+  "display": "class Counter\n{\n    public static int total = 0;\n    public int mine = 0;\n    public const double Rate = 0.5;\n    public readonly int id;\n\n    public Counter(int id)\n    {\n        this.id = id;\n        total++;\n        mine++;\n    }\n}\n// Main\nCounter a = new Counter(1);\nCounter b = new Counter(2);\nConsole.WriteLine(Counter.total);\nConsole.WriteLine(a.mine + \" \" + b.mine);\nConsole.WriteLine(Counter.Rate);\nConsole.WriteLine(a.id + \" \" + b.id);",
+  "program": "using System;\n\nclass Counter\n{\n    public static int total = 0;\n    public int mine = 0;\n    public const double Rate = 0.5;\n    public readonly int id;\n\n    public Counter(int id)\n    {\n        this.id = id;\n        total++;\n        mine++;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Counter a = new Counter(1);\n        Counter b = new Counter(2);\n        Console.WriteLine(Counter.total);\n        Console.WriteLine(a.mine + \" \" + b.mine);\n        Console.WriteLine(Counter.Rate);\n        Console.WriteLine(a.id + \" \" + b.id);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "2\n1 1\n0.5\n1 2",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_ro": {
+  "kind": "err",
+  "display": "class Box\n{\n    public readonly int size = 5;\n\n    public void Grow()\n    {\n        size = 10;\n    }\n}\n// Main\nBox b = new Box();",
+  "program": "using System;\n\nclass Box\n{\n    public readonly int size = 5;\n\n    public void Grow()\n    {\n        size = 10;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Box b = new Box();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 9,
+    "code": "CS0191",
+    "msg": "A readonly field cannot be assigned to (except in a constructor or init-only setter of the type in which the field is defined or a variable initializer)"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m3_constobj": {
+  "kind": "err",
+  "display": "class Counter\n{\n    public const double Rate = 0.5;\n}\n// Main\nCounter a = new Counter();\nConsole.WriteLine(a.Rate);",
+  "program": "using System;\n\nclass Counter\n{\n    public const double Rate = 0.5;\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Counter a = new Counter();\n        Console.WriteLine(a.Rate);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 13,
+    "code": "CS0176",
+    "msg": "Member 'Counter.Rate' cannot be accessed with an instance reference; qualify it with a type name instead"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m3_staticerr": {
+  "kind": "err",
+  "display": "class Shop\n{\n    private int items = 3;\n\n    public static void Show()\n    {\n        Console.WriteLine(items);\n    }\n}\n// Main\nShop.Show();",
+  "program": "using System;\n\nclass Shop\n{\n    private int items = 3;\n\n    public static void Show()\n    {\n        Console.WriteLine(items);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Shop.Show();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 9,
+    "code": "CS0120",
+    "msg": "An object reference is required for the non-static field, method, or property 'Shop.items'"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m3_refout": {
+  "kind": "run",
+  "display": "static void NoRef(int x)\n{\n    x = x + 5;\n}\n\nstatic void AddFive(ref int x)\n{\n    x = x + 5;\n}\n\nstatic void GetTwo(out int a, out int b)\n{\n    a = 1;\n    b = 2;\n}\n\nstatic int Sum(params int[] nums)\n{\n    int s = 0;\n    foreach (int n in nums)\n    {\n        s += n;\n    }\n    return s;\n}\n// Main\nint v = 10;\nNoRef(v);\nConsole.WriteLine(v);\nAddFive(ref v);\nConsole.WriteLine(v);\n\nint p, q;\nGetTwo(out p, out q);\nConsole.WriteLine(p + q);\n\nConsole.WriteLine(Sum());\nConsole.WriteLine(Sum(4));\nConsole.WriteLine(Sum(1, 2, 3));",
+  "program": "using System;\n\n\nclass Program\n{\n    static void NoRef(int x)\n    {\n        x = x + 5;\n    }\n    static void AddFive(ref int x)\n    {\n        x = x + 5;\n    }\n    static void GetTwo(out int a, out int b)\n    {\n        a = 1;\n        b = 2;\n    }\n    static int Sum(params int[] nums)\n    {\n        int s = 0;\n        foreach (int n in nums)\n        {\n            s += n;\n        }\n        return s;\n    }\n    static void Main()\n    {\n        int v = 10;\n        NoRef(v);\n        Console.WriteLine(v);\n        AddFive(ref v);\n        Console.WriteLine(v);\n\n        int p, q;\n        GetTwo(out p, out q);\n        Console.WriteLine(p + q);\n\n        Console.WriteLine(Sum());\n        Console.WriteLine(Sum(4));\n        Console.WriteLine(Sum(1, 2, 3));\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "10\n15\n3\n0\n4\n6",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_enum": {
+  "kind": "run",
+  "display": "enum Day { Sat, Sun, Mon = 10, Tue, Wed }\n// Main\nDay d = Day.Sun;\nConsole.WriteLine(d);\nConsole.WriteLine((int)d);\nConsole.WriteLine((int)Day.Tue);\nConsole.WriteLine(Day.Wed);",
+  "program": "using System;\n\nenum Day { Sat, Sun, Mon = 10, Tue, Wed }\n\nclass Program\n{\n    static void Main()\n    {\n        Day d = Day.Sun;\n        Console.WriteLine(d);\n        Console.WriteLine((int)d);\n        Console.WriteLine((int)Day.Tue);\n        Console.WriteLine(Day.Wed);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Sun\n1\n11\nWed",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_struct": {
+  "kind": "run",
+  "display": "struct Point\n{\n    public int x;\n    public int y;\n\n    public Point(int x, int y)\n    {\n        this.x = x;\n        this.y = y;\n    }\n}\n\nclass Spot\n{\n    public int x;\n}\n// Main\nPoint p1 = new Point(1, 2);\nPoint p2 = p1;\np2.x = 50;\nConsole.WriteLine(p1.x + \" \" + p2.x);\n\nSpot s1 = new Spot();\nSpot s2 = s1;\ns2.x = 50;\nConsole.WriteLine(s1.x + \" \" + s2.x);\n\nConsole.WriteLine(p1);",
+  "program": "using System;\n\nstruct Point\n{\n    public int x;\n    public int y;\n\n    public Point(int x, int y)\n    {\n        this.x = x;\n        this.y = y;\n    }\n}\nclass Spot\n{\n    public int x;\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Point p1 = new Point(1, 2);\n        Point p2 = p1;\n        p2.x = 50;\n        Console.WriteLine(p1.x + \" \" + p2.x);\n\n        Spot s1 = new Spot();\n        Spot s2 = s1;\n        s2.x = 50;\n        Console.WriteLine(s1.x + \" \" + s2.x);\n\n        Console.WriteLine(p1);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "1 50\n50 50\nPoint",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_box": {
+  "kind": "run",
+  "display": "int n = 10;\nobject o = n;\nint back = (int)o;\nConsole.WriteLine(o);\nConsole.WriteLine(back + 1);\n\nvar word = \"Hi\";\nvar num = 5;\nConsole.WriteLine(word + num);\n\ndynamic d = 10;\nConsole.WriteLine(d);\nd = \"now text\";\nConsole.WriteLine(d);\n\nint? age = null;\nConsole.WriteLine(age);\nage = 20;\nConsole.WriteLine(age);\n\nConsole.WriteLine(n.GetType());\nConsole.WriteLine(word.GetType());",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int n = 10;\n        object o = n;\n        int back = (int)o;\n        Console.WriteLine(o);\n        Console.WriteLine(back + 1);\n\n        var word = \"Hi\";\n        var num = 5;\n        Console.WriteLine(word + num);\n\n        dynamic d = 10;\n        Console.WriteLine(d);\n        d = \"now text\";\n        Console.WriteLine(d);\n\n        int? age = null;\n        Console.WriteLine(age);\n        age = 20;\n        Console.WriteLine(age);\n\n        Console.WriteLine(n.GetType());\n        Console.WriteLine(word.GetType());\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "10\n11\nHi5\n10\nnow text\n\n20\nSystem.Int32\nSystem.String",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_tostring": {
+  "kind": "run",
+  "display": "class Car\n{\n}\n\nclass Bike\n{\n    public override string ToString()\n    {\n        return \"I am a bike\";\n    }\n}\n// Main\nCar c = new Car();\nBike b = new Bike();\nConsole.WriteLine(c);\nConsole.WriteLine(b);\nConsole.WriteLine(c.GetType());",
+  "program": "using System;\n\nclass Car\n{\n}\nclass Bike\n{\n    public override string ToString()\n    {\n        return \"I am a bike\";\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Car c = new Car();\n        Bike b = new Bike();\n        Console.WriteLine(c);\n        Console.WriteLine(b);\n        Console.WriteLine(c.GetType());\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Car\nI am a bike\nCar",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_overload": {
+  "kind": "run",
+  "display": "class Calc\n{\n    public int Add(int a, int b)\n    {\n        return a + b;\n    }\n\n    public double Add(double a, double b)\n    {\n        return a + b;\n    }\n\n    public int Add(int a, int b, int c)\n    {\n        return a + b + c;\n    }\n}\n// Main\nCalc k = new Calc();\nConsole.WriteLine(k.Add(2, 3));\nConsole.WriteLine(k.Add(2.5, 1.5));\nConsole.WriteLine(k.Add(1, 2, 3));",
+  "program": "using System;\n\nclass Calc\n{\n    public int Add(int a, int b)\n    {\n        return a + b;\n    }\n\n    public double Add(double a, double b)\n    {\n        return a + b;\n    }\n\n    public int Add(int a, int b, int c)\n    {\n        return a + b + c;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Calc k = new Calc();\n        Console.WriteLine(k.Add(2, 3));\n        Console.WriteLine(k.Add(2.5, 1.5));\n        Console.WriteLine(k.Add(1, 2, 3));\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "5\n4\n6",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_access": {
+  "kind": "run",
+  "display": "class Teacher\n{\n    public string name = \"Rafi\";\n    private int salary = 50000;\n    protected string subject = \"C#\";\n    internal string dept = \"CSE\";\n    protected internal string room = \"9310K\";\n\n    public int GetSalary()\n    {\n        return salary;\n    }\n}\n\nclass Senior : Teacher\n{\n    public void Show()\n    {\n        Console.WriteLine(subject + \" \" + room + \" \" + dept);\n    }\n}\n// Main\nTeacher t = new Teacher();\nConsole.WriteLine(t.name + \" \" + t.GetSalary());\nConsole.WriteLine(t.dept + \" \" + t.room);\nSenior s = new Senior();\ns.Show();",
+  "program": "using System;\n\nclass Teacher\n{\n    public string name = \"Rafi\";\n    private int salary = 50000;\n    protected string subject = \"C#\";\n    internal string dept = \"CSE\";\n    protected internal string room = \"9310K\";\n\n    public int GetSalary()\n    {\n        return salary;\n    }\n}\nclass Senior : Teacher\n{\n    public void Show()\n    {\n        Console.WriteLine(subject + \" \" + room + \" \" + dept);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Teacher t = new Teacher();\n        Console.WriteLine(t.name + \" \" + t.GetSalary());\n        Console.WriteLine(t.dept + \" \" + t.room);\n        Senior s = new Senior();\n        s.Show();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Rafi 50000\nCSE 9310K\nC# 9310K CSE",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_access_err": {
+  "kind": "err",
+  "display": "class Teacher\n{\n    private int salary = 50000;\n    protected string subject = \"C#\";\n}\n// Main\nTeacher t = new Teacher();\nConsole.WriteLine(t.salary);\nConsole.WriteLine(t.subject);",
+  "program": "using System;\n\nclass Teacher\n{\n    private int salary = 50000;\n    protected string subject = \"C#\";\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Teacher t = new Teacher();\n        Console.WriteLine(t.salary);\n        Console.WriteLine(t.subject);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 14,
+    "code": "CS0122",
+    "msg": "'Teacher.salary' is inaccessible due to its protection level"
+   },
+   {
+    "line": 15,
+    "code": "CS0122",
+    "msg": "'Teacher.subject' is inaccessible due to its protection level"
+   }
+  ],
+  "warnings": [
+   {
+    "line": 5,
+    "code": "CS0414",
+    "msg": "The field 'Teacher.salary' is assigned but its value is never used"
+   }
+  ],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "m3_abstract": {
+  "kind": "run",
+  "display": "abstract class Shape\n{\n    public abstract double Area();\n\n    public void Print()\n    {\n        Console.WriteLine(\"Area = \" + Area());\n    }\n}\n\nclass Square : Shape\n{\n    private double side;\n\n    public Square(double side)\n    {\n        this.side = side;\n    }\n\n    public override double Area()\n    {\n        return side * side;\n    }\n}\n// Main\nShape s = new Square(3);\ns.Print();",
+  "program": "using System;\n\nabstract class Shape\n{\n    public abstract double Area();\n\n    public void Print()\n    {\n        Console.WriteLine(\"Area = \" + Area());\n    }\n}\nclass Square : Shape\n{\n    private double side;\n\n    public Square(double side)\n    {\n        this.side = side;\n    }\n\n    public override double Area()\n    {\n        return side * side;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Shape s = new Square(3);\n        s.Print();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Area = 9",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_old31": {
+  "kind": "full",
+  "display": "using System;\n\nnamespace Pack\n{\n    public class A\n    {\n        internal int num = 10;\n    }\n\n    public class B : A\n    {\n        protected internal int val = 30;\n    }\n\n    public class Alpha\n    {\n        protected static string data = \"Start \";\n\n        protected Alpha()\n        {\n            data += \"alpha \";\n        }\n    }\n\n    class SubAlpha : Alpha\n    {\n        public SubAlpha()\n        {\n            data += \"subalpha \";\n        }\n\n        public void ShowData()\n        {\n            Console.WriteLine(data);\n        }\n    }\n\n    public class SubSubAlpha : Alpha\n    {\n        public SubSubAlpha()\n        {\n            data += \"subsubalpha \";\n        }\n\n        public static void DisplayNum(A objA)\n        {\n            Console.WriteLine(objA.num);\n        }\n\n        public static void DisplayVal(B objB)\n        {\n            Console.WriteLine(objB.val);\n        }\n\n        public static void Main(string[] args)\n        {\n            A objA = new A();\n            objA.num = 40;\n            B objB = new B();\n            objB.val = 50;\n            DisplayNum(objA);\n            DisplayNum(objB);\n            DisplayVal(objB);\n\n            Console.WriteLine(data);\n            Console.WriteLine(\"Determine:\");\n\n            data = \"Reset \";\n            new SubSubAlpha();\n            Console.WriteLine(data);\n\n            Console.WriteLine(\"Final data = \" + data);\n            Console.WriteLine(\"Final num = \" + objA.num);\n        }\n    }\n}",
+  "program": "using System;\n\nnamespace Pack\n{\n    public class A\n    {\n        internal int num = 10;\n    }\n\n    public class B : A\n    {\n        protected internal int val = 30;\n    }\n\n    public class Alpha\n    {\n        protected static string data = \"Start \";\n\n        protected Alpha()\n        {\n            data += \"alpha \";\n        }\n    }\n\n    class SubAlpha : Alpha\n    {\n        public SubAlpha()\n        {\n            data += \"subalpha \";\n        }\n\n        public void ShowData()\n        {\n            Console.WriteLine(data);\n        }\n    }\n\n    public class SubSubAlpha : Alpha\n    {\n        public SubSubAlpha()\n        {\n            data += \"subsubalpha \";\n        }\n\n        public static void DisplayNum(A objA)\n        {\n            Console.WriteLine(objA.num);\n        }\n\n        public static void DisplayVal(B objB)\n        {\n            Console.WriteLine(objB.val);\n        }\n\n        public static void Main(string[] args)\n        {\n            A objA = new A();\n            objA.num = 40;\n            B objB = new B();\n            objB.val = 50;\n            DisplayNum(objA);\n            DisplayNum(objB);\n            DisplayVal(objB);\n\n            Console.WriteLine(data);\n            Console.WriteLine(\"Determine:\");\n\n            data = \"Reset \";\n            new SubSubAlpha();\n            Console.WriteLine(data);\n\n            Console.WriteLine(\"Final data = \" + data);\n            Console.WriteLine(\"Final num = \" + objA.num);\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "40\n10\n50\nStart \nDetermine:\nReset alpha subsubalpha \nFinal data = Reset alpha subsubalpha \nFinal num = 40",
+  "exc": null,
+  "exit": 0
+ },
+ "m3_oldD": {
+  "kind": "show",
+  "display": "namespace M1\n{\n    public class One\n    {\n        private protected string m;\n        public const double n;\n        internal byte o;\n        protected internal byte p;\n    }\n\n    public class Two : One\n    {\n        public readonly byte i = 9;\n        public void M() { }\n    }\n\n    class Program : Two\n    {\n        static void Main(string[] args)\n        {\n            One obj1 = new One();\n        }\n    }\n}\n\nnamespace M2   // Here, M2 has a reference of M1 (another assembly)\n{\n    class Three\n    {\n        internal string a;\n        internal Three() { }\n        internal Three(byte i) { }\n        internal Three(char d) { }\n    }\n\n    public class Four : M1.One\n    {\n        string p1;\n        protected int q1;\n        public void F1() { }\n    }\n\n    class Program : Four\n    {\n        public void F2(params int[] y)\n        {\n            Three obj2 = new Three();\n        }\n    }\n}",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        namespace M1\n        {\n            public class One\n            {\n                private protected string m;\n                public const double n;\n                internal byte o;\n                protected internal byte p;\n            }\n\n            public class Two : One\n            {\n                public readonly byte i = 9;\n                public void M() { }\n            }\n\n            class Program : Two\n            {\n                static void Main(string[] args)\n                {\n                    One obj1 = new One();\n                }\n            }\n        }\n\n        namespace M2   // Here, M2 has a reference of M1 (another assembly)\n        {\n            class Three\n            {\n                internal string a;\n                internal Three() { }\n                internal Three(byte i) { }\n                internal Three(char d) { }\n            }\n\n            public class Four : M1.One\n            {\n                string p1;\n                protected int q1;\n                public void F1() { }\n            }\n\n            class Program : Four\n            {\n                public void F2(params int[] y)\n                {\n                    Three obj2 = new Three();\n                }\n            }\n        }\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 7,
+    "code": "CS1513",
+    "msg": "} expected"
+   },
+   {
+    "line": 13,
+    "code": "CS0145",
+    "msg": "A const field requires a value to be provided"
+   },
+   {
+    "line": 58,
+    "code": "CS1022",
+    "msg": "Type or namespace definition, or end-of-file expected"
+   },
+   {
+    "line": 59,
+    "code": "CS1022",
+    "msg": "Type or namespace definition, or end-of-file expected"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "k_q31": {
+  "kind": "run",
+  "display": "class Vehicle\n{\n    protected static int made = 0;\n    protected string tag;\n\n    public Vehicle()\n    {\n        made++;\n        tag = \"V\" + made;\n        Console.WriteLine(\"Vehicle \" + tag);\n    }\n\n    public virtual void Info()\n    {\n        Console.WriteLine(tag + \" is a vehicle\");\n    }\n\n    public static void Count()\n    {\n        Console.WriteLine(\"Made: \" + made);\n    }\n}\n\nclass Car : Vehicle\n{\n    private int seats;\n\n    public Car(int seats)\n    {\n        this.seats = seats;\n        Console.WriteLine(\"Car with \" + seats + \" seats\");\n    }\n\n    public override void Info()\n    {\n        base.Info();\n        Console.WriteLine(tag + \" has \" + seats + \" seats\");\n    }\n}\n\nclass Bus : Car\n{\n    public Bus() : base(40)\n    {\n        tag = tag + \"-B\";\n        Console.WriteLine(\"Bus \" + tag);\n    }\n\n    public new void Info()\n    {\n        Console.WriteLine(tag + \" is a bus\");\n    }\n}\n// Main\nVehicle v = new Car(4);\nCar c = new Bus();\nBus b = (Bus)c;\nv.Info();\nc.Info();\nb.Info();\nVehicle.Count();",
+  "program": "using System;\n\nclass Vehicle\n{\n    protected static int made = 0;\n    protected string tag;\n\n    public Vehicle()\n    {\n        made++;\n        tag = \"V\" + made;\n        Console.WriteLine(\"Vehicle \" + tag);\n    }\n\n    public virtual void Info()\n    {\n        Console.WriteLine(tag + \" is a vehicle\");\n    }\n\n    public static void Count()\n    {\n        Console.WriteLine(\"Made: \" + made);\n    }\n}\nclass Car : Vehicle\n{\n    private int seats;\n\n    public Car(int seats)\n    {\n        this.seats = seats;\n        Console.WriteLine(\"Car with \" + seats + \" seats\");\n    }\n\n    public override void Info()\n    {\n        base.Info();\n        Console.WriteLine(tag + \" has \" + seats + \" seats\");\n    }\n}\nclass Bus : Car\n{\n    public Bus() : base(40)\n    {\n        tag = tag + \"-B\";\n        Console.WriteLine(\"Bus \" + tag);\n    }\n\n    public new void Info()\n    {\n        Console.WriteLine(tag + \" is a bus\");\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Vehicle v = new Car(4);\n        Car c = new Bus();\n        Bus b = (Bus)c;\n        v.Info();\n        c.Info();\n        b.Info();\n        Vehicle.Count();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "Vehicle V1\nCar with 4 seats\nVehicle V2\nCar with 40 seats\nBus V2-B\nV1 is a vehicle\nV1 has 4 seats\nV2-B is a vehicle\nV2-B has 40 seats\nV2-B is a bus\nMade: 2",
+  "exc": null,
+  "exit": 0
+ },
+ "k_q32": {
+  "kind": "run",
+  "display": "int[][] t = new int[3][];\nt[0] = new int[] { 5, 10, 15, 20, 25 };\nt[1] = new int[3];\nt[2] = new int[] { 3, 6, 9 };\n\nfor (int i = 0; i < t[1].Length; i++)\n{\n    t[1][i] = t[0][i * 2] - t[2][i];\n}\n\nfor (int r = t.Length - 1; r >= 0; r--)\n{\n    for (int c = 0; c < t[r].Length; c += 2)\n    {\n        Console.Write(\"{0} \", t[r][c]);\n    }\n    Console.WriteLine();\n}\n\nint sum = 0;\nforeach (int[] row in t)\n{\n    sum += row[row.Length - 1];\n}\nConsole.WriteLine(\"Sum of last items = \" + sum);\nConsole.WriteLine(t[0].Length + t[1].Length * 2);\nConsole.WriteLine(\"t[2][1] / 4 = \" + t[2][1] / 4);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[][] t = new int[3][];\n        t[0] = new int[] { 5, 10, 15, 20, 25 };\n        t[1] = new int[3];\n        t[2] = new int[] { 3, 6, 9 };\n\n        for (int i = 0; i < t[1].Length; i++)\n        {\n            t[1][i] = t[0][i * 2] - t[2][i];\n        }\n\n        for (int r = t.Length - 1; r >= 0; r--)\n        {\n            for (int c = 0; c < t[r].Length; c += 2)\n            {\n                Console.Write(\"{0} \", t[r][c]);\n            }\n            Console.WriteLine();\n        }\n\n        int sum = 0;\n        foreach (int[] row in t)\n        {\n            sum += row[row.Length - 1];\n        }\n        Console.WriteLine(\"Sum of last items = \" + sum);\n        Console.WriteLine(t[0].Length + t[1].Length * 2);\n        Console.WriteLine(\"t[2][1] / 4 = \" + t[2][1] / 4);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "3 9 \n2 16 \n5 15 25 \nSum of last items = 50\n11\nt[2][1] / 4 = 1",
+  "exc": null,
+  "exit": 0
+ },
+ "k_main": {
+  "kind": "show",
+  "display": "Student[] list = new Student[4];\nlist[0] = new Undergraduate(\"22-1001-1\", \"Nila\", 3.86, 45);\nlist[1] = new Graduate(\"21-2002-2\", \"Rafi\", 3.60, 1);\nlist[2] = new Athlete(\"23-3003-3\", \"Karim\", 2.75, 4);\nlist[3] = new Undergraduate(\"22-4004-1\", \"Mim\", 3.80, 24);\n\nforeach (Student s in list)\n{\n    s.ShowInfo();\n    Console.WriteLine();\n}",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        Student[] list = new Student[4];\n        list[0] = new Undergraduate(\"22-1001-1\", \"Nila\", 3.86, 45);\n        list[1] = new Graduate(\"21-2002-2\", \"Rafi\", 3.60, 1);\n        list[2] = new Athlete(\"23-3003-3\", \"Karim\", 2.75, 4);\n        list[3] = new Undergraduate(\"22-4004-1\", \"Mim\", 3.80, 24);\n\n        foreach (Student s in list)\n        {\n            s.ShowInfo();\n            Console.WriteLine();\n        }\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 8,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Student' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 8,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Student' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 9,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Undergraduate' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 10,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Graduate' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 11,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Athlete' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 12,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Undergraduate' could not be found (are you missing a using directive or an assembly reference?)"
+   },
+   {
+    "line": 14,
+    "code": "CS0246",
+    "msg": "The type or namespace name 'Student' could not be found (are you missing a using directive or an assembly reference?)"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "k_c": {
+  "kind": "full",
+  "display": "using System;\n\nclass Student\n{\n    private string studentId;\n    private string name;\n    private double cgpa;\n\n    public string StudentId\n    {\n        get { return studentId; }\n        set { studentId = value; }\n    }\n\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public double Cgpa\n    {\n        get { return cgpa; }\n        set { cgpa = value; }\n    }\n\n    public Student(string studentId,\n        string name, double cgpa)\n    {\n        this.studentId = studentId;\n        this.name = name;\n        this.cgpa = cgpa;\n    }\n\n    public virtual bool IsEligible()\n    {\n        return false;\n    }\n\n    public virtual void ShowInfo()\n    {\n        Console.WriteLine(\"ID: \" + studentId);\n        Console.WriteLine(\"Name: \" + name);\n        Console.WriteLine(\"CGPA: \" + cgpa);\n    }\n}\n\nclass Undergraduate : Student\n{\n    private int completedCredits;\n\n    public Undergraduate(string studentId,\n        string name, double cgpa,\n        int completedCredits)\n        : base(studentId, name, cgpa)\n    {\n        this.completedCredits = completedCredits;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 3.75 && completedCredits >= 30;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Credits: \" + completedCredits);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Graduate : Student\n{\n    private int publications;\n\n    public Graduate(string studentId,\n        string name, double cgpa,\n        int publications)\n        : base(studentId, name, cgpa)\n    {\n        this.publications = publications;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 3.5 && publications >= 2;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Publications: \" + publications);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Athlete : Student\n{\n    private int medals;\n\n    public Athlete(string studentId,\n        string name, double cgpa, int medals)\n        : base(studentId, name, cgpa)\n    {\n        this.medals = medals;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 2.5 && medals >= 3;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Medals: \" + medals);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Student[] list = new Student[4];\n        list[0] = new Undergraduate(\"22-1001-1\", \"Nila\", 3.86, 45);\n        list[1] = new Graduate(\"21-2002-2\", \"Rafi\", 3.60, 1);\n        list[2] = new Athlete(\"23-3003-3\", \"Karim\", 2.75, 4);\n        list[3] = new Undergraduate(\"22-4004-1\", \"Mim\", 3.80, 24);\n\n        foreach (Student s in list)\n        {\n            s.ShowInfo();\n            Console.WriteLine();\n        }\n    }\n}",
+  "program": "using System;\n\nclass Student\n{\n    private string studentId;\n    private string name;\n    private double cgpa;\n\n    public string StudentId\n    {\n        get { return studentId; }\n        set { studentId = value; }\n    }\n\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n\n    public double Cgpa\n    {\n        get { return cgpa; }\n        set { cgpa = value; }\n    }\n\n    public Student(string studentId,\n        string name, double cgpa)\n    {\n        this.studentId = studentId;\n        this.name = name;\n        this.cgpa = cgpa;\n    }\n\n    public virtual bool IsEligible()\n    {\n        return false;\n    }\n\n    public virtual void ShowInfo()\n    {\n        Console.WriteLine(\"ID: \" + studentId);\n        Console.WriteLine(\"Name: \" + name);\n        Console.WriteLine(\"CGPA: \" + cgpa);\n    }\n}\n\nclass Undergraduate : Student\n{\n    private int completedCredits;\n\n    public Undergraduate(string studentId,\n        string name, double cgpa,\n        int completedCredits)\n        : base(studentId, name, cgpa)\n    {\n        this.completedCredits = completedCredits;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 3.75 && completedCredits >= 30;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Credits: \" + completedCredits);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Graduate : Student\n{\n    private int publications;\n\n    public Graduate(string studentId,\n        string name, double cgpa,\n        int publications)\n        : base(studentId, name, cgpa)\n    {\n        this.publications = publications;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 3.5 && publications >= 2;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Publications: \" + publications);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Athlete : Student\n{\n    private int medals;\n\n    public Athlete(string studentId,\n        string name, double cgpa, int medals)\n        : base(studentId, name, cgpa)\n    {\n        this.medals = medals;\n    }\n\n    public override bool IsEligible()\n    {\n        return Cgpa >= 2.5 && medals >= 3;\n    }\n\n    public override void ShowInfo()\n    {\n        base.ShowInfo();\n        Console.WriteLine(\"Medals: \" + medals);\n        if (IsEligible())\n        {\n            Console.WriteLine(\"Scholarship: Yes\");\n        }\n        else\n        {\n            Console.WriteLine(\"Scholarship: No\");\n        }\n    }\n}\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        Student[] list = new Student[4];\n        list[0] = new Undergraduate(\"22-1001-1\", \"Nila\", 3.86, 45);\n        list[1] = new Graduate(\"21-2002-2\", \"Rafi\", 3.60, 1);\n        list[2] = new Athlete(\"23-3003-3\", \"Karim\", 2.75, 4);\n        list[3] = new Undergraduate(\"22-4004-1\", \"Mim\", 3.80, 24);\n\n        foreach (Student s in list)\n        {\n            s.ShowInfo();\n            Console.WriteLine();\n        }\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "ID: 22-1001-1\nName: Nila\nCGPA: 3.86\nCredits: 45\nScholarship: Yes\n\nID: 21-2002-2\nName: Rafi\nCGPA: 3.6\nPublications: 1\nScholarship: No\n\nID: 23-3003-3\nName: Karim\nCGPA: 2.75\nMedals: 4\nScholarship: Yes\n\nID: 22-4004-1\nName: Mim\nCGPA: 3.8\nCredits: 24\nScholarship: No\n",
+  "exc": null,
+  "exit": 0
+ },
+ "k_d": {
+  "kind": "show",
+  "display": "namespace Shop\n{\n    public class Item\n    {\n        private int code;\n        protected string label;\n        internal double price;\n        protected internal int stock;\n        private protected bool onSale;\n        public const int MaxStock = 500;\n        public readonly string brand = \"AIUB\";\n\n        public Item() { }\n        public Item(string label) { this.label = label; }\n        public Item(string label, double price) { this.label = label; this.price = price; }\n\n        public virtual void Show() { }\n        public void Restock(ref int amount) { }\n    }\n\n    public class Phone : Item\n    {\n        public override void Show() { }\n        public void Discount(params double[] rates) { }\n    }\n\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Item it = new Item(\"Pen\");\n            Phone ph = new Phone();\n        }\n    }\n}\n\nnamespace Online   // Online is another assembly that has a reference to Shop\n{\n    class Tablet : Shop.Item\n    {\n        public void Check() { }\n    }\n}",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        namespace Shop\n        {\n            public class Item\n            {\n                private int code;\n                protected string label;\n                internal double price;\n                protected internal int stock;\n                private protected bool onSale;\n                public const int MaxStock = 500;\n                public readonly string brand = \"AIUB\";\n\n                public Item() { }\n                public Item(string label) { this.label = label; }\n                public Item(string label, double price) { this.label = label; this.price = price; }\n\n                public virtual void Show() { }\n                public void Restock(ref int amount) { }\n            }\n\n            public class Phone : Item\n            {\n                public override void Show() { }\n                public void Discount(params double[] rates) { }\n            }\n\n            class Program\n            {\n                static void Main(string[] args)\n                {\n                    Item it = new Item(\"Pen\");\n                    Phone ph = new Phone();\n                }\n            }\n        }\n\n        namespace Online   // Online is another assembly that has a reference to Shop\n        {\n            class Tablet : Shop.Item\n            {\n                public void Check() { }\n            }\n        }\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 7,
+    "code": "CS1513",
+    "msg": "} expected"
+   },
+   {
+    "line": 51,
+    "code": "CS1022",
+    "msg": "Type or namespace definition, or end-of-file expected"
+   },
+   {
+    "line": 52,
+    "code": "CS1022",
+    "msg": "Type or namespace definition, or end-of-file expected"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_ctor_gone": {
+  "kind": "err",
+  "display": "class Car\n{\n    private string model;\n\n    public Car(string model)\n    {\n        this.model = model;\n    }\n}\n// Main\nCar c = new Car();",
+  "program": "using System;\n\nclass Car\n{\n    private string model;\n\n    public Car(string model)\n    {\n        this.model = model;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Car c = new Car();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 17,
+    "code": "CS7036",
+    "msg": "There is no argument given that corresponds to the required parameter 'model' of 'Car.Car(string)'"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_down": {
+  "kind": "err",
+  "display": "class Parent\n{\n}\n\nclass Child : Parent\n{\n}\n// Main\nChild c = new Parent();",
+  "program": "using System;\n\nclass Parent\n{\n}\nclass Child : Parent\n{\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Child c = new Parent();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 14,
+    "code": "CS0266",
+    "msg": "Cannot implicitly convert type 'Parent' to 'Child'. An explicit conversion exists (are you missing a cast?)"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_hide": {
+  "kind": "warn",
+  "display": "class Parent\n{\n    public void Hi()\n    {\n        Console.WriteLine(\"Parent\");\n    }\n}\n\nclass Child : Parent\n{\n    public void Hi()\n    {\n        Console.WriteLine(\"Child\");\n    }\n}\n// Main\nParent p = new Child();\np.Hi();",
+  "program": "using System;\n\nclass Parent\n{\n    public void Hi()\n    {\n        Console.WriteLine(\"Parent\");\n    }\n}\nclass Child : Parent\n{\n    public void Hi()\n    {\n        Console.WriteLine(\"Child\");\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Parent p = new Child();\n        p.Hi();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [
+   {
+    "line": 12,
+    "code": "CS0108",
+    "msg": "'Child.Hi()' hides inherited member 'Parent.Hi()'. Use the new keyword if hiding was intended."
+   }
+  ],
+  "stdout": "Parent",
+  "exc": null,
+  "exit": 0
+ },
+ "x_struct_inherit": {
+  "kind": "err",
+  "display": "class Base\n{\n}\n\nstruct S : Base\n{\n}\n// Main\nS s = new S();",
+  "program": "using System;\n\nclass Base\n{\n}\nstruct S : Base\n{\n}\n\nclass Program\n{\n    static void Main()\n    {\n        S s = new S();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 6,
+    "code": "CS0527",
+    "msg": "Type 'Base' in interface list is not an interface"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_out_unassigned": {
+  "kind": "err",
+  "display": "static void F(out int a)\n{\n}\n// Main\nint x;\nF(out x);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void F(out int a)\n    {\n    }\n    static void Main()\n    {\n        int x;\n        F(out x);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 6,
+    "code": "CS0177",
+    "msg": "The out parameter 'a' must be assigned to before control leaves the current method"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_ref_literal": {
+  "kind": "err",
+  "display": "static void F(ref int a)\n{\n}\n// Main\nF(ref 5);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void F(ref int a)\n    {\n    }\n    static void Main()\n    {\n        F(ref 5);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 11,
+    "code": "CS1510",
+    "msg": "A ref or out value must be an assignable variable"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_override_nonvirtual": {
+  "kind": "err",
+  "display": "class Parent\n{\n    public void Hi()\n    {\n    }\n}\n\nclass Child : Parent\n{\n    public override void Hi()\n    {\n    }\n}\n// Main\nChild c = new Child();",
+  "program": "using System;\n\nclass Parent\n{\n    public void Hi()\n    {\n    }\n}\nclass Child : Parent\n{\n    public override void Hi()\n    {\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Child c = new Child();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 11,
+    "code": "CS0506",
+    "msg": "'Child.Hi()': cannot override inherited member 'Parent.Hi()' because it is not marked virtual, abstract, or override"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_params_last": {
+  "kind": "err",
+  "display": "static void F(params int[] a, int b)\n{\n}\n// Main\nF(1);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void F(params int[] a, int b)\n    {\n    }\n    static void Main()\n    {\n        F(1);\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 6,
+    "code": "CS0231",
+    "msg": "A params parameter must be the last parameter in a parameter list"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_out_first": {
+  "kind": "run",
+  "display": "static void F(out int a, int b)\n{\n    a = b * 2;\n}\n// Main\nint x;\nF(out x, 4);\nConsole.WriteLine(x);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void F(out int a, int b)\n    {\n        a = b * 2;\n    }\n    static void Main()\n    {\n        int x;\n        F(out x, 4);\n        Console.WriteLine(x);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "8",
+  "exc": null,
+  "exit": 0
+ },
+ "x_sealed": {
+  "kind": "err",
+  "display": "sealed class A\n{\n}\n\nclass B : A\n{\n}\n// Main\nB b = new B();",
+  "program": "using System;\n\nsealed class A\n{\n}\nclass B : A\n{\n}\n\nclass Program\n{\n    static void Main()\n    {\n        B b = new B();\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 6,
+    "code": "CS0509",
+    "msg": "'B': cannot derive from sealed type 'A'"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_var_noinit": {
+  "kind": "err",
+  "display": "var x;\nx = 5;",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        var x;\n        x = 5;\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 8,
+    "code": "CS0818",
+    "msg": "Implicitly-typed variables must be initialized"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_abstract_ctor": {
+  "kind": "run",
+  "display": "abstract class Shape\n{\n    protected string name;\n\n    public Shape(string name)\n    {\n        this.name = name;\n    }\n}\n\nclass Circle : Shape\n{\n    public Circle() : base(\"circle\")\n    {\n        Console.WriteLine(name);\n    }\n}\n// Main\nShape s = new Circle();",
+  "program": "using System;\n\nabstract class Shape\n{\n    protected string name;\n\n    public Shape(string name)\n    {\n        this.name = name;\n    }\n}\nclass Circle : Shape\n{\n    public Circle() : base(\"circle\")\n    {\n        Console.WriteLine(name);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Shape s = new Circle();\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "circle",
+  "exc": null,
+  "exit": 0
+ },
+ "x_xyz": {
+  "kind": "run",
+  "display": "enum xyz { a, b, c, d }\n// Main\nConsole.WriteLine(\"{0}\", (int)xyz.c);",
+  "program": "using System;\n\nenum xyz { a, b, c, d }\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"{0}\", (int)xyz.c);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "2",
+  "exc": null,
+  "exit": 0
+ },
+ "x_q29": {
+  "kind": "rte",
+  "display": "int[][] jaggedArray = new int[2][];\njaggedArray[0] = new int[] { 1, 2 };\njaggedArray[1] = new int[] { 3, 4, 5 };\nConsole.WriteLine(jaggedArray[1][3]);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[][] jaggedArray = new int[2][];\n        jaggedArray[0] = new int[] { 1, 2 };\n        jaggedArray[1] = new int[] { 3, 4, 5 };\n        Console.WriteLine(jaggedArray[1][3]);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "",
+  "exc": "Unhandled Exception: System.IndexOutOfRangeException: Index was outside the bounds of the array.",
+  "exit": 3762504530
+ },
+ "x_level": {
+  "kind": "run",
+  "display": "enum Level { Low = 5, Mid, High }\n// Main\nConsole.WriteLine((int)Level.High);",
+  "program": "using System;\n\nenum Level { Low = 5, Mid, High }\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine((int)Level.High);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "7",
+  "exc": null,
+  "exit": 0
+ },
+ "x_params_calls": {
+  "kind": "run",
+  "display": "static void F(params int[] x)\n{\n    Console.WriteLine(x.Length);\n}\n// Main\nF();\nF(1, 2);\nF(new int[] { 1, 2, 3 });",
+  "program": "using System;\n\n\nclass Program\n{\n    static void F(params int[] x)\n    {\n        Console.WriteLine(x.Length);\n    }\n    static void Main()\n    {\n        F();\n        F(1, 2);\n        F(new int[] { 1, 2, 3 });\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "0\n2\n3",
+  "exc": null,
+  "exit": 0
+ },
+ "x_bool_cast": {
+  "kind": "err",
+  "display": "byte b = (bool)1;",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        byte b = (bool)1;\n    }\n}",
+  "compiled": false,
+  "errors": [
+   {
+    "line": 8,
+    "code": "CS0030",
+    "msg": "Cannot convert type 'int' to 'bool'"
+   }
+  ],
+  "warnings": [],
+  "stdout": null,
+  "exc": null,
+  "exit": null
+ },
+ "x_q11": {
+  "kind": "run",
+  "display": "int[] array2 = new int[] { 1, 3, 5, 7, 9 };\nConsole.WriteLine(array2.Length);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Main()\n    {\n        int[] array2 = new int[] { 1, 3, 5, 7, 9 };\n        Console.WriteLine(array2.Length);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "5",
+  "exc": null,
+  "exit": 0
+ },
+ "x_two_out": {
+  "kind": "run",
+  "display": "static void Two(out int a, out int b)\n{\n    a = 3;\n    b = 4;\n}\n// Main\nint p, q;\nTwo(out p, out q);\nConsole.WriteLine(p * q);",
+  "program": "using System;\n\n\nclass Program\n{\n    static void Two(out int a, out int b)\n    {\n        a = 3;\n        b = 4;\n    }\n    static void Main()\n    {\n        int p, q;\n        Two(out p, out q);\n        Console.WriteLine(p * q);\n    }\n}",
+  "compiled": true,
+  "errors": [],
+  "warnings": [],
+  "stdout": "12",
+  "exc": null,
+  "exit": 0
+ }
+}

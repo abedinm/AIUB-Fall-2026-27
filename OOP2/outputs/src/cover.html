@@ -1,0 +1,92 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cover</title>
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    width: 210mm; height: 296.5mm; overflow: hidden; position: relative;
+    background: #15233b;
+    color: #f4efe4;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  .frame { position: absolute; top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; border: 0.6pt solid rgba(200,169,106,0.5); }
+  .frame2 { position: absolute; top: 12.6mm; left: 12.6mm; right: 12.6mm; bottom: 12.6mm; border: 0.3pt solid rgba(200,169,106,0.28); }
+  .top { position: absolute; top: 27mm; left: 25mm; right: 25mm; }
+  .top .l1 { font-size: 8.4pt; letter-spacing: 2.6pt; text-transform: uppercase; color: #c8a96a; font-weight: 600; }
+  .top .l2 { font-size: 7.6pt; letter-spacing: 1.8pt; text-transform: uppercase; color: rgba(244,239,228,0.62); margin-top: 4pt; }
+  .title { position: absolute; top: 74mm; left: 25mm; right: 25mm; }
+  .pre { font-family: "Palatino Linotype", Georgia, serif; font-style: italic; font-size: 15pt; color: #c8a96a; }
+  h1 { font-family: "Palatino Linotype", Georgia, serif; font-weight: normal; font-size: 47pt; line-height: 1.03; margin: 8pt 0 0; color: #f8f3e8; }
+  h1 .amp { font-style: italic; color: #c8a96a; font-size: 40pt; }
+  .rule { width: 44mm; border-top: 1pt solid #c8a96a; margin: 18pt 0 14pt; }
+  .sub { font-size: 10.6pt; line-height: 1.6; color: rgba(244,239,228,0.84); max-width: 118mm; margin: 0; }
+  .diagram { position: absolute; left: 124mm; top: 141mm; width: 62mm; }
+  .bottom { position: absolute; left: 25mm; right: 25mm; bottom: 27mm; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.6pt; }
+  td { padding: 4.2pt 0; border-bottom: 0.4pt solid rgba(200,169,106,0.25); vertical-align: baseline; }
+  tr:last-child td { border-bottom: none; }
+  td.n { font-family: "Palatino Linotype", Georgia, serif; color: #c8a96a; font-size: 12pt; width: 9mm; }
+  td.t { color: rgba(244,239,228,0.6); width: 34mm; font-variant-numeric: tabular-nums; letter-spacing: 0.3pt; }
+  td.f { color: #f4efe4; }
+  .meta { margin-top: 14pt; font-size: 7.6pt; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(244,239,228,0.6); line-height: 1.9; }
+  .meta b { color: #c8a96a; font-weight: 600; }
+</style></head>
+<body>
+  <div class="frame"></div><div class="frame2"></div>
+
+  <div class="top">
+    <div class="l1">CSC 3115 &#183; Object Oriented Programming 2 &#183; Section C</div>
+    <div class="l2">American International University-Bangladesh &#183; Fall 2026&#8211;27</div>
+  </div>
+
+  <div class="title">
+    <div class="pre">The Quiz 2 crash course</div>
+    <h1>Inheritance<br><span class="amp">&amp;</span> Polymorphism</h1>
+    <div class="rule"></div>
+    <p class="sub">From zero C# to quiz-ready in one evening. Rules, worked examples, 62 practice questions, two coding tasks and a one-page cheat sheet. Every program in it was compiled and run.</p>
+  </div>
+
+  <div class="diagram">
+    <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" font-family="Cascadia Mono, Consolas, monospace">
+      <defs>
+        <marker id="t" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+          <path d="M0.5,0.5 L9.5,5 L0.5,9.5 z" fill="#15233b" stroke="#c8a96a" stroke-width="1"/>
+        </marker>
+      </defs>
+      <g stroke="#c8a96a" stroke-width="0.9" fill="none" opacity="0.9">
+        <rect x="85" y="6" width="90" height="34" rx="3"/>
+        <rect x="20" y="88" width="90" height="34" rx="3"/>
+        <rect x="150" y="88" width="90" height="34" rx="3"/>
+        <rect x="20" y="168" width="90" height="34" rx="3"/>
+        <line x1="65" y1="88" x2="118" y2="41" marker-end="url(#t)"/>
+        <line x1="195" y1="88" x2="142" y2="41" marker-end="url(#t)"/>
+        <line x1="65" y1="168" x2="65" y2="123" marker-end="url(#t)"/>
+      </g>
+      <g font-size="11" fill="#f4efe4" text-anchor="middle">
+        <text x="130" y="21">Animal</text>
+        <text x="65" y="103">Dog</text>
+        <text x="195" y="103">Cat</text>
+        <text x="65" y="183">Puppy</text>
+      </g>
+      <g font-size="7.4" fill="#c8a96a" text-anchor="middle" opacity="0.85">
+        <text x="130" y="33">virtual Speak()</text>
+        <text x="65" y="115">override Speak()</text>
+        <text x="195" y="115">override Speak()</text>
+        <text x="65" y="195">: base(...)</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="bottom">
+    <table>
+      <tr><td class="n">1</td><td class="t">Tue 17:45&#8211;18:30</td><td class="f">The C# you need to read class code</td></tr>
+      <tr><td class="n">2</td><td class="t">Tue 18:30&#8211;19:30</td><td class="f">Inheritance</td></tr>
+      <tr><td class="n">3</td><td class="t">Tue 19:30&#8211;20:30</td><td class="f">Polymorphism</td></tr>
+      <tr><td class="n">4</td><td class="t">Tue 20:30&#8211;21:15</td><td class="f">The quiz-level set</td></tr>
+      <tr><td class="n">5</td><td class="t">Tue 21:15&#8211;21:45</td><td class="f">Write it on paper, then run it</td></tr>
+      <tr><td class="n">6</td><td class="t">Wed 06:30&#8211;07:40</td><td class="f">The morning set, cheat sheet, answer key</td></tr>
+    </table>
+    <div class="meta"><div>Quiz 2 &#183; <b>Wednesday 4 November 2026 &#183; 10:20 AM</b></div><div>Every example compiled with Visual Studio 2022 &#183; C# 7.3 &#183; .NET Framework</div></div>
+  </div>
+</body></html>

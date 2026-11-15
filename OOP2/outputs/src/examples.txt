@@ -1,0 +1,1588 @@
+@@ e1_1 full
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello");
+        Console.Write("Same ");
+        Console.Write("line");
+    }
+}
+>>>
+Hello
+Same line
+@@ e1_all run
+class Student
+{
+    private int marks;                 // private: only code inside Student
+    public string name;                // public: usable anywhere
+
+    public Student(string name)        // constructor: same name, no return type
+    {
+        this.name = name;              // field = parameter
+    }
+
+    public int Marks                   // property: runs set / get
+    {
+        get { return marks; }
+        set { if (value >= 0 && value <= 100) marks = value; }
+    }
+}
+// Main
+Student s = new Student("Nila");      // runs the constructor
+s.Marks = 85;
+s.Marks = 500;                         // set rejects it
+Console.WriteLine(s.name + " " + s.Marks);
+Console.WriteLine("Sum: " + 2 + 3);
+Console.WriteLine(7 / 2);
+>>>
+Nila 85
+Sum: 23
+3
+@@ b1_q1 run
+Console.Write("A");
+Console.WriteLine("B");
+Console.WriteLine("n=" + 5);
+>>>
+AB
+n=5
+@@ e1_2 run
+int age = 20;
+double cgpa = 3.75;
+string name = "Rafi";
+bool passed = true;
+char grade = 'A';
+Console.WriteLine(name + " " + age + " " + cgpa + " " + passed + " " + grade);
+Console.WriteLine(7 / 2);
+Console.WriteLine(7 % 2);
+>>>
+Rafi 20 3.75 True A
+3
+1
+@@ b1_q2 run
+int a = 17;
+int b = 5;
+double d = 17;
+Console.WriteLine(a / b);
+Console.WriteLine(a % b);
+Console.WriteLine(d / b);
+Console.WriteLine(a / 2.0);
+>>>
+3
+2
+3.4
+8.5
+@@ e1_3 run
+int x = 4;
+Console.WriteLine("x = " + x);
+Console.WriteLine("x + 1 = " + (x + 1));
+>>>
+x = 4
+x + 1 = 5
+@@ b1_q3 run
+Console.WriteLine("Sum: " + 2 + 3);
+Console.WriteLine(2 + 3 + " is the sum");
+Console.WriteLine("Sum: " + (2 + 3));
+>>>
+Sum: 23
+5 is the sum
+Sum: 5
+@@ e1_4 run
+int[] nums = { 3, 8, 5 };
+foreach (int n in nums)
+{
+    if (n > 4) Console.WriteLine(n + " big");
+    else Console.WriteLine(n + " small");
+}
+Console.WriteLine("Count: " + nums.Length);
+>>>
+3 small
+8 big
+5 big
+Count: 3
+@@ b1_q4 run
+int[] marks = { 45, 80, 62 };
+int passed = 0;
+foreach (int m in marks)
+{
+    if (m >= 50) passed++;
+    else Console.WriteLine("Fail: " + m);
+}
+for (int i = marks.Length - 1; i >= 0; i--)
+    Console.Write(marks[i] + " ");
+Console.WriteLine();
+Console.WriteLine("Passed = " + passed);
+>>>
+Fail: 45
+62 80 45
+Passed = 2
+@@ e1_5 run
+static int Add(int a, int b) { return a + b; }
+static void Line() { Console.WriteLine("----"); }
+// Main
+Line();
+Console.WriteLine(Add(2, 3));
+Line();
+>>>
+----
+5
+----
+@@ b1_q5 run
+static int Twice(int n) { return n * 2; }
+static void Greet(string name) { Console.WriteLine("Hi " + name); }
+// Main
+Greet("Rafi");
+Console.WriteLine(Twice(Twice(3)));
+Console.WriteLine(Twice(1) + Twice(2));
+>>>
+Hi Rafi
+12
+6
+@@ e1_6 run
+class Dog
+{
+    public string name;
+    public void Bark() { Console.WriteLine(name + " says Woof"); }
+}
+// Main
+Dog d = new Dog();
+d.name = "Rex";
+d.Bark();
+>>>
+Rex says Woof
+@@ b1_q6 run
+class Dog
+{
+    public string name;
+    public int age;
+}
+// Main
+Dog a = new Dog();
+a.name = "Rex";
+a.age = 3;
+Dog b = a;
+b.age = 10;
+Dog c = new Dog();
+c.age = 5;
+Console.WriteLine(a.name + " " + a.age);
+Console.WriteLine(c.name + "|" + c.age);
+>>>
+Rex 10
+|5
+@@ e1_7 run
+class Dog
+{
+    public string name;
+    public Dog(string n)
+    {
+        name = n;
+        Console.WriteLine("Dog created: " + name);
+    }
+}
+// Main
+Dog d = new Dog("Rex");
+>>>
+Dog created: Rex
+@@ b1_q7 run
+class Cat
+{
+    public string name;
+    public Cat()
+    {
+        name = "unknown";
+        Console.WriteLine("Cat()");
+    }
+    public Cat(string name)
+    {
+        this.name = name;
+        Console.WriteLine("Cat(string)");
+    }
+}
+// Main
+Cat a = new Cat();
+Cat b = new Cat("Tom");
+Console.WriteLine(a.name + " " + b.name);
+>>>
+Cat()
+Cat(string)
+unknown Tom
+@@ e1_8 run
+class Dog
+{
+    public string name;
+    public Dog(string name) { this.name = name; }
+}
+// Main
+Dog d = new Dog("Rex");
+Console.WriteLine(d.name);
+>>>
+Rex
+@@ b1_q8 warn CS1717
+class P
+{
+    public int x;
+    public P(int x)
+    {
+        this.x = x;
+        x = 99;
+    }
+}
+class Q
+{
+    public int x;
+    public Q(int x) { x = x; }
+}
+// Main
+P p = new P(5);
+Q q = new Q(5);
+Console.WriteLine(p.x);
+Console.WriteLine(q.x);
+>>>
+5
+0
+@@ e1_9 run
+class Account
+{
+    private double balance;
+    public void Deposit(double amount) { balance = balance + amount; }
+    public double GetBalance() { return balance; }
+}
+// Main
+Account acc = new Account();
+acc.Deposit(500);
+Console.WriteLine(acc.GetBalance());
+// acc.balance = 1000;   would not compile: balance is private
+>>>
+500
+@@ b1_q9 err CS0122,CS0122
+class Acct
+{
+    public int id = 1;
+    private int pin = 1234;
+    protected int bal = 50;
+}
+// Main
+Acct a = new Acct();
+Console.WriteLine(a.id);    // L1
+Console.WriteLine(a.pin);   // L2
+Console.WriteLine(a.bal);   // L3
+@@ e1_10 run
+class Student
+{
+    private int marks;
+    public int Marks
+    {
+        get { return marks; }
+        set { marks = value; }
+    }
+}
+// Main
+Student s = new Student();
+s.Marks = 85;
+Console.WriteLine(s.Marks);
+>>>
+85
+@@ b1_q10 run
+class Student
+{
+    private int marks;
+    public int Marks
+    {
+        get { return marks; }
+        set
+        {
+            if (value >= 0 && value <= 100) marks = value;
+            else Console.WriteLine("Rejected " + value);
+        }
+    }
+    public string Name { get; set; }
+}
+// Main
+Student s = new Student();
+s.Name = "Nila";
+s.Marks = 85;
+s.Marks = 500;
+Console.WriteLine(s.Name + " " + s.Marks);
+>>>
+Rejected 500
+Nila 85
+@@ e2_1 run
+class Animal
+{
+    public string name;
+    public void Eat() { Console.WriteLine(name + " eats"); }
+}
+class Dog : Animal
+{
+    public void Bark() { Console.WriteLine(name + " barks"); }
+}
+// Main
+Dog d = new Dog();
+d.name = "Rex";
+d.Eat();
+d.Bark();
+>>>
+Rex eats
+Rex barks
+@@ e2_2 run
+class Grandparent
+{
+    public Grandparent() { Console.WriteLine("Grandparent()"); }
+}
+class Parent : Grandparent
+{
+    public Parent() { Console.WriteLine("Parent()"); }
+}
+class Child : Parent
+{
+    public Child() { Console.WriteLine("Child()"); }
+}
+// Main
+Child c = new Child();
+>>>
+Grandparent()
+Parent()
+Child()
+@@ e2_3 run
+class Animal
+{
+    protected string name;
+    public Animal(string name)
+    {
+        this.name = name;
+        Console.WriteLine("Animal(" + name + ")");
+    }
+}
+class Cat : Animal
+{
+    public Cat(string catName) : base(catName)
+    {
+        Console.WriteLine("Cat(" + catName + ")");
+    }
+}
+// Main
+Cat c = new Cat("Tom");
+>>>
+Animal(Tom)
+Cat(Tom)
+@@ e2_3err err CS7036
+class Animal
+{
+    public Animal(string name) { }
+}
+class Cat : Animal
+{
+    public Cat() { }     // no : base(...) here
+}
+@@ e2_4 run
+class Animal
+{
+    private int secret = 1;
+    protected int legs = 4;
+    public int Secret() { return secret; }
+}
+class Dog : Animal
+{
+    public void Show()
+    {
+        Console.WriteLine(legs);         // OK: protected
+        // Console.WriteLine(secret);    // error: private
+    }
+}
+// Main
+Dog d = new Dog();
+d.Show();
+Console.WriteLine(d.Secret());           // OK: public method of Animal
+// Console.WriteLine(d.legs);            // error: Main is outside the family
+>>>
+4
+1
+@@ e2_4x1 err CS0122
+class Animal
+{
+    private int secret = 1;
+}
+class Dog : Animal
+{
+    public void Show() { Console.WriteLine(secret); }
+}
+@@ e2_4x2 err CS0122
+class Animal
+{
+    protected int legs = 4;
+}
+class Dog : Animal { }
+// Main
+Dog d = new Dog();
+Console.WriteLine(d.legs);
+@@ e2_5 run
+class Animal
+{
+    public void Sound() { Console.WriteLine("..."); }
+}
+class Dog : Animal
+{
+    public new void Sound() { Console.WriteLine("Woof"); }
+}
+// Main
+Dog d = new Dog();
+d.Sound();
+Animal a = d;
+a.Sound();
+>>>
+Woof
+...
+@@ e2_6 run
+class Animal
+{
+    public void Sound() { Console.WriteLine("Animal sound"); }
+}
+class Dog : Animal
+{
+    public new void Sound()
+    {
+        base.Sound();
+        Console.WriteLine("Woof");
+    }
+}
+// Main
+Dog d = new Dog();
+d.Sound();
+>>>
+Animal sound
+Woof
+@@ e2_7 run
+class Engine
+{
+    public void Start() { Console.WriteLine("Engine starts"); }
+}
+class Car
+{
+    private Engine engine = new Engine();   // Car HAS-A Engine
+    public void Drive()
+    {
+        engine.Start();
+        Console.WriteLine("Car moves");
+    }
+}
+// Main
+Car c = new Car();
+c.Drive();
+>>>
+Engine starts
+Car moves
+@@ e2_adv run
+class Log
+{
+    public Log(string s) { Console.WriteLine(s); }
+}
+class Base
+{
+    Log a = new Log("Base field");
+    public Base() { Console.WriteLine("Base()"); }
+}
+class Derived : Base
+{
+    Log b = new Log("Derived field");
+    public Derived() { Console.WriteLine("Derived()"); }
+}
+// Main
+Derived d = new Derived();
+>>>
+Derived field
+Base field
+Base()
+Derived()
+@@ t2_1 run
+class Parent
+{
+    public void ShowParent() { Console.WriteLine("Parent method"); }
+}
+class Son : Parent
+{
+    public void ShowSon() { Console.WriteLine("Son method"); }
+}
+// Main
+Son s = new Son();
+s.ShowSon();
+s.ShowParent();
+>>>
+Son method
+Parent method
+@@ t2_2 run
+class A
+{
+    public A() { Console.WriteLine("A"); }
+}
+class B : A
+{
+    public B() { Console.WriteLine("B"); }
+}
+class C : B
+{
+    public C() { Console.WriteLine("C"); }
+}
+class D : A
+{
+    public D() { Console.WriteLine("D"); }
+}
+// Main
+C c = new C();
+D d = new D();
+B b = new B();
+>>>
+A
+B
+C
+A
+D
+A
+B
+@@ t2_3 run
+class Person
+{
+    protected string name;
+    public Person(string name)
+    {
+        this.name = name;
+        Console.WriteLine("Person: " + name);
+    }
+}
+class Student : Person
+{
+    int id;
+    public Student(string name, int id) : base(name)
+    {
+        this.id = id;
+        Console.WriteLine("Student: " + id);
+    }
+    public void Show() { Console.WriteLine(name + " #" + id); }
+}
+// Main
+Student s = new Student("Nila", 7);
+s.Show();
+>>>
+Person: Nila
+Student: 7
+Nila #7
+@@ t2_4 run
+class Counter
+{
+    protected int count = 10;
+    public void Add() { count = count + 1; }
+    public void Print() { Console.WriteLine("count = " + count); }
+}
+class DoubleCounter : Counter
+{
+    public new void Add()
+    {
+        base.Add();
+        base.Add();
+    }
+}
+// Main
+DoubleCounter dc = new DoubleCounter();
+dc.Add();
+dc.Print();
+Counter c = dc;
+c.Add();
+c.Print();
+>>>
+count = 12
+count = 13
+@@ t2_5 run
+class Animal
+{
+    public int legs;
+    public Animal() { Console.WriteLine("Animal()"); }
+    public Animal(int legs)
+    {
+        this.legs = legs;
+        Console.WriteLine("Animal(int)");
+    }
+    public void Describe() { Console.WriteLine("Animal with " + legs + " legs"); }
+}
+class Bird : Animal
+{
+    public Bird() : base(2) { Console.WriteLine("Bird()"); }
+    public Bird(string name) { Console.WriteLine("Bird(" + name + ")"); }
+    public new void Describe() { Console.WriteLine("Bird with " + legs + " legs"); }
+}
+// Main
+Bird b1 = new Bird();
+Bird b2 = new Bird("Tweety");
+b1.Describe();
+Animal a = b2;
+a.Describe();
+>>>
+Animal(int)
+Bird()
+Animal()
+Bird(Tweety)
+Bird with 2 legs
+Animal with 0 legs
+@@ e3_1 run
+class Animal
+{
+    public void Eat() { Console.WriteLine("Animal eats"); }
+}
+class Dog : Animal
+{
+    public void Bark() { Console.WriteLine("Woof"); }
+}
+// Main
+Animal a = new Dog();   // allowed: a Dog IS-A Animal
+a.Eat();                // OK: Eat is declared in Animal
+// a.Bark();            // error: Animal has no Bark
+((Dog)a).Bark();        // OK after an explicit cast
+>>>
+Animal eats
+Woof
+@@ e3_2 run
+class Animal
+{
+    public virtual void Speak() { Console.WriteLine("Animal sound"); }
+}
+class Dog : Animal
+{
+    public override void Speak() { Console.WriteLine("Woof"); }
+}
+// Main
+Animal a = new Dog();
+a.Speak();
+Animal b = new Animal();
+b.Speak();
+>>>
+Woof
+Animal sound
+@@ e3_3 run
+class Animal
+{
+    public virtual void A() { Console.WriteLine("Animal.A"); }
+    public virtual void B() { Console.WriteLine("Animal.B"); }
+}
+class Dog : Animal
+{
+    public override void A() { Console.WriteLine("Dog.A"); }
+    public new void B() { Console.WriteLine("Dog.B"); }
+}
+// Main
+Animal x = new Dog();
+x.A();
+x.B();
+Dog y = new Dog();
+y.A();
+y.B();
+>>>
+Dog.A
+Animal.B
+Dog.A
+Dog.B
+@@ e3_4 run
+class Shape
+{
+    public virtual void Draw() { Console.WriteLine("Shape"); }
+}
+class Circle : Shape
+{
+    public override void Draw() { Console.WriteLine("Circle"); }
+}
+class Square : Shape
+{
+    public override void Draw() { Console.WriteLine("Square"); }
+}
+class Blob : Shape { }
+// Main
+Shape[] shapes = { new Circle(), new Square(), new Blob() };
+foreach (Shape s in shapes)
+    s.Draw();
+>>>
+Circle
+Square
+Shape
+@@ e3_5 run
+abstract class Shape
+{
+    protected string name;
+    public Shape(string name) { this.name = name; }
+    public abstract double Area();             // no body
+    public void Print() { Console.WriteLine(name + ": " + Area()); }
+}
+class Rect : Shape
+{
+    double w, h;
+    public Rect(double w, double h) : base("Rect")
+    {
+        this.w = w;
+        this.h = h;
+    }
+    public override double Area() { return w * h; }
+}
+// Main
+Shape s = new Rect(2, 3);      // OK: variable of abstract type
+s.Print();
+// Shape t = new Shape("x");   // error: cannot create an abstract class
+>>>
+Rect: 6
+@@ e3_5x err CS0144
+abstract class Shape
+{
+    public abstract double Area();
+}
+// Main
+Shape t = new Shape();
+@@ e3_6 run
+sealed class Logger { }
+// class FileLogger : Logger { }   // error: Logger is sealed
+
+class Animal
+{
+    public virtual void Speak() { Console.WriteLine("..."); }
+}
+class Dog : Animal
+{
+    public sealed override void Speak() { Console.WriteLine("Woof"); }
+}
+class Puppy : Dog
+{
+    // public override void Speak() { }   // error: Dog.Speak is sealed
+}
+// Main
+Animal a = new Puppy();
+a.Speak();
+>>>
+Woof
+@@ e3_6x1 err CS0509
+sealed class Logger { }
+class FileLogger : Logger { }
+@@ e3_6x2 err CS0239
+class Animal
+{
+    public virtual void Speak() { }
+}
+class Dog : Animal
+{
+    public sealed override void Speak() { }
+}
+class Puppy : Dog
+{
+    public override void Speak() { }
+}
+@@ e3_7 run
+class Printer
+{
+    public void Print(int x) { Console.WriteLine("int " + x); }
+    public void Print(double x) { Console.WriteLine("double " + x); }
+    public void Print(string s) { Console.WriteLine("string " + s); }
+    public void Print(int x, int y) { Console.WriteLine("two ints " + (x + y)); }
+}
+// Main
+Printer p = new Printer();
+p.Print(5);
+p.Print(5.5);
+p.Print("hi");
+p.Print(2, 3);
+p.Print('A');
+>>>
+int 5
+double 5.5
+string hi
+two ints 5
+int 65
+@@ e3_8 run
+class Point
+{
+    public int x = 1, y = 2;
+    public override string ToString() { return "(" + x + ", " + y + ")"; }
+}
+class Plain { }
+// Main
+Point p = new Point();
+Console.WriteLine(p);
+Console.WriteLine("p = " + p);
+Console.WriteLine(new Plain());
+>>>
+(1, 2)
+p = (1, 2)
+Plain
+@@ e3_9 rte
+class Animal { }
+class Dog : Animal { }
+class Cat : Animal { }
+// Main
+Animal a = new Dog();          // upcast: automatic
+Dog d = (Dog)a;                // downcast: explicit; fine, a really is a Dog
+Console.WriteLine(a is Dog);
+Console.WriteLine(a is Cat);
+Cat c = a as Cat;              // as: gives null instead of crashing
+Console.WriteLine(c == null);
+Cat c2 = (Cat)a;               // compiles, but crashes when it runs
+Console.WriteLine("never printed");
+>>>
+True
+False
+True
+@@ e3_9x err CS0030
+class Animal { }
+class Dog : Animal { }
+class Cat : Animal { }
+// Main
+Dog d = new Dog();
+Cat c = (Cat)d;
+@@ e3_adv run
+class Base
+{
+    public Base() { Hello(); }
+    public virtual void Hello() { Console.WriteLine("Base.Hello"); }
+}
+class Derived : Base
+{
+    int n = 5;
+    int m;
+    public Derived() { m = 7; }
+    public override void Hello() { Console.WriteLine("Derived.Hello n=" + n + " m=" + m); }
+}
+// Main
+Derived d = new Derived();
+d.Hello();
+>>>
+Derived.Hello n=5 m=0
+Derived.Hello n=5 m=7
+@@ t3_1 run
+class Vehicle
+{
+    public virtual void Move() { Console.WriteLine("Vehicle moves"); }
+}
+class Bike : Vehicle
+{
+    public override void Move() { Console.WriteLine("Bike pedals"); }
+}
+// Main
+Vehicle v1 = new Vehicle();
+Vehicle v2 = new Bike();
+Bike b = new Bike();
+v1.Move();
+v2.Move();
+b.Move();
+>>>
+Vehicle moves
+Bike pedals
+Bike pedals
+@@ t3_2 run
+class A
+{
+    public virtual void Show() { Console.WriteLine("A"); }
+}
+class B : A
+{
+    public override void Show()
+    {
+        Console.WriteLine("B");
+        base.Show();
+    }
+}
+class C : B
+{
+    public override void Show()
+    {
+        base.Show();
+        Console.WriteLine("C");
+    }
+}
+// Main
+A x = new C();
+x.Show();
+>>>
+B
+A
+C
+@@ t3_3 run
+class Animal
+{
+    public virtual void Speak() { Console.WriteLine("Animal speaks"); }
+    public void Sleep() { Console.WriteLine("Animal sleeps"); }
+}
+class Cat : Animal
+{
+    public override void Speak() { Console.WriteLine("Meow"); }
+    public new void Sleep() { Console.WriteLine("Cat sleeps"); }
+}
+// Main
+Animal a = new Cat();
+Cat c = new Cat();
+a.Speak();
+a.Sleep();
+c.Speak();
+c.Sleep();
+>>>
+Meow
+Animal sleeps
+Meow
+Cat sleeps
+@@ t3_4 run
+abstract class Employee
+{
+    protected string name;
+    public Employee(string name) { this.name = name; }
+    public abstract int Pay();
+    public void Slip() { Console.WriteLine(name + " gets " + Pay()); }
+}
+class Manager : Employee
+{
+    public Manager(string n) : base(n) { }
+    public override int Pay() { return 500; }
+}
+class Intern : Employee
+{
+    public Intern(string n) : base(n) { }
+    public override int Pay() { return 100; }
+}
+// Main
+Employee[] staff = { new Manager("Rafi"), new Intern("Nila"), new Manager("Sami") };
+int total = 0;
+foreach (Employee e in staff)
+{
+    e.Slip();
+    total += e.Pay();
+}
+Console.WriteLine("Total = " + total);
+>>>
+Rafi gets 500
+Nila gets 100
+Sami gets 500
+Total = 1100
+@@ t3_5 run
+class Base
+{
+    public Base() { Console.WriteLine("Base()"); }
+    public void Run()
+    {
+        Console.WriteLine("Run in Base");
+        Step();
+    }
+    public virtual void Step() { Console.WriteLine("Base.Step"); }
+    public void Calc(int x) { Console.WriteLine("Calc int " + x); }
+    public void Calc(double x) { Console.WriteLine("Calc double " + x); }
+}
+class Derived : Base
+{
+    public Derived() { Console.WriteLine("Derived()"); }
+    public override void Step() { Console.WriteLine("Derived.Step"); }
+}
+// Main
+Base b = new Derived();
+b.Run();
+b.Calc(3);
+b.Calc(3.0);
+>>>
+Base()
+Derived()
+Run in Base
+Derived.Step
+Calc int 3
+Calc double 3
+@@ k3_1 err CS0506
+class A
+{
+    public void Hi() { }
+}
+class B : A
+{
+    public override void Hi() { }
+}
+@@ k3_2 err CS0144
+abstract class Shape
+{
+    public abstract double Area();
+}
+// Main
+Shape s = new Shape();
+@@ k3_3 err CS0534
+abstract class Shape
+{
+    public abstract double Area();
+}
+class Circle : Shape { }
+@@ k3_4 run
+abstract class Shape
+{
+    public abstract double Area();
+}
+class Square : Shape
+{
+    public override double Area() { return 4; }
+}
+// Main
+Shape s = new Square();
+Console.WriteLine(s.Area());
+>>>
+4
+@@ k3_5 err CS1061
+class Animal { }
+class Dog : Animal
+{
+    public void Fetch() { }
+}
+// Main
+Animal a = new Dog();
+a.Fetch();
+@@ a1 run
+class Animal
+{
+    public int x;
+    public Animal() { Console.WriteLine("Animal()"); }
+    public Animal(int x)
+    {
+        this.x = x;
+        Console.WriteLine("Animal(int)");
+    }
+}
+class Dog : Animal
+{
+    public int count;
+    public Dog() { Console.WriteLine("Dog()"); }
+    public Dog(int x, int count) : base(x)
+    {
+        this.count = count;
+        Console.WriteLine("Dog(int,int)");
+    }
+}
+class Puppy : Dog
+{
+    public Puppy() { Console.WriteLine("Puppy()"); }
+    public Puppy(int a, int x, int count) { Console.WriteLine("Puppy(int,int,int)"); }
+}
+// Main
+Dog d = new Dog(4, 1);
+Console.WriteLine("--");
+Puppy p = new Puppy(1, 2, 34);
+Console.WriteLine(p.x + " " + p.count);
+>>>
+Animal(int)
+Dog(int,int)
+--
+Animal()
+Dog()
+Puppy(int,int,int)
+0 0
+@@ a2 run
+class A
+{
+    public virtual void Show() { Console.WriteLine("A.Show"); }
+}
+class B : A
+{
+    public override void Show() { Console.WriteLine("B.Show"); }
+}
+class C : B
+{
+    public override void Show()
+    {
+        base.Show();
+        Console.WriteLine("C.Show");
+    }
+}
+// Main
+A a = new C();
+a.Show();
+B b = new B();
+b.Show();
+A a2 = new A();
+a2.Show();
+a2 = b;
+a2.Show();
+>>>
+B.Show
+C.Show
+B.Show
+A.Show
+B.Show
+@@ a3 run
+class Animal
+{
+    public virtual void Speak() { Console.WriteLine("Animal sound"); }
+    public void Eat() { Console.WriteLine("Animal eats"); }
+}
+class Dog : Animal
+{
+    public override void Speak() { Console.WriteLine("Woof"); }
+}
+class Puppy : Dog
+{
+    public override void Speak()
+    {
+        base.Speak();
+        Console.WriteLine("Yip");
+    }
+}
+class Cow : Animal { }
+// Main
+Animal[] zoo = { new Dog(), new Puppy(), new Cow() };
+foreach (Animal a in zoo)
+{
+    a.Speak();
+    a.Eat();
+}
+>>>
+Woof
+Animal eats
+Woof
+Yip
+Animal eats
+Animal sound
+Animal eats
+@@ a4 run
+abstract class Shape
+{
+    protected string name;
+    public Shape(string name)
+    {
+        this.name = name;
+        Console.WriteLine("Shape: " + name);
+    }
+    public abstract double Area();
+    public virtual void Print() { Console.WriteLine(name + " area = " + Area()); }
+}
+class Rect : Shape
+{
+    double w, h;
+    public Rect(double w, double h) : base("Rect")
+    {
+        this.w = w;
+        this.h = h;
+        Console.WriteLine("Rect created");
+    }
+    public override double Area() { return w * h; }
+}
+class Square : Rect
+{
+    public Square(double s) : base(s, s)
+    {
+        name = "Square";
+        Console.WriteLine("Square created");
+    }
+    public override void Print()
+    {
+        Console.WriteLine("[Square]");
+        base.Print();
+    }
+}
+// Main
+Shape s = new Square(4);
+s.Print();
+>>>
+Shape: Rect
+Rect created
+Square created
+[Square]
+Square area = 16
+@@ a5 run
+class Calc
+{
+    public void Add(int a, int b) { Console.WriteLine("int,int " + (a + b)); }
+    public void Add(double a, double b) { Console.WriteLine("double,double " + (a + b)); }
+    public void Add(int a, int b, int c) { Console.WriteLine("3 ints " + (a + b + c)); }
+}
+// Main
+Calc c = new Calc();
+c.Add(2, 3);
+c.Add(2, 3.5);
+c.Add(1, 2, 3);
+c.Add('a', 1);
+c.Add(2L, 3);
+>>>
+int,int 5
+double,double 5.5
+3 ints 6
+int,int 98
+double,double 5
+@@ a6 run
+class Engine
+{
+    public void Start() { Console.WriteLine("Engine starts"); }
+}
+class Car
+{
+    Engine e = new Engine();
+    public Car() { Console.WriteLine("Car built"); }
+    public void Drive()
+    {
+        e.Start();
+        Console.WriteLine("Car moves");
+    }
+    public override string ToString() { return "Car"; }
+}
+class SportsCar : Car
+{
+    public SportsCar() { Console.WriteLine("SportsCar built"); }
+    public override string ToString() { return "Sports" + base.ToString(); }
+}
+// Main
+Car c = new SportsCar();
+c.Drive();
+Console.WriteLine(c);
+object o = c;
+Console.WriteLine(o.ToString());
+>>>
+Car built
+SportsCar built
+Engine starts
+Car moves
+SportsCar
+SportsCar
+@@ a7 warn CS0108
+class A
+{
+    public void Hello() { Console.WriteLine("A.Hello"); }
+    public virtual void Show() { Console.WriteLine("A.Show"); }
+}
+class B : A
+{
+    public void Hello() { Console.WriteLine("B.Hello"); }
+    public override void Show() { Console.WriteLine("B.Show"); }
+}
+// Main
+A a = new B();
+a.Hello();
+a.Show();
+B b = new B();
+b.Hello();
+>>>
+A.Hello
+B.Show
+B.Hello
+@@ b4_1 err CS7036
+class Animal
+{
+    public Animal(string n) { }
+}
+class Cat : Animal
+{
+    public Cat() { }
+}
+@@ b4_2 err CS0144
+abstract class Animal
+{
+    public abstract void Speak();
+}
+// Main
+Animal a = new Animal();
+@@ b4_3 err CS0509
+sealed class A { }
+class B : A { }
+@@ b4_4 err CS0506
+class A
+{
+    public void Show() { }
+}
+class B : A
+{
+    public override void Show() { }
+}
+@@ b4_5 err CS0122
+class A
+{
+    private int secret = 5;
+}
+class B : A
+{
+    public int Get() { return secret; }
+}
+@@ b4_6 err CS1061
+class Animal { }
+class Dog : Animal
+{
+    public void Bark() { }
+}
+// Main
+Animal a = new Dog();
+a.Bark();
+@@ b4_7 err CS0266
+class Animal { }
+class Dog : Animal { }
+// Main
+Animal a = new Animal();
+Dog d = a;
+@@ b4_8 err CS0030
+class Animal { }
+class Dog : Animal { }
+class Cat : Animal { }
+// Main
+Dog d = new Dog();
+Cat c = (Cat)d;
+@@ b4_9 rte
+class Animal { }
+class Dog : Animal { }
+class Cat : Animal { }
+// Main
+Animal a = new Dog();
+Cat c = (Cat)a;
+>>>
+@@ b4_10 err CS0507
+class A
+{
+    public virtual void Foo() { }
+}
+class B : A
+{
+    protected override void Foo() { }
+}
+@@ s5_skel full
+using System;
+
+namespace QuizPractice
+{
+    // your classes go here, outside Program
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // your Main code goes here
+        }
+    }
+}
+>>>
+@@ s5_1 run
+class Shape
+{
+    protected string name;
+    public Shape(string name) { this.name = name; }
+    public virtual double Area() { return 0; }
+    public void Show() { Console.WriteLine(name + " area = " + Area()); }
+}
+class Circle : Shape
+{
+    private double r;
+    public Circle(double r) : base("Circle") { this.r = r; }
+    public override double Area() { return 3.1416 * r * r; }
+}
+class Rectangle : Shape
+{
+    private double w, h;
+    public Rectangle(double w, double h) : base("Rectangle")
+    {
+        this.w = w;
+        this.h = h;
+    }
+    public override double Area() { return w * h; }
+}
+// Main
+Shape[] shapes = { new Circle(2), new Rectangle(3, 4), new Shape("Blank") };
+Shape largest = shapes[0];
+foreach (Shape s in shapes)
+{
+    s.Show();
+    if (s.Area() > largest.Area()) largest = s;
+}
+Console.WriteLine("Largest:");
+largest.Show();
+>>>
+Circle area = 12.5664
+Rectangle area = 12
+Blank area = 0
+Largest:
+Circle area = 12.5664
+@@ s5_2 run
+class Person
+{
+    protected string name;
+    protected int age;
+    public Person(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+        Console.WriteLine("Person created");
+    }
+    public virtual void Show() { Console.WriteLine("Name: " + name + ", Age: " + age); }
+}
+class Student : Person
+{
+    private int id;
+    private double cgpa;
+    public Student(string name, int age, int id, double cgpa) : base(name, age)
+    {
+        this.id = id;
+        this.cgpa = cgpa;
+        Console.WriteLine("Student created");
+    }
+    public override void Show()
+    {
+        base.Show();
+        Console.WriteLine("ID: " + id + ", CGPA: " + cgpa);
+    }
+}
+// Main
+Person p = new Student("Nila", 21, 1101, 3.85);
+p.Show();
+Person q = new Person("Rafi", 30);
+q.Show();
+>>>
+Person created
+Student created
+Name: Nila, Age: 21
+ID: 1101, CGPA: 3.85
+Person created
+Name: Rafi, Age: 30
+@@ x513 err CS0513
+class A
+{
+    public abstract void Foo();
+}
+@@ x508 err CS0508
+class A
+{
+    public virtual int Foo() { return 1; }
+}
+class B : A
+{
+    public override long Foo() { return 1; }
+}
+@@ x418 err CS0418
+abstract sealed class A { }
+@@ x621 err CS0621
+class A
+{
+    private virtual void Foo() { }
+}
+@@ x1721 err CS1721
+class A { }
+class B { }
+class C : A, B { }
+@@ f1 run
+class Device
+{
+    public Device() { Console.WriteLine("Device()"); }
+    public Device(string id) { Console.WriteLine("Device(" + id + ")"); }
+}
+class Phone : Device
+{
+    public Phone() : base("P1") { Console.WriteLine("Phone()"); }
+    public Phone(int n) { Console.WriteLine("Phone(" + n + ")"); }
+}
+class SmartPhone : Phone
+{
+    public SmartPhone() : base(5) { Console.WriteLine("SmartPhone()"); }
+}
+// Main
+Phone p = new Phone();
+SmartPhone s = new SmartPhone();
+>>>
+Device(P1)
+Phone()
+Device()
+Phone(5)
+SmartPhone()
+@@ f2 run
+class A
+{
+    public virtual void M() { Console.WriteLine("A.M"); }
+}
+class B : A
+{
+    public override void M() { Console.WriteLine("B.M"); }
+}
+class C : B
+{
+    public new void M() { Console.WriteLine("C.M"); }
+}
+// Main
+A x = new C();
+B y = new C();
+C z = new C();
+x.M();
+y.M();
+z.M();
+>>>
+B.M
+B.M
+C.M
+@@ f3 run
+class Account
+{
+    protected double balance;
+    public Account(double start) { balance = start; }
+    public virtual void Withdraw(double amt)
+    {
+        if (amt <= balance) balance -= amt;
+        else Console.WriteLine("Denied " + amt);
+    }
+    public void Print() { Console.WriteLine("Balance: " + balance); }
+}
+class Savings : Account
+{
+    public Savings(double start) : base(start) { }
+    public override void Withdraw(double amt)
+    {
+        Console.WriteLine("Fee 10");
+        base.Withdraw(amt + 10);
+    }
+}
+// Main
+Account a = new Savings(100);
+a.Withdraw(50);
+a.Print();
+a.Withdraw(50);
+a.Print();
+>>>
+Fee 10
+Balance: 40
+Fee 10
+Denied 60
+Balance: 40
+@@ f4 run
+abstract class Animal
+{
+    protected string name;
+    public Animal(string name) { this.name = name; }
+    public abstract string Sound();
+    public override string ToString() { return name + " says " + Sound(); }
+}
+class Dog : Animal
+{
+    public Dog(string n) : base(n) { }
+    public override string Sound() { return "Woof"; }
+}
+class Cow : Animal
+{
+    public Cow(string n) : base(n) { }
+    public override string Sound() { return "Moo"; }
+}
+// Main
+Animal[] farm = { new Dog("Rex"), new Cow("Bella") };
+foreach (Animal a in farm)
+    Console.WriteLine(a);
+Console.WriteLine(farm.Length + " animals");
+>>>
+Rex says Woof
+Bella says Moo
+2 animals
+@@ f5 run
+class Shape
+{
+    public virtual string Name() { return "Shape"; }
+}
+class Circle : Shape
+{
+    public override string Name() { return "Circle"; }
+}
+class Painter
+{
+    public void Paint(Shape s) { Console.WriteLine("Paint shape: " + s.Name()); }
+    public void Paint(Circle c) { Console.WriteLine("Paint circle: " + c.Name()); }
+}
+// Main
+Painter p = new Painter();
+Shape s = new Circle();
+Circle c = new Circle();
+p.Paint(s);
+p.Paint(c);
+p.Paint((Circle)s);
+Console.WriteLine(s is Circle);
+>>>
+Paint shape: Circle
+Paint circle: Circle
+Paint circle: Circle
+True

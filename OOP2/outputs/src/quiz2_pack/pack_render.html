@@ -1,0 +1,911 @@
+<!doctype html><html><head><meta charset='utf-8'><title>OOP2 Quiz 2 Pack</title><style>
+@page { size: A4; margin: 11mm 12mm 13mm 12mm; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.2pt; color: #1a1a1a; line-height: 1.3; margin: 0; }
+section.page { break-before: page; }
+h1 { font-size: 16pt; margin: 0 0 4pt; color: #1f3557; } h2 { font-size: 11.5pt; margin: 9pt 0 4pt; color: #1f3557; border-bottom: 1.2pt solid #1f3557; }
+h3 { font-size: 10pt; margin: 7pt 0 3pt; color: #1f3557; }
+.kicker { font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; color: #a8863e; font-weight: 700; }
+.sub { margin: 0 0 6pt; } .small { font-size: 8.4pt; color: #333; margin: 3pt 0; }
+table { border-collapse: collapse; width: 100%; margin: 2pt 0 4pt; } td, th { border: 0.5pt solid #c4c8d0; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+th { background: #eef2f7; } tr { break-inside: avoid; }
+.tt td.t { white-space: nowrap; } .tt tr.brk td { color: #888; background: #fafafa; }
+.box { border-left: 3pt solid #1f3557; background: #f4f7fb; padding: 4pt 7pt; margin: 5pt 0; }
+.key-rule { border: 1pt solid #a8863e; background: #fffaf0; padding: 4pt 7pt; margin: 5pt 0; }
+.cols { display: flex; gap: 10pt; } .cols > div { flex: 1; min-width: 0; }
+code, pre { font-family: Consolas, 'Cascadia Mono', monospace; font-size: 7.9pt; } code { background: #f1f3f6; padding: 0 1.5pt; }
+pre { margin: 0; white-space: pre; line-height: 1.22; }
+.hl { background: #fbfbfc; border: 0.5pt solid #d9dce2; padding: 4pt 6pt; margin: 2pt 0 4pt; }
+.hl.two pre { column-count: 2; column-gap: 12pt; column-rule: 0.5pt solid #e0e0e0; }
+.out { background: #14181f; color: #e8e8e8; padding: 4pt 6pt; border-radius: 2pt; margin: 2pt 0 4pt; }
+ol.tight, ul.tight { margin: 2pt 0; padding-left: 15pt; } ol.tight li, ul.tight li { margin: 1pt 0; }
+.qgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; } .qgrid .hl { padding: 3pt 4pt; } .qgrid pre { font-size: 7.4pt; }
+ol.mcq { padding-left: 16pt; margin: 2pt 0; } ol.mcq li { margin: 0 0 4pt; }
+.errs td:first-child, .errs td:nth-child(3) { white-space: nowrap; width: 1%; font-weight: 600; }
+.q { margin: 4pt 0 1pt; } .map td:first-child { white-space: nowrap; }
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hl .hll { background-color: #ffffcc }
+.hl { background: #f8f8f8; }
+.hl .c { color: #3D7B7B; font-style: italic } /* Comment */
+.hl .err { border: 1px solid #F00 } /* Error */
+.hl .k { color: #008000; font-weight: bold } /* Keyword */
+.hl .o { color: #666 } /* Operator */
+.hl .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.hl .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.hl .cp { color: #9C6500 } /* Comment.Preproc */
+.hl .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.hl .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.hl .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.hl .gd { color: #A00000 } /* Generic.Deleted */
+.hl .ge { font-style: italic } /* Generic.Emph */
+.hl .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.hl .gr { color: #E40000 } /* Generic.Error */
+.hl .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.hl .gi { color: #008400 } /* Generic.Inserted */
+.hl .go { color: #717171 } /* Generic.Output */
+.hl .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.hl .gs { font-weight: bold } /* Generic.Strong */
+.hl .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.hl .gt { color: #04D } /* Generic.Traceback */
+.hl .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.hl .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.hl .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.hl .kp { color: #008000 } /* Keyword.Pseudo */
+.hl .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.hl .kt { color: #B00040 } /* Keyword.Type */
+.hl .m { color: #666 } /* Literal.Number */
+.hl .s { color: #BA2121 } /* Literal.String */
+.hl .na { color: #687822 } /* Name.Attribute */
+.hl .nb { color: #008000 } /* Name.Builtin */
+.hl .nc { color: #00F; font-weight: bold } /* Name.Class */
+.hl .no { color: #800 } /* Name.Constant */
+.hl .nd { color: #A2F } /* Name.Decorator */
+.hl .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.hl .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.hl .nf { color: #00F } /* Name.Function */
+.hl .nl { color: #767600 } /* Name.Label */
+.hl .nn { color: #00F; font-weight: bold } /* Name.Namespace */
+.hl .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.hl .nv { color: #19177C } /* Name.Variable */
+.hl .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.hl .w { color: #BBB } /* Text.Whitespace */
+.hl .mb { color: #666 } /* Literal.Number.Bin */
+.hl .mf { color: #666 } /* Literal.Number.Float */
+.hl .mh { color: #666 } /* Literal.Number.Hex */
+.hl .mi { color: #666 } /* Literal.Number.Integer */
+.hl .mo { color: #666 } /* Literal.Number.Oct */
+.hl .sa { color: #BA2121 } /* Literal.String.Affix */
+.hl .sb { color: #BA2121 } /* Literal.String.Backtick */
+.hl .sc { color: #BA2121 } /* Literal.String.Char */
+.hl .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.hl .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.hl .s2 { color: #BA2121 } /* Literal.String.Double */
+.hl .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.hl .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.hl .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.hl .sx { color: #008000 } /* Literal.String.Other */
+.hl .sr { color: #A45A77 } /* Literal.String.Regex */
+.hl .s1 { color: #BA2121 } /* Literal.String.Single */
+.hl .ss { color: #19177C } /* Literal.String.Symbol */
+.hl .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.hl .fm { color: #00F } /* Name.Function.Magic */
+.hl .vc { color: #19177C } /* Name.Variable.Class */
+.hl .vg { color: #19177C } /* Name.Variable.Global */
+.hl .vi { color: #19177C } /* Name.Variable.Instance */
+.hl .vm { color: #19177C } /* Name.Variable.Magic */
+.hl .il { color: #666 } /* Literal.Number.Integer.Long */</style></head><body><section>
+<div class="kicker">CSC 3115 · OOP2 · Quiz 2</div>
+<h1>Quiz 2 pack: inheritance and polymorphism</h1>
+<p class="sub"><b>Wed 18 Nov</b>, in the 10:20 OOP2 class, room 9303 (exact time not in the notice). <b>No make-up.</b> Every program in this pack was compiled and run (Visual Studio 2022, C# 7.3); every output and error below is the real one.</p>
+
+<div class="box"><b>What Quiz 2 most likely looks like</b> (not confirmed; based on the Week 4-5 slides and the midterm style): output tracing on a small class hierarchy (constructor order, <code>virtual</code>/<code>override</code>, <code>base</code> calls), a few compile-or-not and MCQ/true-false items, and a short hierarchy to write by hand with Main given.</div>
+
+<h2>What is in this pack</h2>
+<table class="map">
+<tr><th>Pages</th><th>What</th><th>How to use it</th></tr>
+<tr><td>2-3</td><td>Cheat sheet: the child-class recipe, constructor order, access, the two-question rule, override vs new, errors</td><td>Read, then say each rule out loud</td></tr>
+<tr><td>4-5</td><td>Traces you missed or skipped: midterm Q8, workbook 2.3, old-paper Q31</td><td>Re-trace on paper with a table, then check page 8</td></tr>
+<tr><td>6-7</td><td>Mini-quiz, closed book, 40 minutes: 2 traces, 5 compile-or-not, 10 MCQ/TF, 1 short code question</td><td>Timed. No cheat sheet, no key</td></tr>
+<tr><td>8-10</td><td>Answer key</td><td>Only after you have written every answer</td></tr>
+</table>
+<p class="small">Also used from <b>OOP2-Quiz2-90-Minutes.pdf</b> (printed page numbers): polymorphism traces and compile-or-not Q6-Q12 on pp 10-11, quiz-style check Q13-Q19 + 5 MCQs on pp 12-15, its key on pp 17-18.</p>
+
+<h2>Plan</h2>
+<table class='tt'><tr><th>Day</th><th>Time</th><th>Min</th><th>Pages</th><th>Task</th><th>Done when</th></tr><tr><td>Mon 16 Nov</td><td class='t'>19:00-19:45</td><td>45</td><td>pp 2-3</td><td>Read the cheat sheet. Then, on blank paper, write the child-class recipe and the two-question rule from memory.</td><td>Your paper matches pp 2-3 with nothing missing; any miss rewritten once.</td></tr><tr class='brk'><td></td><td class='t'>19:45-20:00</td><td>15</td><td></td><td>Break</td><td></td></tr><tr><td></td><td class='t'>20:00-20:50</td><td>50</td><td>pp 4-5, key p 8</td><td>Re-trace T1, T2, T3 on paper with a variable table, then check.</td><td>All three outputs match line for line; misses added to the Miss log.</td></tr><tr><td>Tue 17 Nov</td><td class='t'>19:00-19:50</td><td>50</td><td>90-Minutes PDF pp 10-11, key pp 17-18</td><td>Q6-Q8 traces and Q9-Q12 compile-or-not, on paper, then check.</td><td>All 7 marked; every miss re-traced.</td></tr><tr class='brk'><td></td><td class='t'>19:50-20:05</td><td>15</td><td></td><td>Break</td><td></td></tr><tr><td></td><td class='t'>20:05-20:45</td><td>40</td><td>pp 6-7</td><td>Mini-quiz, closed book, 40-minute timer. No cheat sheet.</td><td>Every question has a written answer when the timer ends.</td></tr><tr class='brk'><td></td><td class='t'>20:45-20:55</td><td>10</td><td></td><td>Break</td><td></td></tr><tr><td></td><td class='t'>20:55-21:35</td><td>40</td><td>pp 8-10</td><td>Mark the mini-quiz. Re-trace every missed trace; compare Part D line by line.</td><td>Score written on top; every miss in the Miss log.</td></tr><tr><td>Wed 18 Nov</td><td class='t'>06:45-07:30</td><td>45</td><td>pp 2-3 + your Tue misses</td><td>Cheat sheet once, then redo only what you missed on Tuesday. Nothing new.</td><td>Every Tuesday miss redone correctly.</td></tr></table><p class='small'>Study time 270 min (4.5 h) plus breaks.</p>
+
+<div class="box"><b>Rules.</b> Trace on paper first, check second. Draw a table for every variable; only <code>Console.Write</code> / <code>WriteLine</code> print. A miss = re-trace it, then add it to your Miss log. Your repeat misses: <code>False</code> for <code>false</code>, wrong types (take them from what Main passes), <code>+=</code> for <code>&gt;=</code>, a <code>}</code> closing a method too early, a missing <code>;</code>.</div>
+</section>
+
+<section class="page">
+<div class="kicker">Cheat sheet 1 of 2</div>
+<h1>Inheritance</h1>
+<div class="cols">
+<div>
+<h3>The child-class recipe (D5, Q33)</h3>
+<div class="hl"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Parent</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">extra</span><span class="p">;</span><span class="w">          </span><span class="c1">// only the child&#39;s own field</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Child</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">extra</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">cgpa</span><span class="p">)</span><span class="w">        </span><span class="c1">// parent&#39;s values go UP</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">extra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extra</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsEligible</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// parent&#39;s field is private: use its property</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Cgpa</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3.5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ShowInfo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span><span class="w">        </span><span class="c1">// parent&#39;s lines first</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Extra: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">extra</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsEligible</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Eligible: Yes&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Eligible: No&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w">                           </span><span class="c1">// ShowInfo ends after else</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+<div>
+<h3>Constructors</h3>
+<ol class="tight">
+<li><code>new Child(...)</code>: climb to the top parent first. Constructor <b>bodies run top-down</b>: parent first, child last.</li>
+<li><code>: base(a, b)</code> picks the parent's constructor and sends values <b>up</b> to it ("Nila" goes UP from Student to Person).</li>
+<li>No <code>: base(...)</code> written = a hidden <code>: base()</code>. If the parent has no constructor without parameters: error <b>CS7036</b>.</li>
+<li>Constructors are <b>not inherited</b>, they are chained. No return type, not even <code>void</code>.</li>
+<li><code>static</code> constructor: runs <b>once</b>, before the class is first used. A <code>static</code> field is <b>one shared box</b> for all objects.</li>
+<li>Setting a field prints nothing. Only <code>Write</code>/<code>WriteLine</code> print.</li>
+</ol>
+<h3>Who can use a member</h3>
+<table>
+<tr><td><code>private</code></td><td>own class only. Inherited but <b>not usable</b> in the child: use the parent's public property (<code>Cgpa</code>, not <code>cgpa</code>)</td></tr>
+<tr><td><code>protected</code></td><td>own class + children. Not from Main</td></tr>
+<tr><td><code>internal</code></td><td>anywhere in the same assembly</td></tr>
+<tr><td><code>protected internal</code></td><td>same assembly <b>or</b> children</td></tr>
+<tr><td><code>public</code></td><td>everywhere</td></tr>
+<tr><td>no modifier</td><td>member: <code>private</code>. Top-level class: <code>internal</code></td></tr>
+</table>
+<h3>Reading the question</h3>
+<table>
+<tr><td><code>"P-1"</code> in Main</td><td><code>string</code></td></tr>
+<tr><td><code>57</code></td><td><code>int</code></td></tr>
+<tr><td><code>3.86</code></td><td><code>double</code></td></tr>
+<tr><td>"at least" / "more than"</td><td><code>&gt;=</code> / <code>&gt;</code></td></tr>
+<tr><td>"at most" / "less than"</td><td><code>&lt;=</code> / <code>&lt;</code></td></tr>
+<tr><td>"and" / "or"</td><td><code>&amp;&amp;</code> / <code>||</code></td></tr>
+<tr><td>"prints X"</td><td>copy X's words exactly</td></tr>
+</table>
+<p class="small">A class can have <b>one</b> direct parent (two = error CS1721). Every class inherits from <code>System.Object</code>: <code>ToString()</code>, <code>Equals()</code>, <code>GetHashCode()</code>, <code>GetType()</code>, all public.</p>
+</div>
+</div>
+</section>
+
+<section class="page">
+<div class="kicker">Cheat sheet 2 of 2</div>
+<h1>Polymorphism</h1>
+<div class="cols">
+<div>
+<h3>A parent variable can hold a child object</h3>
+<p><code>Person p = new Student("Nila", 3.8);</code> is legal: a Student is a Person. <b>Declared type</b> = Person (the variable). <b>Actual type</b> = Student (the object).</p>
+<div class="key-rule"><b>The two-question rule for every call <code>v.M()</code></b>
+<ol class="tight">
+<li><b>Does it compile?</b> Look only at the declared type of <code>v</code>. No <code>M</code> there (or in its parents) = error CS1061, whatever the object is.</li>
+<li><b>Which body runs?</b> <code>M</code> virtual/abstract: start at the object's actual class, walk up; the first <code>override</code> runs. Not virtual, or hidden with <code>new</code>: the declared type's version runs.</li>
+</ol></div>
+<table>
+<tr><th></th><th><code>override</code></th><th><code>new</code> (hiding)</th></tr>
+<tr><td><code>Account a = new Savings(); a.M();</code></td><td>Savings's M</td><td>Account's M</td></tr>
+<tr><td><code>Savings s = new Savings(); s.M();</code></td><td>Savings's M</td><td>Savings's M</td></tr>
+<tr><td>Decided by</td><td>the object, at run time</td><td>the variable, at compile time</td></tr>
+</table>
+<h3>Keywords</h3>
+<table>
+<tr><td><code>virtual</code></td><td>parent allows replacement; has a body; overriding is optional</td></tr>
+<tr><td><code>override</code></td><td>child replaces it: same name, parameters, return type, access</td></tr>
+<tr><td><code>new</code></td><td>child hides a non-virtual method; the variable decides</td></tr>
+<tr><td><code>abstract</code></td><td>method: no body, must be overridden. Class: can't <code>new</code> it, CAN have constructors</td></tr>
+<tr><td><code>sealed</code></td><td>class: no children</td></tr>
+<tr><td><code>base.M()</code></td><td>runs the parent's M, wherever the line sits</td></tr>
+</table>
+<h3>Overloading vs overriding</h3>
+<table>
+<tr><td>Overloading</td><td>same name, <b>different parameters</b>, same class. Compile time</td></tr>
+<tr><td>Overriding</td><td>same name, <b>same parameters</b>, in a child. Run time</td></tr>
+</table>
+</div>
+<div>
+<h3>Casting</h3>
+<ul class="tight">
+<li><code>a is Savings</code>: <code>True</code> if the object is a Savings (or its child).</li>
+<li><code>((Savings)a).Show()</code>: treat <code>a</code> as Savings for this call.</li>
+<li>Wrong cast (<code>a</code> holds an Account): compiles, crashes with <code>InvalidCastException</code>.</li>
+<li>Parent to child with no cast: CS0266. Between siblings (Car to Truck): CS0030.</li>
+</ul>
+<h3>Does not compile</h3>
+<table class="errs">
+<tr><td>CS0506</td><td><code>override</code> on a method that is not virtual/abstract</td></tr>
+<tr><td>CS0507/8</td><td>override changes access / return type</td></tr>
+<tr><td>CS0144</td><td><code>new</code> on an abstract class</td></tr>
+<tr><td>CS0534</td><td>child misses an abstract method's override</td></tr>
+<tr><td>CS0509</td><td>inherit a sealed class</td></tr>
+<tr><td>CS0122</td><td>private member from a child or Main; protected from Main</td></tr>
+<tr><td>CS1061</td><td>child-only member through a parent variable</td></tr>
+<tr><td>CS7036</td><td>parent needs arguments, child has no <code>: base(...)</code></td></tr>
+</table>
+<p class="small">Same-name method without <code>override</code> or <code>new</code>: compiles, hides it, warning only.</p>
+<h3>Output gotchas</h3>
+<table>
+<tr><td><code>WriteLine(3.80)</code>, <code>WriteLine(6.0)</code></td><td><code>3.8</code>, <code>6</code></td></tr>
+<tr><td><code>bool</code></td><td><code>True</code> / <code>False</code> (in code: <code>true</code>/<code>false</code>)</td></tr>
+<tr><td><code>Write</code> then <code>WriteLine</code></td><td>same line</td></tr>
+<tr><td><code>"\nX"</code></td><td>blank line, then X</td></tr>
+<tr><td><code>"S" + 2 + 3</code> / <code>2 + 3 + "S"</code></td><td><code>S23</code> / <code>5S</code></td></tr>
+<tr><td><code>7 / 2</code>, <code>(int)7.7</code></td><td><code>3</code>, <code>7</code></td></tr>
+<tr><td>unset <code>int</code> / <code>string</code> field</td><td><code>0</code> / nothing</td></tr>
+</table>
+<h3>Outside the topic, in case</h3>
+<p class="small"><code>var</code>: type picked at compile time; <code>dynamic</code>: checked while running. Boxing: value type to <code>object</code>. <code>enum</code> values are <code>int</code>, starting at 0. <code>const</code>: fixed in its declaration; <code>readonly</code>: declaration or constructor.</p>
+</div>
+</div>
+</section>
+
+<section class="page">
+<div class="kicker">Re-trace on paper · answers on page 8</div>
+<h1>Traces you missed</h1>
+<h3>T1 · Midterm workbook Q8: constructors and static</h3>
+<p class="small">Last time: you printed values while objects were made, missed the copy constructor line, wrote <code>8 Rafi</code>, and left count blank.</p>
+<div class="hl two"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Student</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">uni</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nf">Student</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">uni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;AIUB&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;static constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;default constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;parameterized constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;copy constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uni</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Main</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Main starts&quot;</span><span class="p">);</span>
+<span class="n">Student</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">();</span>
+<span class="n">Student</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Nila&quot;</span><span class="p">);</span>
+<span class="n">Student</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="n">c</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rafi&quot;</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="n">c</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;count = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Student</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
+</pre></div>
+
+<h3>T2 · Workbook 2.3: base(name)</h3>
+<p class="small">Last time: you said "Nila" flows down from Person to Student. Write the output, then one sentence on which way "Nila" travels.</p>
+<div class="hl two"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Person constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">cgpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cgpa</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Student constructor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;CGPA: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cgpa</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Main</span>
+<span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&quot;Nila&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">3.8</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+</pre></div>
+
+</section>
+
+<section class="page">
+<h3>T3 · Old midterm paper Q31: protected static + constructor chain</h3>
+<p class="small">Skipped on exam morning. The access words don't change the output; track only the <code>static data</code> box and which constructors run.</p>
+<div class="hl two"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Pack</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">internal</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">A</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">internal</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alpha</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Start &quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="nf">Alpha</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">data</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;alpha &quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">SubAlpha</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Alpha</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">SubAlpha</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">data</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;subalpha &quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ShowData</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SubSubAlpha</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Alpha</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">SubSubAlpha</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">data</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;subsubalpha &quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DisplayNum</span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="n">objA</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">objA</span><span class="p">.</span><span class="n">num</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DisplayVal</span><span class="p">(</span><span class="n">B</span><span class="w"> </span><span class="n">objB</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">objB</span><span class="p">.</span><span class="n">val</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">A</span><span class="w"> </span><span class="n">objA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">A</span><span class="p">();</span>
+<span class="w">            </span><span class="n">objA</span><span class="p">.</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span>
+<span class="w">            </span><span class="n">B</span><span class="w"> </span><span class="n">objB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B</span><span class="p">();</span>
+<span class="w">            </span><span class="n">objB</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="w">            </span><span class="n">DisplayNum</span><span class="p">(</span><span class="n">objA</span><span class="p">);</span>
+<span class="w">            </span><span class="n">DisplayNum</span><span class="p">(</span><span class="n">objB</span><span class="p">);</span>
+<span class="w">            </span><span class="n">DisplayVal</span><span class="p">(</span><span class="n">objB</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Determine:&quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Reset &quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">SubSubAlpha</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Final data = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Final num = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">objA</span><span class="p">.</span><span class="n">num</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</section>
+
+<section class="page">
+<div class="kicker">Closed book · 40 minutes · no cheat sheet</div>
+<h1>Mini-quiz</h1>
+<h3>Part A · Write the exact output</h3>
+<p class="q"><b>A1.</b></p>
+<div class="hl two"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Device</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">brand</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Device</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">brand</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brand</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Device &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">brand</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Info</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Brand: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">brand</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Phone</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Device</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sims</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Phone</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sims</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">brand</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">sims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sims</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Phone &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sims</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Info</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">Info</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;SIMs: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sims</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SmartPhone</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Phone</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">screen</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SmartPhone</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sims</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">screen</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="n">sims</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">screen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">screen</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;SmartPhone &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screen</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Info</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Screen: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screen</span><span class="p">);</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">Info</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Device</span><span class="p">[]</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Device</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">        </span><span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SmartPhone</span><span class="p">(</span><span class="s">&quot;Walton&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mf">6.50</span><span class="p">);</span>
+<span class="w">        </span><span class="n">list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Device</span><span class="p">(</span><span class="s">&quot;Sony&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;---&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Device</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">list</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">d</span><span class="p">.</span><span class="n">Info</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p class="q"><b>A2.</b></p>
+<div class="hl two"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Account</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Account</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Monthly</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Account &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">balance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Savings</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Account</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Savings</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">balance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Monthly</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">Monthly</span><span class="p">();</span>
+<span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Savings &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">balance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Account</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Savings</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Savings</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Savings</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Account</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Account</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">Monthly</span><span class="p">();</span>
+<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">Monthly</span><span class="p">();</span>
+<span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">Monthly</span><span class="p">();</span>
+<span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="w">        </span><span class="p">((</span><span class="n">Savings</span><span class="p">)</span><span class="n">a</span><span class="p">).</span><span class="n">Show</span><span class="p">();</span>
+<span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Savings</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Savings</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;count = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Account</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</section>
+
+<section class="page">
+<h3>Part B · Compiles? If not, name the problem and the fix</h3>
+<div class="qgrid">
+<div><b>B1.</b><div class="hl"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vehicle</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div><b>B2.</b><div class="hl"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Teacher</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Teacher</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div><b>B3.</b><div class="hl"><pre><span></span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">Area</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1">// Main</span>
+<span class="n">Shape</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Shape</span><span class="p">();</span>
+</pre></div>
+</div>
+<div><b>B4.</b><div class="hl"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Student</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Cgpa</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">cgpa</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">cgpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cgpa</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Graduate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Student</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Graduate</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">cgpa</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">cgpa</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Good</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cgpa</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3.5</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div><b>B5.</b><div class="hl"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Nila&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Show</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Main</span>
+<span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">();</span>
+<span class="n">s</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<h3>Part C · MCQ and true/false</h3>
+<ol class="mcq">
+<li><code>class B : A</code> and <code>class C : B</code>. On <code>new C()</code>, the constructor bodies run in the order: a) C, B, A &nbsp; b) A, B, C &nbsp; c) only C &nbsp; d) A, C</li>
+<li><code>M()</code> is <code>virtual</code> in A and <code>override</code> in B. <code>A x = new B(); x.M();</code> runs: a) A's M &nbsp; b) B's M &nbsp; c) both &nbsp; d) compile error</li>
+<li>Which keyword stops a class from being inherited? a) static &nbsp; b) abstract &nbsp; c) sealed &nbsp; d) private</li>
+<li>A method with no body must be marked: a) virtual &nbsp; b) abstract &nbsp; c) override &nbsp; d) new</li>
+<li><code>base.Show()</code> inside a child's <code>Show()</code> runs: a) the child's Show again &nbsp; b) the parent's Show &nbsp; c) Object's ToString &nbsp; d) nothing</li>
+<li>True or false: a class can have only one direct parent class.</li>
+<li>True or false: constructors are inherited by the child class.</li>
+<li>True or false: an override can change the return type of the virtual method.</li>
+<li>True or false: a child class can read its parent's <code>protected</code> field.</li>
+<li>True or false: a parent-type variable can call a method that exists only in the child.</li>
+</ol>
+<h3>Part D · Code writing (about 20 minutes)</h3>
+<div class="box">A rental shop has <b>Vehicle</b>s. Every Vehicle has <code>vehicleId</code> (string) and <code>dailyRent</code> (double), a property for each, a constructor, a virtual method <b><code>Rent(int days)</code></b> that returns the cost as <code>double</code> (daily rent &times; days), and a virtual <b><code>ShowInfo()</code></b>.
+<ul class="tight">
+<li><b>Car</b> adds <code>seats</code> (int). Rent = the normal cost, plus 500 if it has more than 5 seats.</li>
+<li><b>Truck</b> adds <code>loadTons</code> (double). Rent = the normal cost plus loadTons &times; 1000.</li>
+</ul>
+Each child's ShowInfo prints the parent's details first, then its own field. Use <code>base</code> calls. Use proper access modifiers. Main is given; don't rewrite it:</div>
+<div class="hl"><pre><span></span><span class="n">Vehicle</span><span class="p">[]</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vehicle</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">(</span><span class="s">&quot;C-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">(</span><span class="s">&quot;C-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Truck</span><span class="p">(</span><span class="s">&quot;T-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">);</span>
+
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Vehicle</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Rent for 3 days: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Rent</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+</section>
+
+<section class="page key">
+<div class="kicker">Answer key · page 1 of 3</div>
+<h1>Key: traces you missed</h1>
+<div class="cols">
+<div>
+<h3>T1 · Q8</h3>
+<pre class='out'>Main starts
+static constructor
+default constructor
+parameterized constructor
+copy constructor
+-1 unknown AIUB
+7 Nila AIUB
+7 Rafi AIUB
+count = 3</pre>
+<p class="small">The static constructor runs once, after "Main starts" and just before the first <code>new</code>. Each <code>new</code> runs exactly one other constructor, and constructors print only their own text. <code>new Student(b)</code> passes a Student, so the copy constructor runs. A copy takes b's values exactly (7, Nila); then only c's name changes. <code>uni</code> and <code>count</code> are static: one shared box, so AIUB everywhere and count = 3.</p>
+<h3>T2 · 2.3</h3>
+<pre class='out'>Person constructor
+Student constructor
+Name: Nila
+CGPA: 3.8</pre>
+<p class="small">"Nila" goes <b>UP</b>: Student's constructor receives it, <code>: base(name)</code> hands it to Person, and Person's body runs first. <code>p</code> holds a Student and Show is virtual/override, so Student's Show runs: <code>base.Show()</code> prints the name first.</p>
+</div>
+<div>
+<h3>T3 · Old Q31</h3>
+<pre class='out'>40
+10
+50
+Start 
+Determine:
+Reset alpha subsubalpha 
+Final data = Reset alpha subsubalpha 
+Final num = 40</pre>
+<p class="small"><code>objA.num</code> was set to 40. <code>objB</code> is a different object whose <code>num</code> was never changed: 10. <code>objB.val</code> was set to 50. <code>data</code> is static and no Alpha object exists yet: still "Start ". After the reset, <code>new SubSubAlpha()</code> runs Alpha's constructor first ("alpha "), then its own ("subsubalpha "). SubAlpha is never created, so "subalpha" never appears. (The printed paper has <code>num = 15</code> instead of 10; then line 2 is 15.)</p>
+</div>
+</div>
+</section>
+
+<section class="page key">
+<div class="kicker">Answer key · page 2 of 3</div>
+<h1>Key: mini-quiz A-C</h1>
+<div class="cols">
+<div>
+<h3>A1</h3>
+<pre class='out'>Device Walton
+Phone 2
+SmartPhone 6.5
+Device Sony
+---
+Screen: 6.5
+Brand: Walton
+SIMs: 2
+Brand: Sony</pre>
+<p class="small">SmartPhone climbs to Device: bodies run Device, Phone, SmartPhone. <code>6.50</code> prints as <code>6.5</code>. In the loop, <code>list[0]</code> is a SmartPhone, so SmartPhone's Info runs: it prints Screen <b>first</b>, then <code>base.Info()</code> is Phone's Info, which calls Device's Info (Brand), then prints SIMs. <code>list[1]</code> is a plain Device.</p>
+</div>
+<div>
+<h3>A2</h3>
+<pre class='out'>Account 300
+Savings 220
+Savings 300
+Account 105
+True
+False
+count = 3</pre>
+<p class="small">Monthly is virtual/override, so the <b>object</b> decides. a (a Savings): 50 + 100 = 150, &times; 2 = 300. s: 10, 110, 220. b (an Account): 105. Show is hidden with <code>new</code>, so the <b>variable</b> decides: <code>a.Show()</code> is Account's, even though a holds a Savings; the cast makes it Savings's. <code>count</code> is static: 3 objects.</p>
+</div>
+</div>
+<h3>B · compile or not</h3>
+<table class="errs">
+<tr><td>B1</td><td>Error <b>CS0506</b>: Vehicle.Start is not virtual. Fix: <code>public virtual void Start()</code> in Vehicle.</td></tr>
+<tr><td>B2</td><td>Error <b>CS7036</b>: Teacher's constructor has no <code>: base(...)</code>, so it calls <code>Person()</code>, which doesn't exist. Fix: <code>public Teacher(string name) : base(name)</code>.</td></tr>
+<tr><td>B3</td><td>Error <b>CS0144</b>: an abstract class can't be created with <code>new</code>. Fix: create a non-abstract child that overrides Area().</td></tr>
+<tr><td>B4</td><td>Error <b>CS0122</b>: <code>cgpa</code> is private in Student. Fix: <code>return Cgpa &gt;= 3.5;</code> (your Q33 miss).</td></tr>
+<tr><td>B5</td><td><b>Compiles</b> and prints <code>Nila</code>: a child may read a protected field. (From Main, <code>s.name</code> would be CS0122.)</td></tr>
+</table>
+<h3>C · MCQ and true/false</h3>
+<table class="errs">
+<tr><td>1</td><td><b>b</b> A, B, C: parent bodies first.</td><td>6</td><td><b>True</b>: two parents is CS1721.</td></tr>
+<tr><td>2</td><td><b>b</b> B's M: the object decides.</td><td>7</td><td><b>False</b>: chained, not inherited.</td></tr>
+<tr><td>3</td><td><b>c</b> sealed.</td><td>8</td><td><b>False</b>: CS0508. Same return type.</td></tr>
+<tr><td>4</td><td><b>b</b> abstract.</td><td>9</td><td><b>True</b>: that is what protected is for.</td></tr>
+<tr><td>5</td><td><b>b</b> the parent's Show.</td><td>10</td><td><b>False</b>: CS1061; cast first.</td></tr>
+</table>
+</section>
+
+<section class="page key">
+<div class="kicker">Answer key · page 3 of 3</div>
+<h1>Key: Part D</h1>
+<p class="small">Any names are fine if they are consistent. Marks go to: types from Main, constructors with <code>: base(...)</code>, <code>virtual</code>/<code>override</code>, <code>base.Rent(days)</code> and <code>base.ShowInfo()</code>, the <code>&gt; 5</code> rule, braces and <code>;</code>.</p>
+<div class="hl two"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">VehicleId</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">vehicleId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">DailyRent</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dailyRent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Vehicle</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">vehicleId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">dailyRent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">Rent</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">days</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dailyRent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">days</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ShowInfo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Daily rent: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vehicle</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seats</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Car</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seats</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">vehicleId</span><span class="p">,</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">seats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seats</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">Rent</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">days</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">base</span><span class="p">.</span><span class="n">Rent</span><span class="p">(</span><span class="n">days</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">seats</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cost</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ShowInfo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Seats: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seats</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Truck</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vehicle</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">loadTons</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Truck</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">vehicleId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">loadTons</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">vehicleId</span><span class="p">,</span><span class="w"> </span><span class="n">dailyRent</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">loadTons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loadTons</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">Rent</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">days</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">base</span><span class="p">.</span><span class="n">Rent</span><span class="p">(</span><span class="n">days</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">loadTons</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ShowInfo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Load: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">loadTons</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; tons&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Vehicle</span><span class="p">[]</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vehicle</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="w">        </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">(</span><span class="s">&quot;C-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">(</span><span class="s">&quot;C-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Truck</span><span class="p">(</span><span class="s">&quot;T-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Vehicle</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Rent for 3 days: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Rent</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><b>Output:</b></p>
+<pre class='out'>ID: C-1
+Daily rent: 3000
+Seats: 7
+Rent for 3 days: 9500
+
+ID: C-2
+Daily rent: 2500
+Seats: 4
+Rent for 3 days: 7500
+
+ID: T-1
+Daily rent: 5000
+Load: 2.5 tons
+Rent for 3 days: 17500</pre>
+</section>
+</body></html>

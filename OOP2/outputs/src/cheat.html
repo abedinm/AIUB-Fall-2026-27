@@ -1,0 +1,99 @@
+<!-- ============================== CHEAT SHEET ============================== -->
+<section class="block cheat">
+[[mk:cheat]]
+<div class="block-head">
+  <div class="bnum">§</div>
+  <div>
+    <div class="kicker">One page · Inheritance &amp; polymorphism in C#</div>
+    <h1>Cheat sheet</h1>
+  </div>
+</div>
+<div class="cols">
+<div>
+  <h3>Trace any program in four moves</h3>
+  <ol>
+    <li>Start at <code>Main</code>; go line by line.</li>
+    <li><code>new X(…)</code>: climb to the top ancestor, then run constructor bodies top-down. A constructor without <code>: base(…)</code> calls <code>: base()</code>.</li>
+    <li><code>v.M()</code>: apply the two-question rule (below).</li>
+    <li><code>base.M()</code> always runs the parent's version, never the object's.</li>
+  </ol>
+  <h3>The two-question rule</h3>
+  <ol>
+    <li><b>Compiles?</b> Only if the declared type of <code>v</code> (or a parent) has <code>M</code>.</li>
+    <li><b>Which body?</b> <code>M</code> virtual/abstract: from the object's actual class, walk up; the first <code>override</code> wins. Otherwise (non-virtual, or hidden with <code>new</code>): the declared type's version.</li>
+  </ol>
+  <h3>Constructors</h3>
+  <ul>
+    <li>Not inherited; chained. Parent body first, own body last.</li>
+    <li>Write any constructor and the free parameterless one disappears.</li>
+    <li>Parent has only parameterised constructors → every child constructor needs <code>: base(args)</code>.</li>
+    <li>Order with field initialisers: derived fields, base fields, base body, derived body.</li>
+  </ul>
+  <h3>Keywords</h3>
+  <table>
+    <tr><td><code>virtual</code></td><td>parent allows replacement</td></tr>
+    <tr><td><code>override</code></td><td>child replaces it; object decides</td></tr>
+    <tr><td><code>new</code></td><td>child hides it; variable decides</td></tr>
+    <tr><td><code>abstract</code></td><td>no body; class can't be <code>new</code>-ed; children must override</td></tr>
+    <tr><td><code>sealed</code></td><td>class: no children. <code>sealed override</code>: no further overrides</td></tr>
+    <tr><td><code>base</code></td><td><code>: base(…)</code> picks parent constructor; <code>base.M()</code> parent's M</td></tr>
+    <tr><td><code>this</code></td><td>the current object; <code>this.x = x</code></td></tr>
+    <tr><td><code>protected</code></td><td>class + children only, not Main</td></tr>
+  </table>
+  <h3>Overloading vs overriding</h3>
+  <ul>
+    <li>Overloading: same name, different parameters; chosen at compile time by the declared argument types.</li>
+    <li>Overriding: same signature in a child; chosen at run time by the object.</li>
+    <li>Widening for overloads: <code>char → int → long → double</code>.</li>
+  </ul>
+</div>
+<div>
+  <h3>Does not compile</h3>
+  <ul>
+    <li><code>override</code> on a non-virtual method <span class="cs">CS0506</span></li>
+    <li>override changes access <span class="cs">CS0507</span> or return type <span class="cs">CS0508</span></li>
+    <li><code>new</code> on an abstract class <span class="cs">CS0144</span></li>
+    <li>abstract method in a non-abstract class <span class="cs">CS0513</span></li>
+    <li>child misses an abstract override <span class="cs">CS0534</span></li>
+    <li>inherit a sealed class <span class="cs">CS0509</span>; override a sealed method <span class="cs">CS0239</span></li>
+    <li><code>abstract sealed class</code> <span class="cs">CS0418</span>; <code>private virtual</code> <span class="cs">CS0621</span></li>
+    <li>two parent classes <span class="cs">CS1721</span></li>
+    <li>private member from a child or from Main; protected from Main <span class="cs">CS0122</span></li>
+    <li>child-only member through a parent variable <span class="cs">CS1061</span></li>
+    <li>parent → child without a cast <span class="cs">CS0266</span></li>
+    <li>cast between siblings (Dog → Cat) <span class="cs">CS0030</span></li>
+    <li>parent has no matching constructor for the hidden <code>base()</code> <span class="cs">CS7036</span></li>
+  </ul>
+  <h3>Compiles, but…</h3>
+  <ul>
+    <li>Same-name method without <code>new</code>: hides, warning CS0108.</li>
+    <li><code>(Cat)a</code> when <code>a</code> holds a Dog: crashes, <code>InvalidCastException</code>.</li>
+    <li><code>x = x;</code> in a constructor: field stays default (warning CS1717).</li>
+  </ul>
+  <h3>Output gotchas</h3>
+  <table>
+    <tr><td><code>"S" + 2 + 3</code></td><td><code>S23</code></td></tr>
+    <tr><td><code>2 + 3 + "S"</code></td><td><code>5S</code></td></tr>
+    <tr><td><code>7 / 2</code>, <code>7 % 2</code>, <code>7 / 2.0</code></td><td><code>3</code>, <code>1</code>, <code>3.5</code></td></tr>
+    <tr><td><code>Console.WriteLine(3.0)</code></td><td><code>3</code></td></tr>
+    <tr><td><code>'a' + 1</code></td><td><code>98</code></td></tr>
+    <tr><td><code>bool</code> values</td><td><code>True</code> / <code>False</code></td></tr>
+    <tr><td>unset <code>string</code> / <code>int</code> field</td><td>prints nothing / <code>0</code></td></tr>
+    <tr><td>object without a ToString override</td><td>its class name (with namespace)</td></tr>
+  </table>
+  <h3>Slides vs compiler</h3>
+  <ul>
+    <li>Week 5 slide 5: access level and return type "can be re-defined" when overriding. Compiler: both are errors.</li>
+    <li>Week 5 slide 6: abstract class with a constructor "must be concrete". Compiler: abstract classes can have constructors.</li>
+    <li>Week 4 slide 8: private members "not inherited". Precisely: inherited, but not accessible.</li>
+  </ul>
+  <h3>Code-writing skeleton</h3>
+  <pre class="code" style="font-size:7.2pt;padding:4pt 8pt">class Child : Parent
+{
+    public Child(int a, int b) : base(a) { … }
+    public override void Show() { base.Show(); … }
+}</pre>
+</div>
+</div>
+</section>
+

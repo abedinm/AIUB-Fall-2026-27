@@ -1,0 +1,2140 @@
+@@ m1_skel full
+using System;
+
+namespace FirstApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello");
+            Console.Write("AI");
+            Console.WriteLine("UB");
+            Console.WriteLine();
+            Console.WriteLine("Bye");
+        }
+    }
+}
+>>>
+Hello
+AIUB
+
+Bye
+
+@@ m1_vars run
+int age = 20;
+double cgpa = 3.75;
+string name = "Nila";
+char grade = 'A';
+bool passed = true;
+
+Console.WriteLine(name + " is " + age);
+Console.WriteLine("CGPA: " + cgpa);
+Console.WriteLine("Passed: " + passed);
+Console.WriteLine("Sum: " + 2 + 3);
+Console.WriteLine(2 + 3 + " is the sum");
+Console.WriteLine(7 / 2);
+Console.WriteLine(7.0 / 2);
+Console.WriteLine(7 % 2);
+Console.WriteLine("{0} got {1}", name, grade);
+>>>
+Nila is 20
+CGPA: 3.75
+Passed: True
+Sum: 23
+5 is the sum
+3
+3.5
+1
+Nila got A
+
+@@ m1_cast run
+double price = 10.75;
+int whole = (int)price;
+Console.WriteLine(whole);
+
+int count = 10;
+double d = count;
+Console.WriteLine(d);
+
+char letter = 'A';
+int code = letter;
+Console.WriteLine(code);
+Console.WriteLine((char)66);
+Console.WriteLine(letter + 1);
+
+int x = 5;
+x += 3;
+x++;
+Console.WriteLine(x);
+>>>
+10
+10
+65
+B
+66
+9
+
+@@ m1_q1 run
+int a = 9;
+int b = 4;
+Console.WriteLine(a / b);
+Console.WriteLine(a % b);
+Console.WriteLine("a + b = " + a + b);
+Console.WriteLine("a + b = " + (a + b));
+Console.Write(a);
+Console.Write(b);
+Console.WriteLine();
+Console.WriteLine("{1} {0}", a, b);
+>>>
+2
+1
+a + b = 94
+a + b = 13
+94
+4 9
+
+@@ m1_q2 run
+double m = 9.99;
+int n = (int)m;
+char c = 'C';
+Console.WriteLine(n);
+Console.WriteLine((int)c);
+Console.WriteLine(n + m);
+bool ok = n > 9;
+Console.WriteLine(ok);
+n *= 2;
+n--;
+Console.WriteLine("n = " + n);
+Console.WriteLine("Done\nNow");
+>>>
+9
+67
+18.99
+False
+n = 17
+Done
+Now
+
+@@ m1_loop run
+for (int i = 1; i <= 3; i++)
+{
+    Console.WriteLine("i = " + i);
+}
+
+int total = 0;
+for (int i = 0; i < 6; i += 2)
+{
+    total += i;
+}
+Console.WriteLine("total = " + total);
+
+int[] marks = { 70, 85, 40 };
+foreach (int m in marks)
+{
+    if (m >= 50)
+    {
+        Console.WriteLine(m + " pass");
+    }
+    else
+    {
+        Console.WriteLine(m + " fail");
+    }
+}
+>>>
+i = 1
+i = 2
+i = 3
+total = 6
+70 pass
+85 pass
+40 fail
+
+@@ m1_arr run
+int[] a = { 10, 20, 30 };
+Console.WriteLine(a[0]);
+Console.WriteLine(a.Length);
+
+int[] b = new int[3];
+Console.WriteLine(b[1]);
+
+int[] c = a;
+c[0] = 99;
+Console.WriteLine(a[0]);
+
+for (int i = a.Length - 1; i >= 0; i--)
+{
+    Console.Write(a[i] + " ");
+}
+Console.WriteLine();
+>>>
+10
+3
+0
+99
+30 20 99
+
+@@ m1_jag run
+int[][] j = new int[3][];
+j[0] = new int[] { 1, 2, 3 };
+j[1] = new int[] { 4, 5 };
+j[2] = new int[4];
+
+Console.WriteLine(j.Length);
+Console.WriteLine(j[0].Length);
+Console.WriteLine(j[1][1]);
+Console.WriteLine(j[2][3]);
+
+for (int r = 0; r < j.Length; r++)
+{
+    for (int c = 0; c < j[r].Length; c++)
+    {
+        Console.Write(j[r][c] + " ");
+    }
+    Console.WriteLine();
+}
+
+foreach (int[] row in j)
+{
+    Console.Write(row.Length + " ");
+}
+Console.WriteLine();
+>>>
+3
+3
+5
+0
+1 2 3
+4 5
+0 0 0 0
+3 2 4
+
+@@ m1_rte rte
+int[][] j = new int[2][];
+j[0] = new int[] { 1, 2 };
+j[1] = new int[] { 3, 4, 5 };
+Console.WriteLine(j[1][2]);
+Console.WriteLine(j[0][2]);
+>>>
+5
+
+@@ m1_q3 run
+int sum = 0;
+for (int i = 1; i <= 5; i++)
+{
+    if (i % 2 == 0)
+    {
+        sum += i;
+    }
+    else
+    {
+        Console.Write(i + " ");
+    }
+}
+Console.WriteLine();
+Console.WriteLine("sum = " + sum);
+>>>
+1 3 5
+sum = 6
+
+@@ m1_q4 run
+int[] n = { 4, 7, 1, 9 };
+int big = n[0];
+foreach (int x in n)
+{
+    if (x > big)
+    {
+        big = x;
+    }
+}
+Console.WriteLine("big = " + big);
+n[2] = n[1] + n[3];
+Console.WriteLine(n[2]);
+Console.WriteLine(n.Length - 1);
+>>>
+big = 9
+16
+3
+
+@@ m1_q5 run
+int[][] g = new int[3][];
+g[0] = new int[] { 2, 4, 6, 8 };
+g[1] = new int[] { 1, 3 };
+g[2] = new int[3];
+
+for (int i = 0; i < g[2].Length; i++)
+{
+    g[2][i] = g[0][i] + g[0][i + 1];
+}
+
+for (int r = 0; r < g.Length; r++)
+{
+    for (int c = 0; c < g[r].Length; c += 2)
+    {
+        Console.Write(g[r][c] + " ");
+    }
+    Console.WriteLine();
+}
+>>>
+2 6
+1
+6 14
+
+@@ m1_old1 full
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double[][] jaggedArray = new double[][]
+        {
+            new double[] { 1.5, 2.5, 3.5 },
+            new double[] { 4.3, 5.8 },
+            new double[] { 6.2, 7.7, 8.2, 9.4 }
+        };
+
+        Console.WriteLine("Jagged Array:");
+
+        for (int i = 0; i < jaggedArray.Length; i++)
+        {
+            for (int j = 0; j < jaggedArray[i].Length - 1; j++)
+            {
+                Console.Write(jaggedArray[i][j] + " ");
+            }
+            Console.WriteLine();
+        }
+
+        double element1 = jaggedArray[0][0];
+        double element2 = jaggedArray[1][1];
+        double element3 = jaggedArray[2][3];
+
+        Console.WriteLine("Accessed Elements:");
+        Console.WriteLine("\nElement1: " + element1);
+        Console.Write("Element2: " + element2);
+        Console.WriteLine("Element3: " + element3);
+
+        Console.WriteLine(jaggedArray[1][1] - jaggedArray[0][1]);
+        Console.Write((int)jaggedArray[2][1]);
+        Console.WriteLine("The end");
+    }
+}
+>>>
+Jagged Array:
+1.5 2.5
+4.3
+6.2 7.7 8.2
+Accessed Elements:
+
+Element1: 1.5
+Element2: 5.8Element3: 9.4
+3.3
+7The end
+
+@@ m1_old2 full
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[][] myArray = new int[4][];
+        myArray[0] = new int[] { 1, 3, 5, 7, 9, -2 };
+        myArray[1] = new int[4];
+        myArray[2] = new int[] { 2, 4, 6, 8, 5, 3 };
+        myArray[3] = new int[4];
+
+        for (int row = 0; row < 4; row += 2)
+        {
+            for (int column = 1; column < myArray[row].Length; column += 3)
+            {
+                Console.Write("{0}  ", myArray[row][column]);
+            }
+            Console.WriteLine();
+        }
+
+        for (int index = 0; index < myArray[1].Length; index++)
+        {
+            myArray[1][index] = myArray[0][index + 1] * 2;
+        }
+
+        for (int index = 0; index < myArray[3].Length; index++)
+        {
+            myArray[3][index] = myArray[2][index] + myArray[2][index + 2];
+        }
+
+        for (int row = 1; row < 4; row += 2)
+        {
+            for (int column = 0; column < myArray[row].Length; column++)
+            {
+                Console.Write("{0}  ", myArray[row][column]);
+            }
+            Console.WriteLine();
+        }
+    }
+}
+>>>
+3  9
+4  5
+6  10  14  18
+8  12  11  11
+
+@@ m2_staff full
+using System;
+
+class Staff
+{
+    // STEP 1  fields: the data it keeps
+    private string name;
+    private int staffID;
+    private double basePay;
+
+    // STEP 2  properties: public doors
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public int StaffID
+    {
+        get { return staffID; }
+        set { staffID = value; }
+    }
+
+    public double BasePay
+    {
+        get { return basePay; }
+        set { basePay = value; }
+    }
+
+    // STEP 3  default constructor
+    public Staff()
+    {
+        name = "";
+        staffID = 0;
+        basePay = 0.0;
+    }
+
+    // STEP 4  parameterized constructor
+    public Staff(string name, int staffID, double basePay)
+    {
+        this.name = name;
+        this.staffID = staffID;
+        this.basePay = basePay;
+    }
+
+    // STEP 5  method: prints the details
+    public void display_info()
+    {
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Staff ID: " + staffID);
+        Console.WriteLine("Base pay: " + basePay);
+    }
+}
+
+class Program
+{
+    // STEP 6  Main: make objects, use them
+    static void Main(string[] args)
+    {
+        Staff s1 = new Staff();
+        Staff s2 = new Staff("Rahim", 101, 45000.50);
+
+        s1.display_info();
+        Console.WriteLine();
+        s2.display_info();
+
+        s1.Name = "Karim";
+        Console.WriteLine(s1.Name);
+    }
+}
+>>>
+Name:
+Staff ID: 0
+Base pay: 0
+
+Name: Rahim
+Staff ID: 101
+Base pay: 45000.5
+Karim
+
+@@ m2_ctors run
+class Student
+{
+    public int id;
+    public string name;
+    public static string uni;
+    public static int count = 0;
+
+    static Student()
+    {
+        uni = "AIUB";
+        Console.WriteLine("static constructor");
+    }
+
+    public Student()
+    {
+        id = -1;
+        name = "unknown";
+        count++;
+        Console.WriteLine("default constructor");
+    }
+
+    public Student(int id, string name)
+    {
+        this.id = id;
+        this.name = name;
+        count++;
+        Console.WriteLine("parameterized constructor");
+    }
+
+    public Student(Student other)
+    {
+        id = other.id;
+        name = other.name;
+        count++;
+        Console.WriteLine("copy constructor");
+    }
+
+    public void Show()
+    {
+        Console.WriteLine(id + " " + name + " " + uni);
+    }
+}
+// Main
+Console.WriteLine("Main starts");
+Student a = new Student();
+Student b = new Student(7, "Nila");
+Student c = new Student(b);
+c.name = "Rafi";
+a.Show();
+b.Show();
+c.Show();
+Console.WriteLine("count = " + Student.count);
+>>>
+Main starts
+static constructor
+default constructor
+parameterized constructor
+copy constructor
+-1 unknown AIUB
+7 Nila AIUB
+7 Rafi AIUB
+count = 3
+
+@@ m2_book_blank show
+class Book
+{
+    ______ string title;
+    private double price;
+
+    public string Title
+    {
+        get { ______ title; }
+        set { title = ______; }
+    }
+
+    public double Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+
+    public ______()
+    {
+        title = "None";
+        price = 0;
+    }
+
+    public Book(string title, double price)
+    {
+        ______.title = title;
+        this.price = price;
+    }
+
+    public ______ ShowInfo()
+    {
+        Console.WriteLine(title + " costs " + price);
+    }
+}
+// Main
+Book b1 = ______ Book();
+Book b2 = new Book("C# Basics", 450.5);
+b1.ShowInfo();
+b2.ShowInfo();
+b1.______ = 200;
+Console.WriteLine(b1.Price);
+
+@@ m2_book run
+class Book
+{
+    private string title;
+    private double price;
+
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+
+    public double Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+
+    public Book()
+    {
+        title = "None";
+        price = 0;
+    }
+
+    public Book(string title, double price)
+    {
+        this.title = title;
+        this.price = price;
+    }
+
+    public void ShowInfo()
+    {
+        Console.WriteLine(title + " costs " + price);
+    }
+}
+// Main
+Book b1 = new Book();
+Book b2 = new Book("C# Basics", 450.5);
+b1.ShowInfo();
+b2.ShowInfo();
+b1.Price = 200;
+Console.WriteLine(b1.Price);
+>>>
+None costs 0
+C# Basics costs 450.5
+200
+
+@@ m2_course full
+using System;
+
+class Course
+{
+    private string courseCode;
+    private string courseTitle;
+    private int credit;
+
+    public string CourseCode
+    {
+        get { return courseCode; }
+        set { courseCode = value; }
+    }
+
+    public string CourseTitle
+    {
+        get { return courseTitle; }
+        set { courseTitle = value; }
+    }
+
+    public int Credit
+    {
+        get { return credit; }
+        set { credit = value; }
+    }
+
+    public Course()
+    {
+        courseCode = "N/A";
+        courseTitle = "N/A";
+        credit = 0;
+    }
+
+    public Course(string courseCode, string courseTitle, int credit)
+    {
+        this.courseCode = courseCode;
+        this.courseTitle = courseTitle;
+        this.credit = credit;
+    }
+
+    public void ShowCourse()
+    {
+        Console.WriteLine(courseCode + ", " + courseTitle + ", " + credit + " credits");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Course c1 = new Course();
+        Course c2 = new Course("CSC 3115", "OOP 2", 3);
+        c1.ShowCourse();
+        c2.ShowCourse();
+    }
+}
+>>>
+N/A, N/A, 0 credits
+CSC 3115, OOP 2, 3 credits
+
+@@ m2_inh run
+class Person
+{
+    protected string name;
+
+    public Person(string name)
+    {
+        this.name = name;
+        Console.WriteLine("Person constructor");
+    }
+
+    public virtual void Show()
+    {
+        Console.WriteLine("Name: " + name);
+    }
+}
+
+class Student : Person
+{
+    private double cgpa;
+
+    public Student(string name, double cgpa) : base(name)
+    {
+        this.cgpa = cgpa;
+        Console.WriteLine("Student constructor");
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        Console.WriteLine("CGPA: " + cgpa);
+    }
+}
+// Main
+Person p = new Student("Nila", 3.8);
+p.Show();
+>>>
+Person constructor
+Student constructor
+Name: Nila
+CGPA: 3.8
+
+@@ m2_poly run
+class Animal
+{
+    public virtual string Sound()
+    {
+        return "...";
+    }
+}
+
+class Dog : Animal
+{
+    public override string Sound()
+    {
+        return "Woof";
+    }
+}
+
+class Cat : Animal
+{
+    public override string Sound()
+    {
+        return "Meow";
+    }
+
+    public void Purr()
+    {
+        Console.WriteLine("Purr");
+    }
+}
+// Main
+Animal[] pets = new Animal[3];
+pets[0] = new Dog();
+pets[1] = new Cat();
+pets[2] = new Animal();
+
+foreach (Animal a in pets)
+{
+    Console.WriteLine(a.Sound());
+}
+
+if (pets[1] is Cat)
+{
+    Cat c = (Cat)pets[1];
+    c.Purr();
+}
+>>>
+Woof
+Meow
+...
+Purr
+
+@@ m2_purr_err err CS1061
+class Animal
+{
+    public virtual string Sound()
+    {
+        return "...";
+    }
+}
+
+class Cat : Animal
+{
+    public void Purr()
+    {
+        Console.WriteLine("Purr");
+    }
+}
+// Main
+Animal a = new Cat();
+a.Purr();
+
+@@ m2_emp full
+using System;
+
+class Employee
+{
+    private string name;
+    private int id;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    public Employee(string name, int id)
+    {
+        this.name = name;
+        this.id = id;
+    }
+
+    public virtual double CalculateSalary()
+    {
+        return 0;
+    }
+}
+
+class FullTimeEmployee : Employee
+{
+    private double monthlySalary;
+
+    public FullTimeEmployee(string name, int id, double monthlySalary) : base(name, id)
+    {
+        this.monthlySalary = monthlySalary;
+    }
+
+    public override double CalculateSalary()
+    {
+        return monthlySalary;
+    }
+}
+
+class PartTimeEmployee : Employee
+{
+    private double hourlyRate;
+    private int hoursWorked;
+
+    public PartTimeEmployee(string name, int id, double hourlyRate, int hoursWorked) : base(name, id)
+    {
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    public override double CalculateSalary()
+    {
+        return hourlyRate * hoursWorked;
+    }
+}
+
+class SeniorEmployee : FullTimeEmployee
+{
+    private double bonus;
+
+    public SeniorEmployee(string name, int id, double monthlySalary, double bonus)
+        : base(name, id, monthlySalary)
+    {
+        this.bonus = bonus;
+    }
+
+    public override double CalculateSalary()
+    {
+        return base.CalculateSalary() + bonus;
+    }
+
+    public double Bonus
+    {
+        get { return bonus; }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee[] employees = new Employee[3];
+        employees[0] = new FullTimeEmployee("Rafi", 1, 50000);
+        employees[1] = new PartTimeEmployee("Nila", 2, 300, 40);
+        employees[2] = new SeniorEmployee("Karim", 3, 60000, 10000);
+
+        int[][] hours =
+        {
+            new int[] { 8, 8, 8, 8, 8 },
+            new int[] { 5, 6, 4, 5, 6, 4, 5, 5 },
+            new int[] { 9, 9, 10, 9, 9, 8 }
+        };
+
+        for (int i = 0; i < employees.Length; i++)
+        {
+            Console.WriteLine("ID: " + employees[i].Id + ", Name: " + employees[i].Name
+                + ", Salary: " + employees[i].CalculateSalary());
+            Console.Write("Hours: ");
+            foreach (int h in hours[i])
+            {
+                Console.Write(h + " ");
+            }
+            Console.WriteLine();
+        }
+
+        if (employees[2] is SeniorEmployee)
+        {
+            SeniorEmployee senior = (SeniorEmployee)employees[2];
+            Console.WriteLine(senior.Name + " gets a bonus of " + senior.Bonus);
+        }
+    }
+}
+>>>
+ID: 1, Name: Rafi, Salary: 50000
+Hours: 8 8 8 8 8
+ID: 2, Name: Nila, Salary: 12000
+Hours: 5 6 4 5 6 4 5 5
+ID: 3, Name: Karim, Salary: 70000
+Hours: 9 9 10 9 9 8
+Karim gets a bonus of 10000
+
+@@ m2_bpl full
+using System;
+
+class Player
+{
+    private string playerId;
+    private string playerName;
+    private string teamName;
+
+    public string PlayerId
+    {
+        get { return playerId; }
+        set { playerId = value; }
+    }
+
+    public string PlayerName
+    {
+        get { return playerName; }
+        set { playerName = value; }
+    }
+
+    public string TeamName
+    {
+        get { return teamName; }
+        set { teamName = value; }
+    }
+
+    public Player(string playerId,
+        string playerName, string teamName)
+    {
+        this.playerId = playerId;
+        this.playerName = playerName;
+        this.teamName = teamName;
+    }
+
+    public virtual bool PlayerPerformance()
+    {
+        return false;
+    }
+
+    public virtual void ShowInfo()
+    {
+        Console.WriteLine("ID: " + playerId);
+        Console.WriteLine("Name: " + playerName);
+        Console.WriteLine("Team: " + teamName);
+    }
+}
+
+class Batsman : Player
+{
+    private int totalRuns;
+    private double battingAverage;
+    private int highestScore;
+
+    public Batsman(string playerId,
+        string playerName, string teamName,
+        int totalRuns, double battingAverage,
+        int highestScore)
+        : base(playerId, playerName, teamName)
+    {
+        this.totalRuns = totalRuns;
+        this.battingAverage = battingAverage;
+        this.highestScore = highestScore;
+    }
+
+    public override bool PlayerPerformance()
+    {
+        return battingAverage > 50;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Runs: " + totalRuns);
+        Console.WriteLine("Average: " + battingAverage);
+        Console.WriteLine("Highest: " + highestScore);
+        if (PlayerPerformance())
+        {
+            Console.WriteLine("Eligible: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Eligible: No");
+        }
+    }
+}
+
+class Bowler : Player
+{
+    private int totalWickets;
+    private double bowlingAverage;
+
+    public Bowler(string playerId,
+        string playerName, string teamName,
+        int totalWickets, double bowlingAverage)
+        : base(playerId, playerName, teamName)
+    {
+        this.totalWickets = totalWickets;
+        this.bowlingAverage = bowlingAverage;
+    }
+
+    public override bool PlayerPerformance()
+    {
+        return totalWickets > 100;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Wickets: " + totalWickets);
+        Console.WriteLine("Average: " + bowlingAverage);
+        if (PlayerPerformance())
+        {
+            Console.WriteLine("Eligible: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Eligible: No");
+        }
+    }
+}
+
+class AllRounder : Player
+{
+    private int totalRuns;
+    private int totalWickets;
+
+    public AllRounder(string playerId,
+        string playerName, string teamName,
+        int totalRuns, int totalWickets)
+        : base(playerId, playerName, teamName)
+    {
+        this.totalRuns = totalRuns;
+        this.totalWickets = totalWickets;
+    }
+
+    public override bool PlayerPerformance()
+    {
+        return totalRuns > 1000 && totalWickets > 50;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Runs: " + totalRuns);
+        Console.WriteLine("Wickets: " + totalWickets);
+        if (PlayerPerformance())
+        {
+            Console.WriteLine("Eligible: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Eligible: No");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Player[] players = new Player[4];
+        players[0] = new Batsman("P-1", "Tom Latham",
+            "NZ", 6789, 57.3, 183);
+        players[1] = new Bowler("P-2", "Taskin Ahmed",
+            "BD", 104, 23.2);
+        players[2] = new AllRounder("P-3", "Glenn Maxwell",
+            "AUS", 7598, 98);
+        players[3] = new AllRounder("P-4", "Sam Curran",
+            "Eng", 781, 60);
+
+        foreach (Player player in players)
+        {
+            player.ShowInfo();
+            Console.WriteLine();
+        }
+    }
+}
+>>>
+ID: P-1
+Name: Tom Latham
+Team: NZ
+Runs: 6789
+Average: 57.3
+Highest: 183
+Eligible: Yes
+
+ID: P-2
+Name: Taskin Ahmed
+Team: BD
+Wickets: 104
+Average: 23.2
+Eligible: Yes
+
+ID: P-3
+Name: Glenn Maxwell
+Team: AUS
+Runs: 7598
+Wickets: 98
+Eligible: Yes
+
+ID: P-4
+Name: Sam Curran
+Team: Eng
+Runs: 781
+Wickets: 60
+Eligible: No
+
+@@ m3_static run
+class Counter
+{
+    public static int total = 0;
+    public int mine = 0;
+    public const double Rate = 0.5;
+    public readonly int id;
+
+    public Counter(int id)
+    {
+        this.id = id;
+        total++;
+        mine++;
+    }
+}
+// Main
+Counter a = new Counter(1);
+Counter b = new Counter(2);
+Console.WriteLine(Counter.total);
+Console.WriteLine(a.mine + " " + b.mine);
+Console.WriteLine(Counter.Rate);
+Console.WriteLine(a.id + " " + b.id);
+>>>
+2
+1 1
+0.5
+1 2
+
+@@ m3_ro err CS0191
+class Box
+{
+    public readonly int size = 5;
+
+    public void Grow()
+    {
+        size = 10;
+    }
+}
+// Main
+Box b = new Box();
+
+@@ m3_constobj err CS0176
+class Counter
+{
+    public const double Rate = 0.5;
+}
+// Main
+Counter a = new Counter();
+Console.WriteLine(a.Rate);
+
+@@ m3_staticerr err CS0120
+class Shop
+{
+    private int items = 3;
+
+    public static void Show()
+    {
+        Console.WriteLine(items);
+    }
+}
+// Main
+Shop.Show();
+
+@@ m3_refout run
+static void NoRef(int x)
+{
+    x = x + 5;
+}
+
+static void AddFive(ref int x)
+{
+    x = x + 5;
+}
+
+static void GetTwo(out int a, out int b)
+{
+    a = 1;
+    b = 2;
+}
+
+static int Sum(params int[] nums)
+{
+    int s = 0;
+    foreach (int n in nums)
+    {
+        s += n;
+    }
+    return s;
+}
+// Main
+int v = 10;
+NoRef(v);
+Console.WriteLine(v);
+AddFive(ref v);
+Console.WriteLine(v);
+
+int p, q;
+GetTwo(out p, out q);
+Console.WriteLine(p + q);
+
+Console.WriteLine(Sum());
+Console.WriteLine(Sum(4));
+Console.WriteLine(Sum(1, 2, 3));
+>>>
+10
+15
+3
+0
+4
+6
+
+@@ m3_enum run
+enum Day { Sat, Sun, Mon = 10, Tue, Wed }
+// Main
+Day d = Day.Sun;
+Console.WriteLine(d);
+Console.WriteLine((int)d);
+Console.WriteLine((int)Day.Tue);
+Console.WriteLine(Day.Wed);
+>>>
+Sun
+1
+11
+Wed
+
+@@ m3_struct run
+struct Point
+{
+    public int x;
+    public int y;
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Spot
+{
+    public int x;
+}
+// Main
+Point p1 = new Point(1, 2);
+Point p2 = p1;
+p2.x = 50;
+Console.WriteLine(p1.x + " " + p2.x);
+
+Spot s1 = new Spot();
+Spot s2 = s1;
+s2.x = 50;
+Console.WriteLine(s1.x + " " + s2.x);
+
+Console.WriteLine(p1);
+>>>
+1 50
+50 50
+Point
+
+@@ m3_box run
+int n = 10;
+object o = n;
+int back = (int)o;
+Console.WriteLine(o);
+Console.WriteLine(back + 1);
+
+var word = "Hi";
+var num = 5;
+Console.WriteLine(word + num);
+
+dynamic d = 10;
+Console.WriteLine(d);
+d = "now text";
+Console.WriteLine(d);
+
+int? age = null;
+Console.WriteLine(age);
+age = 20;
+Console.WriteLine(age);
+
+Console.WriteLine(n.GetType());
+Console.WriteLine(word.GetType());
+>>>
+10
+11
+Hi5
+10
+now text
+
+20
+System.Int32
+System.String
+
+@@ m3_tostring run
+class Car
+{
+}
+
+class Bike
+{
+    public override string ToString()
+    {
+        return "I am a bike";
+    }
+}
+// Main
+Car c = new Car();
+Bike b = new Bike();
+Console.WriteLine(c);
+Console.WriteLine(b);
+Console.WriteLine(c.GetType());
+>>>
+Car
+I am a bike
+Car
+
+@@ m3_overload run
+class Calc
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    public int Add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+}
+// Main
+Calc k = new Calc();
+Console.WriteLine(k.Add(2, 3));
+Console.WriteLine(k.Add(2.5, 1.5));
+Console.WriteLine(k.Add(1, 2, 3));
+>>>
+5
+4
+6
+
+@@ m3_access run
+class Teacher
+{
+    public string name = "Rafi";
+    private int salary = 50000;
+    protected string subject = "C#";
+    internal string dept = "CSE";
+    protected internal string room = "9310K";
+
+    public int GetSalary()
+    {
+        return salary;
+    }
+}
+
+class Senior : Teacher
+{
+    public void Show()
+    {
+        Console.WriteLine(subject + " " + room + " " + dept);
+    }
+}
+// Main
+Teacher t = new Teacher();
+Console.WriteLine(t.name + " " + t.GetSalary());
+Console.WriteLine(t.dept + " " + t.room);
+Senior s = new Senior();
+s.Show();
+>>>
+Rafi 50000
+CSE 9310K
+C# 9310K CSE
+
+@@ m3_access_err err CS0122,CS0122
+class Teacher
+{
+    private int salary = 50000;
+    protected string subject = "C#";
+}
+// Main
+Teacher t = new Teacher();
+Console.WriteLine(t.salary);
+Console.WriteLine(t.subject);
+
+@@ m3_abstract run
+abstract class Shape
+{
+    public abstract double Area();
+
+    public void Print()
+    {
+        Console.WriteLine("Area = " + Area());
+    }
+}
+
+class Square : Shape
+{
+    private double side;
+
+    public Square(double side)
+    {
+        this.side = side;
+    }
+
+    public override double Area()
+    {
+        return side * side;
+    }
+}
+// Main
+Shape s = new Square(3);
+s.Print();
+>>>
+Area = 9
+
+@@ m3_old31 full
+using System;
+
+namespace Pack
+{
+    public class A
+    {
+        internal int num = 10;
+    }
+
+    public class B : A
+    {
+        protected internal int val = 30;
+    }
+
+    public class Alpha
+    {
+        protected static string data = "Start ";
+
+        protected Alpha()
+        {
+            data += "alpha ";
+        }
+    }
+
+    class SubAlpha : Alpha
+    {
+        public SubAlpha()
+        {
+            data += "subalpha ";
+        }
+
+        public void ShowData()
+        {
+            Console.WriteLine(data);
+        }
+    }
+
+    public class SubSubAlpha : Alpha
+    {
+        public SubSubAlpha()
+        {
+            data += "subsubalpha ";
+        }
+
+        public static void DisplayNum(A objA)
+        {
+            Console.WriteLine(objA.num);
+        }
+
+        public static void DisplayVal(B objB)
+        {
+            Console.WriteLine(objB.val);
+        }
+
+        public static void Main(string[] args)
+        {
+            A objA = new A();
+            objA.num = 40;
+            B objB = new B();
+            objB.val = 50;
+            DisplayNum(objA);
+            DisplayNum(objB);
+            DisplayVal(objB);
+
+            Console.WriteLine(data);
+            Console.WriteLine("Determine:");
+
+            data = "Reset ";
+            new SubSubAlpha();
+            Console.WriteLine(data);
+
+            Console.WriteLine("Final data = " + data);
+            Console.WriteLine("Final num = " + objA.num);
+        }
+    }
+}
+>>>
+40
+10
+50
+Start
+Determine:
+Reset alpha subsubalpha
+Final data = Reset alpha subsubalpha
+Final num = 40
+
+@@ m3_oldD show
+namespace M1
+{
+    public class One
+    {
+        private protected string m;
+        public const double n;
+        internal byte o;
+        protected internal byte p;
+    }
+
+    public class Two : One
+    {
+        public readonly byte i = 9;
+        public void M() { }
+    }
+
+    class Program : Two
+    {
+        static void Main(string[] args)
+        {
+            One obj1 = new One();
+        }
+    }
+}
+
+namespace M2   // Here, M2 has a reference of M1 (another assembly)
+{
+    class Three
+    {
+        internal string a;
+        internal Three() { }
+        internal Three(byte i) { }
+        internal Three(char d) { }
+    }
+
+    public class Four : M1.One
+    {
+        string p1;
+        protected int q1;
+        public void F1() { }
+    }
+
+    class Program : Four
+    {
+        public void F2(params int[] y)
+        {
+            Three obj2 = new Three();
+        }
+    }
+}
+
+@@ k_q31 run
+class Vehicle
+{
+    protected static int made = 0;
+    protected string tag;
+
+    public Vehicle()
+    {
+        made++;
+        tag = "V" + made;
+        Console.WriteLine("Vehicle " + tag);
+    }
+
+    public virtual void Info()
+    {
+        Console.WriteLine(tag + " is a vehicle");
+    }
+
+    public static void Count()
+    {
+        Console.WriteLine("Made: " + made);
+    }
+}
+
+class Car : Vehicle
+{
+    private int seats;
+
+    public Car(int seats)
+    {
+        this.seats = seats;
+        Console.WriteLine("Car with " + seats + " seats");
+    }
+
+    public override void Info()
+    {
+        base.Info();
+        Console.WriteLine(tag + " has " + seats + " seats");
+    }
+}
+
+class Bus : Car
+{
+    public Bus() : base(40)
+    {
+        tag = tag + "-B";
+        Console.WriteLine("Bus " + tag);
+    }
+
+    public new void Info()
+    {
+        Console.WriteLine(tag + " is a bus");
+    }
+}
+// Main
+Vehicle v = new Car(4);
+Car c = new Bus();
+Bus b = (Bus)c;
+v.Info();
+c.Info();
+b.Info();
+Vehicle.Count();
+>>>
+Vehicle V1
+Car with 4 seats
+Vehicle V2
+Car with 40 seats
+Bus V2-B
+V1 is a vehicle
+V1 has 4 seats
+V2-B is a vehicle
+V2-B has 40 seats
+V2-B is a bus
+Made: 2
+
+@@ k_q32 run
+int[][] t = new int[3][];
+t[0] = new int[] { 5, 10, 15, 20, 25 };
+t[1] = new int[3];
+t[2] = new int[] { 3, 6, 9 };
+
+for (int i = 0; i < t[1].Length; i++)
+{
+    t[1][i] = t[0][i * 2] - t[2][i];
+}
+
+for (int r = t.Length - 1; r >= 0; r--)
+{
+    for (int c = 0; c < t[r].Length; c += 2)
+    {
+        Console.Write("{0} ", t[r][c]);
+    }
+    Console.WriteLine();
+}
+
+int sum = 0;
+foreach (int[] row in t)
+{
+    sum += row[row.Length - 1];
+}
+Console.WriteLine("Sum of last items = " + sum);
+Console.WriteLine(t[0].Length + t[1].Length * 2);
+Console.WriteLine("t[2][1] / 4 = " + t[2][1] / 4);
+>>>
+3 9
+2 16
+5 15 25
+Sum of last items = 50
+11
+t[2][1] / 4 = 1
+
+@@ k_main show
+Student[] list = new Student[4];
+list[0] = new Undergraduate("22-1001-1", "Nila", 3.86, 45);
+list[1] = new Graduate("21-2002-2", "Rafi", 3.60, 1);
+list[2] = new Athlete("23-3003-3", "Karim", 2.75, 4);
+list[3] = new Undergraduate("22-4004-1", "Mim", 3.80, 24);
+
+foreach (Student s in list)
+{
+    s.ShowInfo();
+    Console.WriteLine();
+}
+
+@@ k_c full
+using System;
+
+class Student
+{
+    private string studentId;
+    private string name;
+    private double cgpa;
+
+    public string StudentId
+    {
+        get { return studentId; }
+        set { studentId = value; }
+    }
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public double Cgpa
+    {
+        get { return cgpa; }
+        set { cgpa = value; }
+    }
+
+    public Student(string studentId,
+        string name, double cgpa)
+    {
+        this.studentId = studentId;
+        this.name = name;
+        this.cgpa = cgpa;
+    }
+
+    public virtual bool IsEligible()
+    {
+        return false;
+    }
+
+    public virtual void ShowInfo()
+    {
+        Console.WriteLine("ID: " + studentId);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("CGPA: " + cgpa);
+    }
+}
+
+class Undergraduate : Student
+{
+    private int completedCredits;
+
+    public Undergraduate(string studentId,
+        string name, double cgpa,
+        int completedCredits)
+        : base(studentId, name, cgpa)
+    {
+        this.completedCredits = completedCredits;
+    }
+
+    public override bool IsEligible()
+    {
+        return Cgpa >= 3.75 && completedCredits >= 30;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Credits: " + completedCredits);
+        if (IsEligible())
+        {
+            Console.WriteLine("Scholarship: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Scholarship: No");
+        }
+    }
+}
+
+class Graduate : Student
+{
+    private int publications;
+
+    public Graduate(string studentId,
+        string name, double cgpa,
+        int publications)
+        : base(studentId, name, cgpa)
+    {
+        this.publications = publications;
+    }
+
+    public override bool IsEligible()
+    {
+        return Cgpa >= 3.5 && publications >= 2;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Publications: " + publications);
+        if (IsEligible())
+        {
+            Console.WriteLine("Scholarship: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Scholarship: No");
+        }
+    }
+}
+
+class Athlete : Student
+{
+    private int medals;
+
+    public Athlete(string studentId,
+        string name, double cgpa, int medals)
+        : base(studentId, name, cgpa)
+    {
+        this.medals = medals;
+    }
+
+    public override bool IsEligible()
+    {
+        return Cgpa >= 2.5 && medals >= 3;
+    }
+
+    public override void ShowInfo()
+    {
+        base.ShowInfo();
+        Console.WriteLine("Medals: " + medals);
+        if (IsEligible())
+        {
+            Console.WriteLine("Scholarship: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Scholarship: No");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student[] list = new Student[4];
+        list[0] = new Undergraduate("22-1001-1", "Nila", 3.86, 45);
+        list[1] = new Graduate("21-2002-2", "Rafi", 3.60, 1);
+        list[2] = new Athlete("23-3003-3", "Karim", 2.75, 4);
+        list[3] = new Undergraduate("22-4004-1", "Mim", 3.80, 24);
+
+        foreach (Student s in list)
+        {
+            s.ShowInfo();
+            Console.WriteLine();
+        }
+    }
+}
+>>>
+ID: 22-1001-1
+Name: Nila
+CGPA: 3.86
+Credits: 45
+Scholarship: Yes
+
+ID: 21-2002-2
+Name: Rafi
+CGPA: 3.6
+Publications: 1
+Scholarship: No
+
+ID: 23-3003-3
+Name: Karim
+CGPA: 2.75
+Medals: 4
+Scholarship: Yes
+
+ID: 22-4004-1
+Name: Mim
+CGPA: 3.8
+Credits: 24
+Scholarship: No
+
+@@ k_d show
+namespace Shop
+{
+    public class Item
+    {
+        private int code;
+        protected string label;
+        internal double price;
+        protected internal int stock;
+        private protected bool onSale;
+        public const int MaxStock = 500;
+        public readonly string brand = "AIUB";
+
+        public Item() { }
+        public Item(string label) { this.label = label; }
+        public Item(string label, double price) { this.label = label; this.price = price; }
+
+        public virtual void Show() { }
+        public void Restock(ref int amount) { }
+    }
+
+    public class Phone : Item
+    {
+        public override void Show() { }
+        public void Discount(params double[] rates) { }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Item it = new Item("Pen");
+            Phone ph = new Phone();
+        }
+    }
+}
+
+namespace Online   // Online is another assembly that has a reference to Shop
+{
+    class Tablet : Shop.Item
+    {
+        public void Check() { }
+    }
+}
+
+@@ x_ctor_gone err CS7036
+class Car
+{
+    private string model;
+
+    public Car(string model)
+    {
+        this.model = model;
+    }
+}
+// Main
+Car c = new Car();
+
+@@ x_down err CS0266
+class Parent
+{
+}
+
+class Child : Parent
+{
+}
+// Main
+Child c = new Parent();
+
+@@ x_hide warn CS0108
+class Parent
+{
+    public void Hi()
+    {
+        Console.WriteLine("Parent");
+    }
+}
+
+class Child : Parent
+{
+    public void Hi()
+    {
+        Console.WriteLine("Child");
+    }
+}
+// Main
+Parent p = new Child();
+p.Hi();
+>>>
+Parent
+
+@@ x_struct_inherit err CS0527
+class Base
+{
+}
+
+struct S : Base
+{
+}
+// Main
+S s = new S();
+
+@@ x_out_unassigned err CS0177
+static void F(out int a)
+{
+}
+// Main
+int x;
+F(out x);
+
+@@ x_ref_literal err CS1510
+static void F(ref int a)
+{
+}
+// Main
+F(ref 5);
+
+@@ x_override_nonvirtual err CS0506
+class Parent
+{
+    public void Hi()
+    {
+    }
+}
+
+class Child : Parent
+{
+    public override void Hi()
+    {
+    }
+}
+// Main
+Child c = new Child();
+
+@@ x_params_last err CS0231
+static void F(params int[] a, int b)
+{
+}
+// Main
+F(1);
+
+@@ x_out_first run
+static void F(out int a, int b)
+{
+    a = b * 2;
+}
+// Main
+int x;
+F(out x, 4);
+Console.WriteLine(x);
+>>>
+8
+
+@@ x_sealed err CS0509
+sealed class A
+{
+}
+
+class B : A
+{
+}
+// Main
+B b = new B();
+
+@@ x_var_noinit err CS0818
+var x;
+x = 5;
+
+@@ x_abstract_ctor run
+abstract class Shape
+{
+    protected string name;
+
+    public Shape(string name)
+    {
+        this.name = name;
+    }
+}
+
+class Circle : Shape
+{
+    public Circle() : base("circle")
+    {
+        Console.WriteLine(name);
+    }
+}
+// Main
+Shape s = new Circle();
+>>>
+circle
+
+@@ x_xyz run
+enum xyz { a, b, c, d }
+// Main
+Console.WriteLine("{0}", (int)xyz.c);
+>>>
+2
+
+@@ x_q29 rte
+int[][] jaggedArray = new int[2][];
+jaggedArray[0] = new int[] { 1, 2 };
+jaggedArray[1] = new int[] { 3, 4, 5 };
+Console.WriteLine(jaggedArray[1][3]);
+>>>
+
+@@ x_level run
+enum Level { Low = 5, Mid, High }
+// Main
+Console.WriteLine((int)Level.High);
+>>>
+7
+
+@@ x_params_calls run
+static void F(params int[] x)
+{
+    Console.WriteLine(x.Length);
+}
+// Main
+F();
+F(1, 2);
+F(new int[] { 1, 2, 3 });
+>>>
+0
+2
+3
+
+@@ x_bool_cast err CS0030
+byte b = (bool)1;
+
+@@ x_q11 run
+int[] array2 = new int[] { 1, 3, 5, 7, 9 };
+Console.WriteLine(array2.Length);
+>>>
+5
+
+@@ x_two_out run
+static void Two(out int a, out int b)
+{
+    a = 3;
+    b = 4;
+}
+// Main
+int p, q;
+Two(out p, out q);
+Console.WriteLine(p * q);
+>>>
+12

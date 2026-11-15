@@ -1,0 +1,966 @@
+<!-- ============================== START ============================== -->
+<section>
+[[mk:start]]
+<div class="block-head">
+  <div class="bnum">0</div>
+  <div>
+    <div class="kicker">Read this first · 5 minutes</div>
+    <h1>How this workbook works</h1>
+    <p class="aim">You start from zero. Three days, nine sessions, then one mock exam. Pen and paper the whole way.</p>
+  </div>
+</div>
+
+<h3>What the midterm looks like (Fall 2024-25 paper)</h3>
+<table>
+  <tr><th>Part</th><th>What you do</th><th>Marks</th><th>Learn it in</th></tr>
+  <tr><td><b>A</b></td><td>30 questions: 10 true/false + 20 multiple choice, 1.5 marks each</td><td>45</td><td>Day 3 (facts), Days 1–2 (code)</td></tr>
+  <tr><td><b>B</b></td><td>Write the exact output of 1 of 2 programs</td><td>15</td><td>Day 1 (arrays), Day 3 (classes, static)</td></tr>
+  <tr><td><b>C</b></td><td>Write classes from a story: one parent class and three child classes</td><td>25</td><td>Day 2</td></tr>
+  <tr><td><b>D</b></td><td>Five short answers about a given code: access, readonly, params, polymorphism</td><td>15</td><td>Day 3</td></tr>
+</table>
+<p>Two hours, 100 marks. <b>Sunday 15 November 2026, 12:00 PM.</b></p>
+
+<h3>Your route</h3>
+<table>
+  <tr><th>When</th><th>Session</th><th>Time</th><th style="text-align:right">Page</th></tr>
+  <tr><td><b>Day 1</b> · Read C#</td><td>1 Programs, values, printing · 2 Loops and arrays · 3 Two real old traces</td><td class="time">3 × 50 min</td><td class="pg">[[page:d1]]</td></tr>
+  <tr><td><b>Day 2</b> · Write C#</td><td>1 One class, step by step · 2 Child classes, override · 3 The 25-mark question</td><td class="time">3 × 60 min</td><td class="pg">[[page:d2]]</td></tr>
+  <tr><td><b>Day 3</b> · The facts</td><td>1 Access, static, const, readonly · 2 Types and method tricks · 3 The real old paper</td><td class="time">3 × 60 min</td><td class="pg">[[page:d3]]</td></tr>
+  <tr><td><b>Mock</b></td><td>Full paper, timed, closed book; then mark it with the key</td><td class="time">2 h + 30 min</td><td class="pg">[[page:mock]]</td></tr>
+  <tr><td><b>Sunday 10:00</b></td><td>Exam-morning sheet, then your Miss log. Nothing new.</td><td class="time">30 min</td><td class="pg">[[page:sheet]]</td></tr>
+</table>
+
+<div class="keyrule">
+  <div class="krt">Five rules that make it work</div>
+  <ol>
+    <li><b>Pen and paper, always.</b> The exam is handwritten. Your hand has to learn the code, not just your eyes.</li>
+    <li><b>Write first, then check.</b> Every question shows the page of its answer. Never look before you have written something: a wrong guess you correct sticks better than a right answer you only read.</li>
+    <li><b>Log every miss.</b> One line on the Miss log (page [[page:log]]): what you got wrong and the rule. Saturday night and Sunday morning you reread only that page.</li>
+    <li><b>50 minutes on, 10 off.</b> Stop at each STOP line. Phone in another room during a session.</li>
+    <li><b>Stuck for 5 minutes?</b> Read the answer, close it, and redo the question on blank paper.</li>
+  </ol>
+</div>
+
+<div class="note java"><div class="tag">Code boxes</div><div><p>When a box shows a <code>// Main</code> line, the lines under it go inside <code>static void Main()</code> of a <code>class Program</code>, with <code>using System;</code> at the top. Every program in this workbook was compiled with Visual Studio 2022 (C# 7.3, .NET Framework) and run. Every output printed here is the real one.</p></div></div>
+</section>
+
+<!-- ============================== DAY 1 ============================== -->
+<section class="block">
+[[mk:d1]]
+<div class="block-head">
+  <div class="bnum">1</div>
+  <div>
+    <div class="kicker">Day 1 · Read C# · 3 sessions</div>
+    <h1>Read C#</h1>
+    <p class="aim">Goal: know what every symbol in a program does, and trace the array questions from the old papers (Part B, 15 marks).</p>
+  </div>
+</div>
+
+<div class="sess"><span>Session 1 · Programs, values, printing</span><span>50 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.1</span>The shape of every program</h2>
+  [[ex:m1_skel]]
+  <table class="anno">
+    <tr><td class="c">using System;</td><td>Lets you write <code>Console</code> by its short name. Always the first line.</td></tr>
+    <tr><td class="c">namespace FirstApp { … }</td><td>A named group for your classes. Optional; exam code often has one.</td></tr>
+    <tr><td class="c">class Program { … }</td><td>A class is a container. All code lives inside some class.</td></tr>
+    <tr><td class="c">static void Main(string[] args)</td><td>The starting point. The program runs Main's lines from top to bottom, then ends.</td></tr>
+    <tr><td class="c">{   }</td><td>Braces open and close a block: a class, a method, a loop, an if. Every <code>{</code> needs its <code>}</code>.</td></tr>
+    <tr><td class="c">Console.WriteLine("Hello");</td><td>Prints <code>Hello</code>, then moves to the next line.</td></tr>
+    <tr><td class="c">Console.Write("AI");</td><td>Prints <code>AI</code> and stays on the same line. The next print continues right after it: <code>AIUB</code>.</td></tr>
+    <tr><td class="c">Console.WriteLine();</td><td>Prints nothing and moves to the next line. On a fresh line, that makes an empty line.</td></tr>
+    <tr><td class="c">;</td><td>Ends a statement, like a full stop ends a sentence.</td></tr>
+  </table>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.2</span>Variables and printing</h2>
+  <div class="rule"><p>A variable is a named box that holds one value: <code>int age = 20;</code> is <i>type</i>, <i>name</i>, <code>=</code>, <i>value</i>, <code>;</code>. The type decides what the box can hold.</p></div>
+  <table>
+    <tr><th>Type</th><th>Holds</th><th>Example</th><th>Type</th><th>Holds</th><th>Example</th></tr>
+    <tr><td><code>int</code></td><td>whole numbers</td><td><code>20</code>, <code>-3</code></td><td><code>char</code></td><td>one character, single quotes</td><td><code>'A'</code></td></tr>
+    <tr><td><code>double</code></td><td>decimal numbers</td><td><code>3.75</code></td><td><code>string</code></td><td>text, double quotes</td><td><code>"Nila"</code></td></tr>
+    <tr><td><code>float</code></td><td>decimals, needs <code>f</code></td><td><code>3.14f</code></td><td><code>bool</code></td><td><code>true</code> or <code>false</code></td><td><code>true</code></td></tr>
+    <tr><td><code>decimal</code></td><td>exact money, needs <code>m</code></td><td><code>9.99m</code></td><td><code>byte</code> / <code>long</code></td><td>small (0–255) / huge whole numbers</td><td><code>200</code></td></tr>
+  </table>
+  [[ex:m1_vars]]
+  <ul class="tight">
+    <li><b><code>+</code> with text glues, left to right.</b> <code>"Sum: " + 2 + 3</code> → <code>"Sum: 2"</code> → <code>"Sum: 23"</code>. But <code>2 + 3 + " is"</code> adds the two numbers first → <code>5 is</code>. Brackets go first: <code>"Sum: " + (2 + 3)</code> → <code>Sum: 5</code>.</li>
+    <li><b><code>int / int</code> drops the decimals:</b> <code>7 / 2</code> is <code>3</code>. One decimal number makes it real division: <code>7.0 / 2</code> is <code>3.5</code>.</li>
+    <li><b><code>%</code> is the remainder:</b> <code>7 % 2</code> = 1, <code>9 % 4</code> = 1, <code>8 % 2</code> = 0. <code>i % 2 == 0</code> means "i is even".</li>
+    <li><b><code>{0}</code>, <code>{1}</code> are slots</b> filled by the values after the text, counting from 0: <code>"{0} got {1}", name, grade</code> → <code>Nila got A</code>.</li>
+    <li><b>Doubles print without extra zeros:</b> <code>3.50</code> prints <code>3.5</code>, <code>0.0</code> prints <code>0</code>. <b><code>bool</code></b> prints <code>True</code> / <code>False</code>. <b><code>\n</code></b> inside text starts a new line.</li>
+  </ul>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.3</span>Casting and shortcuts</h2>
+  [[ex:m1_cast]]
+  <ul class="tight">
+    <li><b>Casting</b> = converting a value to another type. Small to big happens by itself (<i>implicit</i>: <code>int</code> → <code>double</code>). Big to small needs the type in brackets (<i>explicit</i>): <code>(int)10.75</code> is <code>10</code>. It cuts the decimals; it never rounds.</li>
+    <li><b>A <code>char</code> is a number inside:</b> <code>'A'</code> = 65, <code>'B'</code> = 66, <code>'C'</code> = 67, <code>'a'</code> = 97. So <code>'A' + 1</code> = 66 and <code>(char)66</code> = <code>B</code>.</li>
+    <li><b>Shortcuts:</b> <code>x += 3</code> means <code>x = x + 3</code> (also <code>-=</code>, <code>*=</code>, <code>/=</code>). <code>x++</code> adds 1, <code>x--</code> takes 1 away.</li>
+  </ul>
+</div>
+
+<h3>Quick check · write the output · answers page [[page:key1]]</h3>
+<div class="qgrid">
+[[q:Q1|Printing rules|m1_q1]]
+[[q:Q2|Casting|m1_q2]]
+</div>
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 2 · if, loops and arrays</span><span>50 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.4</span>if and loops</h2>
+  <div class="rule"><p><b>Compare:</b> <code>==</code> equal, <code>!=</code> not equal, <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code>. <b>Combine:</b> <code>&amp;&amp;</code> both true, <code>||</code> at least one true.<br>
+  <code>if (test) { … } else { … }</code> runs one of the two blocks. <code>for (start; keep going while; step) { … }</code> repeats. <code>foreach (int m in marks) { … }</code> runs once for each item.</p></div>
+  [[ex:m1_loop]]
+  <p><b>Trace a loop with a table, one row per pass.</b> The second loop:</p>
+  <table style="width:70%">
+    <tr><th>Pass</th><th>i</th><th>i &lt; 6 ?</th><th>total after the body</th></tr>
+    <tr><td>1</td><td>0</td><td>yes</td><td>0 + 0 = 0</td></tr>
+    <tr><td>2</td><td>2</td><td>yes</td><td>0 + 2 = 2</td></tr>
+    <tr><td>3</td><td>4</td><td>yes</td><td>2 + 4 = 6</td></tr>
+    <tr><td>–</td><td>6</td><td>no: loop ends</td><td>6</td></tr>
+  </table>
+  <p>Order inside a <code>for</code>: start once, then <i>test → body → step</i>, again and again, until the test is false.</p>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.5</span>Arrays</h2>
+  <div class="rule"><p>An array holds many values of one type, numbered from <b>0</b>. <code>a[0]</code> is the first item, <code>a[a.Length - 1]</code> the last. <code>new int[3]</code> makes three zeros (a <code>string</code> array starts as <code>null</code>s, a <code>bool</code> array as <code>false</code>).</p></div>
+  [[ex:m1_arr]]
+  <div class="note trap"><div class="tag">Trap</div><div><p>Arrays are <b>reference types</b>: <code>int[] c = a;</code> does not copy the array. <code>c</code> and <code>a</code> are two names for the same array, so <code>c[0] = 99</code> also changes <code>a[0]</code>.</p></div></div>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">1.6</span>Jagged arrays: an array of rows</h2>
+  <figure>
+    <svg viewBox="0 0 520 118" xmlns="http://www.w3.org/2000/svg" font-family="Cascadia Mono, Consolas, monospace" font-size="12">
+      <g fill="#1c2230">
+        <text x="6" y="24">j[0]</text><text x="6" y="62">j[1]</text><text x="6" y="100">j[2]</text>
+      </g>
+      <g stroke="#1f3557" stroke-width="1">
+        <line x1="44" y1="20" x2="74" y2="20"/><line x1="44" y1="58" x2="74" y2="58"/><line x1="44" y1="96" x2="74" y2="96"/>
+      </g>
+      <g fill="#eef2f7" stroke="#1f3557">
+        <rect x="78" y="6" width="38" height="24"/><rect x="116" y="6" width="38" height="24"/><rect x="154" y="6" width="38" height="24"/>
+        <rect x="78" y="44" width="38" height="24"/><rect x="116" y="44" width="38" height="24"/>
+        <rect x="78" y="82" width="38" height="24"/><rect x="116" y="82" width="38" height="24"/><rect x="154" y="82" width="38" height="24"/><rect x="192" y="82" width="38" height="24"/>
+      </g>
+      <g fill="#1c2230" text-anchor="middle">
+        <text x="97" y="23">1</text><text x="135" y="23">2</text><text x="173" y="23">3</text>
+        <text x="97" y="61">4</text><text x="135" y="61">5</text>
+        <text x="97" y="99">0</text><text x="135" y="99">0</text><text x="173" y="99">0</text><text x="211" y="99">0</text>
+      </g>
+      <g fill="#a8863e" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+        <text x="250" y="23">j[0].Length = 3     j[0][2] = 3</text>
+        <text x="250" y="61">j[1].Length = 2     j[1][1] = 5</text>
+        <text x="250" y="99">j[2].Length = 4     made with new int[4]: zeros</text>
+      </g>
+    </svg>
+    <figcaption>Each row is its own array, with its own length. j.Length is the number of rows: 3.</figcaption>
+  </figure>
+  [[ex:m1_jag]]
+  <ul class="tight">
+    <li><code>new int[3][]</code> makes 3 empty row slots; each row is created on its own line. Short form, as in your lab: <code>int[][] h = { new int[] { 8, 8 }, new int[] { 5, 6, 4 } };</code></li>
+    <li><code>j.Length</code> = number of rows; <code>j[r].Length</code> = items in row r; <code>j[r][c]</code> = row r, column c. <code>foreach (int[] row in j)</code> visits each row.</li>
+    <li>An index past the end compiles, then crashes the program while it runs:</li>
+  </ul>
+  [[ex:m1_rte]]
+</div>
+
+<h3>Quick check · write the output · answers page [[page:key1]]</h3>
+<div class="qgrid">
+[[q:Q3|if inside a loop|m1_q3]]
+[[q:Q4|Array|m1_q4]]
+</div>
+[[q:Q5|Jagged array, step 2|m1_q5]]
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 3 · Two real old exam traces</span><span>50 min</span></div>
+<p class="lead">Both come from real AIUB papers you shared (the Quiz-Mid and the Fall 2024-25 midterm, Q32), retyped from the photos. Trace them on paper with a table for each loop. Write the output exactly: every space, every line break.</p>
+<div class="note prec"><div class="tag">Watch for</div><div><p><code>Write</code> keeps the line; <code>WriteLine</code> ends it. <code>"\n"</code> inside text is a line break. <code>"{0}  "</code> prints the value, then two spaces. <code>column += 3</code> jumps three columns. A loop that stops at <code>Length - 1</code> skips the last item.</p></div></div>
+[[q:Q6 · Quiz-Mid (11 marks)|answer page [[page:key1]]|m1_old1]]
+[[q:Q7 · Midterm Q32 (15 marks)|answer page [[page:key1]]|m1_old2]]
+<div class="stop">Day 1 done · write your misses on the Miss log</div>
+</section>
+
+<!-- ============================== DAY 2 ============================== -->
+<section class="block">
+[[mk:d2]]
+<div class="block-head">
+  <div class="bnum">2</div>
+  <div>
+    <div class="kicker">Day 2 · Write C# · 3 sessions</div>
+    <h1>Write C#</h1>
+    <p class="aim">Goal: turn a story into classes on paper, without help. That is Part C, 25 marks.</p>
+  </div>
+</div>
+
+<div class="sess"><span>Session 1 · One class, step by step</span><span>60 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">2.1</span>Class and object</h2>
+  <div class="rule"><p>A <b>class</b> is a blueprint: a form with empty boxes (name, ID, pay). An <b>object</b> is one filled-in copy, made with <code>new</code>. <code>Staff</code> is the class; Rahim's record is one object, Karim's is another. Each object keeps its own values.</p></div>
+</div>
+
+<div class="task">
+  <h2>The old Quiz-Mid question <span class="tm">10 marks</span></h2>
+  <p>Write a class <code>Staff</code> for a university staff member with three main properties: <b>Name</b>, <b>StaffID</b> and <b>BasePay</b>. It needs two constructors: a <b>default constructor</b> that sets the name to an empty string, the ID to 0 and the base pay to 0.0, and a <b>parameterized constructor</b> that sets given values. Add a method <b>display_info()</b> that prints the details. Create one object with each constructor and call <code>display_info()</code> on both. <span style="color:var(--muted)">(Wording shortened from the paper.)</span></p>
+</div>
+
+<div class="keyrule">
+  <div class="krt">The class recipe · six steps, always in this order</div>
+  <ol>
+    <li><b>Fields</b>: <code>private</code>, one per piece of data.</li>
+    <li><b>Properties</b>: <code>public</code>, one per field: <code>get { return x; } set { x = value; }</code></li>
+    <li><b>Default constructor</b>: no parameters; sets the starting values.</li>
+    <li><b>Parameterized constructor</b>: one parameter per field; <code>this.x = x;</code> for each.</li>
+    <li><b>Methods</b>: <code>public void Show()</code> prints; <code>public double Calc()</code> gives back a value with <code>return</code>.</li>
+    <li><b>Main</b>: make each object with <code>new</code>, then call its methods.</li>
+  </ol>
+  <p style="margin:4pt 0 0">The answer on the next page is labelled with these six steps.</p>
+</div>
+<div class="task">
+  <h2>Try first <span class="tm">5 min</span></h2>
+  <p>Before you turn the page: on paper, write Steps 1 and 2 for Staff (the three fields and the three properties), using only the recipe. A wrong attempt is fine. Then turn the page and compare.</p>
+</div>
+
+[[ex:m2_staff]]
+
+<h3>Exam words → what you write</h3>
+<table class="anno">
+  <tr><th>The question says</th><th>You write</th></tr>
+  <tr><td>"three main properties: Name, StaffID, BasePay"</td><td><b>Step 1</b> one <code>private</code> field each. <b>Step 2</b> one <code>public</code> property each, with <code>get</code> and <code>set</code>.</td></tr>
+  <tr><td>"a default constructor that sets … empty string, 0, 0.0"</td><td><b>Step 3</b> <code>public Staff() { name = ""; staffID = 0; basePay = 0.0; }</code></td></tr>
+  <tr><td>"a parameterized constructor"</td><td><b>Step 4</b> same name, one parameter per field, <code>this.field = parameter;</code> for each.</td></tr>
+  <tr><td>"a method display_info() that prints"</td><td><b>Step 5</b> <code>public void display_info() { Console.WriteLine(…); }</code></td></tr>
+  <tr><td>"create one object with each constructor"</td><td><b>Step 6</b> in Main: <code>new Staff()</code> and <code>new Staff("Rahim", 101, 45000.50)</code>, then call the method on each.</td></tr>
+</table>
+
+<h3>What is what</h3>
+<table class="anno">
+  <tr><td class="c">private string name;</td><td><b>Field.</b> <code>private</code>: only code inside Staff can touch it. Hiding fields like this is <b>encapsulation</b>.</td></tr>
+  <tr><td class="c">public string Name
+{
+    get { return name; }
+    set { name = value; }
+}</td><td><b>Property</b>: the public door to a private field. <code>get</code> runs when someone reads <code>s1.Name</code>. <code>set</code> runs on <code>s1.Name = "Karim";</code> and <code>value</code> is <code>"Karim"</code>. Field lower-case, property Capitalized.</td></tr>
+  <tr><td class="c">public Staff()</td><td><b>Constructor</b>: same name as the class and <b>no return type</b> (not even <code>void</code>). It runs by itself on <code>new Staff()</code>.</td></tr>
+  <tr><td class="c">this.name = name;</td><td><code>this.name</code> is the object's field; plain <code>name</code> is the parameter. Copies the parameter into the field.</td></tr>
+  <tr><td class="c">public void display_info()</td><td><b>Method</b>: a named job. <code>void</code> means it gives nothing back. A method that gives back a value names its type instead (<code>public double Total()</code>) and ends with <code>return</code>.</td></tr>
+  <tr><td class="c">Staff s1 = new Staff();</td><td><code>new</code> builds one object and runs a constructor; <code>s1</code> is the name you use for it.</td></tr>
+  <tr><td class="c">s1.display_info();</td><td>Runs the method for that object: it prints s1's own values.</td></tr>
+</table>
+
+<div class="task">
+  <h2>D1 · Copy it from memory <span class="tm">10 min</span></h2>
+  <p>Cover the page. Write the whole Staff program on paper. Then compare line by line and circle every difference. More than three circles? Do it once more.</p>
+</div>
+<div class="task">
+  <h2>D2 · Fill the 8 blanks <span class="tm">5 min · answer page [[page:key2]]</span></h2>
+  [[code:m2_book_blank]]
+</div>
+<div class="task">
+  <h2>D3 · Write a class from a story <span class="tm">15 min · answer page [[page:key2]]</span></h2>
+  <p>Write a class <code>Course</code> with the fields <code>courseCode</code> (string), <code>courseTitle</code> (string) and <code>credit</code> (int), and a property for each. The default constructor sets <code>"N/A"</code>, <code>"N/A"</code> and <code>0</code>; a parameterized constructor sets given values. A method <code>ShowCourse()</code> prints all three on one line, like <code>CSC 3115, OOP 2, 3 credits</code>. In Main, create one Course with each constructor and call <code>ShowCourse()</code> on both.</p>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">2.2</span>Every kind of constructor, and static</h2>
+  <ul class="tight">
+    <li><b>Default</b>: no parameters. <b>Parameterized</b>: takes values. <b>Copy</b>: takes an object of the same class and copies its values. <b>Static</b>: <code>static Student()</code>, no access word, no parameters; runs <b>once</b>, by itself, just before the class is first used.</li>
+    <li>Write any constructor yourself and C# no longer gives you the free default one: <code>new Car()</code> then fails if only <code>Car(string model)</code> exists.</li>
+    <li>A <b>static</b> field has <b>one shared copy</b> for the whole class, not one per object. Use it through the class name: <code>Student.count</code>.</li>
+  </ul>
+</div>
+[[q:Q8|Predict the output · answer page [[page:key2]]|m2_ctors]]
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 2 · Child classes and override</span><span>60 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">2.3</span>A child class in one example</h2>
+  [[ex:m2_inh]]
+  <ul class="tight">
+    <li><code>class Student : Person</code>: Student gets everything Person has. Read the colon as "is a kind of". This is the <b>is-a</b> relationship: <b>inheritance</b>.</li>
+    <li><code>: base(name)</code> sends values up to Person's constructor. The <b>parent's constructor body runs first</b>, then the child's.</li>
+    <li><code>protected</code>: like private, but child classes may use it too.</li>
+    <li><code>virtual</code> in the parent + <code>override</code> in the child: the child's version replaces the parent's, even when the variable's type is <code>Person</code>.</li>
+    <li><code>base.Show()</code> inside the child runs the parent's version; the child then adds its own lines.</li>
+  </ul>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">2.4</span>One array, many kinds: polymorphism</h2>
+  [[ex:m2_poly]]
+  <div class="keyrule">
+    <div class="krt">Two questions for every call <code>x.Method()</code></div>
+    <ol>
+      <li><b>Does it compile?</b> Look only at the type written on the left when <code>x</code> was declared. <code>Animal</code> has no <code>Purr()</code>, so this fails even though the object is a Cat:</li>
+    </ol>
+    [[ex:m2_purr_err]]
+    <ol start="2">
+      <li><b>Which version runs?</b> If the method is <code>virtual</code> and the child <code>override</code>s it: the real object's version (a Cat says Meow). Otherwise: the declared type's version.</li>
+    </ol>
+  </div>
+  <p><code>pets[1] is Cat</code> checks the real object. <code>(Cat)pets[1]</code> converts it so Cat-only methods can be called.</p>
+</div>
+
+<div class="keyrule">
+  <div class="krt">The child recipe</div>
+  <ol>
+    <li><code>class Child : Parent</code></li>
+    <li>Only the <b>new</b> fields, <code>private</code>.</li>
+    <li>Constructor takes the parent's values plus its own: <code>public Child(string a, int b, double own) : base(a, b) { this.own = own; }</code></li>
+    <li><code>public override</code> each method the story says works differently. Start it with <code>base.Method();</code> to reuse the parent's part.</li>
+    <li>Main: <code>Parent[] arr = new Parent[n];</code>, fill it with <code>new Child(…)</code>, loop with <code>foreach</code>, call the method.</li>
+  </ol>
+</div>
+
+<div class="task">
+  <h2>D4 · Your lab from memory <span class="tm">25 min</span></h2>
+  <p>On paper: Employee, FullTimeEmployee, PartTimeEmployee and SeniorEmployee, then the Main with the array, the jagged <code>hours</code> array and the <code>is</code> check. Check it against your own lab file (<code>Practice task\Program.cs</code>, already checked correct). Circle every difference.</p>
+</div>
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 3 · The 25-mark question</span><span>60 min</span></div>
+
+<div class="task">
+  <h2>Old midterm Part C · Q33 <span class="tm">25 marks</span></h2>
+  <p>The BPL committee wants a program to manage players. There are three types of players: <b>Batsman</b>, <b>Bowler</b> and <b>All-Rounder</b>. A <b>Player</b> class has the fields <code>playerId</code>, <code>playerName</code> and <code>teamName</code>, and a <b>virtual method <code>ShowInfo()</code></b> that shows a player's information. Batsman has three more fields: <code>totalRuns</code>, <code>battingAverage</code>, <code>highestScore</code>. Bowler has two more: <code>totalWickets</code>, <code>bowlingAverage</code>. All-Rounder has two more: <code>totalRuns</code>, <code>totalWickets</code>.</p>
+  <p>A method <b><code>PlayerPerformance()</code> in Player</b> decides award eligibility: a Batsman needs a batting average over 50; a Bowler needs more than 100 wickets; an All-Rounder needs more than 1000 runs <i>and</i> more than 50 wickets. <code>ShowInfo()</code> shows the usual details and whether the player is eligible. Main is given; use proper access modifiers, types and properties. <span style="color:var(--muted)">(Wording shortened from the paper.)</span></p>
+</div>
+
+<h3>Step A · Read and mark (3 min)</h3>
+<ul class="tight">
+  <li>"types of players" → one parent class <code>Player</code>, three child classes.</li>
+  <li>Every field list → <code>private</code> fields in that class. "proper access modifiers … properties" → properties for the Player fields too.</li>
+  <li>"virtual method ShowInfo()" → <code>virtual</code> in Player, <code>override</code> in each child, starting with <code>base.ShowInfo();</code>.</li>
+  <li>"PlayerPerformance() in Player … eligibility" → <code>public virtual bool PlayerPerformance()</code> in Player; each child overrides it with its own rule: <code>return battingAverage &gt; 50;</code></li>
+  <li><b>"Main is given"</b> → your constructors must take the values in exactly the order Main passes them:</li>
+</ul>
+<table class="anno">
+  <tr><th>Main says</th><th>So the constructor must be</th></tr>
+  <tr><td class="c">new Batsman("P-1", "Tom Latham", "NZ", 6789, 57.3, 183)</td><td><code>Batsman(string playerId, string playerName, string teamName, int totalRuns, double battingAverage, int highestScore)</code></td></tr>
+  <tr><td class="c">new Bowler("P-2", "Taskin Ahmed", "BD", 104, 23.2)</td><td><code>Bowler(string, string, string, int totalWickets, double bowlingAverage)</code></td></tr>
+  <tr><td class="c">new AllRounder("P-3", "Glenn Maxwell", "AUS", 7598, 98)</td><td><code>AllRounder(string, string, string, int totalRuns, int totalWickets)</code></td></tr>
+</table>
+
+<h3>Step B · Draw the plan (2 min)</h3>
+<figure>
+  <svg viewBox="0 0 540 196" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+    <defs>
+      <marker id="tri2" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+        <path d="M0.5,0.5 L9.5,5 L0.5,9.5 z" fill="#ffffff" stroke="#1f3557" stroke-width="1"/>
+      </marker>
+    </defs>
+    <rect x="160" y="4" width="220" height="82" rx="4" fill="#eef2f7" stroke="#1f3557"/>
+    <text x="270" y="20" text-anchor="middle" font-weight="700" fill="#1f3557">Player</text>
+    <line x1="160" y1="26" x2="380" y2="26" stroke="#1f3557" stroke-width="0.6"/>
+    <text x="170" y="40" fill="#1c2230">playerId, playerName, teamName (+ properties)</text>
+    <line x1="160" y1="48" x2="380" y2="48" stroke="#1f3557" stroke-width="0.6"/>
+    <text x="170" y="62" fill="#1c2230">virtual bool PlayerPerformance() → false</text>
+    <text x="170" y="77" fill="#1c2230">virtual void ShowInfo() → id, name, team</text>
+    <g fill="#ffffff" stroke="#1f3557">
+      <rect x="4" y="126" width="170" height="66" rx="4"/><rect x="185" y="126" width="170" height="66" rx="4"/><rect x="366" y="126" width="170" height="66" rx="4"/>
+    </g>
+    <g text-anchor="middle" font-weight="700" fill="#1f3557">
+      <text x="89" y="141">Batsman</text><text x="270" y="141">Bowler</text><text x="451" y="141">AllRounder</text>
+    </g>
+    <g fill="#1c2230">
+      <text x="12" y="156">totalRuns, battingAverage,</text><text x="12" y="169">highestScore</text><text x="12" y="185" fill="#8e2c3a">eligible: battingAverage &gt; 50</text>
+      <text x="193" y="156">totalWickets,</text><text x="193" y="169">bowlingAverage</text><text x="193" y="185" fill="#8e2c3a">eligible: totalWickets &gt; 100</text>
+      <text x="374" y="156">totalRuns, totalWickets</text><text x="374" y="171" fill="#8e2c3a">eligible: totalRuns &gt; 1000</text><text x="374" y="185" fill="#8e2c3a">&amp;&amp; totalWickets &gt; 50</text>
+    </g>
+    <g stroke="#1f3557" stroke-width="1.2">
+      <line x1="89" y1="126" x2="215" y2="87" marker-end="url(#tri2)"/>
+      <line x1="270" y1="126" x2="270" y2="87" marker-end="url(#tri2)"/>
+      <line x1="451" y1="126" x2="325" y2="87" marker-end="url(#tri2)"/>
+    </g>
+  </svg>
+  <figcaption>Arrows point from each child to its parent. Each child overrides both methods.</figcaption>
+</figure>
+
+[[mk:bpl]]
+<h3>Step C · The full answer</h3>
+<p>Read it slowly once with the plan beside it. Every child follows the same five-step child recipe; only the fields and the one rule change. On the paper the given Main sits inside <code>namespace ConsoleAppCricketWorldCup</code>; writing your classes inside that namespace or above it both work. A long header may be split over several lines, as below.</p>
+<div class="small-code">[[ex:m2_bpl]]</div>
+<div class="note prec"><div class="tag">How it is marked</div><div><p>The old paper grades Part C on <b>completeness</b> (all classes and methods), <b>data security</b> (private fields, access through properties), <b>readability</b> (indentation, spacing) and <b>correctness</b> (the rules work). <code>&amp;&amp;</code> in the All-Rounder rule: both conditions must be true.</p></div></div>
+
+<div class="task">
+  <h2>D5 · Now write it yourself <span class="tm">35 min</span></h2>
+  <p>Close the answer. From the question and your plan only, write all four classes on paper. Do not rewrite Main: the paper says it is given. Then check against the answer and circle the differences. Tomorrow before Session 1, write it once more, faster.</p>
+</div>
+<div class="stop">Day 2 done · write your misses on the Miss log</div>
+</section>
+
+<!-- ============================== DAY 3 ============================== -->
+<section class="block">
+[[mk:d3]]
+<div class="block-head">
+  <div class="bnum">3</div>
+  <div>
+    <div class="kicker">Day 3 · The facts · 3 sessions</div>
+    <h1>The facts</h1>
+    <p class="aim">Goal: Part A (45 marks) and Part D (15 marks). Everything below was asked on the old paper or appears in the course code.</p>
+  </div>
+</div>
+
+<div class="sess"><span>Session 1 · Access, static, const, readonly, constructors</span><span>60 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.1</span>Access modifiers: who may use a member</h2>
+  <table>
+    <tr><th>Modifier</th><th>Same class</th><th>Child class, same assembly</th><th>Any class, same assembly</th><th>Child class, other assembly</th><th>Any class, other assembly</th></tr>
+    <tr><td><code>public</code></td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
+    <tr><td><code>protected internal</code></td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>–</td></tr>
+    <tr><td><code>internal</code></td><td>yes</td><td>yes</td><td>yes</td><td>–</td><td>–</td></tr>
+    <tr><td><code>protected</code></td><td>yes</td><td>yes</td><td>–</td><td>yes</td><td>–</td></tr>
+    <tr><td><code>private protected</code></td><td>yes</td><td>yes</td><td>–</td><td>–</td><td>–</td></tr>
+    <tr><td><code>private</code></td><td>yes</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+  </table>
+  <ul class="tight">
+    <li><b>Assembly</b> = one compiled project (one <code>.exe</code> or <code>.dll</code>). When the paper says "M2 has a reference of M1" or "a single solution with multiple assemblies", the namespaces are <b>different assemblies</b>.</li>
+    <li><b>Memory hook:</b> <code>internal</code> = "my assembly". <code>protected</code> = "my children". <code>protected internal</code> = either one (OR). <code>private protected</code> = both at once (AND): my children inside my assembly.</li>
+    <li><b>Defaults:</b> a member of a class or a struct with no modifier is <code>private</code>. A class itself (not inside another class) is <code>internal</code>. <code>enum</code> members are always public.</li>
+    <li><b>Encapsulation</b> = keeping fields <code>private</code> and giving controlled access through properties and methods. Its main job: <b>hide data</b>.</li>
+  </ul>
+  [[ex:m3_access_err]]
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.2</span>static, const, readonly</h2>
+  [[ex:m3_static]]
+  <table>
+    <tr><th></th><th>What it means</th><th>Where it gets its value</th><th>Use it as</th></tr>
+    <tr><td><code>static</code></td><td>Belongs to the class: <b>one shared copy</b> for all objects</td><td>anywhere</td><td><code>Counter.total</code></td></tr>
+    <tr><td><code>const</code></td><td>Never changes; fixed when compiling; <b>automatically static</b></td><td><b>only</b> in its declaration (it must have one)</td><td><code>Counter.Rate</code>, never <code>a.Rate</code></td></tr>
+    <tr><td><code>readonly</code></td><td>Cannot change after the object is built; each object may have its own value</td><td>in its declaration <b>or in a constructor</b></td><td><code>a.id</code></td></tr>
+  </table>
+  <div class="twocol">[[ex:m3_ro]][[ex:m3_constobj]]</div>
+  <p>A <b>static method</b> belongs to no object, so it cannot use instance fields directly (that is why <code>Main</code>, which is static, needs <code>new</code> before using a class's fields):</p>
+  [[ex:m3_staticerr]]
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.3</span>Constructor vs method, destructor, properties</h2>
+  <table>
+    <tr><th></th><th>Constructor</th><th>Method</th></tr>
+    <tr><td>Name</td><td>Must be the class's name</td><td>Any name</td></tr>
+    <tr><td>Return type</td><td>None, not even <code>void</code></td><td>Must have one (<code>void</code> if it returns nothing)</td></tr>
+    <tr><td>When it runs</td><td>By itself, once per object, on <code>new</code></td><td>Only when called, as often as called</td></tr>
+    <tr><td>Job</td><td>Give the new object its starting values</td><td>Do work: print, calculate, change values</td></tr>
+  </table>
+  <ul class="tight">
+    <li><b>Destructor</b> <code>~Student() { }</code>: no parameters, no access modifier, no return type, at most one per class, cannot be overloaded or called by you. The <b>garbage collector</b> (GC) calls it before it frees the object's memory. The GC is the part of the .NET runtime that frees objects nothing refers to any more.</li>
+    <li><b>Why properties?</b> They keep fields private (encapsulation) while still allowing controlled reading and writing. <code>set</code> can check a value before storing it (marks must be 0–100); a property with only <code>get</code> is read-only.</li>
+  </ul>
+</div>
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 2 · Types and method tricks</span><span>60 min</span></div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.4</span>Value types, reference types, struct</h2>
+  <table>
+    <tr><th>Value types</th><th>Reference types</th></tr>
+    <tr><td><code>int</code>, <code>double</code>, <code>char</code>, <code>bool</code>, every <code>struct</code>, every <code>enum</code></td><td>class objects, <code>string</code>, arrays, <code>object</code></td></tr>
+    <tr><td>The variable holds the value. Copying copies the value.</td><td>The variable holds a link to an object. Copying copies the link: both names reach one object.</td></tr>
+  </table>
+  [[ex:m3_struct]]
+  <ul class="tight">
+    <li><b>struct</b>: a value type (the exam's answer for where it lives: the <b>stack</b>). Members are <code>private</code> by default. It can have fields, methods, properties and constructors with parameters. It <b>cannot inherit</b> from a class or another struct.</li>
+    <li>Printing an object or struct that has no <code>ToString()</code> of its own prints its type name, with its namespace if it has one: the course's <code>Structt</code> project prints <code>Structt.StudentInfo</code>.</li>
+  </ul>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.5</span>Boxing, var, dynamic, nullable, GetType</h2>
+  [[ex:m3_box]]
+  <ul class="tight">
+    <li><b>Boxing</b>: value type → <code>object</code> (happens by itself). <b>Unboxing</b>: <code>object</code> → value type, needs a cast: <code>(int)o</code>.</li>
+    <li><b><code>var</code></b>: the compiler picks the type from the value, <b>at compile time</b>. It must get a value on the same line, and its type never changes. <b><code>dynamic</code></b>: the type is checked only <b>while running</b>, so it can hold 10 and later a string.</li>
+    <li><b><code>int?</code></b> can also hold <code>null</code> (nothing); printing <code>null</code> prints an empty line.</li>
+    <li><b><code>GetType()</code></b> is a public method of <code>Object</code>, so every value has it. <code>int</code> is really <code>System.Int32</code>; <code>string</code> is <code>System.String</code>.</li>
+  </ul>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.6</span>enum: named constants</h2>
+  [[ex:m3_enum]]
+  <p>Numbers are <code>int</code> by default, start at 0 and go up by 1. After a given value, counting continues from it (<code>Mon = 10</code> → <code>Tue</code> = 11). Printing gives the name; <code>(int)</code> gives the number.</p>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.7</span>ref, out, params</h2>
+  [[ex:m3_refout]]
+  <table>
+    <tr><td><code>(no keyword)</code></td><td>The method gets a <b>copy</b>; the caller's variable does not change (<code>NoRef</code> left v at 10).</td></tr>
+    <tr><td><code>ref</code></td><td>The variable <b>must have a value before</b> the call. The method may change it and the caller sees the change. Write <code>ref</code> in the call too.</td></tr>
+    <tr><td><code>out</code></td><td>Needs no value before the call; the method <b>must</b> give it one. Hands back extra results. A method may have <b>several</b> <code>out</code> parameters, in any position.</td></tr>
+    <tr><td><code>params</code></td><td>The method takes <b>any number</b> of values, zero included, collected into an array. Only one per method, and it <b>must be the last</b> parameter.</td></tr>
+  </table>
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.8</span>Overloading, overriding, abstract, sealed</h2>
+  [[ex:m3_overload]]
+  <table>
+    <tr><th></th><th>Overloading</th><th>Overriding</th></tr>
+    <tr><td>What</td><td>Same name, <b>different parameter list</b> (number or types)</td><td>Same name, <b>same parameters</b>, in a child class</td></tr>
+    <tr><td>Needs</td><td>Nothing special; works for methods and constructors</td><td><code>virtual</code> (or <code>abstract</code>) in the parent, <code>override</code> in the child</td></tr>
+    <tr><td>Kind</td><td><b>Compile-time</b> (static) polymorphism</td><td><b>Run-time</b> (dynamic) polymorphism</td></tr>
+  </table>
+  <ul class="tight">
+    <li>A different return type alone does not make an overload.</li>
+    <li>A <code>virtual</code> method has a body; overriding it is optional. An <code>abstract</code> method has no body, sits in an <code>abstract</code> class, and every normal child must override it.</li>
+    <li>You cannot write <code>new</code> on an <code>abstract</code> class, but it can have constructors and normal methods. A <code>sealed</code> class cannot be a parent.</li>
+  </ul>
+  [[ex:m3_abstract]]
+</div>
+
+<div class="concept flow">
+  <h2><span class="cn">3.9</span>.NET words (Week 1)</h2>
+  <table>
+    <tr><td><b>CLR</b></td><td>Common Language Runtime: the engine that runs .NET programs; it manages memory (garbage collection), security and errors.</td></tr>
+    <tr><td><b>IL / MSIL / CIL</b></td><td>Intermediate Language: what the C# compiler produces. Not machine code yet.</td></tr>
+    <tr><td><b>JIT</b></td><td>Just-In-Time compiler, part of the CLR: turns IL into machine code while the program runs.</td></tr>
+    <tr><td><b>FCL / BCL</b></td><td>Framework (Base) Class Library: the ready-made classes, such as <code>Console</code> and <code>String</code>.</td></tr>
+    <tr><td><b>CTS / CLS</b></td><td>Common Type System: the types every .NET language shares. Common Language Specification: the rules a language follows so the languages can work together.</td></tr>
+    <tr><td><b>Managed code</b></td><td>Code run by the CLR. <b>Assembly</b>: the compiled <code>.exe</code> or <code>.dll</code>. <b>namespace</b>: groups classes; <code>using</code> brings one in.</td></tr>
+    <tr><td><b>Object</b></td><td>Every class inherits from <code>System.Object</code>, so every object has <code>ToString()</code>, <code>Equals()</code>, <code>GetHashCode()</code>, <code>GetType()</code>.</td></tr>
+  </table>
+  [[ex:m3_tostring]]
+</div>
+<div class="stop">Stop · 10-minute break</div>
+
+<div class="sess" style="break-before:page"><span>Session 3 · The real old paper</span><span>60 min</span></div>
+<p class="lead">Fall 2024-25 midterm, retyped from your photos. Closed book. Write the 30 answers in one row on paper, then the trace, then Part D. Answers from page [[page:key3]].</p>
+
+<h3>Part A · Q1–Q10 · true or false</h3>
+<ol class="tf">
+  <li>An object of a derived class can access private members of its base class.</li>
+  <li>Structures in C# can have methods, constructors and properties.</li>
+  <li>Any method can have only one <code>out</code> parameter.</li>
+  <li>The <code>var</code> keyword assigns its type during the execution of the code.</li>
+  <li>A jagged array is an array of arrays where each inner array can have a same length.</li>
+  <li>A <code>const</code> variable is implicitly readonly.</li>
+  <li>Arrays in C# are reference types.</li>
+  <li><code>GetType()</code> is a public method of the Object class.</li>
+  <li>Destructors are called implicitly by the C# runtime system's garbage collector.</li>
+  <li>An <code>out</code> parameter should be the last parameter of the method.</li>
+</ol>
+
+<h3>Part A · Q11–Q30 · choose one</h3>
+<ol class="mcq" start="11">
+  <li>Which array declaration is possible?<div class="opts o2"><span>a) <code>int array5[] = new int[5];</code></span><span>b) <code>int[] array2 = new int[] { 1, 3, 5, 7, 9 };</code></span><span>c) <code>int[] array3 = new int(1, 3, 5, 7, 9);</code></span><span>d) <code>int[] array4 = (1, 2, 3, 4, 5, 6);</code></span></div></li>
+  <li>If values are not assigned to enum members, the compiler assigns ___ values to each member, starting with ___ by default.<div class="opts o2"><span>a) int, 0</span><span>b) int, 1</span><span>c) null, 0</span><span>d) long, 0</span></div></li>
+  <li>Enumeration is a special type that represents a group of ___.<div class="opts"><span>a) constants</span><span>b) integers</span><span>c) literals</span><span>d) none</span></div></li>
+  <li>Which keyword is used to group many classes?<div class="opts"><span>a) new</span><span>b) namespace</span><span>c) using</span><span>d) package</span></div></li>
+  <li>Structure data members are ___ by default.<div class="opts"><span>a) public</span><span>b) internal</span><span>c) protected</span><span>d) private</span></div></li>
+  <li>A method is capable of returning how many values?<div class="opts"><span>a) 1</span><span>b) 0</span><span>c) 2</span><span>d) any number of values</span></div></li>
+  <li><code>enum xyz { a, b, c, d }</code>. Output of <code>Console.WriteLine("{0}", (int)xyz.c);</code>?<div class="opts"><span>a) 3</span><span>b) c</span><span>c) 2</span><span>d) 0</span></div></li>
+  <li>What should be used to implement an "is a" relationship between two entities?<div class="opts"><span>a) polymorphism</span><span>b) inheritance</span><span>c) abstraction</span><span>d) encapsulation</span></div></li>
+  <li>Which is an example of explicit type casting?<div class="opts o2"><span>a) <code>int a = 10.5;</code></span><span>b) <code>double b = 5;</code></span><span>c) <code>int a = (int)10.5;</code></span><span>d) <code>byte b = (bool)1;</code></span></div></li>
+  <li>Which of these converts a type to a string?<div class="opts"><span>a) ToInt64()</span><span>b) ToSByte()</span><span>c) ToSingle()</span><span>d) ToString()</span></div></li>
+  <li>What does encapsulation primarily do?<div class="opts"><span>a) hides data</span><span>b) allows inheritance</span><span>c) enables polymorphism</span><span>d) improves performance</span></div></li>
+  <li>Which access modifier is commonly used to enforce encapsulation by restricting access to class members?<div class="opts"><span>a) public</span><span>b) private</span><span>c) static</span><span>d) abstract</span></div></li>
+  <li>Which access modifier allows members to be accessed only within the same class or a derived class?<div class="opts"><span>a) public</span><span>b) private</span><span>c) static</span><span>d) protected</span></div></li>
+  <li>Casting a value type to a reference type is known as ___.<div class="opts"><span>a) boxing</span><span>b) unboxing</span><span>c) both</span><span>d) none</span></div></li>
+  <li>Which OOP concept lets a child class give its own version of a method already defined in its base class?<div class="opts"><span>a) method hiding</span><span>b) encapsulation</span><span>c) method overriding</span><span>d) interface inheritance</span></div></li>
+  <li>What is a constructor that takes no parameters called?<div class="opts"><span>a) parameterized</span><span>b) static</span><span>c) default</span><span>d) copy</span></div></li>
+  <li>What is true about a virtual method in C#?<div class="opts o2"><span>a) Virtual methods do not have a body.</span><span>b) Virtual methods must follow encapsulation.</span><span>c) Virtual methods must be overridden.</span><span>d) None of the above.</span></div></li>
+  <li>A structure is always created on the ___ memory in C#.<div class="opts"><span>a) stack</span><span>b) queue</span><span>c) heap</span><span>d) hash</span></div></li>
+  <li><code>int[][] jaggedArray = new int[2][]; jaggedArray[0] = new int[] { 1, 2 }; jaggedArray[1] = new int[] { 3, 4, 5 }; Console.WriteLine(jaggedArray[1][3]);</code> What is the output?<div class="opts"><span>a) 3</span><span>b) 4</span><span>c) 5</span><span>d) exception</span></div></li>
+  <li>In C#, what is it called when two or more classes have methods with the same name but different parameters?<div class="opts"><span>a) method overloading</span><span>b) polymorphism</span><span>c) method overriding</span><span>d) inheritance</span></div></li>
+</ol>
+
+<h3>Part B · Q31 · trace (15 marks)</h3>
+<p style="break-after:avoid">Retyped from the photo; the two starting numbers (10 and 30) may differ slightly from the original.</p>
+[[q:Q31 · Old midterm|answer page [[page:key3]]|m3_old31]]
+
+<h3>Part D · Q34 · short answers (15 marks)</h3>
+<p style="break-after:avoid">"Consider the following classes. It's a single solution with multiple assemblies." Retyped from the photo.</p>
+<div class="small-code">[[code:m3_oldD]]</div>
+<div class="sub-q"><b>i)</b> Which of the members are accessible from the object scope of class One using <code>obj1</code>?</div>
+<div class="sub-q"><b>ii)</b> Is it acceptable to change the value of <code>i</code> inside method <code>M()</code>? Explain.</div>
+<div class="sub-q"><b>iii)</b> Which of the members are directly accessible inside method <code>F1()</code>?</div>
+<div class="sub-q"><b>iv)</b> How many parameters are needed to call <code>F2()</code>, and why?</div>
+<div class="sub-q"><b>v)</b> Can you find any example of polymorphism in the code above? Explain all the occurrences.</div>
+<div class="stop">Day 3 done · write your misses on the Miss log</div>
+</section>
+
+<!-- ============================== MOCK ============================== -->
+<section class="block">
+[[mk:mock]]
+<div class="block-head">
+  <div class="bnum">M</div>
+  <div>
+    <div class="kicker">Mock midterm · 2 hours · closed book · 100 marks</div>
+    <h1>Mock midterm</h1>
+    <p class="aim">Same shape as the real paper, all new questions. Set a 2-hour timer, phone away. Suggested pace: Part A 30 min · Part B 20 min · Part C 45 min · Part D 20 min · check 5 min. Key from page [[page:keym]].</p>
+  </div>
+</div>
+
+<h3>Part A · Q1–Q10 · true or false · 1.5 marks each</h3>
+<ol class="tf">
+  <li>A class can have more than one constructor.</li>
+  <li>A static method can use the instance fields of its class directly.</li>
+  <li>A <code>readonly</code> field can be given a value inside a constructor.</li>
+  <li>A <code>params</code> parameter must be the last parameter of a method.</li>
+  <li>A struct can inherit from a class.</li>
+  <li>A variable passed with <code>out</code> must have a value before the call.</li>
+  <li>Strings and arrays are value types.</li>
+  <li>An abstract class can have a constructor.</li>
+  <li>Every class in C# inherits from <code>System.Object</code>, directly or indirectly.</li>
+  <li>A child class can override a parent method that is not marked <code>virtual</code>, <code>abstract</code> or <code>override</code>.</li>
+</ol>
+
+<h3>Part A · Q11–Q30 · choose one · 1.5 marks each</h3>
+<ol class="mcq" start="11">
+  <li>Which keyword gives a field one copy that all objects of the class share?<div class="opts"><span>a) static</span><span>b) const</span><span>c) readonly</span><span>d) sealed</span></div></li>
+  <li><code>enum Level { Low = 5, Mid, High }</code>. What does <code>Console.WriteLine((int)Level.High);</code> print?<div class="opts"><span>a) 2</span><span>b) 7</span><span>c) 6</span><span>d) High</span></div></li>
+  <li>Which line correctly creates a jagged array with 3 rows?<div class="opts o2"><span>a) <code>int[][] j = new int[3][];</code></span><span>b) <code>int[3][] j = new int[][];</code></span><span>c) <code>int j[][] = new int[3][];</code></span><span>d) <code>int[][] j = new int[][3];</code></span></div></li>
+  <li><code>int[] a = { 1, 2, 3 }; int[] b = a; b[0] = 9; Console.WriteLine(a[0]);</code> prints<div class="opts"><span>a) 1</span><span>b) 0</span><span>c) 9</span><span>d) a compile error</span></div></li>
+  <li>Which calls are valid for <code>static void F(params int[] x)</code>?<div class="opts"><span>a) <code>F()</code></span><span>b) <code>F(1, 2)</code></span><span>c) <code>F(new int[] { 1, 2 })</code></span><span>d) all of these</span></div></li>
+  <li>Unboxing means converting<div class="opts"><span>a) a value type to object</span><span>b) int to double</span><span>c) a class to a struct</span><span>d) object back to a value type</span></div></li>
+  <li><code>double d = 9.8; int i = (int)d;</code> Now <code>i</code> holds<div class="opts"><span>a) 10</span><span>b) 9.8</span><span>c) nothing: compile error</span><span>d) 9</span></div></li>
+  <li>A field declared inside a class with no access modifier is<div class="opts"><span>a) private</span><span>b) public</span><span>c) internal</span><span>d) protected</span></div></li>
+  <li>Which modifier allows access only from the same class and its derived classes in the same assembly?<div class="opts"><span>a) protected internal</span><span>b) internal</span><span>c) private protected</span><span>d) protected</span></div></li>
+  <li>A class that no other class can inherit from is declared<div class="opts"><span>a) sealed</span><span>b) virtual</span><span>c) abstract</span><span>d) protected</span></div></li>
+  <li>Which is run-time polymorphism?<div class="opts"><span>a) method overloading</span><span>b) method overriding</span><span>c) constructor overloading</span><span>d) operator overloading</span></div></li>
+  <li>Which statement about constructors is <b>false</b>?<div class="opts o2"><span>a) It has the same name as the class.</span><span>b) It has no return type.</span><span>c) It can be overloaded.</span><span>d) It must be called by name, like a method, after new.</span></div></li>
+  <li>Class Car has only <code>public Car(string model)</code>. What happens with <code>new Car();</code>?<div class="opts"><span>a) works, model is null</span><span>b) works, model is ""</span><span>c) does not compile</span><span>d) compiles, then crashes</span></div></li>
+  <li>Which keyword calls the parent class's constructor from a child constructor?<div class="opts"><span>a) this</span><span>b) base</span><span>c) super</span><span>d) parent</span></div></li>
+  <li>For <code>var x = 5;</code> the type of x is decided<div class="opts"><span>a) at compile time: int</span><span>b) at run time</span><span>c) when x is first printed</span><span>d) never: var has no type</span></div></li>
+  <li>A destructor<div class="opts"><span>a) can take parameters</span><span>b) is called with the delete keyword</span><span>c) is called by the garbage collector</span><span>d) can be overloaded</span></div></li>
+  <li>What turns IL code into machine code while the program runs?<div class="opts"><span>a) CLS</span><span>b) CTS</span><span>c) FCL</span><span>d) JIT compiler</span></div></li>
+  <li>Animal has <code>public virtual void Speak()</code>; Dog : Animal overrides it. <code>Animal a = new Dog(); a.Speak();</code> runs<div class="opts"><span>a) Animal's Speak</span><span>b) Dog's Speak</span><span>c) both</span><span>d) a compile error</span></div></li>
+  <li>Child : Parent. Which line does <b>not</b> compile?<div class="opts o2"><span>a) <code>Parent p = new Child();</code></span><span>b) <code>object o = new Child();</code></span><span>c) <code>Parent p = new Parent();</code></span><span>d) <code>Child c = new Parent();</code></span></div></li>
+  <li>Parent has <code>public void Hi()</code> (not virtual). Child : Parent declares <code>public void Hi()</code> again, without <code>new</code> or <code>override</code>. Result?<div class="opts o2"><span>a) compile error</span><span>b) Child's Hi overrides Parent's</span><span>c) only a warning: Child's Hi hides Parent's</span><span>d) run-time error</span></div></li>
+</ol>
+
+<h3 style="break-before:page">Part B · answer any one · 15 marks</h3>
+[[q:Q31|Write the exact output|k_q31]]
+[[q:Q32|Write the exact output|k_q32]]
+
+<h3 style="break-before:page">Part C · Q33 · code writing · 25 marks</h3>
+<div class="task">
+  <h2>AIUB scholarship system</h2>
+  <p>AIUB gives scholarships to three kinds of students. Write a class <b>Student</b> with the fields <code>studentId</code> (string), <code>name</code> (string) and <code>cgpa</code> (double), a property for each, a constructor, a virtual method <b><code>IsEligible()</code></b> that returns <code>bool</code>, and a virtual method <b><code>ShowInfo()</code></b>.</p>
+  <ul>
+    <li><b>Undergraduate</b> adds <code>completedCredits</code> (int). Eligible if CGPA is at least 3.75 <i>and</i> completed credits are at least 30.</li>
+    <li><b>Graduate</b> adds <code>publications</code> (int). Eligible if CGPA is at least 3.5 <i>and</i> publications are at least 2.</li>
+    <li><b>Athlete</b> adds <code>medals</code> (int). Eligible if CGPA is at least 2.5 <i>and</i> medals are at least 3.</li>
+  </ul>
+  <p><code>ShowInfo()</code> prints all details of the student and then <code>Scholarship: Yes</code> or <code>Scholarship: No</code>. Use proper access modifiers. The Main method is given; do not rewrite it:</p>
+  [[code:k_main]]
+</div>
+
+<h3>Part D · Q34 · short answers · 15 marks</h3>
+<p style="break-after:avoid">Consider the code below. Namespace <code>Online</code> is a separate assembly that has a reference to <code>Shop</code>.</p>
+<div class="small-code">[[code:k_d]]</div>
+<div class="sub-q"><b>i)</b> Inside <code>Shop.Program.Main</code>, which members of Item can be used through <code>it</code>?</div>
+<div class="sub-q"><b>ii)</b> Which inherited fields can <code>Tablet.Check()</code> use directly? Why not <code>price</code>?</div>
+<div class="sub-q"><b>iii)</b> Can Main run <code>it.brand = "X";</code>? Where can <code>brand</code> get a value?</div>
+<div class="sub-q"><b>iv)</b> Find one example of compile-time polymorphism and one of run-time polymorphism in this code. Explain each.</div>
+<div class="sub-q"><b>v)</b> Write one correct call to <code>Restock</code> and two different calls to <code>Discount</code>. Why does <code>it.Restock(5);</code> fail?</div>
+</section>
+
+<!-- ============================== KEY ============================== -->
+<section class="block">
+[[mk:key1]]
+<div class="block-head">
+  <div class="bnum">K</div>
+  <div>
+    <div class="kicker">Answer key · check only after you have written</div>
+    <h1>Answers</h1>
+    <p class="aim">Every output below is the real one from running the program. Mark each answer right or wrong, then log the misses.</p>
+  </div>
+</div>
+
+<h3>Day 1</h3>
+<div class="akey">
+[[ans:Q1|m1_q1|<code>9 / 4</code> is 2 (int division); <code>9 % 4</code> is 1. <code>"a + b = " + a + b</code> glues 9, then 4: <b>94</b>. Brackets add first: 13. Two <code>Write</code>s share one line: 94. <code>{1}</code> is b (4), <code>{0}</code> is a (9).]]
+[[ans:Q2|m1_q2|<code>(int)9.99</code> cuts to 9. <code>'C'</code> is 67. 9 + 9.99 = 18.99. <code>9 &gt; 9</code> is False. <code>n *= 2</code> makes 18, <code>n--</code> makes 17. <code>\n</code> splits Done and Now onto two lines.]]
+[[ans:Q3|m1_q3|Odd i (1, 3, 5) is printed on one line; even i (2, 4) is added: 2 + 4 = 6.]]
+[[ans:Q4|m1_q4|big starts at 4, becomes 7, then 9 (1 is smaller). <code>n[2] = 7 + 9</code> = 16. Length 4 minus 1 = 3.]]
+[[ans:Q5|m1_q5|First g[2] becomes {2+4, 4+6, 6+8} = {6, 10, 14}. <code>c += 2</code> prints columns 0 and 2 only: row 0 → 2 6; row 1 has no column 2 → 1; row 2 → 6 14.]]
+[[ans:Q6|m1_old1|The inner loop stops at <code>Length - 1</code>, so every row skips its last item. <code>"\n"</code> gives an empty line before Element1. <code>Write</code> (no Line) leaves Element3 glued after 5.8. 5.8 − 2.5 = 3.3. <code>(int)7.7</code> = 7, printed with Write, so "The end" follows on the same line.]]
+[[ans:Q7|m1_old2|Rows 0 and 2 (<code>row += 2</code>), columns 1 and 4 (<code>column += 3</code>): 3 9 and 4 5. Row 1 = <code>myArray[0]</code> items 1 to 4 doubled: 6 10 14 18. Row 3 = item i plus item i+2 of row 2: 2+6, 4+8, 6+5, 8+3 = 8 12 11 11.]]
+</div>
+
+[[mk:key2]]
+<h3>Day 2</h3>
+<p><b>D2 blanks, in order:</b> <code>private</code> · <code>return</code> · <code>value</code> · <code>Book</code> · <code>this</code> · <code>void</code> · <code>new</code> · <code>Price</code>. The program prints:</p>
+[[outonly:m2_book]]
+<div class="akey">
+[[ans:Q8|m2_ctors|The static constructor runs once, just before the first <code>new Student()</code>, so after "Main starts". Each object then runs exactly one other constructor. c copies b (7, Nila), then only c's name changes. <code>uni</code> and <code>count</code> are static: one shared copy, so AIUB everywhere and count = 3.]]
+</div>
+<p><b>D3 · one correct answer</b> (names may differ; the structure must not):</p>
+<div class="small-code">[[ex:m2_course]]</div>
+<p><b>D4</b>: compare with your lab file. <b>D5</b>: compare with the full answer on page [[page:bpl]].</p>
+
+[[mk:key3]]
+<h3 style="break-before:page">Day 3 · old Part A</h3>
+<table class="key">
+  <tr><td class="n">1</td><td class="a">False</td><td>Private members are inside the child object, but only the base class's own code can use them.</td></tr>
+  <tr><td class="n">2</td><td class="a">True</td><td>A struct can have fields, methods, properties and constructors (with parameters).</td></tr>
+  <tr><td class="n">3</td><td class="a">False</td><td>A method can have several <code>out</code> parameters (tested: two in one method compiles).</td></tr>
+  <tr><td class="n">4</td><td class="a">False</td><td><code>var</code> gets its type at compile time. <code>dynamic</code> is the one checked at run time.</td></tr>
+  <tr><td class="n">5</td><td class="a">True</td><td>Each row is a separate array; rows may differ in length (the point of jagged arrays), and nothing stops them being equal. Loosely worded: what is tested is "rows can have different lengths".</td></tr>
+  <tr><td class="n">6</td><td class="a">True</td><td>A const can never change after compiling (it is also automatically static).</td></tr>
+  <tr><td class="n">7</td><td class="a">True</td><td>Copying an array variable copies the link, not the items.</td></tr>
+  <tr><td class="n">8</td><td class="a">True</td><td><code>GetType()</code> is public in <code>System.Object</code>, so every object has it.</td></tr>
+  <tr><td class="n">9</td><td class="a">True</td><td>You cannot call a destructor; the garbage collector does.</td></tr>
+  <tr><td class="n">10</td><td class="a">False</td><td><code>params</code> must be last; <code>out</code> can be anywhere (tested: <code>F(out int a, int b)</code> compiles).</td></tr>
+  <tr><td class="n">11</td><td class="a">b</td><td>The only valid form. a) puts <code>[]</code> after the name; c) and d) use round brackets.</td></tr>
+  <tr><td class="n">12</td><td class="a">a</td><td>int, starting at 0.</td></tr>
+  <tr><td class="n">13</td><td class="a">a</td><td>An enum is a set of named constants.</td></tr>
+  <tr><td class="n">14</td><td class="a">b</td><td><code>namespace</code>. (<code>using</code> only brings a namespace in.)</td></tr>
+  <tr><td class="n">15</td><td class="a">d</td><td>private, as in a class.</td></tr>
+  <tr><td class="n">16</td><td class="a">a</td><td><code>return</code> gives back exactly one value. (That value can be an array, and <code>out</code> parameters can pass back more, but the return value is one.)</td></tr>
+  <tr><td class="n">17</td><td class="a">c</td><td>a = 0, b = 1, c = 2 (tested).</td></tr>
+  <tr><td class="n">18</td><td class="a">b</td><td>Is-a = inheritance. (Has-a = a field.)</td></tr>
+  <tr><td class="n">19</td><td class="a">c</td><td>Type in brackets = explicit. a) does not compile; b) is implicit; d) does not compile (int cannot become bool, error CS0030).</td></tr>
+  <tr><td class="n">20</td><td class="a">d</td><td>ToString().</td></tr>
+  <tr><td class="n">21</td><td class="a">a</td><td>Hides data.</td></tr>
+  <tr><td class="n">22</td><td class="a">b</td><td>private.</td></tr>
+  <tr><td class="n">23</td><td class="a">d</td><td>protected.</td></tr>
+  <tr><td class="n">24</td><td class="a">a</td><td>Boxing. Unboxing is the way back.</td></tr>
+  <tr><td class="n">25</td><td class="a">c</td><td>Method overriding.</td></tr>
+  <tr><td class="n">26</td><td class="a">c</td><td>Default constructor.</td></tr>
+  <tr><td class="n">27</td><td class="a">d</td><td>A virtual method has a body, overriding it is optional, and encapsulation has nothing to do with it.</td></tr>
+  <tr><td class="n">28</td><td class="a">a</td><td>Stack (a value type).</td></tr>
+  <tr><td class="n">29</td><td class="a">d</td><td>Row 1 has indexes 0 to 2; index 3 throws IndexOutOfRangeException (tested).</td></tr>
+  <tr><td class="n">30</td><td class="a">a</td><td>Same name, different parameters = overloading. Overriding needs the same parameters.</td></tr>
+</table>
+
+<h3>Day 3 · old Part B and Part D</h3>
+<div class="akey">
+[[ans:Q31|m3_old31|objA.num was set to 40. objB is a different object whose num was never changed: 10. objB.val was set to 50. <code>data</code> is static (one shared string) and no Alpha object exists yet: still "Start ". After the reset, <code>new SubSubAlpha()</code> runs Alpha's constructor first ("alpha "), then its own ("subsubalpha "). SubAlpha is never created, so "subalpha" never appears.]]
+</div>
+<p class="sub-q" style="margin-top:4pt">Every Part D answer below was checked by compiling M1 and M2 as two separate assemblies. Note: as printed, <code>public const double n;</code> does not compile, because a const must get its value in its declaration (error CS0145). Assume it has one.</p>
+<div class="sub-q"><b>i)</b> <code>o</code> (internal) and <code>p</code> (protected internal). Not <code>m</code>: a private protected member can be reached from a child only through the child's own type, and <code>obj1</code> is a One (error CS1540). Not <code>n</code> through obj1: a const is static, so it is <code>One.n</code> (error CS0176).</div>
+<div class="sub-q"><b>ii)</b> No. <code>i</code> is <code>readonly</code>: it can get a value only in its declaration or in a Two constructor. Assigning it in <code>M()</code> is error CS0191.</div>
+<div class="sub-q"><b>iii)</b> Four's own <code>p1</code> and <code>q1</code>, plus the inherited <code>n</code> (public) and <code>p</code> (protected internal: its protected part reaches a child in another assembly). Not <code>m</code> (private protected needs the same assembly) and not <code>o</code> (internal: same assembly only).</div>
+<div class="sub-q"><b>iv)</b> Any number, zero included: <code>F2()</code>, <code>F2(4)</code>, <code>F2(1, 2, 3)</code>. <code>params</code> collects whatever ints are passed into the array <code>y</code>.</div>
+<div class="sub-q"><b>v)</b> Yes, one: class Three has three constructors with the same name and different parameters (none, <code>byte</code>, <code>char</code>). That is constructor overloading, compile-time polymorphism. There is no virtual/override pair, so no run-time polymorphism. Inheriting from a class is not polymorphism by itself.</div>
+
+[[mk:keym]]
+<h3 style="break-before:page">Mock · Part A</h3>
+<table class="key">
+  <tr><td class="n">1</td><td class="a">True</td><td>Constructors can be overloaded.</td><td class="n">16</td><td class="a">d</td><td>object → value type, with a cast.</td></tr>
+  <tr><td class="n">2</td><td class="a">False</td><td>No object, no instance fields (CS0120).</td><td class="n">17</td><td class="a">d</td><td>Cuts the decimals: 9.</td></tr>
+  <tr><td class="n">3</td><td class="a">True</td><td>Declaration or constructor.</td><td class="n">18</td><td class="a">a</td><td>private.</td></tr>
+  <tr><td class="n">4</td><td class="a">True</td><td>Otherwise error CS0231.</td><td class="n">19</td><td class="a">c</td><td>private protected: AND.</td></tr>
+  <tr><td class="n">5</td><td class="a">False</td><td>Structs cannot inherit (CS0527).</td><td class="n">20</td><td class="a">a</td><td>sealed.</td></tr>
+  <tr><td class="n">6</td><td class="a">False</td><td>That is <code>ref</code>. <code>out</code> needs none.</td><td class="n">21</td><td class="a">b</td><td>Overriding.</td></tr>
+  <tr><td class="n">7</td><td class="a">False</td><td>Both are reference types.</td><td class="n">22</td><td class="a">d</td><td>It runs by itself on new.</td></tr>
+  <tr><td class="n">8</td><td class="a">True</td><td>Children call it with <code>: base(…)</code>.</td><td class="n">23</td><td class="a">c</td><td>No free default constructor (CS7036).</td></tr>
+  <tr><td class="n">9</td><td class="a">True</td><td>Every class.</td><td class="n">24</td><td class="a">b</td><td><code>base</code>.</td></tr>
+  <tr><td class="n">10</td><td class="a">False</td><td>Error CS0506.</td><td class="n">25</td><td class="a">a</td><td>Compile time, int.</td></tr>
+  <tr><td class="n">11</td><td class="a">a</td><td>static.</td><td class="n">26</td><td class="a">c</td><td>The GC calls it.</td></tr>
+  <tr><td class="n">12</td><td class="a">b</td><td>Low 5, Mid 6, High 7 (tested).</td><td class="n">27</td><td class="a">d</td><td>JIT, inside the CLR.</td></tr>
+  <tr><td class="n">13</td><td class="a">a</td><td>Rows first, each made later.</td><td class="n">28</td><td class="a">b</td><td>virtual + override: real object.</td></tr>
+  <tr><td class="n">14</td><td class="a">c</td><td>a and b are one array.</td><td class="n">29</td><td class="a">d</td><td>A Parent is not a Child (CS0266).</td></tr>
+  <tr><td class="n">15</td><td class="a">d</td><td>All three (tested: 0, 2, 3 items).</td><td class="n">30</td><td class="a">c</td><td>Warning CS0108; it hides.</td></tr>
+</table>
+
+<h3>Mock · Part B</h3>
+<div class="akey">
+[[ans:Q31|k_q31|Every <code>new</code> runs Vehicle() first, so <code>made</code> (static, shared) becomes 1, then 2: tags V1 and V2. Bus's body runs last and adds "-B". <code>v.Info()</code>: Car's override, which calls base.Info() first. <code>c.Info()</code>: declared Car, object Bus; Bus's Info uses <code>new</code> (it hides, it does not override), so the last override, Car's, runs, with tag V2-B and 40 seats. <code>b.Info()</code>: declared Bus → Bus's own Info. Two vehicles were made.]]
+[[ans:Q32|k_q32|Row 1 becomes {5−3, 15−6, 25−9} = {2, 9, 16}. Rows print from last to first, every second column. Last items: 25 + 16 + 9 = 50. <code>5 + 3 * 2</code> = 11 (multiply first). <code>6 / 4</code> = 1 (int division).]]
+</div>
+
+[[mk:keyc]]
+<h3 style="break-before:page">Mock · Part C · one correct answer</h3>
+<p><code>cgpa</code> is private in Student, so the children read it through the property <code>Cgpa</code> (making the field <code>protected</code> also works). Everything else is the child recipe, three times.</p>
+<div class="small-code">[[ex:k_c]]</div>
+
+<h3>Mock · Part D</h3>
+<p class="sub-q">Checked by compiling Shop and Online as two separate assemblies.</p>
+<div class="sub-q"><b>i)</b> <code>price</code> (internal), <code>stock</code> (protected internal), <code>brand</code> (public, read only), <code>Show()</code> and <code>Restock()</code>. Not <code>code</code> (private), not <code>label</code> (protected, and Program is not a child), not <code>onSale</code> (private protected). <code>MaxStock</code> is public but const: write <code>Item.MaxStock</code>, not <code>it.MaxStock</code> (CS0176).</div>
+<div class="sub-q"><b>ii)</b> <code>label</code> (protected), <code>stock</code> (protected internal), <code>brand</code> and <code>MaxStock</code> (public). Not <code>price</code>: internal means same assembly only, and Online is another assembly. Not <code>code</code> (private) or <code>onSale</code> (private protected also needs the same assembly).</div>
+<div class="sub-q"><b>iii)</b> No: <code>brand</code> is readonly (error CS0191). It can get a value only in its declaration or inside an Item constructor. Reading it is fine.</div>
+<div class="sub-q"><b>iv)</b> Compile-time: Item has three constructors with different parameter lists (overloading); the compiler picks one from the arguments. Run-time: <code>Show()</code> is virtual in Item and overridden in Phone; <code>Item x = new Phone(); x.Show();</code> runs Phone's version, chosen by the real object while running.</div>
+<div class="sub-q"><b>v)</b> <code>int n = 5; it.Restock(ref n);</code> and <code>ph.Discount();</code> / <code>ph.Discount(0.1, 0.25);</code> (Discount belongs to Phone, so call it on <code>ph</code>). <code>it.Restock(5)</code> fails twice over: the call needs the word <code>ref</code> (CS1620), and <code>ref</code> needs a variable, not a plain number (<code>ref 5</code> is CS1510).</div>
+</section>
+
+<!-- ============================== SHEET ============================== -->
+<section class="block cheat roomy">
+[[mk:sheet]]
+<div class="block-head">
+  <div class="bnum">§</div>
+  <div>
+    <div class="kicker">Sunday 10:00 · read twice, then your Miss log · nothing new today</div>
+    <h1>Exam-morning sheet</h1>
+  </div>
+</div>
+<div class="cols">
+<div>
+<h3>Part C · parent class</h3>
+<pre class="code">class Player
+{
+    // 1 fields
+    private string name;
+
+    // 2 properties
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    // 3 constructor
+    public Player(string name)
+    {
+        this.name = name;
+    }
+
+    // 4 methods
+    public virtual bool Check()
+    {
+        return false;
+    }
+
+    public virtual void ShowInfo()
+    {
+        Console.WriteLine("Name: " + name);
+    }
+}</pre>
+</div>
+<div>
+<h3>Part C · child class</h3>
+<pre class="code">class Batsman : Player
+{
+    // only the new fields
+    private double average;
+
+    // parent's values go up with base
+    public Batsman(string name, double average)
+        : base(name)
+    {
+        this.average = average;
+    }
+
+    public override bool Check()
+    {
+        return average &gt; 50;
+    }
+
+    public override void ShowInfo()
+    {
+        // parent's lines first
+        base.ShowInfo();
+        Console.WriteLine("Avg: " + average);
+        if (Check())
+            Console.WriteLine("Eligible: Yes");
+        else
+            Console.WriteLine("Eligible: No");
+    }
+}</pre>
+</div>
+</div>
+<div class="cols">
+<div>
+<h3>Part C · check before you hand in</h3>
+<ul>
+  <li>Fields <code>private</code>, properties <code>public</code>: the "data security" mark.</li>
+  <li>Constructor parameters in the <b>same order as Main</b> passes them.</li>
+  <li><code>: base(…)</code> on every child constructor.</li>
+  <li><code>virtual</code> in the parent, <code>override</code> in each child: same name, same parameters.</li>
+  <li>Each rule in the story becomes a <code>return</code> condition; "and" = <code>&amp;&amp;</code>, "or" = <code>||</code>.</li>
+  <li>Main: an array of the parent type, filled with <code>new Child(…)</code>, then <code>foreach</code>.</li>
+  <li>Count your braces. Indent every block.</li>
+</ul>
+</div>
+<div>
+<h3>Part B · tracing rules</h3>
+<ol>
+  <li>Start at Main's first line. One box per variable; cross out and rewrite when it changes.</li>
+  <li><code>Write</code> stays on the line, <code>WriteLine</code> ends it, <code>\n</code> breaks it. <code>{0}</code> = first value after the text.</li>
+  <li><code>"x" + 2 + 3</code> → x23; <code>2 + 3 + "x"</code> → 5x. <code>7 / 2</code> = 3; <code>7 % 2</code> = 1; <code>(int)9.9</code> = 9.</li>
+  <li>Loops: one table row per pass: test, body, step.</li>
+  <li><code>new Child()</code>: constructor bodies run from the top parent down to the child.</li>
+  <li><code>static</code> fields: one shared value, kept from object to object.</li>
+  <li>A call compiles only if the <b>declared</b> type has it. virtual + override → the <b>real object's</b> version; <code>new</code> or not virtual → the declared type's.</li>
+  <li>Index past the end: crash (IndexOutOfRangeException).</li>
+</ol>
+</div>
+</div>
+
+<div class="cols pagebreak">
+<div>
+<h3>Access</h3>
+<table>
+  <tr><td><code>private</code></td><td>own class only (the default)</td></tr>
+  <tr><td><code>protected</code></td><td>own class + children, any assembly</td></tr>
+  <tr><td><code>internal</code></td><td>anyone in the same assembly</td></tr>
+  <tr><td><code>protected internal</code></td><td>children OR same assembly</td></tr>
+  <tr><td><code>private protected</code></td><td>children AND same assembly</td></tr>
+  <tr><td><code>public</code></td><td>everyone</td></tr>
+</table>
+<h3>Part A · keywords</h3>
+<ul>
+  <li><b>static</b>: one shared copy, use <code>Class.X</code>. A static method cannot use instance fields. Static constructor: once, before first use, no parameters, no access word.</li>
+  <li><b>const</b>: value in the declaration, never changes, automatically static. <b>readonly</b>: declaration or constructor only.</li>
+  <li><b>ref</b>: needs a value before. <b>out</b>: the method must assign it; many allowed, any position. <b>params</b>: last, only one, 0 or more values.</li>
+  <li><b>var</b>: type fixed at compile time, must be initialized. <b>dynamic</b>: type at run time. <code>int?</code> can be null.</li>
+  <li><b>abstract</b>: no <code>new</code>, can have a constructor; abstract method has no body. <b>sealed</b>: no children. <b>virtual</b> method has a body; overriding it is optional.</li>
+  <li><b>Destructor</b> <code>~Name()</code>: the GC calls it; no parameters, no modifier, one per class.</li>
+</ul>
+</div>
+<div>
+<h3>Part A · types and ideas</h3>
+<ul>
+  <li><b>enum</b>: named constants, int, starts at 0, +1 each; <code>Mon = 10</code> → next is 11.</li>
+  <li><b>struct</b>: value type, stack, members private by default, cannot inherit, can have constructors, methods, properties.</li>
+  <li>Value types: int, double, char, bool, struct, enum. Reference: class, string, array, object.</li>
+  <li><b>Boxing</b>: value → object. <b>Unboxing</b>: object → value, with a cast.</li>
+  <li><b>Overloading</b>: same name, different parameters, compile-time. <b>Overriding</b>: virtual + override, same parameters, run-time.</li>
+  <li>Is-a = inheritance; has-a = a field. Encapsulation = hide data with private. Default constructor = no parameters.</li>
+  <li>Every class inherits <code>Object</code>: ToString, Equals, GetHashCode, GetType (all public).</li>
+  <li><b>CLR</b> runs the program; <b>JIT</b> turns IL into machine code; <b>FCL</b> = ready-made classes; <b>GC</b> frees unused objects.</li>
+</ul>
+<h3>Part D · how to answer</h3>
+<ul>
+  <li>For each member: yes or no, plus the rule that decides it, in one line.</li>
+  <li>Other assembly: a child reaches only <code>public</code>, <code>protected</code>, <code>protected internal</code>; a non-child reaches only <code>public</code>.</li>
+  <li>Through an object variable (<code>obj1.x</code>) in a non-child: <code>public</code>, plus <code>internal</code> / <code>protected internal</code> in the same assembly.</li>
+  <li>Polymorphism: look for the same name with different parameters (overloading, compile-time) and virtual + override (run-time).</li>
+</ul>
+<h3>In the exam room</h3>
+<p>A 30 min · B 20 min · C 45 min · D 20 min · check 5. In Part B pick the program you can trace mechanically, usually the array one. Never leave an MCQ blank.</p>
+</div>
+</div>
+</section>
+
+<!-- ============================== MISS LOG ============================== -->
+<section class="block">
+[[mk:log]]
+<div class="block-head">
+  <div class="bnum">¶</div>
+  <div>
+    <div class="kicker">Fill in as you go · reread Saturday night and Sunday morning</div>
+    <h1>Miss log</h1>
+    <p class="aim">One line per miss: where it was, what you wrote, and the rule that fixes it.</p>
+  </div>
+</div>
+<table class="log">
+  <tr><th>Where</th><th>What I got wrong</th><th>The rule, in one line</th></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr>
+</table>
+</section>

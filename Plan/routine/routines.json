@@ -1,0 +1,657 @@
+[
+ {
+  "name": "A. Tightest week overall",
+  "sub": "Absolute minimum gap, any finish time",
+  "r": {
+   "mx": 10,
+   "tot": 40,
+   "last": 970,
+   "nd": 5,
+   "solo": 2,
+   "maj": "SDPM",
+   "mi": "MIS",
+   "minfree": 0,
+   "courses": [
+    {
+     "g": "EM",
+     "cid": "00816",
+     "sec": "F",
+     "free": 0,
+     "title": "ENGINEERING MANAGEMENT [F]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       680,
+       770,
+       "1101"
+      ],
+      [
+       "Theory",
+       "Wed",
+       680,
+       770,
+       "1101"
+      ]
+     ]
+    },
+    {
+     "g": "OOP2",
+     "cid": "01412",
+     "sec": "X",
+     "free": 2,
+     "title": "OBJECT ORIENTED PROGRAMMING 2  [X]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       620,
+       740,
+       "9302"
+      ],
+      [
+       "Lab",
+       "Thu",
+       620,
+       760,
+       "DS0207"
+      ]
+     ]
+    },
+    {
+     "g": "AI",
+     "cid": "00994",
+     "sec": "B",
+     "free": 3,
+     "title": "ARTIFICIAL INTELLIGENCE AND EXPERT SYSTEM [B]",
+     "m": [
+      [
+       "Lab",
+       "Sun",
+       480,
+       620,
+       "DS0104"
+      ],
+      [
+       "Theory",
+       "Tue",
+       480,
+       600,
+       "9203"
+      ]
+     ]
+    },
+    {
+     "g": "SDPM",
+     "cid": "01469",
+     "sec": "B",
+     "free": 11,
+     "title": "SOFTWARE DEVELOPMENT PROJECT MANAGEMENT [B]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       880,
+       970,
+       "3110"
+      ],
+      [
+       "Theory",
+       "Wed",
+       880,
+       970,
+       "3110"
+      ]
+     ]
+    },
+    {
+     "g": "MIS",
+     "cid": "01121",
+     "sec": "F",
+     "free": 0,
+     "title": "MANAGEMENT INFORMATION SYSTEMS [F]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       780,
+       870,
+       "1115"
+      ],
+      [
+       "Theory",
+       "Wed",
+       780,
+       870,
+       "1115"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "B. Everything done by 2:30 pm",
+  "sub": "Hard afternoon ceiling",
+  "r": {
+   "mx": 40,
+   "tot": 120,
+   "last": 870,
+   "nd": 5,
+   "solo": 2,
+   "maj": "PYTHON",
+   "mi": "MIS",
+   "minfree": 0,
+   "courses": [
+    {
+     "g": "EM",
+     "cid": "00817",
+     "sec": "G",
+     "free": 0,
+     "title": "ENGINEERING MANAGEMENT [G]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       780,
+       870,
+       "1101"
+      ],
+      [
+       "Theory",
+       "Tue",
+       780,
+       870,
+       "1101"
+      ]
+     ]
+    },
+    {
+     "g": "OOP2",
+     "cid": "01412",
+     "sec": "X",
+     "free": 2,
+     "title": "OBJECT ORIENTED PROGRAMMING 2  [X]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       620,
+       740,
+       "9302"
+      ],
+      [
+       "Lab",
+       "Thu",
+       620,
+       760,
+       "DS0207"
+      ]
+     ]
+    },
+    {
+     "g": "AI",
+     "cid": "00995",
+     "sec": "C",
+     "free": 0,
+     "title": "ARTIFICIAL INTELLIGENCE AND EXPERT SYSTEM [C]",
+     "m": [
+      [
+       "Lab",
+       "Mon",
+       620,
+       760,
+       "DS0104"
+      ],
+      [
+       "Theory",
+       "Wed",
+       620,
+       740,
+       "9203"
+      ]
+     ]
+    },
+    {
+     "g": "PYTHON",
+     "cid": "01440",
+     "sec": "C",
+     "free": 1,
+     "title": "PROGRAMMING IN PYTHON [C]",
+     "m": [
+      [
+       "Lab",
+       "Mon",
+       480,
+       620,
+       "DS0204"
+      ],
+      [
+       "Theory",
+       "Wed",
+       480,
+       600,
+       "9305"
+      ]
+     ]
+    },
+    {
+     "g": "MIS",
+     "cid": "01121",
+     "sec": "F",
+     "free": 0,
+     "title": "MANAGEMENT INFORMATION SYSTEMS [F]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       780,
+       870,
+       "1115"
+      ],
+      [
+       "Theory",
+       "Wed",
+       780,
+       870,
+       "1115"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "C. Python as the major",
+  "sub": "Keeps your easiest major course",
+  "r": {
+   "mx": 20,
+   "tot": 40,
+   "last": 1040,
+   "nd": 5,
+   "solo": 1,
+   "maj": "PYTHON",
+   "mi": "MIS",
+   "minfree": 0,
+   "courses": [
+    {
+     "g": "EM",
+     "cid": "00812",
+     "sec": "B",
+     "free": 0,
+     "title": "ENGINEERING MANAGEMENT [B]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       480,
+       570,
+       "1101"
+      ],
+      [
+       "Theory",
+       "Wed",
+       480,
+       570,
+       "1101"
+      ]
+     ]
+    },
+    {
+     "g": "OOP2",
+     "cid": "01390",
+     "sec": "B",
+     "free": 1,
+     "title": "OBJECT ORIENTED PROGRAMMING 2  [B]",
+     "m": [
+      [
+       "Lab",
+       "Sun",
+       760,
+       900,
+       "DS0203"
+      ],
+      [
+       "Theory",
+       "Tue",
+       760,
+       880,
+       "9302"
+      ]
+     ]
+    },
+    {
+     "g": "AI",
+     "cid": "01015",
+     "sec": "W",
+     "free": 3,
+     "title": "ARTIFICIAL INTELLIGENCE AND EXPERT SYSTEM [W]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       900,
+       1020,
+       "9408"
+      ],
+      [
+       "Lab",
+       "Thu",
+       900,
+       1040,
+       "DS0208"
+      ]
+     ]
+    },
+    {
+     "g": "PYTHON",
+     "cid": "01441",
+     "sec": "D",
+     "free": 0,
+     "title": "PROGRAMMING IN PYTHON [D]",
+     "m": [
+      [
+       "Lab",
+       "Sun",
+       620,
+       760,
+       "DS0205"
+      ],
+      [
+       "Theory",
+       "Tue",
+       620,
+       740,
+       "9303"
+      ]
+     ]
+    },
+    {
+     "g": "MIS",
+     "cid": "01117",
+     "sec": "B",
+     "free": 0,
+     "title": "MANAGEMENT INFORMATION SYSTEMS [B]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       580,
+       670,
+       "1115"
+      ],
+      [
+       "Theory",
+       "Wed",
+       580,
+       670,
+       "1115"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "D. Four-day week",
+  "sub": "Thursday completely free",
+  "r": {
+   "mx": 20,
+   "tot": 60,
+   "last": 900,
+   "nd": 4,
+   "solo": 0,
+   "maj": "PYTHON",
+   "mi": "MIS",
+   "minfree": 0,
+   "courses": [
+    {
+     "g": "EM",
+     "cid": "00811",
+     "sec": "A",
+     "free": 0,
+     "title": "ENGINEERING MANAGEMENT [A]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       480,
+       570,
+       "1101"
+      ],
+      [
+       "Theory",
+       "Tue",
+       480,
+       570,
+       "1101"
+      ]
+     ]
+    },
+    {
+     "g": "OOP2",
+     "cid": "01389",
+     "sec": "A",
+     "free": 0,
+     "title": "OBJECT ORIENTED PROGRAMMING 2  [A]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       620,
+       740,
+       "9203"
+      ],
+      [
+       "Lab",
+       "Wed",
+       620,
+       760,
+       "DS0104"
+      ]
+     ]
+    },
+    {
+     "g": "AI",
+     "cid": "00999",
+     "sec": "G",
+     "free": 0,
+     "title": "ARTIFICIAL INTELLIGENCE AND EXPERT SYSTEM [G]",
+     "m": [
+      [
+       "Lab",
+       "Mon",
+       760,
+       900,
+       "DS0104"
+      ],
+      [
+       "Theory",
+       "Wed",
+       760,
+       880,
+       "9203"
+      ]
+     ]
+    },
+    {
+     "g": "PYTHON",
+     "cid": "01440",
+     "sec": "C",
+     "free": 1,
+     "title": "PROGRAMMING IN PYTHON [C]",
+     "m": [
+      [
+       "Lab",
+       "Mon",
+       480,
+       620,
+       "DS0204"
+      ],
+      [
+       "Theory",
+       "Wed",
+       480,
+       600,
+       "9305"
+      ]
+     ]
+    },
+    {
+     "g": "MIS",
+     "cid": "01124",
+     "sec": "I",
+     "free": 0,
+     "title": "MANAGEMENT INFORMATION SYSTEMS [I]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       580,
+       670,
+       "1116"
+      ],
+      [
+       "Theory",
+       "Tue",
+       580,
+       670,
+       "1116"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "E. Actually registrable today",
+  "sub": "Every section has a free seat right now",
+  "r": {
+   "mx": 280,
+   "tot": 900,
+   "last": 970,
+   "nd": 4,
+   "solo": 0,
+   "maj": "SDPM",
+   "mi": "ML",
+   "minfree": 1,
+   "courses": [
+    {
+     "g": "EM",
+     "cid": "00821",
+     "sec": "K",
+     "free": 1,
+     "title": "ENGINEERING MANAGEMENT [K]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       480,
+       570,
+       "1102"
+      ],
+      [
+       "Theory",
+       "Tue",
+       480,
+       570,
+       "1102"
+      ]
+     ]
+    },
+    {
+     "g": "OOP2",
+     "cid": "01402",
+     "sec": "N",
+     "free": 1,
+     "title": "OBJECT ORIENTED PROGRAMMING 2  [N]",
+     "m": [
+      [
+       "Lab",
+       "Sun",
+       620,
+       760,
+       "DS0202"
+      ],
+      [
+       "Theory",
+       "Tue",
+       620,
+       740,
+       "9302"
+      ]
+     ]
+    },
+    {
+     "g": "AI",
+     "cid": "01007",
+     "sec": "O",
+     "free": 3,
+     "title": "ARTIFICIAL INTELLIGENCE AND EXPERT SYSTEM [O]",
+     "m": [
+      [
+       "Lab",
+       "Mon",
+       480,
+       620,
+       "DS0105"
+      ],
+      [
+       "Theory",
+       "Wed",
+       480,
+       600,
+       "9204"
+      ]
+     ]
+    },
+    {
+     "g": "SDPM",
+     "cid": "01469",
+     "sec": "B",
+     "free": 11,
+     "title": "SOFTWARE DEVELOPMENT PROJECT MANAGEMENT [B]",
+     "m": [
+      [
+       "Theory",
+       "Mon",
+       880,
+       970,
+       "3110"
+      ],
+      [
+       "Theory",
+       "Wed",
+       880,
+       970,
+       "3110"
+      ]
+     ]
+    },
+    {
+     "g": "ML",
+     "cid": "01341",
+     "sec": "M",
+     "free": 1,
+     "title": "MACHINE LEARNING [M]",
+     "m": [
+      [
+       "Theory",
+       "Sun",
+       880,
+       970,
+       "3103"
+      ],
+      [
+       "Theory",
+       "Tue",
+       880,
+       970,
+       "3103"
+      ]
+     ]
+    }
+   ]
+  }
+ }
+]

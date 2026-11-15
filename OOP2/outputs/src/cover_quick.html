@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cover</title>
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    width: 210mm; height: 296.5mm; overflow: hidden; position: relative;
+    background: #15233b;
+    color: #f4efe4;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  .frame { position: absolute; top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; border: 0.6pt solid rgba(200,169,106,0.5); }
+  .frame2 { position: absolute; top: 12.6mm; left: 12.6mm; right: 12.6mm; bottom: 12.6mm; border: 0.3pt solid rgba(200,169,106,0.28); }
+  .top { position: absolute; top: 27mm; left: 25mm; right: 25mm; }
+  .top .l1 { font-size: 8.4pt; letter-spacing: 2.6pt; text-transform: uppercase; color: #c8a96a; font-weight: 600; }
+  .top .l2 { font-size: 7.6pt; letter-spacing: 1.8pt; text-transform: uppercase; color: rgba(244,239,228,0.62); margin-top: 4pt; }
+  .title { position: absolute; top: 66mm; left: 25mm; right: 25mm; }
+  .pre { font-family: "Palatino Linotype", Georgia, serif; font-style: italic; font-size: 15pt; color: #c8a96a; }
+  h1 { font-family: "Palatino Linotype", Georgia, serif; font-weight: normal; font-size: 47pt; line-height: 1.03; margin: 8pt 0 0; color: #f8f3e8; }
+  h1 .amp { font-style: italic; color: #c8a96a; font-size: 40pt; }
+  .rule { width: 44mm; border-top: 1pt solid #c8a96a; margin: 18pt 0 14pt; }
+  .sub { font-size: 10.6pt; line-height: 1.6; color: rgba(244,239,228,0.84); max-width: 120mm; margin: 0; }
+  .bottom { position: absolute; left: 25mm; right: 25mm; bottom: 27mm; }
+  .rt { font-size: 7.6pt; letter-spacing: 2pt; text-transform: uppercase; color: #c8a96a; font-weight: 600; margin-bottom: 6pt; }
+  table { border-collapse: collapse; width: 100%; font-size: 9pt; }
+  td { padding: 5pt 0; border-bottom: 0.4pt solid rgba(200,169,106,0.25); vertical-align: baseline; }
+  tr:last-child td { border-bottom: none; }
+  td.n { font-family: "Palatino Linotype", Georgia, serif; color: #c8a96a; font-size: 12.5pt; width: 9mm; }
+  td.t { color: rgba(244,239,228,0.6); width: 30mm; font-variant-numeric: tabular-nums; letter-spacing: 0.3pt; }
+  td.f { color: #f4efe4; }
+  td.m { color: rgba(244,239,228,0.6); text-align: right; width: 22mm; font-variant-numeric: tabular-nums; }
+  .short { margin-top: 12pt; padding: 8pt 11pt; border: 0.6pt solid rgba(200,169,106,0.45); border-radius: 3pt; font-size: 8.8pt; line-height: 1.5; color: rgba(244,239,228,0.86); }
+  .short b { color: #c8a96a; font-weight: 600; }
+  .meta { margin-top: 14pt; font-size: 7.6pt; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(244,239,228,0.6); line-height: 1.9; }
+  .meta b { color: #c8a96a; font-weight: 600; }
+</style></head>
+<body>
+  <div class="frame"></div><div class="frame2"></div>
+
+  <div class="top">
+    <div class="l1">CSC 3115 &#183; Object Oriented Programming 2 &#183; Section C</div>
+    <div class="l2">American International University-Bangladesh &#183; Fall 2026&#8211;27</div>
+  </div>
+
+  <div class="title">
+    <div class="pre">Quiz 2 in 90 minutes</div>
+    <h1>Inheritance<br><span class="amp">&amp;</span> Polymorphism</h1>
+    <div class="rule"></div>
+    <p class="sub">Only what the quiz tests: the rules, verified examples, 19 trace and compile questions, 5 MCQs and a one-page cheat sheet. Every program in it was compiled and run.</p>
+  </div>
+
+  <div class="bottom">
+    <div class="rt">Tonight's route</div>
+    <table>
+      <tr><td class="n">1</td><td class="t">0:00&#8211;0:10</td><td class="f">C# essentials</td><td class="m">10 min</td></tr>
+      <tr><td class="n">2</td><td class="t">0:10&#8211;0:35</td><td class="f">Inheritance &#183; 3 traces</td><td class="m">25 min</td></tr>
+      <tr><td class="n">3</td><td class="t">0:35&#8211;1:00</td><td class="f">Polymorphism &#183; 3 traces, 4 compile-or-not</td><td class="m">25 min</td></tr>
+      <tr><td class="n">4</td><td class="t">1:00&#8211;1:20</td><td class="f">Quiz-style check, closed-book</td><td class="m">20 min</td></tr>
+      <tr><td class="n">&#167;</td><td class="t">1:20&#8211;1:30</td><td class="f">Cheat sheet, then the answer key</td><td class="m">10 min</td></tr>
+    </table>
+    <div class="short"><b>Only one hour?</b> Skip every question tagged <b>90 MIN ONLY</b> (Q5, Q8, Q11, Q15) and read the cheat sheet tomorrow morning instead.</div>
+    <div class="meta"><div>Quiz 2 &#183; <b>Wednesday 4 November 2026 &#183; 10:20 AM</b></div><div>Every example compiled with Visual Studio 2022 &#183; C# 7.3 &#183; .NET Framework</div></div>
+  </div>
+</body></html>

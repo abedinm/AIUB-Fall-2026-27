@@ -1,0 +1,652 @@
+<!-- ============================== INTRO ============================== -->
+<section>
+[[mk:intro]]
+<div class="block-head" style="grid-template-columns:1fr">
+  <div>
+    <div class="kicker">Read first · 3 minutes</div>
+    <h1>How to use this booklet</h1>
+    <p class="aim">Five blocks tonight, one short session tomorrow morning, then the quiz.</p>
+  </div>
+</div>
+
+<p class="lead">Work through the blocks in order. Each concept has a <b>rule</b>, a <b>worked example</b> with its real output, and a <b>question</b>. Write your answer on paper before you check it. All answers, with reasons, are in the Answer Key on page [[page:key]].</p>
+
+<div class="note prec"><div class="tag">Verified</div><div><p>Every program in this booklet was compiled with the Visual Studio 2022 C# compiler (C# 7.3, .NET Framework, the same setup as your lab projects) and run. Every output and every compiler error shown is the real result, not a guess.</p></div></div>
+
+<div class="note java"><div class="tag">Reading code</div><div><p>Short examples show the classes, then a <code>// Main</code> line, then the statements inside <code>Main</code>. Assume <code>using System;</code> at the top and <code>class Program { static void Main() { … } }</code> around the Main lines. Snippets with only classes are checked for whether they compile.</p></div></div>
+
+<h3>What Quiz 2 most likely looks like</h3>
+<p>Expect output tracing on a small class hierarchy (constructor order, <code>virtual</code>/<code>override</code>, <code>base</code> calls), a short class hierarchy to write by hand, and a few MCQs. This comes from what you described and the Week 4–5 slides; Quiz 1 itself was not available to check.</p>
+
+<h3>Tonight and tomorrow</h3>
+<table>
+  <tr><th>Part</th><th>When</th><th>Focus</th><th style="text-align:right">Page</th></tr>
+  <tr><td><b>Block 1</b></td><td class="time">Tue 17:45–18:30</td><td>The C# you need to read class code</td><td class="pg">[[page:b1]]</td></tr>
+  <tr><td><b>Block 2</b></td><td class="time">Tue 18:30–19:30</td><td>Inheritance: <code>:</code>, constructor order, <code>base</code>, <code>protected</code>, hiding</td><td class="pg">[[page:b2]]</td></tr>
+  <tr><td><b>Block 3</b></td><td class="time">Tue 19:30–20:30</td><td>Polymorphism: <code>virtual</code>/<code>override</code>, abstract, sealed, overloading</td><td class="pg">[[page:b3]]</td></tr>
+  <tr><td><b>Block 4</b></td><td class="time">Tue 20:30–21:15</td><td>Quiz-level set: 7 traces, 10 compile-or-not, 15 MCQs</td><td class="pg">[[page:b4]]</td></tr>
+  <tr><td><b>Block 5</b></td><td class="time">Tue 21:15–21:45</td><td>Write two class hierarchies on paper, then run them</td><td class="pg">[[page:b5]]</td></tr>
+  <tr><td><b>Block 6</b></td><td class="time">Wed 06:30–07:40</td><td>Cheat sheet, redo your misses, five fresh traces</td><td class="pg">[[page:b6]]</td></tr>
+  <tr><td>Cheat sheet</td><td class="time">anytime</td><td>Everything on one page</td><td class="pg">[[page:cheat]]</td></tr>
+  <tr><td>Answer key</td><td class="time">after each block</td><td>Every answer with the reason</td><td class="pg">[[page:key]]</td></tr>
+  <tr><td><b>Quiz 2</b></td><td class="time">Wed 10:20 AM</td><td>Inheritance and polymorphism, in the theory class</td><td class="pg">—</td></tr>
+</table>
+
+<h3>Reading C# from zero</h3>
+[[include:glossary.html]]
+</section>
+
+<!-- ============================== BLOCK 1 ============================== -->
+<section class="block">
+[[mk:b1]]
+<div class="block-head">
+  <div class="bnum">1</div>
+  <div>
+    <div class="kicker">Block 1 · Tue 17:45–18:30 · 45 min</div>
+    <h1>The C# you need to read class code</h1>
+    <p class="aim">Ten concepts, about four minutes each. Answers on page [[page:key-b1]].</p>
+  </div>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.1</span>Program, Main and printing</h2>
+  <div class="rule"><p>A C# program starts at the first line inside <code>Main</code> and runs downward. <code>Console.WriteLine(x)</code> prints <code>x</code> and then moves to a new line; <code>Console.Write(x)</code> prints <code>x</code> and stays on the same line.</p></div>
+  [[ex:e1_1]]
+  [[q:Q1.1|Predict the output|b1_q1]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.2</span>Variables and arithmetic</h2>
+  <div class="rule"><p>Declare a variable as <code>type name = value;</code>. <code>int</code> holds whole numbers, <code>double</code> decimals, <code>string</code> text, <code>bool</code> true/false, <code>char</code> one character. <code>int / int</code> gives an <code>int</code>: the decimal part is cut off. <code>%</code> gives the remainder. If either side is a <code>double</code>, the result is a <code>double</code>.</p></div>
+  [[ex:e1_2]]
+  [[q:Q1.2|Predict the output|b1_q2]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.3</span>Joining text with +</h2>
+  <div class="rule"><p><code>+</code> is evaluated left to right. Two numbers add; as soon as one side is a <code>string</code>, <code>+</code> joins text instead. Brackets force the arithmetic to happen first.</p></div>
+  [[ex:e1_3]]
+  [[q:Q1.3|Predict the output · a classic trap|b1_q3]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.4</span>if, loops and arrays</h2>
+  <div class="rule"><p><code>if (condition) { … } else { … }</code> runs one of the two branches. <code>for (int i = 0; i &lt; 3; i++)</code> repeats with <code>i</code> = 0, 1, 2. <code>foreach (int m in marks)</code> visits every element in order. <code>marks.Length</code> is the number of elements; indexes run from <code>0</code> to <code>Length - 1</code>.</p></div>
+  [[ex:e1_4]]
+  [[q:Q1.4|Predict the output|b1_q4]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.5</span>Methods</h2>
+  <div class="rule"><p>A method is written <code>returnType Name(parameters) { body }</code>. <code>void</code> means it returns nothing; any other return type means <code>return</code> hands a value back. In <code>F(G(x))</code>, the inner call <code>G(x)</code> runs first.</p></div>
+  <div class="note java"><div class="tag">Here</div><div><p><code>static</code> methods written next to <code>Main</code> (inside <code>Program</code>) can be called from <code>Main</code> by name alone.</p></div></div>
+  [[ex:e1_5]]
+  [[q:Q1.5|Predict the output|b1_q5]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.6</span>Classes, objects, fields and new</h2>
+  <div class="rule"><p>A class is a blueprint; <code>new Dog()</code> builds one object from it. Fields are the variables each object carries. A class-type variable holds a <i>reference</i> to an object, so <code>Dog b = a;</code> makes <code>b</code> point at the same object, not a copy.</p></div>
+  <div class="note prec"><div class="tag">Precision</div><div><p>Fields you never set have default values: <code>int</code> and <code>double</code> are <code>0</code>, <code>bool</code> is <code>False</code>, a <code>string</code> or object is <code>null</code>, and <code>null</code> prints as nothing.</p></div></div>
+  [[ex:e1_6]]
+  [[q:Q1.6|Predict the output|b1_q6]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.7</span>Constructors</h2>
+  <div class="rule"><p>A constructor has the same name as its class and no return type. It runs automatically when <code>new</code> creates the object. A class can have several constructors with different parameter lists; <code>new</code> picks the one whose parameters match the arguments.</p></div>
+  <div class="note trap"><div class="tag">Trap</div><div><p>If you write no constructor, C# gives the class an empty parameterless one. The moment you write any constructor yourself, that free one disappears. Block 2 depends on this.</p></div></div>
+  [[ex:e1_7]]
+  [[q:Q1.7|Predict the output|b1_q7]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.8</span>this</h2>
+  <div class="rule"><p><code>this</code> means "the object this code is running on". When a parameter has the same name as a field, the plain name means the parameter, so <code>this.name = name;</code> copies the parameter into the field.</p></div>
+  [[ex:e1_8]]
+  [[q:Q1.8|Predict the output|b1_q8]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.9</span>public, private, protected</h2>
+  <div class="rule"><p><code>public</code>: usable from anywhere. <code>private</code>: usable only inside the same class, and the default when you write nothing. <code>protected</code>: usable inside the class and inside classes that inherit from it, but not from outside code such as <code>Main</code>.</p></div>
+  [[ex:e1_9]]
+  [[q:Q1.9|Which lines fail to compile? Main is in class Program.|b1_q9]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">1.10</span>Properties: get and set</h2>
+  <div class="rule"><p>A property looks like a field from outside (<code>s.Marks = 85;</code>) but runs code: <code>set</code> on assignment and <code>get</code> on reading. Inside <code>set</code>, the keyword <code>value</code> is the value being assigned. <code>public string Name { get; set; }</code> is the short form with a hidden field.</p></div>
+  [[ex:e1_10]]
+  [[q:Q1.10|Predict the output|b1_q10]]
+</div>
+</section>
+
+<!-- ============================== BLOCK 2 ============================== -->
+<section class="block">
+[[mk:b2]]
+<div class="block-head">
+  <div class="bnum">2</div>
+  <div>
+    <div class="kicker">Block 2 · Tue 18:30–19:30 · 60 min · Week 4 slides 3–23</div>
+    <h1>Inheritance</h1>
+    <p class="aim">Seven concepts, then five micro-traces from easy to hard. Answers on page [[page:key-b2]].</p>
+  </div>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.1</span>class Child : Parent</h2>
+  <div class="rule"><p><code>class Dog : Animal</code> makes <code>Dog</code> inherit the members of <code>Animal</code>: a <code>Dog</code> object can use them as if they were its own. Use inheritance only when the IS-A test passes: a Dog <i>is an</i> Animal. A C# class has exactly one parent class.</p></div>
+  <figure>
+    <svg viewBox="0 0 540 172" xmlns="http://www.w3.org/2000/svg" font-family="Palatino Linotype, Georgia, serif">
+      <defs>
+        <marker id="tri" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+          <path d="M0.5,0.5 L9.5,5 L0.5,9.5 z" fill="#ffffff" stroke="#1f3557" stroke-width="1"/>
+        </marker>
+      </defs>
+      <g font-size="13" text-anchor="middle" fill="#1c2230">
+        <!-- single -->
+        <rect x="35" y="30" width="110" height="28" rx="4" fill="#eef2f7" stroke="#1f3557"/>
+        <text x="90" y="49">Parent</text>
+        <rect x="35" y="110" width="110" height="28" rx="4" fill="#ffffff" stroke="#1f3557"/>
+        <text x="90" y="129">Son</text>
+        <line x1="90" y1="110" x2="90" y2="59" stroke="#1f3557" stroke-width="1.2" marker-end="url(#tri)"/>
+        <!-- multilevel -->
+        <rect x="200" y="8" width="120" height="26" rx="4" fill="#eef2f7" stroke="#1f3557"/>
+        <text x="260" y="26">Grandparent</text>
+        <rect x="200" y="64" width="120" height="26" rx="4" fill="#ffffff" stroke="#1f3557"/>
+        <text x="260" y="82">Parent</text>
+        <rect x="200" y="120" width="120" height="26" rx="4" fill="#ffffff" stroke="#1f3557"/>
+        <text x="260" y="138">Child</text>
+        <line x1="260" y1="120" x2="260" y2="91" stroke="#1f3557" stroke-width="1.2" marker-end="url(#tri)"/>
+        <line x1="260" y1="64" x2="260" y2="35" stroke="#1f3557" stroke-width="1.2" marker-end="url(#tri)"/>
+        <!-- hierarchical -->
+        <rect x="380" y="30" width="110" height="28" rx="4" fill="#eef2f7" stroke="#1f3557"/>
+        <text x="435" y="49">Parent</text>
+        <rect x="350" y="110" width="80" height="28" rx="4" fill="#ffffff" stroke="#1f3557"/>
+        <text x="390" y="129">ChildC</text>
+        <rect x="440" y="110" width="80" height="28" rx="4" fill="#ffffff" stroke="#1f3557"/>
+        <text x="480" y="129">ChildD</text>
+        <line x1="390" y1="110" x2="422" y2="59" stroke="#1f3557" stroke-width="1.2" marker-end="url(#tri)"/>
+        <line x1="480" y1="110" x2="448" y2="59" stroke="#1f3557" stroke-width="1.2" marker-end="url(#tri)"/>
+      </g>
+      <g font-size="11" text-anchor="middle" fill="#a8863e" letter-spacing="1.5" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+        <text x="90" y="166">SINGLE</text>
+        <text x="260" y="166">MULTILEVEL</text>
+        <text x="435" y="166">HIERARCHICAL</text>
+      </g>
+    </svg>
+    <figcaption>The three forms on Week 4 slides 18–23. Arrows point from the child to its parent. Multiple parents (class C : A, B) is not allowed: error CS1721.</figcaption>
+  </figure>
+  [[ex:e2_1]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.2</span>Constructor order: the parent runs first</h2>
+  <div class="rule"><p>Constructors are not inherited, but they are chained. Creating an object runs the constructor bodies from the top ancestor down to the object's own class. A constructor that does not name a parent constructor silently starts with <code>: base()</code>, the parent's parameterless constructor.</p></div>
+  [[ex:e2_2]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.3</span>Choosing the parent constructor: : base(...)</h2>
+  <div class="rule"><p>Write <code>: base(arguments)</code> after a constructor's parameter list to choose which parent constructor runs and to pass it values. It runs before the child constructor's body.</p></div>
+  [[ex:e2_3]]
+  <div class="note trap"><div class="tag">Trap</div><div><p>If the parent has only constructors with parameters, every child constructor must call one with <code>: base(...)</code>. Otherwise the hidden <code>: base()</code> has nothing to call and the code does not compile:</p></div></div>
+  [[ex:e2_3err]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.4</span>protected and private across the family</h2>
+  <div class="rule"><p>Code inside a child class can use the parent's <code>public</code> and <code>protected</code> members. <code>private</code> members still exist inside the object, but child code cannot name them. Code outside the family, such as <code>Main</code>, sees only <code>public</code> members.</p></div>
+  [[ex:e2_4]]
+  <div class="note slide"><div class="tag">Slide check</div><div><p>Week 4 slide 8 says private members are "not inherited". Precisely: they are inherited (the object contains them) but not accessible. Un-commenting either line above gives <code>CS0122 … is inaccessible due to its protection level</code>.</p></div></div>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.5</span>Hiding a method with new</h2>
+  <div class="rule"><p>If a child declares a method with the same name and parameters as a parent method that is <i>not</i> <code>virtual</code>, the child's version <i>hides</i> the parent's. Which one runs is decided by the variable's declared type, not by the object.</p></div>
+  <div class="note prec"><div class="tag">Precision</div><div><p>The keyword <code>new</code> just says "I mean to hide". Leave it out and the code still compiles and behaves the same, with warning CS0108.</p></div></div>
+  [[ex:e2_5]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.6</span>Calling the parent's version: base.Method()</h2>
+  <div class="rule"><p>Inside a child, <code>base.Method()</code> calls the parent class's version of <code>Method</code>, even when the child has its own. Use it to extend the parent's behaviour instead of replacing it.</p></div>
+  [[ex:e2_6]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.7</span>HAS-A: composition</h2>
+  <div class="rule"><p>When one class keeps an object of another class in a field, that is HAS-A (composition), not inheritance. A Car <i>has an</i> Engine; a Car is not an Engine, so <code>Car</code> must not inherit from <code>Engine</code> (Week 4 slides 10–11).</p></div>
+  [[ex:e2_7]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">2.8</span>Precision corner (optional, rare in quizzes)</h2>
+  <div class="note prec"><div class="tag">Order</div><div><p>Field initialisers (<code>Log a = new Log(…)</code>) run before the constructor chain moves up, so the full order is: derived fields, base fields, base constructor body, derived constructor body.</p></div></div>
+  [[ex:e2_adv]]
+</div>
+
+<h3>Micro-traces · write the exact output</h3>
+[[q:T2.1|Easy|t2_1]]
+[[q:T2.2|Easy · three objects|t2_2]]
+[[q:T2.3|Medium · base(args)|t2_3]]
+[[q:T2.4|Medium · hiding and shared state|t2_4]]
+[[q:T2.5|Hard · read every constructor header|t2_5]]
+</section>
+
+<!-- ============================== BLOCK 3 ============================== -->
+<section class="block">
+[[mk:b3]]
+<div class="block-head">
+  <div class="bnum">3</div>
+  <div>
+    <div class="kicker">Block 3 · Tue 19:30–20:30 · 60 min · Week 5 slides 3–12</div>
+    <h1>Polymorphism</h1>
+    <p class="aim">One parent variable, many kinds of object. Ten concepts, five traces, five compile-or-not. Answers on page [[page:key-b3]].</p>
+  </div>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.1</span>A parent variable can hold a child object</h2>
+  <div class="rule"><p><code>Animal a = new Dog();</code> is legal because a Dog is an Animal. From now on, keep two types apart: the variable's <b>declared type</b> (<code>Animal</code>) and the object's <b>actual type</b> (<code>Dog</code>).</p></div>
+  <figure>
+    <svg viewBox="0 0 540 150" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#1f3557"/>
+        </marker>
+      </defs>
+      <rect x="20" y="44" width="150" height="44" rx="5" fill="#eef2f7" stroke="#1f3557" stroke-width="1.2"/>
+      <text x="95" y="71" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" font-size="14" fill="#1c2230">Animal a</text>
+      <text x="95" y="108" text-anchor="middle" font-size="11" fill="#5d6575">the variable</text>
+      <text x="95" y="124" text-anchor="middle" font-size="11" fill="#1f3557" font-weight="700">declared type: Animal</text>
+      <line x1="171" y1="66" x2="262" y2="66" stroke="#1f3557" stroke-width="1.4" marker-end="url(#arr)"/>
+      <text x="216" y="58" text-anchor="middle" font-size="10" fill="#5d6575">refers to</text>
+      <rect x="264" y="10" width="262" height="128" rx="6" fill="#fffdf8" stroke="#a8863e" stroke-width="1.2"/>
+      <text x="395" y="32" text-anchor="middle" font-family="Palatino Linotype, Georgia, serif" font-size="14" fill="#1c2230">a Dog object in memory</text>
+      <line x1="278" y1="42" x2="512" y2="42" stroke="#e6e0cf"/>
+      <text x="278" y="64" font-size="11" fill="#5d6575">from Animal</text>
+      <text x="366" y="64" font-family="Cascadia Mono, Consolas, monospace" font-size="12" fill="#1c2230">Eat()</text>
+      <text x="432" y="64" font-size="10.5" fill="#2c6e63" font-weight="700">a.Eat() OK</text>
+      <text x="278" y="90" font-size="11" fill="#5d6575">from Dog</text>
+      <text x="366" y="90" font-family="Cascadia Mono, Consolas, monospace" font-size="12" fill="#1c2230">Bark()</text>
+      <text x="432" y="90" font-size="10.5" fill="#8e2c3a" font-weight="700">a.Bark() error</text>
+      <text x="395" y="124" text-anchor="middle" font-size="11" fill="#a8863e" font-weight="700">actual type: Dog</text>
+    </svg>
+    <figcaption>The declared type decides what you are allowed to call. The actual type decides which override runs.</figcaption>
+  </figure>
+  [[ex:e3_1]]
+</div>
+
+<div class="keyrule">
+  <div class="krt">The two-question rule for every call <code>v.M()</code></div>
+  <ol>
+    <li><b>Does it compile?</b> Look only at the declared type of <code>v</code>. If that class (or one of its parents) has no <code>M</code>, it is a compile error, whatever the object really is.</li>
+    <li><b>Which body runs?</b> If <code>M</code> is <code>virtual</code> or <code>abstract</code>, start at the object's actual class and walk up: the first <code>override</code> you meet on the way runs. If <code>M</code> is not virtual, or the child only <i>hid</i> it with <code>new</code>, the version seen from the declared type runs.</li>
+  </ol>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.2</span>virtual and override</h2>
+  <div class="rule"><p>Mark the parent's method <code>virtual</code> to allow children to replace it; mark the child's version <code>override</code>. Then a call through any variable runs the version of the actual object. (Week 5 slides 5, 8, 10)</p></div>
+  <div class="note trap"><div class="tag">Rules</div><div><p>The override must keep the same name, parameter types, return type and access level. You cannot override a method that is not <code>virtual</code>, <code>abstract</code> or <code>override</code> (CS0506), and <code>private virtual</code> is not allowed (CS0621).</p></div></div>
+  <div class="note slide"><div class="tag">Slide check</div><div><p>Week 5 slide 5 says the access level and return type "can be re-defined". The C# compiler rejects both: changing access is CS0507 and changing the return type is CS0508 (verified).</p></div></div>
+  [[ex:e3_2]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.3</span>override versus new, side by side</h2>
+  <div class="rule"><p>Same object, same calls, different keyword. <code>override</code> replaces the parent's version for everyone. <code>new</code> only hides it from variables declared as the child type.</p></div>
+  [[ex:e3_3]]
+  <table>
+    <tr><th></th><th>override</th><th>new (hiding)</th></tr>
+    <tr><td>Parent method must be</td><td><code>virtual</code>, <code>abstract</code> or <code>override</code></td><td>anything</td></tr>
+    <tr><td><code>Animal x = new Dog(); x.M();</code></td><td>runs Dog's <code>M</code></td><td>runs Animal's <code>M</code></td></tr>
+    <tr><td><code>Dog y = new Dog(); y.M();</code></td><td>runs Dog's <code>M</code></td><td>runs Dog's <code>M</code></td></tr>
+    <tr><td>Decided</td><td>at run time, by the object</td><td>at compile time, by the variable</td></tr>
+  </table>
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.4</span>Polymorphic arrays and loops</h2>
+  <div class="rule"><p>An array of the parent type can hold any mix of children. Calling a virtual method in a loop runs each object's own version; a child with no override uses its nearest ancestor's version. (Week 5 slide 4)</p></div>
+  [[ex:e3_4]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.5</span>Abstract classes and methods</h2>
+  <div class="rule"><p>An <code>abstract</code> method has no body: just its signature and a semicolon. A class with any abstract method must be marked <code>abstract</code> (else CS0513). You cannot <code>new</code> an abstract class (CS0144), but you can declare variables of its type, and it can have fields, constructors and normal methods. Every non-abstract child must override every abstract method (CS0534).</p></div>
+  <div class="note slide"><div class="tag">Slide check</div><div><p>Week 5 slide 6 says "If abstract class has a constructor – it must be concrete". In C# an abstract class can have constructors and stays abstract; children call them with <code>: base(...)</code>, exactly as below.</p></div></div>
+  [[ex:e3_5]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.6</span>sealed</h2>
+  <div class="rule"><p><code>sealed class X</code> cannot be inherited (CS0509). <code>sealed override</code> on a method stops classes further down from overriding it again (CS0239). A class cannot be both <code>abstract</code> and <code>sealed</code> (CS0418). (Week 5 slides 7, 12)</p></div>
+  [[ex:e3_6]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.7</span>Overloading versus overriding</h2>
+  <div class="rule"><p><b>Overloading</b>: same name, different parameter lists, usually in one class. The compiler picks the version at compile time from the argument types. <b>Overriding</b>: same signature in a child class; the version is picked at run time from the object. (Week 5 slides 9–11)</p></div>
+  <div class="note prec"><div class="tag">Matching</div><div><p>An exact type match wins. Otherwise the compiler uses a safe widening conversion: <code>char</code> → <code>int</code> → <code>long</code> → <code>double</code>. A <code>long</code> can widen to <code>double</code> but never narrows to <code>int</code>.</p></div></div>
+  [[ex:e3_7]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.8</span>System.Object and ToString()</h2>
+  <div class="rule"><p>Every class derives from <code>System.Object</code> without writing it. <code>Console.WriteLine(obj)</code> and <code>"text" + obj</code> both call <code>obj.ToString()</code>, which is virtual. If a class does not override it, it returns the class name. (Week 5 slide 7)</p></div>
+  <div class="note prec"><div class="tag">Precision</div><div><p>The default returns the full name, including any namespace: inside <code>namespace Lab</code> it would print <code>Lab.Plain</code>. These examples have no namespace.</p></div></div>
+  [[ex:e3_8]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.9</span>Casting between parent and child</h2>
+  <div class="rule"><p>Child to parent (upcast) is automatic. Parent to child (downcast) needs <code>(Dog)x</code>, and it crashes at run time with <code>InvalidCastException</code> if the object is not really a Dog. <code>x is Dog</code> tests first; <code>x as Dog</code> gives <code>null</code> instead of crashing. A cast between sibling classes such as Dog to Cat does not even compile (CS0030).</p></div>
+  [[ex:e3_9]]
+</div>
+
+<div class="concept">
+  <h2><span class="cn">3.10</span>Precision corner (optional)</h2>
+  <div class="note prec"><div class="tag">Virtual in a constructor</div><div><p>A virtual call inside a base constructor already runs the derived override, before the derived constructor body has run. Field initialisers have run (<code>n = 5</code>), constructor assignments have not (<code>m</code> is still <code>0</code>).</p></div></div>
+  [[ex:e3_adv]]
+</div>
+
+<h3>Micro-traces · write the exact output</h3>
+[[q:T3.1|Easy|t3_1]]
+[[q:T3.2|Medium · base calls in a chain|t3_2]]
+[[q:T3.3|Medium · override and new together|t3_3]]
+[[q:T3.4|Medium · abstract + array|t3_4]]
+[[q:T3.5|Hard · four rules in one program|t3_5]]
+
+<h3>Compile or not? If not, why?</h3>
+<div class="qgrid">
+[[q:K3.1|Compiles?|k3_1]]
+[[q:K3.2|Compiles?|k3_2]]
+[[q:K3.3|Compiles?|k3_3]]
+[[q:K3.4|Compiles? Output?|k3_4]]
+[[q:K3.5|Compiles?|k3_5]]
+</div>
+</section>
+
+<!-- ============================== BLOCK 4 ============================== -->
+<section class="block">
+[[mk:b4]]
+<div class="block-head">
+  <div class="bnum">4</div>
+  <div>
+    <div class="kicker">Block 4 · Tue 20:30–21:15 · 45 min · quiz level</div>
+    <h1>The quiz-level set</h1>
+    <p class="aim">Do it closed-book and timed: Part A 20 min, Part B 12 min, Part C 10 min. Answers on page [[page:key-b4]].</p>
+  </div>
+</div>
+
+<h3>Part A · Trace the output</h3>
+[[q:A1|Constructors with and without base(...)|a1]]
+[[q:A2|virtual / override / base|a2]]
+[[q:A3|Polymorphic array|a3]]
+[[q:A4|Abstract class, three levels|a4]]
+[[q:A5|Overload resolution|a5]]
+[[q:A6|HAS-A and ToString|a6]]
+[[q:A7|Hiding without the new keyword|a7]]
+
+<h3 class="page-break">Part B · Does it compile? Does it run?</h3>
+<p>For each snippet: does it compile? If it compiles, does it run without crashing? If it fails, give the reason and a one-line fix.</p>
+<div class="qgrid">
+[[q:B1|Compiles?|b4_1]]
+[[q:B2|Compiles?|b4_2]]
+[[q:B3|Compiles?|b4_3]]
+[[q:B4|Compiles?|b4_4]]
+[[q:B5|Compiles?|b4_5]]
+[[q:B6|Compiles?|b4_6]]
+[[q:B7|Compiles?|b4_7]]
+[[q:B8|Compiles?|b4_8]]
+[[q:B9|Compiles? Runs?|b4_9]]
+[[q:B10|Compiles?|b4_10]]
+</div>
+
+<h3>Part C · Multiple choice</h3>
+<ol class="mcq">
+  <li>Which keyword calls the parent class constructor?
+    <div class="opts"><span>a) <code>this</code></span><span>b) <code>base</code></span><span>c) <code>super</code></span><span>d) <code>parent</code></span></div></li>
+  <li>Which of these is <b>not</b> allowed in C#?
+    <div class="opts"><span>a) single inheritance</span><span>b) multilevel inheritance</span><span>c) hierarchical inheritance</span><span>d) a class with two parent classes</span></div></li>
+  <li><code>Child : Parent</code> and <code>Parent : Grandparent</code>. On <code>new Child()</code>, whose constructor <i>body</i> runs first?
+    <div class="opts"><span>a) Child</span><span>b) Parent</span><span>c) Grandparent</span><span>d) depends on the arguments</span></div></li>
+  <li>Run-time polymorphism needs:
+    <div class="opts"><span>a) <code>virtual</code> in the parent and <code>override</code> in the child</span><span>b) <code>static</code> in both</span><span>c) <code>sealed</code> in the parent</span><span>d) <code>private</code> in the child</span></div></li>
+  <li>A class that contains an abstract method must be:
+    <div class="opts"><span>a) sealed</span><span>b) abstract</span><span>c) static</span><span>d) public</span></div></li>
+  <li>Which can never be created with <code>new</code>?
+    <div class="opts"><span>a) a sealed class</span><span>b) an abstract class</span><span>c) a derived class</span><span>d) a class with no constructor written</span></div></li>
+  <li><code>sealed class A { }</code> means:
+    <div class="opts"><span>a) A cannot be inherited</span><span>b) A cannot be instantiated</span><span>c) A has no methods</span><span>d) A is abstract</span></div></li>
+  <li>Overloading is resolved at ___; overriding at ___.
+    <div class="opts"><span>a) run time; compile time</span><span>b) compile time; run time</span><span>c) run time; run time</span><span>d) compile time; compile time</span></div></li>
+  <li>Every C# class ultimately derives from:
+    <div class="opts"><span>a) <code>Base</code></span><span>b) <code>System.Object</code></span><span>c) <code>Class</code></span><span>d) <code>Program</code></span></div></li>
+  <li>"A Car has an Engine" describes:
+    <div class="opts"><span>a) IS-A</span><span>b) HAS-A</span><span>c) multilevel inheritance</span><span>d) overriding</span></div></li>
+  <li><code>class Dog : Animal { }</code> together with <code>class Cat : Animal { }</code> is:
+    <div class="opts"><span>a) single</span><span>b) multilevel</span><span>c) hierarchical</span><span>d) multiple</span></div></li>
+  <li>Which parent member can code inside a child class <b>not</b> use?
+    <div class="opts"><span>a) public</span><span>b) protected</span><span>c) private</span><span>d) internal</span></div></li>
+  <li>To replace a <code>virtual</code> method in a child class, mark the child's method:
+    <div class="opts"><span>a) <code>new</code></span><span>b) <code>override</code></span><span>c) <code>virtual</code></span><span>d) <code>base</code></span></div></li>
+  <li><code>Speak()</code> is non-virtual in <code>Animal</code> and redeclared with <code>new</code> in <code>Dog</code>. <code>Animal a = new Dog(); a.Speak();</code> runs:
+    <div class="opts"><span>a) Dog's version</span><span>b) Animal's version</span><span>c) both</span><span>d) nothing: compile error</span></div></li>
+  <li>Which statement about an abstract class is true?
+    <div class="opts"><span>a) it can have constructors</span><span>b) it can be instantiated</span><span>c) all its methods must be abstract</span><span>d) it can also be sealed</span></div></li>
+</ol>
+</section>
+
+<!-- ============================== BLOCK 5 ============================== -->
+<section class="block">
+[[mk:b5]]
+<div class="block-head">
+  <div class="bnum">5</div>
+  <div>
+    <div class="kicker">Block 5 · Tue 21:15–21:45 · 30 min · code writing</div>
+    <h1>Write it on paper, then run it</h1>
+    <p class="aim">10 minutes per task on paper, closed-book. Then type both into Visual Studio and compare. Model answers on page [[page:key-b5]].</p>
+  </div>
+</div>
+
+<div class="task">
+  <h2><span class="cn">5.1</span>Shapes with a virtual Area()</h2>
+  <ul>
+    <li><code>Shape</code>: a <code>protected string name</code>; a constructor <code>Shape(string name)</code>; <code>public virtual double Area()</code> that returns <code>0</code>; <code>public void Show()</code> that prints <code>name + " area = " + Area()</code>.</li>
+    <li><code>Circle : Shape</code>: a private radius; constructor <code>Circle(double r)</code> that passes <code>"Circle"</code> to the parent; overrides <code>Area()</code> as <code>3.1416 * r * r</code>.</li>
+    <li><code>Rectangle : Shape</code>: private width and height; constructor <code>Rectangle(double w, double h)</code> that passes <code>"Rectangle"</code>; overrides <code>Area()</code> as <code>w * h</code>.</li>
+    <li><code>Main</code>: put <code>new Circle(2)</code>, <code>new Rectangle(3, 4)</code> and <code>new Shape("Blank")</code> in one <code>Shape[]</code>; call <code>Show()</code> on each in a <code>foreach</code>; then print <code>Largest:</code> and call <code>Show()</code> on the shape with the largest area.</li>
+  </ul>
+  [[outonly:s5_1]]
+  <ul class="check">
+    <li><code>Area()</code> is <code>virtual</code> in Shape</li>
+    <li>both children use <code>override</code></li>
+    <li>constructors use <code>: base("…")</code></li>
+    <li>one <code>Shape[]</code> and one <code>foreach</code></li>
+    <li>largest found by comparing <code>Area()</code></li>
+    <li>output matches exactly</li>
+  </ul>
+</div>
+
+<div class="task">
+  <h2><span class="cn">5.2</span>Person and Student with a base constructor</h2>
+  <ul>
+    <li><code>Person</code>: <code>protected</code> fields <code>name</code> and <code>age</code>; constructor <code>Person(string name, int age)</code> that stores both and prints <code>Person created</code>; <code>public virtual void Show()</code> that prints <code>Name: …, Age: …</code>.</li>
+    <li><code>Student : Person</code>: private <code>int id</code> and <code>double cgpa</code>; constructor <code>Student(string name, int age, int id, double cgpa)</code> that sends name and age to the parent with <code>: base(...)</code>, stores the rest, and prints <code>Student created</code>; overrides <code>Show()</code> to call <code>base.Show()</code> first, then print <code>ID: …, CGPA: …</code>.</li>
+    <li><code>Main</code>: <code>Person p = new Student("Nila", 21, 1101, 3.85);</code> then <code>p.Show();</code>, then <code>Person q = new Person("Rafi", 30);</code> and <code>q.Show();</code>.</li>
+  </ul>
+  [[outonly:s5_2]]
+  <ul class="check">
+    <li>fields in Person are <code>protected</code></li>
+    <li><code>: base(name, age)</code> on Student's constructor</li>
+    <li><code>virtual</code> in Person, <code>override</code> in Student</li>
+    <li><code>base.Show()</code> called first</li>
+    <li>called through a <code>Person</code> variable</li>
+    <li>output matches exactly</li>
+  </ul>
+</div>
+
+<h3>Running it in Visual Studio</h3>
+<div class="twocol">
+<ol style="margin:0;padding-left:15pt">
+  <li>Create a new project → <b>Console App (.NET Framework)</b>, language C#, the same type as your lab projects (.NET Framework 4.7.2).</li>
+  <li>In <code>Program.cs</code>, put your classes above <code>class Program</code>, inside the namespace.</li>
+  <li>Put your Main code inside <code>static void Main</code>.</li>
+  <li>Press <b>Ctrl+F5</b> (Start Without Debugging): the console window stays open.</li>
+  <li>Compare your output with the expected output above, character by character.</li>
+</ol>
+<div>[[code:s5_skel]]</div>
+</div>
+</section>
+
+<!-- ============================== BLOCK 6 (MORNING) ============================== -->
+<section class="block">
+[[mk:b6]]
+<div class="block-head">
+  <div class="bnum">6</div>
+  <div>
+    <div class="kicker">Block 6 · Wed 06:30–07:40 · 70 min · before the quiz</div>
+    <h1>The morning set</h1>
+    <p class="aim">No new material. Lock in the rules, fix last night's misses, then prove it on five fresh traces. Answers on page [[page:key-b6]].</p>
+  </div>
+</div>
+
+<table>
+  <tr><th>Time</th><th>Task</th><th>Done when</th></tr>
+  <tr><td class="time">06:30–06:50</td><td>Read the cheat sheet (page [[page:cheat]]) twice. Cover it and say the four tracing moves aloud.</td><td>You can recite the four moves and the two-question rule without looking.</td></tr>
+  <tr><td class="time">06:50–07:15</td><td>Fill the miss log below from last night, then redo each missed item on paper without the answer key.</td><td>Every logged item redone correctly.</td></tr>
+  <tr><td class="time">07:15–07:40</td><td>Fresh traces F1–F5, five minutes each, closed-book.</td><td>At least 4 of 5 exactly right.</td></tr>
+</table>
+
+<h3>Miss log</h3>
+<table class="log">
+  <tr><th>Item</th><th>What I wrote</th><th>Correct answer</th><th>The rule I broke</th></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<h3>Fresh traces · five minutes each</h3>
+[[q:F1|Constructor chains|f1]]
+[[q:F2|override, then new, three levels|f2]]
+[[q:F3|base call inside an override|f3]]
+[[q:F4|abstract + ToString|f4]]
+[[q:F5|Hard · overloading meets overriding|f5]]
+</section>
+
+[[include:cheat.html]]
+
+<!-- ============================== ANSWER KEY ============================== -->
+<section class="block">
+[[mk:key]]
+<div class="block-head">
+  <div class="bnum">✓</div>
+  <div>
+    <div class="kicker">Check only after you have written your answer</div>
+    <h1>Answer key</h1>
+    <p class="aim">Every output below is the real output of the compiled program; every error is the compiler's own message.</p>
+  </div>
+</div>
+
+[[mk:key-b1]]
+<h3>Block 1 · The C# you need</h3>
+<div class="akey">
+[[ans:Q1.1|b1_q1|<code>Write</code> stays on the line, so <code>B</code> lands right after <code>A</code>.]]
+[[ans:Q1.2|b1_q2|17 / 5 with two ints is 3 (decimal part cut), remainder 2. <code>d</code> is a double, so 17.0 / 5 = 3.4. <code>2.0</code> makes the division double: 8.5.]]
+[[ans:Q1.3|b1_q3|Left to right: <code>"Sum: " + 2</code> is already text, then <code>+ 3</code> appends "3". In line 2, <code>2 + 3</code> are both ints, so they add first. Brackets force the addition.]]
+[[ans:Q1.4|b1_q4|Only 45 fails. The <code>for</code> loop runs backwards from index 2 to 0, and <code>Write</code> leaves a trailing space after 45 before <code>WriteLine()</code> ends the line.]]
+[[ans:Q1.5|b1_q5|Inner call first: Twice(3) = 6, Twice(6) = 12. Then Twice(1) + Twice(2) = 2 + 4.]]
+[[ans:Q1.6|b1_q6|<code>b = a</code> copies the reference: one object, so <code>b.age = 10</code> changes <code>a.age</code>. <code>c.name</code> was never set: <code>null</code> prints as nothing.]]
+[[ans:Q1.7|b1_q7|<code>new Cat()</code> picks the parameterless constructor; <code>new Cat("Tom")</code> picks the string one.]]
+[[ans:Q1.8|b1_q8|In P, <code>this.x = x</code> stores 5 in the field; <code>x = 99</code> then changes only the parameter. In Q, <code>x = x</code> assigns the parameter to itself, so the field stays 0.]]
+[[ans:Q1.9|b1_q9|L1 is fine. L2: <code>pin</code> is private. L3: <code>bal</code> is protected, and Main is neither in Acct nor in a child of it.]]
+[[ans:Q1.10|b1_q10|The setter rejects 500 and prints the message, so <code>marks</code> keeps 85.]]
+</div>
+
+[[mk:key-b2]]
+<h3>Block 2 · Inheritance</h3>
+<div class="akey">
+[[ans:T2.1|t2_1|Son inherits <code>ShowParent</code> from Parent.]]
+[[ans:T2.2|t2_2|Each <code>new</code> climbs to the top first: C gives A B C; D gives A D; B gives A B.]]
+[[ans:T2.3|t2_3|<code>: base(name)</code> runs Person's constructor before Student's body. <code>name</code> is protected, so <code>Student.Show</code> can read it.]]
+[[ans:T2.4|t2_4|<code>dc.Add()</code> runs DoubleCounter's Add (+2): 12. <code>c</code> is declared <code>Counter</code> and Add is not virtual, so <code>c.Add()</code> runs Counter's Add (+1) on the same object: 13.]]
+[[ans:T2.5|t2_5|<code>Bird()</code> calls <code>base(2)</code>. <code>Bird(string)</code> names no parent constructor, so <code>Animal()</code> runs and <code>legs</code> stays 0. Describe is hidden, not overridden: through <code>Animal a</code> the Animal version runs, on b2 whose legs is 0.]]
+</div>
+
+[[mk:key-b3]]
+<h3>Block 3 · Polymorphism</h3>
+<div class="akey">
+[[ans:T3.1|t3_1|Move is virtual and overridden; v2 holds a Bike, so Bike's version runs.]]
+[[ans:T3.2|t3_2|C.Show runs (object is C). It first calls <code>base.Show()</code>, which is B.Show: B prints "B" then calls A.Show. Back in C, "C" prints last.]]
+[[ans:T3.3|t3_3|Speak is overridden: the object (Cat) decides both times. Sleep is hidden with <code>new</code>: the variable decides, so <code>a.Sleep()</code> is Animal's.]]
+[[ans:T3.4|t3_4|Slip lives in Employee, but the <code>Pay()</code> it calls is abstract, so each object's own override runs. 500 + 100 + 500 = 1100.]]
+[[ans:T3.5|t3_5|Run is not virtual, but the Step it calls is, so Derived.Step runs. Overloads are chosen by argument type: 3 is int, 3.0 is double, and a double with no fraction prints as 3.]]
+[[ans:K3.1|k3_1|Hi is not virtual. Fix: <code>public virtual void Hi()</code> in A.]]
+[[ans:K3.2|k3_2|An abstract class cannot be instantiated. Fix: <code>new</code> a concrete child instead.]]
+[[ans:K3.3|k3_3|Circle must override <code>Area()</code> or be abstract itself.]]
+[[ans:K3.4|k3_4|Compiles: a variable of abstract type holding a concrete child is fine. <code>4.0</code> prints as 4.]]
+[[ans:K3.5|k3_5|The declared type Animal has no Fetch. Fix: <code>((Dog)a).Fetch();</code>]]
+</div>
+
+<div class="page-break"></div>
+[[mk:key-b4]]
+<h3>Block 4 · Part A</h3>
+<div class="akey">
+[[ans:A1|a1|<code>Puppy(int,int,int)</code> has no <code>: base(...)</code>, so the hidden <code>: base()</code> runs Dog(), which runs Animal(). The values 2 and 34 are never stored: x and count stay 0.]]
+[[ans:A2|a2|<code>a</code> holds a C: C.Show calls <code>base.Show()</code> (B) then prints C.Show. <code>a2 = new A()</code> runs A.Show. After <code>a2 = b</code> the object is a B, so B.Show.]]
+[[ans:A3|a3|Cow has no override, so it inherits Animal's Speak. Puppy's override calls Dog's version first. Eat is never redefined.]]
+[[ans:A4|a4|Constructors run Shape → Rect → Square, so "Shape: Rect" prints before Square renames itself. Square's Print runs, then <code>base.Print()</code> calls Rect's Area: 4 × 4 = 16.]]
+[[ans:A5|a5|<code>'a'</code> is 97 and converts to int: 98. <code>2L</code> is a long, which converts to double but not to int, so the double version runs and 5.0 prints as 5.]]
+[[ans:A6|a6|The Engine field is created before the Car constructor body. <code>WriteLine(c)</code> calls the overridden ToString; the <code>object</code> variable changes nothing because ToString is virtual.]]
+[[ans:A7|a7|Hello is not virtual, so through <code>A a</code> the A version runs; B's Hello only hides it. Show is overridden, so B.Show.]]
+</div>
+
+<h3>Block 4 · Part B</h3>
+<div class="akey">
+[[ans:B1|b4_1|Cat() silently calls <code>base()</code>, but Animal has only <code>Animal(string)</code>. Fix: <code>public Cat() : base("cat") { }</code>]]
+[[ans:B2|b4_2|Abstract classes cannot be instantiated.]]
+[[ans:B3|b4_3|A sealed class cannot be a parent.]]
+[[ans:B4|b4_4|Show is not virtual. Fix: make it <code>virtual</code> in A, or use <code>new</code> in B.]]
+[[ans:B5|b4_5|<code>secret</code> is private to A. Fix: make it <code>protected</code>.]]
+[[ans:B6|b4_6|The declared type Animal has no Bark. Fix: <code>((Dog)a).Bark();</code>]]
+[[ans:B7|b4_7|Parent to child needs an explicit cast. Note: <code>(Dog)a</code> would compile but crash here, because the object is a plain Animal.]]
+[[ans:B8|b4_8|Dog and Cat are siblings: no conversion exists, so even the cast is rejected.]]
+[[ans:B9|b4_9|Compiles, because a might be a Cat. At run time it holds a Dog, so the cast fails.]]
+[[ans:B10|b4_10|An override must keep the parent's access level (public).]]
+</div>
+
+<h3>Block 4 · Part C</h3>
+<div class="mcqkey">
+  <div><b>1</b>b</div><div><b>2</b>d</div><div><b>3</b>c</div><div><b>4</b>a</div><div><b>5</b>b</div>
+  <div><b>6</b>b</div><div><b>7</b>a</div><div><b>8</b>b</div><div><b>9</b>b</div><div><b>10</b>b</div>
+  <div><b>11</b>c</div><div><b>12</b>c</div><div><b>13</b>b</div><div><b>14</b>b</div><div><b>15</b>a</div>
+</div>
+<p style="font-size:8.6pt;color:#343c4c">C6: a class with no constructor written still gets a free parameterless one, so (d) can be created. C15: (d) is CS0418; (c) is false because abstract classes can mix normal and abstract methods.</p>
+
+<div class="page-break"></div>
+[[mk:key-b5]]
+<h3>Block 5 · Model answers</h3>
+<div style="break-inside:avoid"><p><b>5.1 Shapes</b></p>
+[[ex:s5_1]]</div>
+<div style="break-inside:avoid"><p><b>5.2 Person and Student</b></p>
+[[ex:s5_2]]</div>
+
+[[mk:key-b6]]
+<h3>Block 6 · Fresh traces</h3>
+<div class="akey">
+[[ans:F1|f1|<code>Phone()</code> picks <code>base("P1")</code>. <code>SmartPhone()</code> calls <code>Phone(int)</code> via <code>base(5)</code>, and <code>Phone(int)</code> names no parent constructor, so <code>Device()</code> runs.]]
+[[ans:F2|f2|C's M is <code>new</code>, not an override, so the virtual chain stops at B: through A or B variables, B.M runs. Only a C variable sees C.M.]]
+[[ans:F3|f3|The override adds a 10 fee and calls the parent. First call: 60 ≤ 100, balance 40. Second: 60 &gt; 40, denied; balance stays 40.]]
+[[ans:F4|f4|WriteLine calls the overridden ToString, which calls the abstract Sound: each object's own version.]]
+[[ans:F5|f5|The overload is chosen at compile time from the declared type: <code>s</code> is a Shape, so <code>Paint(Shape)</code>. Inside, <code>Name()</code> is virtual, so the object (Circle) answers. The cast changes the declared type, so <code>Paint(Circle)</code>.]]
+</div>
+</section>
