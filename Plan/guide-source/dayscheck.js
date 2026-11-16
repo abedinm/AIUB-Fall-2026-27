@@ -148,30 +148,32 @@ const DAYS = [
 { d: `Mon Nov 16`, n: `No class, quiz prep starts`, r: [
 [`04:00-13:00`,`-`,`Sleep in. Up by 13:00 at the latest.`,``],
 [`13:00-14:30`,`-`,`Up, wash, lunch`,``],
-[`15:00-15:40`,`Python`,`Python-Quiz2-Pack.pdf p1-2: OOP rules, then O1-O7 on paper; check with the key on p7.`,`At least 6/7; you can say why O1 and O6 come out as they do.`],
-[`15:45-16:25`,`Python`,`Lab 6 P1-P3 by hand without looking (pack p1-2, checks on p8), then run them.`,`Bus prints 4400.0; BankAccount rejects -50 and an overdraw; Shape prints 20 and 12.5664.`],
-[`16:25-16:40`,`-`,`Break: stand up, water, no phone`,``],
-[`16:40-17:20`,`Python`,`Pack p2-4: exception and file rules, then E1-E5 and F1-F5; check with p7.`,`At least 8/10; file-modes table (r, w, a, x) written from memory.`],
-[`17:25-17:55`,`Python`,`Pack p3: Lab 7 P1-P4 by hand (checks on p8).`,`Divide by zero, "abc", index 9, a missing file and "x" on an existing file each print a message and the program keeps running.`],
-[`18:00-19:00`,`-`,`Dinner`,``],
-[`19:00-19:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3: read the cheat sheet, then write the child-class recipe and the two-question rule from memory.`,`Your paper matches p2-3.`],
-[`19:45-20:00`,`-`,`Break`,``],
-[`20:00-20:50`,`OOP2`,`Pack p4-5: re-trace T1-T3 on paper; check with the key on p8.`,`All 3 outputs match line by line; misses go in the Miss log.`],
-[`23:00`,`-`,`Sleep. Alarm 06:45: MIS class at 08:00.`,``]]},
-{ d: `Tue Nov 17`, n: `MIS class, EM Quiz 2 prep, Python, OOP2`, r: [
-[`06:45-07:30`,`-`,`Up, wash, eat`,``],
-[`08:00-09:30`,`MIS`,`Class, room 1116. MIS Quiz 2 date not announced; it could be today.`,``],
+[`17:05-17:50`,`MIS`,`Ch 3 five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
+[`17:55-18:40`,`MIS`,`Ch 3 four strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`],
+[`18:40-19:20`,`-`,`Dinner`,``],
+[`19:20-20:00`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min). Ch 3 questions are the ones that count.`,`Every miss re-read on the page the key gives.`],
+[`20:00-20:10`,`-`,`Break`,``],
+[`20:10-20:55`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3: read the cheat sheet, then write the child-class recipe and the two-question rule from memory.`,`Your paper matches p2-3.`],
+[`21:00-21:50`,`Python`,`Python-Quiz2-Pack.pdf p1: basics primer (you're starting from zero, so this comes first).`,`Every example on p1 predicted before you check it.`],
+[`21:55-22:35`,`OOP2`,`OOP2-Quiz2-Pack.pdf p4-5: re-trace T1-T3 on paper; check with the key on p8.`,`All 3 outputs match line by line; misses go in the Miss log.`],
+[`22:45`,`-`,`Sleep. Alarm 06:30: MIS Quiz 2 at 08:00 sharp.`,``]]},
+{ d: `Tue Nov 17`, n: `MIS Quiz 2, EM Quiz 2 prep, Python, OOP2`, r: [
+[`06:30-07:00`,`-`,`Up, wash, eat`,``],
+[`07:00-07:30`,`MIS`,`MIS-Quiz2-Pack p3 (Ch 3 one-liners) once, then last night's misses. Nothing new. Leave so you're in room 1116 by 07:50.`,`Every miss from last night right.`],
+[`08:00-09:30`,`EXAM`,`MIS Quiz 2 (Chapter 3) at the start of class, room 1116. It starts promptly; late arrival may miss it.`,``],
 [`10:00-10:35`,`EM`,`EM-Quiz2-Pack.pdf p1: read 10 min, cover the page and write every formula from memory; then redo pies, chargers and slide 25 with the answers covered.`,`Every formula right from memory; all three examples match.`],
 [`10:45-11:35`,`EM`,`Pack p2: Q1-10 closed book in 30 min; mark with p4 rows 1-10, redo each miss on paper.`,`8/10 or better; every miss labelled (formula, units, rounding or time basis) and redone.`],
 [`11:45-12:35`,`EM`,`Pack p3: Q11-20, same method; key on p4 rows 11-20.`,`8/10 or better; every miss redone.`],
 [`12:35-13:15`,`-`,`Lunch`,``],
 [`13:15-13:45`,`EM`,`EM WS3 CP Q&A.pdf Q2-Q4 closed book, then redo every miss from Q1-20 once more.`,`39,683 and $1.71; 46,000, $3,000 / $8,200, 126,000; 6,000, -7,000, 7,000, Tk 61. No miss repeated.`],
 [`13:45-14:00`,`EM`,`Case study: open 21-44625-1_EM_Case_Study_Short.pdf (Engineering-Management repo, assignments/case-study-midterm-solaric; on the Mac: EM/repo). Check it is the final version; print it if the submission is on paper.`,`File ready to hand in on Wednesday.`],
-[`15:00-15:45`,`Python`,`Python-Quiz2-Pack.pdf p4-5: NumPy rules, then N1-N7; check with p7.`,`At least 6/7; you can explain copy vs view and what reshape(2, 3, 2) means.`],
-[`15:50-16:30`,`Python`,`Pack p6: mini-quiz closed book, 30 min; mark it with p7-8 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
-[`16:30-17:00`,`-`,`Break`,``],
-[`17:00-17:30`,`Python`,`Viva check: the app runs on the team laptop (merged main or your local copy), and you can explain your Smart Basket screen and change one condition live.`,`App runs start to finish on the laptop going to class; laptop charged.`],
-[`17:30-18:30`,`-`,`Dinner`,``],
+[`14:05-14:50`,`Python`,`Python-Quiz2-Pack.pdf p2-3: OOP rules, then O1-O7 on paper; check with the key on p8-9.`,`At least 6/7.`],
+[`15:00-15:40`,`Python`,`Pack p3-5: exception and file rules, then E1-E5 and F1-F5; key p8-9.`,`At least 8/10; file-modes table (r, w, a, x) written from memory.`],
+[`15:45-16:30`,`Python`,`Pack p5-6: NumPy rules, then N1-N7; key p8-9.`,`At least 6/7; you can explain copy vs view and what reshape(2, 3, 2) means.`],
+[`16:30-16:40`,`-`,`Break`,``],
+[`16:40-17:20`,`Python`,`Pack p7: mini-quiz closed book, 30 min; mark it with p8-9 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
+[`17:20-17:45`,`Python`,`Viva check: the app runs on the team laptop (merged main or your local copy), and you can explain your Smart Basket screen and change one condition live.`,`App runs start to finish on the laptop going to class; laptop charged.`],
+[`17:45-18:45`,`-`,`Dinner`,``],
 [`19:00-19:50`,`OOP2`,`OOP2-Quiz2-90-Minutes.pdf p10-11: Q6-Q12 (traces and compile-or-not); check with its key on p17-18.`,`All 7 marked; every miss re-traced.`],
 [`19:50-20:05`,`-`,`Break`,``],
 [`20:05-20:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p6-7: mini-quiz, closed book, 40-minute timer.`,`Every question has a written answer.`],
@@ -180,7 +182,7 @@ const DAYS = [
 [`23:00`,`-`,`Sleep. Alarm 06:30.`,``]]},
 { d: `Wed Nov 18`, n: `Python Quiz 2 + viva, OOP2 Quiz 2, EM Quiz 2`, r: [
 [`06:30-06:45`,`-`,`Up, wash`,``],
-[`06:45-07:15`,`Python`,`Python-Quiz2-Pack.pdf: the rules on p1-5 once, then Tuesday's mini-quiz misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
+[`06:45-07:15`,`Python`,`Python-Quiz2-Pack.pdf: the rules on p1-6 once, then Tuesday's mini-quiz misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`07:15-07:30`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3 (cheat sheet) once. Then pack the laptop and charger.`,``],
 [`08:00-08:30`,`EXAM`,`Python Quiz 2, room 9305. Be in class at 8 sharp. No make-up.`,``],
 [`08:35-10:00`,`Python`,`Project viva: 10 minutes per team including Q&amp;A, one laptop per team, no slides.`,``],
@@ -190,14 +192,9 @@ const DAYS = [
 [`13:00-13:40`,`EM`,`EM-Quiz2-Pack.pdf p1 once, then Tuesday's misses only. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`14:40-16:10`,`EXAM`,`EM class, room 2102: Quiz 2 (capacity planning), case study submission, then a new chapter (Transportation modelling). Bring the case study.`,``],
 [`23:00`,`-`,`Sleep`,``]]},
-{ d: `Thu Nov 19`, n: `AI lab, MIS quiz prep part 1`, r: [
-[`15:00-17:20`,`AI`,`Lab class, room DS0208.`,``],
-[`19:00-19:45`,`MIS`,`MIS five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
-[`19:50-20:35`,`MIS`,`4 strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`]]},
-{ d: `Fri Nov 20`, n: `MIS quiz prep part 2`, r: [
-[`19:00-19:30`,`MIS`,`Ch 1-2 refresher: Visual Sheets p3-7, then Pack 1 p16-17 (27 MCQs).`,`Score written; every miss re-read.`],
-[`19:35-20:15`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min).`,`20/25 or more on the MCQs; every miss re-read on the page the key gives. Below 20: redo the Thursday MIS block it points to.`]]}
+{ d: `Thu Nov 19`, n: `AI lab`, r: [
+[`15:00-17:20`,`AI`,`Lab class, room DS0208.`,``]]}
 ];
 
 
-for (const n of ["Tue Nov 17","Wed Nov 18"]) { const t=DAYS.find(d=>d.d===n); console.log(n, t.r.map(r=>r[0]+" "+r[1]).join(" | ")); } console.log(DAYS.every(d=>d.r.every(r=>r.length===4)));
+for (const d of DAYS.slice(-4)) console.log(d.d, "|", d.r.map(r=>r[0]+" "+r[1]).join(" | ")); console.log(DAYS.length, DAYS.every(d=>d.r.every(r=>r.length===4)));
