@@ -169,17 +169,22 @@ const DAYS = [
 [`13:45-14:00`,`EM`,`Case study: open 21-44625-1_EM_Case_Study_Short.pdf (Engineering-Management repo, assignments/case-study-midterm-solaric; on the Mac: EM/repo). Check it is the final version; print it if the submission is on paper.`,`File ready to hand in on Wednesday.`],
 [`15:00-15:45`,`Python`,`Python-Quiz2-Pack.pdf p4-5: NumPy rules, then N1-N7; check with p7.`,`At least 6/7; you can explain copy vs view and what reshape(2, 3, 2) means.`],
 [`15:50-16:30`,`Python`,`Pack p6: mini-quiz closed book, 30 min; mark it with p7-8 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
-[`16:30-18:30`,`-`,`Break and dinner`,``],
+[`16:30-17:00`,`-`,`Break`,``],
+[`17:00-17:30`,`Python`,`Viva check: the app runs on the team laptop (merged main or your local copy), and you can explain your Smart Basket screen and change one condition live.`,`App runs start to finish on the laptop going to class; laptop charged.`],
+[`17:30-18:30`,`-`,`Dinner`,``],
 [`19:00-19:50`,`OOP2`,`OOP2-Quiz2-90-Minutes.pdf p10-11: Q6-Q12 (traces and compile-or-not); check with its key on p17-18.`,`All 7 marked; every miss re-traced.`],
 [`19:50-20:05`,`-`,`Break`,``],
 [`20:05-20:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p6-7: mini-quiz, closed book, 40-minute timer.`,`Every question has a written answer.`],
 [`20:45-20:55`,`-`,`Break`,``],
 [`20:55-21:35`,`OOP2`,`Pack p8-10: mark it, re-trace each miss, compare Part D line by line.`,`Score written on top; misses in the Miss log.`],
 [`23:00`,`-`,`Sleep. Alarm 06:30.`,``]]},
-{ d: `Wed Nov 18`, n: `OOP2 Quiz 2, Python demo, EM Quiz 2`, r: [
+{ d: `Wed Nov 18`, n: `Python Quiz 2 + viva, OOP2 Quiz 2, EM Quiz 2`, r: [
 [`06:30-06:45`,`-`,`Up, wash`,``],
-[`06:45-07:30`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3 once, then redo Tuesday's misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
-[`08:00-10:00`,`Python`,`Theory class, room 9305: project demo. No slides needed.`,``],
+[`06:45-07:15`,`Python`,`Python-Quiz2-Pack.pdf: the rules on p1-5 once, then Tuesday's mini-quiz misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
+[`07:15-07:30`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3 (cheat sheet) once. Then pack the laptop and charger.`,``],
+[`08:00-08:30`,`EXAM`,`Python Quiz 2, room 9305. Be in class at 8 sharp. No make-up.`,``],
+[`08:35-10:00`,`Python`,`Project viva: 10 minutes per team including Q&amp;A, one laptop per team, no slides.`,``],
+[`10:00-10:20`,`OOP2`,`Redo Tuesday's OOP2 misses from the Miss log. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`10:20-12:20`,`EXAM`,`OOP2 Quiz 2, room 9303: inheritance and polymorphism, no make-up. Time not in the notice; this is your class slot.`,``],
 [`12:20-13:00`,`-`,`Lunch`,``],
 [`13:00-13:40`,`EM`,`EM-Quiz2-Pack.pdf p1 once, then Tuesday's misses only. Nothing new.`,`Every Tuesday miss redone correctly.`],
@@ -195,4 +200,4 @@ const DAYS = [
 ];
 
 
-const d=DAYS[DAYS.length-1]; console.log(d.d, d.r.map(r=>r[0]).join(" "), DAYS.every(d=>d.r.every(r=>r.length===4)));
+for (const n of ["Tue Nov 17","Wed Nov 18"]) { const t=DAYS.find(d=>d.d===n); console.log(n, t.r.map(r=>r[0]+" "+r[1]).join(" | ")); } console.log(DAYS.every(d=>d.r.every(r=>r.length===4)));
