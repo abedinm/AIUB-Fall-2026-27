@@ -157,8 +157,10 @@ const DAYS = [
 [`19:00-19:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3: read the cheat sheet, then write the child-class recipe and the two-question rule from memory.`,`Your paper matches p2-3.`],
 [`19:45-20:00`,`-`,`Break`,``],
 [`20:00-20:50`,`OOP2`,`Pack p4-5: re-trace T1-T3 on paper; check with the key on p8.`,`All 3 outputs match line by line; misses go in the Miss log.`],
-[`23:30`,`-`,`Sleep. Alarm 08:00, to be back on an early clock for Wednesday.`,``]]},
-{ d: `Tue Nov 17`, n: `Python and OOP2 prep`, r: [
+[`23:00`,`-`,`Sleep. Alarm 06:45: MIS class at 08:00.`,``]]},
+{ d: `Tue Nov 17`, n: `MIS class, Python and OOP2 prep`, r: [
+[`06:45-07:30`,`-`,`Up, wash, eat`,``],
+[`08:00-09:30`,`MIS`,`Class, room 1116. MIS Quiz 2 date not announced; it could be today.`,``],
 [`15:00-15:45`,`Python`,`Python-Quiz2-Pack.pdf p4-5: NumPy rules, then N1-N7; check with p7.`,`At least 6/7; you can explain copy vs view and what reshape(2, 3, 2) means.`],
 [`15:50-16:30`,`Python`,`Pack p6: mini-quiz closed book, 30 min; mark it with p7-8 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
 [`16:40-17:15`,`EM`,`EM-Quiz2-Pack.pdf p1: read 10 min, cover the page and write every formula from memory; then redo pies, chargers and slide 25 with the answers covered.`,`Every formula right from memory; all three examples match.`],
@@ -189,4 +191,4 @@ const DAYS = [
 ];
 
 
-const m=DAYS.find(d=>d.d==="Mon Nov 16"); console.log(m.r.length, m.r.map(r=>r[0]).join(" "));
+const t=DAYS.find(d=>d.d==="Tue Nov 17"); console.log(DAYS.every(d=>d.r.every(r=>r.length===4)), t.r.map(r=>r[0]).join(" "));
