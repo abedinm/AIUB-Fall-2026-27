@@ -335,11 +335,10 @@ const DAYS = [
 [`19:50-20:35`,`MIS`,`4 strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`]]},
 { d: `Fri Nov 20`, n: `MIS quiz prep part 2`, r: [
 [`19:00-19:30`,`MIS`,`Ch 1-2 refresher: Visual Sheets p3-7, then Pack 1 p16-17 (27 MCQs).`,`Score written; every miss re-read.`],
-[`19:35-20:15`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min).`,`20/25 or more on the MCQs; every miss re-read on the page the key gives. Below 20: redo the Thursday MIS block it points to.`],
-[`20:20-20:40`,`MIS`,`Only if Ch 9 is announced for the quiz: Pack 2 p10-13.`,`Ch 9 self-check right.`]]}
+[`19:35-20:15`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min).`,`20/25 or more on the MCQs; every miss re-read on the page the key gives. Below 20: redo the Thursday MIS block it points to.`]]}
 ];
 
-const KEY = 'midterm-plan-ticks-v19';
+const KEY = 'midterm-plan-ticks-v20';
 let ticks = {};
 try { ticks = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { ticks = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(ticks)); } catch (e) {} };
