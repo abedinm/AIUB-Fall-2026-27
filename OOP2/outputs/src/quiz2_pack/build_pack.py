@@ -11,9 +11,8 @@ FMT = HtmlFormatter(cssclass="hl", style="default")
 esc = html.escape
 
 TIMETABLE = [
-    ("Mon 16 Nov", "19:00-19:45", "45", "pp 2-3", "Read the cheat sheet. Then, on blank paper, write the child-class recipe and the two-question rule from memory.", "Your paper matches pp 2-3 with nothing missing; any miss rewritten once."),
-    ("", "19:45-20:00", "15", "", "Break", ""),
-    ("", "20:00-20:50", "50", "pp 4-5, key p 8", "Re-trace T1, T2, T3 on paper with a variable table, then check.", "All three outputs match line for line; misses added to the Miss log."),
+    ("Mon 16 Nov", "20:10-20:55", "45", "pp 2-3", "Read the cheat sheet. Then, on blank paper, write the child-class recipe and the two-question rule from memory.", "Your paper matches pp 2-3 with nothing missing; any miss rewritten once."),
+    ("", "21:55-22:35", "40", "pp 4-5, key p 8", "Re-trace T1, T2, T3 on paper with a variable table, then check.", "All three outputs match line for line; misses added to the Miss log."),
     ("Tue 17 Nov", "19:00-19:50", "50", "90-Minutes PDF pp 10-11, key pp 17-18", "Q6-Q8 traces and Q9-Q12 compile-or-not, on paper, then check.", "All 7 marked; every miss re-traced."),
     ("", "19:50-20:05", "15", "", "Break", ""),
     ("", "20:05-20:45", "40", "pp 6-7", "Mini-quiz, closed book, 40-minute timer. No cheat sheet.", "Every question has a written answer when the timer ends."),

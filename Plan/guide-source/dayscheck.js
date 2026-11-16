@@ -151,11 +151,11 @@ const DAYS = [
 [`17:05-17:50`,`MIS`,`Ch 3 five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
 [`17:55-18:40`,`MIS`,`Ch 3 four strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`],
 [`18:40-19:20`,`-`,`Dinner`,``],
-[`19:20-20:00`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min). Ch 3 questions are the ones that count.`,`Every miss re-read on the page the key gives.`],
+[`19:20-20:00`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; skip MCQs 21-25 (they are Ch 1-2). Mark with p6-7 (10 min).`,`16/20 or more on MCQs 1-20 (35 marks in all); every miss re-read on the page the key gives.`],
 [`20:00-20:10`,`-`,`Break`,``],
 [`20:10-20:55`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3: read the cheat sheet, then write the child-class recipe and the two-question rule from memory.`,`Your paper matches p2-3.`],
 [`21:00-21:50`,`Python`,`Python-Quiz2-Pack.pdf p1: basics primer (you're starting from zero, so this comes first).`,`Every example on p1 predicted before you check it.`],
-[`21:55-22:35`,`OOP2`,`OOP2-Quiz2-Pack.pdf p4-5: re-trace T1-T3 on paper; check with the key on p8.`,`All 3 outputs match line by line; misses go in the Miss log.`],
+[`21:55-22:35`,`OOP2`,`OOP2-Quiz2-Pack.pdf p4-5: re-trace T1-T3 on paper; check with the key on p8. If T3 doesn't fit, it goes first in Tuesday's 19:00 OOP2 block.`,`All 3 outputs match line by line; misses go in the Miss log.`],
 [`22:45`,`-`,`Sleep. Alarm 06:30: MIS Quiz 2 at 08:00 sharp.`,``]]},
 { d: `Tue Nov 17`, n: `MIS Quiz 2, EM Quiz 2 prep, Python, OOP2`, r: [
 [`06:30-07:00`,`-`,`Up, wash, eat`,``],
@@ -173,7 +173,8 @@ const DAYS = [
 [`16:30-16:40`,`-`,`Break`,``],
 [`16:40-17:20`,`Python`,`Pack p7: mini-quiz closed book, 30 min; mark it with p8-9 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
 [`17:20-17:45`,`Python`,`Viva check: the app runs on the team laptop (merged main or your local copy), and you can explain your Smart Basket screen and change one condition live.`,`App runs start to finish on the laptop going to class; laptop charged.`],
-[`17:45-18:45`,`-`,`Dinner`,``],
+[`17:45-18:00`,`Python`,`Lab 6 P1 (BankAccount) by hand from memory, then check it against the model answer on Python pack p9 (mini-quiz Q3).`,`Class, __init__, deposit/withdraw with checks, invalid amounts raise and are caught.`],
+[`18:00-18:45`,`-`,`Dinner`,``],
 [`19:00-19:50`,`OOP2`,`OOP2-Quiz2-90-Minutes.pdf p10-11: Q6-Q12 (traces and compile-or-not); check with its key on p17-18.`,`All 7 marked; every miss re-traced.`],
 [`19:50-20:05`,`-`,`Break`,``],
 [`20:05-20:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p6-7: mini-quiz, closed book, 40-minute timer.`,`Every question has a written answer.`],
@@ -197,4 +198,4 @@ const DAYS = [
 ];
 
 
-for (const d of DAYS.slice(-4)) console.log(d.d, "|", d.r.map(r=>r[0]+" "+r[1]).join(" | ")); console.log(DAYS.length, DAYS.every(d=>d.r.every(r=>r.length===4)));
+console.log(DAYS.every(d=>d.r.every(r=>r.length===4)), DAYS.find(d=>d.d==="Tue Nov 17").r.map(r=>r[0]).slice(-8).join(" "));
