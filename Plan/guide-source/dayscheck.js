@@ -158,29 +158,32 @@ const DAYS = [
 [`19:45-20:00`,`-`,`Break`,``],
 [`20:00-20:50`,`OOP2`,`Pack p4-5: re-trace T1-T3 on paper; check with the key on p8.`,`All 3 outputs match line by line; misses go in the Miss log.`],
 [`23:00`,`-`,`Sleep. Alarm 06:45: MIS class at 08:00.`,``]]},
-{ d: `Tue Nov 17`, n: `MIS class, Python and OOP2 prep`, r: [
+{ d: `Tue Nov 17`, n: `MIS class, EM Quiz 2 prep, Python, OOP2`, r: [
 [`06:45-07:30`,`-`,`Up, wash, eat`,``],
 [`08:00-09:30`,`MIS`,`Class, room 1116. MIS Quiz 2 date not announced; it could be today.`,``],
+[`10:00-10:35`,`EM`,`EM-Quiz2-Pack.pdf p1: read 10 min, cover the page and write every formula from memory; then redo pies, chargers and slide 25 with the answers covered.`,`Every formula right from memory; all three examples match.`],
+[`10:45-11:35`,`EM`,`Pack p2: Q1-10 closed book in 30 min; mark with p4 rows 1-10, redo each miss on paper.`,`8/10 or better; every miss labelled (formula, units, rounding or time basis) and redone.`],
+[`11:45-12:35`,`EM`,`Pack p3: Q11-20, same method; key on p4 rows 11-20.`,`8/10 or better; every miss redone.`],
+[`12:35-13:15`,`-`,`Lunch`,``],
+[`13:15-13:45`,`EM`,`EM WS3 CP Q&A.pdf Q2-Q4 closed book, then redo every miss from Q1-20 once more.`,`39,683 and $1.71; 46,000, $3,000 / $8,200, 126,000; 6,000, -7,000, 7,000, Tk 61. No miss repeated.`],
+[`13:45-14:00`,`EM`,`Case study: open 21-44625-1_EM_Case_Study_Short.pdf (Engineering-Management repo, assignments/case-study-midterm-solaric; on the Mac: EM/repo). Check it is the final version; print it if the submission is on paper.`,`File ready to hand in on Wednesday.`],
 [`15:00-15:45`,`Python`,`Python-Quiz2-Pack.pdf p4-5: NumPy rules, then N1-N7; check with p7.`,`At least 6/7; you can explain copy vs view and what reshape(2, 3, 2) means.`],
 [`15:50-16:30`,`Python`,`Pack p6: mini-quiz closed book, 30 min; mark it with p7-8 (10 min).`,`15/20 or more; each miss goes back to its topic's snippets.`],
-[`16:40-17:15`,`EM`,`EM-Quiz2-Pack.pdf p1: read 10 min, cover the page and write every formula from memory; then redo pies, chargers and slide 25 with the answers covered.`,`Every formula right from memory; all three examples match.`],
-[`17:15-18:30`,`-`,`Break and dinner`,``],
+[`16:30-18:30`,`-`,`Break and dinner`,``],
 [`19:00-19:50`,`OOP2`,`OOP2-Quiz2-90-Minutes.pdf p10-11: Q6-Q12 (traces and compile-or-not); check with its key on p17-18.`,`All 7 marked; every miss re-traced.`],
 [`19:50-20:05`,`-`,`Break`,``],
 [`20:05-20:45`,`OOP2`,`OOP2-Quiz2-Pack.pdf p6-7: mini-quiz, closed book, 40-minute timer.`,`Every question has a written answer.`],
 [`20:45-20:55`,`-`,`Break`,``],
 [`20:55-21:35`,`OOP2`,`Pack p8-10: mark it, re-trace each miss, compare Part D line by line.`,`Score written on top; misses in the Miss log.`],
 [`23:00`,`-`,`Sleep. Alarm 06:30.`,``]]},
-{ d: `Wed Nov 18`, n: `OOP2 Quiz 2, Python demo`, r: [
+{ d: `Wed Nov 18`, n: `OOP2 Quiz 2, Python demo, EM Quiz 2`, r: [
 [`06:30-06:45`,`-`,`Up, wash`,``],
 [`06:45-07:30`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3 once, then redo Tuesday's misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`08:00-10:00`,`Python`,`Theory class, room 9305: project demo. No slides needed.`,``],
 [`10:20-12:20`,`EXAM`,`OOP2 Quiz 2, room 9303: inheritance and polymorphism, no make-up. Time not in the notice; this is your class slot.`,``],
-[`12:20-12:50`,`-`,`Lunch`,``],
-[`12:50-13:40`,`EM`,`EM-Quiz2-Pack.pdf p2: Q1-10 closed book in 30 min; mark with p4 rows 1-10, redo each miss on paper.`,`8/10 or better; every miss labelled (formula, units, rounding or time basis) and redone.`],
-[`13:45-14:35`,`EM`,`Pack p3: Q11-20, same method; key on p4 rows 11-20.`,`8/10 or better; every miss redone.`],
-[`14:40-16:10`,`EM`,`Class, room 2102. Quiz 2 date not announced; it could be today.`,``],
-[`19:00-19:30`,`EM`,`EM WS3 CP Q&A.pdf Q2-Q4 closed book, then redo every miss from Q1-20 once more.`,`39,683 and $1.71; 46,000, $3,000 / $8,200, 126,000; 6,000, -7,000, 7,000, Tk 61. No miss repeated.`],
+[`12:20-13:00`,`-`,`Lunch`,``],
+[`13:00-13:40`,`EM`,`EM-Quiz2-Pack.pdf p1 once, then Tuesday's misses only. Nothing new.`,`Every Tuesday miss redone correctly.`],
+[`14:40-16:10`,`EXAM`,`EM class, room 2102: Quiz 2 (capacity planning), case study submission, then a new chapter (Transportation modelling). Bring the case study.`,``],
 [`19:40-20:25`,`MIS`,`MIS five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
 [`20:30-21:15`,`MIS`,`4 strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`],
 [`23:00`,`-`,`Sleep`,``]]},
@@ -191,4 +194,4 @@ const DAYS = [
 ];
 
 
-const t=DAYS.find(d=>d.d==="Tue Nov 17"); console.log(DAYS.every(d=>d.r.every(r=>r.length===4)), t.r.map(r=>r[0]).join(" "));
+for (const n of ["Tue Nov 17","Wed Nov 18"]) { const t=DAYS.find(d=>d.d===n); console.log(n, t.r.map(r=>r[0]+" "+r[1]).join(" | ")); } console.log(DAYS.every(d=>d.r.every(r=>r.length===4)));
