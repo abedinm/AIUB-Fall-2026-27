@@ -1,42 +1,51 @@
-"""BazarDor Smart Basket: run this file to start the app (python main.py)."""
+"""Main Tkinter application for BazaarDor."""
 
-import os
 import tkinter as tk
 from tkinter import ttk
 
-from gui_basket import BasketTab
 from manager import BazaarManager
-from storage import PRICES_FILE, load_records
+from storage import load_records
+from gui_records import RecordsTab
+from gui_basket import BasketTab
 
 
-class App:
+class BazaarDorApp:
     def __init__(self, root):
         self.root = root
-        root.title("BazarDor Smart Basket")
-        root.geometry("1000x650")
+        self.root.title("BazaarDor - Smart Basket")
+        self.root.geometry("1150x720")
+        self.root.minsize(850, 560)
 
-        self.status = ttk.Label(root, padding=(10, 4), anchor="w")
-        self.status.pack(side="bottom", fill="x")
+        # Load price records from the shared JSON database, then create Arif's manager.
+        records = load_records("data/prices.json")
+        self.manager = BazaarManager(records)
 
-        self.manager = BazaarManager(load_records())
-        self.tabs = ttk.Notebook(root)
-        self.tabs.pack(fill="both", expand=True)
-        BasketTab(self, self.tabs)
+        # Shared notebook for the application's screens.
+        self.tabs = ttk.Notebook(self.root)
+        self.tabs.pack(fill="both", expand=True, padx=10, pady=(10, 4))
 
-        count = len(self.manager.records)
-        if count:
-            self.say(f"Loaded {count} price records from {PRICES_FILE}.")
-        else:
-            self.say(f"No price records found in {PRICES_FILE}.")
+        # Member 3: price-record form and table.
+        self.records_tab = RecordsTab(self, self.tabs)
+
+        # Member 4: Smart Basket screen. BasketTab uses app.manager and app.say().
+        self.basket_tab = BasketTab(self, self.tabs)
+
+        # Shared status message area used by both tabs.
+        self.status_label = ttk.Label(
+            self.root,
+            text="BazaarDor is ready.",
+            anchor="w",
+            relief="sunken",
+            padding=(8, 5),
+        )
+        self.status_label.pack(side="bottom", fill="x")
 
     def say(self, text):
-        """Show a message in the status bar at the bottom of the window."""
-        self.status.config(text=text)
+        """Show a short status message at the bottom of the main window."""
+        self.status_label.config(text=str(text))
 
 
 if __name__ == "__main__":
-    # data/prices.json is a relative path, so run from this file's folder
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     root = tk.Tk()
-    App(root)
+    app = BazaarDorApp(root)
     root.mainloop()
