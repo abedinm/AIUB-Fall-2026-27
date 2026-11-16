@@ -184,14 +184,16 @@ const DAYS = [
 [`12:20-13:00`,`-`,`Lunch`,``],
 [`13:00-13:40`,`EM`,`EM-Quiz2-Pack.pdf p1 once, then Tuesday's misses only. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`14:40-16:10`,`EXAM`,`EM class, room 2102: Quiz 2 (capacity planning), case study submission, then a new chapter (Transportation modelling). Bring the case study.`,``],
-[`19:40-20:25`,`MIS`,`MIS five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
-[`20:30-21:15`,`MIS`,`4 strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`],
 [`23:00`,`-`,`Sleep`,``]]},
-{ d: `Thu Nov 19`, n: `MIS quiz prep`, r: [
+{ d: `Thu Nov 19`, n: `AI lab, MIS quiz prep part 1`, r: [
+[`15:00-17:20`,`AI`,`Lab class, room DS0208.`,``],
+[`19:00-19:45`,`MIS`,`MIS five forces: Visual Sheets p1, Crash Notes p11-13, Pack 1 p21. Say each force (means, strong when, example), then write the 5 exam lines.`,`Lines from memory match Crash Notes p12.`],
+[`19:50-20:35`,`MIS`,`4 strategies, Internet, value chain and value web: Visual Sheets p2 and p8, Crash Notes p14-16, MIS-Quiz2-Pack p3.`,`4 strategies with examples, 5 primary + 4 support activities and the value web definition written from memory.`]]},
+{ d: `Fri Nov 20`, n: `MIS quiz prep part 2`, r: [
 [`19:00-19:30`,`MIS`,`Ch 1-2 refresher: Visual Sheets p3-7, then Pack 1 p16-17 (27 MCQs).`,`Score written; every miss re-read.`],
-[`19:35-20:15`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min).`,`20/25 or more on the MCQs; every miss re-read on the page the key gives. Below 20: redo the Wednesday MIS block it points to.`],
+[`19:35-20:15`,`MIS`,`MIS-Quiz2-Pack.pdf p4-5: mini-quiz closed book, 30 min; mark with p6-7 (10 min).`,`20/25 or more on the MCQs; every miss re-read on the page the key gives. Below 20: redo the Thursday MIS block it points to.`],
 [`20:20-20:40`,`MIS`,`Only if Ch 9 is announced for the quiz: Pack 2 p10-13.`,`Ch 9 self-check right.`]]}
 ];
 
 
-for (const n of ["Tue Nov 17","Wed Nov 18"]) { const t=DAYS.find(d=>d.d===n); console.log(n, t.r.map(r=>r[0]+" "+r[1]).join(" | ")); } console.log(DAYS.every(d=>d.r.every(r=>r.length===4)));
+for (const d of DAYS.slice(-3)) console.log(d.d, "|", d.r.map(r=>r[0]+" "+r[1]).join(" | ")); console.log(DAYS.every(d=>d.r.every(r=>r.length===4)));
