@@ -19,7 +19,8 @@ TIMETABLE = [
     ("", "20:05-20:45", "40", "pp 6-7", "Mini-quiz, closed book, 40-minute timer. No cheat sheet.", "Every question has a written answer when the timer ends."),
     ("", "20:45-20:55", "10", "", "Break", ""),
     ("", "20:55-21:35", "40", "pp 8-10", "Mark the mini-quiz. Re-trace every missed trace; compare Part D line by line.", "Score written on top; every miss in the Miss log."),
-    ("Wed 18 Nov", "06:45-07:30", "45", "pp 2-3 + your Tue misses", "Cheat sheet once, then redo only what you missed on Tuesday. Nothing new.", "Every Tuesday miss redone correctly."),
+    ("Wed 18 Nov", "07:15-07:30", "15", "pp 2-3", "Cheat sheet once, before Python Quiz 2 at 08:00.", "Every rule on pp 2-3 read once."),
+    ("", "10:00-10:20", "20", "your Tue misses (Miss log)", "After the Python viva: redo only what you missed on Tuesday. Nothing new.", "Every Tuesday miss redone correctly, before the 10:20 quiz."),
 ]
 
 
