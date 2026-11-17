@@ -325,23 +325,26 @@ const DAYS = [
 [`20:45-20:55`,`-`,`Break`,``],
 [`20:55-21:35`,`OOP2`,`Pack p8-10: mark it, re-trace each miss, compare Part D line by line.`,`Score written on top; misses in the Miss log.`],
 [`23:00`,`-`,`Sleep. Alarm 06:30.`,``]]},
-{ d: `Wed Nov 18`, n: `Python Quiz 2 + viva, OOP2 Quiz 2, EM Quiz 2`, r: [
-[`06:30-06:45`,`-`,`Up, wash`,``],
-[`06:45-07:15`,`Python`,`Python-Quiz2-Pack.pdf: the rules on p1-6 once, then Tuesday's mini-quiz misses. Nothing new.`,`Every Tuesday miss redone correctly.`],
-[`07:15-07:30`,`OOP2`,`OOP2-Quiz2-Pack.pdf p2-3 (cheat sheet) once. Then pack the laptop and charger.`,``],
+{ d: `Wed Nov 18`, n: `Python Quiz 2 + viva, OOP2 Quiz 2, EM Quiz 2 + case study Part 5`, r: [
+[`03:15-06:15`,`-`,`Sleep now. Alarm 06:15.`,``],
+[`06:15-06:25`,`-`,`Up, wash. No phone.`,``],
+[`06:25-07:25`,`EM`,`Case study Part 5: write it yourself at course level, with the EM session's numbers and checklist. Plain student wording.`,`Part 5 complete in your own words; every number traced to the case.`],
+[`07:25-07:30`,`EM`,`Send Part 5 to the EM session for the arithmetic check. Pack the laptop and charger.`,`Sent; laptop packed.`],
 [`08:00-08:30`,`EXAM`,`Python Quiz 2, room 9305. Be in class at 8 sharp. No make-up.`,``],
 [`08:35-10:00`,`Python`,`Project viva: 10 minutes per team including Q&amp;A, one laptop per team, no slides.`,``],
 [`10:00-10:20`,`OOP2`,`Redo Tuesday's OOP2 misses from the Miss log. Nothing new.`,`Every Tuesday miss redone correctly.`],
 [`10:20-12:20`,`EXAM`,`OOP2 Quiz 2, room 9303: inheritance and polymorphism, no make-up. Time not in the notice; this is your class slot.`,``],
-[`12:20-13:00`,`-`,`Lunch`,``],
-[`13:00-13:40`,`EM`,`EM-Quiz2-Pack.pdf p1 once, then Tuesday's misses only. Nothing new.`,`Every Tuesday miss redone correctly.`],
-[`14:40-16:10`,`EXAM`,`EM class, room 2102: Quiz 2 (capacity planning), case study submission, then a new chapter (Transportation modelling). Bring the case study.`,``],
+[`12:20-12:45`,`EM`,`Read the EM session's check, fix any flagged numbers, print the case study.`,`Printed copy in your bag.`],
+[`12:45-13:00`,`-`,`Lunch, quick`,``],
+[`13:00-13:35`,`EM`,`EM-Quiz2-Pack.pdf p1: read 10 min, cover it, write every formula from memory.`,`Every formula right from memory.`],
+[`13:40-14:30`,`EM`,`Pack p2: Q1-10 closed book in 30 min; mark with p4 rows 1-10, redo each miss.`,`8/10 or better; every miss redone.`],
+[`14:40-16:10`,`EXAM`,`EM class, room 2102: Quiz 2 (capacity planning), case study submission with the redone Part 5 (bring the printed copy), then a new chapter (Transportation modelling).`,``],
 [`23:00`,`-`,`Sleep`,``]]},
 { d: `Thu Nov 19`, n: `AI lab`, r: [
 [`15:00-17:20`,`AI`,`Lab class, room DS0208.`,``]]}
 ];
 
-const KEY = 'midterm-plan-ticks-v23';
+const KEY = 'midterm-plan-ticks-v24';
 let ticks = {};
 try { ticks = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { ticks = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(ticks)); } catch (e) {} };
