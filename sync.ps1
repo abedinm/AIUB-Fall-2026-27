@@ -18,6 +18,7 @@ $map = [ordered]@{
     'OOP2/files'        = 'D:\Personal\Downloads\AIUB Object Oriented Programming 2 Notes'
     'OOP2/outputs'      = 'F:\outputs\aiub-oop2'
     'Python/files'      = 'D:\Personal\Downloads\AIUB Programming in Python Notes'
+    'Python/project-docs' = 'F:\outputs\bazaardor-smart-basket'
 }
 # The guide folder holds two Chrome profiles (cookies); never mirror them.
 $xd = @('.git', 'node_modules', '__pycache__', '.venv', 'venv', '.pytest_cache', 'bin', 'obj', '.vs', "$guide\chrome-prof", "$guide\cp")
