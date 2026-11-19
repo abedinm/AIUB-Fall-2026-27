@@ -38,6 +38,14 @@ if ($after -ne $before) {
             if ($f.StartsWith("$k/")) {
                 $dst = Join-Path $map[$k] ($f.Substring($k.Length + 1) -replace '/', '\')
                 New-Item -ItemType Directory -Force (Split-Path $dst) | Out-Null
+                # The PC also changed this file since the last sync: keep both, never overwrite the PC's edit.
+                $cur = if (Test-Path -LiteralPath $dst) { (& git hash-object --no-filters -- $dst).Trim() }
+                $old = & git rev-parse -q --verify "${before}:$f" 2>$null
+                $new = & git rev-parse -q --verify "${after}:$f" 2>$null
+                if ($cur -and $cur -ne $old -and $cur -ne $new) {
+                    $dst = Join-Path (Split-Path $dst) ([IO.Path]::GetFileNameWithoutExtension($dst) + ' (from the laptop or Mac)' + [IO.Path]::GetExtension($dst))
+                    "Conflict: $f changed on both machines; the other machine's copy is saved as $dst"
+                }
                 Copy-Item -LiteralPath (Join-Path $repo $f) -Destination $dst -Force
                 "From the Mac: $f -> $dst"
             }

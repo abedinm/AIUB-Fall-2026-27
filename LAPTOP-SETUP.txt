@@ -1,0 +1,113 @@
+AIUB Fall 2026-27 hub: Windows laptop setup
+============================================
+
+This repo is a copy of everything on the PC for the five courses (AI, EM, MIS, OOP2, Python),
+sorted by course. The PC pushes its latest here every 3 hours while the Claude app is open on it.
+
+
+0. NO SETUP: JUST READ
+---------------------
+Open https://github.com/abedinm/AIUB-Fall-2026-27 in any browser and sign in.
+PDFs open on the page. That's enough if you only need to read.
+
+
+1. ONE-TIME SETUP (about 10 minutes)
+------------------------------------
+Open PowerShell and run these one at a time.
+
+a) Install Git (skip if "git --version" already works):
+     winget install --id Git.Git -e
+   Close PowerShell and open it again afterwards.
+
+b) Download the hub into Documents:
+     git clone --recurse-submodules https://github.com/abedinm/AIUB-Fall-2026-27.git "$HOME\Documents\AIUB-Fall-2026-27"
+   A GitHub sign-in window opens the first time. Sign in there yourself.
+
+c) Tell Git who you are (needed before you can send changes back):
+     git config --global user.name "Minhazul Abedin"
+     git config --global user.email "your GitHub email"
+
+d) Optional: right-click laptop-sync.cmd > Show more options > Send to > Desktop (create shortcut).
+
+
+2. EVERY TIME YOU USE THE LAPTOP
+--------------------------------
+Double-click laptop-sync.cmd (in the hub folder, or its desktop shortcut):
+  - before you start: gets the PC's latest
+  - when you finish:  sends back anything you changed or added
+
+Where to put things:
+  - Editing an existing file: edit it where it is. The PC copies it back on its next sync.
+  - A brand-new file (notice, slide, photo of a whiteboard): drop it in inbox\
+    Claude on the PC sorts it into the right course.
+
+If it says "Sync failed", nothing was deleted. Send the error text to Claude.
+
+
+3. WHERE EVERYTHING IS
+----------------------
+Hub folder               What it is (where it lives on the PC)
+Plan\midterm-plan        Study plan HTML + all Quiz 2 packs   (F:\outputs\midterm-plan)
+Plan\routine             Class routine                         (F:\outputs\aiub-routine)
+Plan\guide-source        Scripts Claude used to build the plan
+AI\ai-midterm            AI midterm notes                      (F:\outputs\ai-midterm)
+AI\ai-final              AI final-term notes                   (F:\outputs\ai-final)
+AI\csc3217-ai            CSC3217 material                      (F:\outputs\csc3217-ai)
+EM\files                 Engineering Management Notes          (D:\Personal\Downloads\AIUB Engineering Management Notes)
+MIS\files                Management Information Systems Notes  (D:\Personal\Downloads\AIUB Management Information Systems Notes)
+OOP2\files               OOP2 Notes                            (D:\Personal\Downloads\AIUB Object Oriented Programming 2 Notes)
+OOP2\outputs             Lab-mid Patient + Vehicle projects    (F:\outputs\aiub-oop2)
+Python\files             Python Notes, incl. Projects\bazaardor-smart-basket
+                                                               (D:\Personal\Downloads\AIUB Programming in Python Notes)
+Python\project-docs      BazarDor defense sheet                (F:\outputs\bazaardor-smart-basket)
+<course>\repo            That course's own GitHub repo (separate; see rule 3 below)
+inbox\                   New files from the laptop or Mac
+
+Class routine:
+  MIS  [G]  Sun/Tue 08:00-09:30, room 1116
+  Python [C] Wed 08:00-10:00, room 9305; lab Mon 08:00-10:20, DS0204
+  OOP2 [C]  Wed 10:20-12:20, room 9303; lab Mon 10:20-12:40, DN0212
+  EM   [J]  Mon/Wed 14:40-16:10, room 2102
+  AI   [W]  Sun 15:00-17:00, room 9408; lab Thu 15:00-17:20, DS0208
+
+
+4. SOFTWARE, TO MATCH THE PC (install only what you'll use)
+-----------------------------------------------------------
+OOP2 (C# console apps, .NET Framework 4.7.2):
+  Visual Studio 2022 Community with the ".NET desktop development" workload. Large download (several GB).
+    winget install --id Microsoft.VisualStudio.2022.Community -e
+  Then open the Visual Studio Installer > Modify > tick ".NET desktop development".
+  To run a project: open its .sln (e.g. OOP2\outputs\lab-mid\Patient\HealthcareSystem.sln), press Ctrl+F5.
+
+Python (PC has Python 3.13):
+    winget install --id Python.Python.3.13 -e
+    py -m pip install numpy
+  Run BazarDor: cd into Python\files\Projects\bazaardor-smart-basket, then:  py main.py
+  This copy has no Git history. To push project changes to the group, clone the group repo separately:
+    git clone https://github.com/FahimaTajmoon/bazaardor-smart-basket.git
+
+Everything else (PDFs, the plan HTML, Word files): a browser and Word are enough.
+
+
+5. CLAUDE ON THE LAPTOP
+-----------------------
+The Claude sessions (the organizer plus the AI, EM, MIS, OOP2 and Python sessions) run on the PC, not here.
+  - To keep using them: ask Claude on the PC to turn on Remote Control, then open claude.ai/code on the laptop.
+    The PC must stay on with the Claude app open.
+  - Without the PC: install the Claude desktop app on the laptop and open this hub folder in a new session.
+    It won't remember the PC sessions' history, so point it at this file first.
+
+
+6. RULES
+--------
+1. Deleting a file on the laptop does NOT delete it on the PC; the PC copy comes back on the next sync.
+   To delete something for real, ask Claude on the PC.
+2. Never put passwords, API keys or .env files in this folder. Everything here goes to GitHub.
+3. Don't edit inside the <course>\repo folders unless you're working on that repo with Git directly.
+   laptop-sync.cmd doesn't send changes made there.
+4. Edit a file on one machine at a time, and run laptop-sync.cmd before and after. If the same file still
+   changed on both, nothing is lost:
+     - if the laptop syncs second, the script stops and says so (your version waits in the git stash);
+     - if the PC syncs second, the PC keeps its version and saves yours next to it as
+       "<name> (from the laptop or Mac)".
+   Either way, ask Claude to sort it out. Don't force anything.
