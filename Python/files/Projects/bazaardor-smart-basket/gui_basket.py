@@ -37,6 +37,8 @@ def fill_table(table, rows):
 
 
 class BasketTab:
+    """The Smart Basket screen: build a basket and compare bazaars."""
+
     def __init__(self, app, notebook):
         self.app = app  # the main app: gives us app.manager and app.say()
         self.basket = Basket("My basket")
@@ -58,6 +60,7 @@ class BasketTab:
     # ---------- building the screen ----------
 
     def build_form(self):
+        """Item dropdown, quantity box and the Add button."""
         form = ttk.LabelFrame(self.frame, text="Add to basket", padding=12)
         form.pack(fill="x")
 
@@ -80,6 +83,7 @@ class BasketTab:
         )
 
     def build_buttons(self):
+        """Estimate, Remove and Clear buttons, made in a loop from a tuple."""
         buttons = ttk.Frame(self.frame, padding=(0, 10, 0, 0))
         buttons.pack(fill="x")
         actions = (
@@ -91,6 +95,7 @@ class BasketTab:
             ttk.Button(buttons, text=text, command=command).pack(side="left", padx=(0, 8))
 
     def refresh_items(self):
+        """Rebuild the item list from the current price records."""
         records = self.app.manager.records
         items = {record.item for record in records}  # set: each item only once
         self.units = {record.item: record.unit for record in records}
@@ -99,6 +104,7 @@ class BasketTab:
     # ---------- the basket ----------
 
     def show_basket(self):
+        """Show the basket items and clear the old estimate."""
         rows = []
         for item, quantity in self.basket.items.items():
             rows.append((item, f"{quantity:g}", self.units.get(item, "")))
@@ -107,6 +113,7 @@ class BasketTab:
         self.result_label.config(text="Click Estimate cost to see the totals.")
 
     def add_to_basket(self, event=None):
+        """Check the quantity, then add the item (event is set by the Enter key)."""
         item = self.item_box.get()
         if item == "":
             messagebox.showinfo("No items", "There are no price records yet. Add some first.")
@@ -122,6 +129,7 @@ class BasketTab:
         self.app.say(f"Basket now has {total:g} {self.units.get(item, '')} of {item}.")
 
     def remove_from_basket(self):
+        """Remove the selected item from the basket."""
         selected = self.list_table.selection()
         if not selected:
             messagebox.showinfo("Pick a row", "Click an item in the basket first.")
@@ -132,6 +140,7 @@ class BasketTab:
         self.app.say(f"Removed {item} from the basket.")
 
     def clear_basket(self):
+        """Empty the basket."""
         self.basket.items.clear()
         self.show_basket()
         self.app.say("Basket cleared.")
@@ -139,6 +148,7 @@ class BasketTab:
     # ---------- the estimate ----------
 
     def estimate(self):
+        """Cheapest bazaar per item, totals, saving and the bazaar ranking."""
         if not self.basket.items:
             messagebox.showinfo("Smart basket", "Add at least one item first.")
             return
@@ -167,7 +177,7 @@ class BasketTab:
         market_totals = analysis.cost_by_market(self.app.manager, self.basket.items)
         if market_totals:
             lines.append("Whole basket at one bazaar, cheapest first:")
-            ranking = sorted(market_totals.items(), key=lambda pair: pair[1])
+            ranking = sorted(market_totals.items(), key=lambda pair: pair[1])  # cheapest total first
             for rank, (market, total) in enumerate(ranking, start=1):
                 lines.append(f"{rank}. {market}: {total:,.2f} Tk")
         if result["missing"]:

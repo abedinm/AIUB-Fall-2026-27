@@ -1,0 +1,10 @@
+body, table, th, td, h1, h2, h3 { font-family: "Ink Free", "Segoe Print", cursive; }
+body { color: #14246b; }
+tr:has(th) { break-after: avoid; }
+h1, h1.sheet-h { background: none; color: #8a1c1c; border-bottom: 3px solid #8a1c1c; padding: 2pt 0; }
+h2, h3, .sheet h3 { color: #14246b; }
+th { background: none; border-bottom: 2px solid #14246b; }
+th, td { border-color: #14246b; }
+.forces td.c { background: none; color: #8a1c1c; border: 3px solid #8a1c1c; }
+.forces td.f { background: none; }
+.key { background: #fff3a8; border-left-color: #f2c200; }

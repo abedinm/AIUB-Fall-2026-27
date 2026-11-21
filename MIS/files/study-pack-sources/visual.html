@@ -1,0 +1,292 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MIS Visual Sheets - Ch 1-3</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="hand.css">
+<style>
+body { font-size: 12.5pt; }
+h1 { font-size: 18pt; margin-bottom: 5pt; }
+.strip { background: #fff3a8; border-left: 5px solid #f2c200; padding: 4pt 9pt; margin: 4pt 0 8pt; font-size: 13pt; }
+.card { border-radius: 10pt; padding: 5pt 8pt; font-size: 12pt; line-height: 1.22; break-inside: avoid; }
+.card h3 { margin: 0 0 3pt; font-size: 14pt; display: flex; align-items: center; gap: 5pt; }
+.card p { margin: 2pt 0; }
+.card svg { width: 26pt; height: 26pt; flex: none; }
+.or { background: #fde3c8; border: 2px solid #e8913a; }
+.pk { background: #fde0e6; border: 2px solid #e0607a; }
+.gr { background: #dcf3e6; border: 2px solid #3f9e6a; }
+.bl { background: #dde9fb; border: 2px solid #4a7fd0; }
+.ye { background: #fdf3c4; border: 2px solid #d9b100; }
+.pu { background: #ece3fb; border: 2px solid #8a63d2; }
+.note { font-size: 12pt; border: 2px dashed #14246b; border-radius: 9pt; padding: 5pt 8pt; align-self: center; }
+.cross { display: grid; grid-template-columns: 1fr 1.12fr 1fr; gap: 7pt; align-items: stretch; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8pt; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; }
+.g5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5pt; }
+.big { font-size: 30pt; line-height: 1; font-weight: bold; color: #8a1c1c; }
+.flow { display: flex; align-items: center; gap: 4pt; }
+.flow .card { flex: 1; }
+.arrow { font-size: 22pt; color: #8a1c1c; flex: none; }
+.loop { border: 2.5px solid #8a1c1c; border-top: none; height: 16pt; margin: 3pt 14% 14pt; border-radius: 0 0 12pt 12pt; position: relative; }
+.loop span { white-space: nowrap; position: absolute; left: 50%; transform: translateX(-50%); bottom: -9pt; background: #fff; padding: 0 6pt; color: #8a1c1c; font-weight: bold; }
+.venn { position: relative; width: 330pt; height: 250pt; margin: 4pt auto; }
+.venn div.c { position: absolute; width: 175pt; height: 175pt; border-radius: 50%; padding: 22pt; box-sizing: border-box; font-size: 12pt; line-height: 1.2; }
+.venn .o { left: 0; top: 0; background: rgba(232,145,58,.28); border: 2px solid #e8913a; padding-right: 60pt !important; }
+.venn .m { right: 0; top: 0; background: rgba(74,127,208,.25); border: 2px solid #4a7fd0; padding-left: 62pt !important; }
+.venn .t { left: 77pt; top: 82pt; background: rgba(63,158,106,.25); border: 2px solid #3f9e6a; padding-top: 80pt !important; text-align: center; }
+.venn .is { position: absolute; left: 140pt; top: 100pt; width: 50pt; text-align: center; font-weight: bold; color: #8a1c1c; font-size: 14pt; }
+.pyr > div { margin: 0 auto 3pt; text-align: center; color: #14246b; display: flex; flex-direction: column; justify-content: center; }
+.pyr .l1 { width: 50%; height: 78pt; background: #fde0e6; clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%); padding-top: 10pt; }
+.pyr .l2 { width: 75%; height: 78pt; background: #dde9fb; clip-path: polygon(16.7% 0, 83.3% 0, 100% 100%, 0 100%); flex-direction: row; align-items: center; }
+.pyr .l2 > div { flex: 1; padding: 0 9%; }
+.pyr .l2 > div + div { border-left: 2px dashed #4a7fd0; }
+.pyr .l3 { width: 100%; height: 78pt; background: #dcf3e6; clip-path: polygon(12.5% 0, 87.5% 0, 100% 100%, 0 100%); }
+.pyr b.s { font-size: 16pt; }
+.chev { display: flex; gap: 2pt; }
+.chev > div { flex: 1; background: #dcf3e6; clip-path: polygon(0 0, 86% 0, 100% 50%, 86% 100%, 0 100%, 14% 50%); padding: 8pt 12pt 8pt 16pt; font-size: 12pt; line-height: 1.15; min-height: 70pt; display: flex; flex-direction: column; justify-content: center; }
+.chev > div:first-child { clip-path: polygon(0 0, 86% 0, 100% 50%, 86% 100%, 0 100%); padding-left: 8pt; }
+.chev > div.end { background: #fde0e6; flex: 0.75; font-weight: bold; text-align: center; }
+.bar { background: #dde9fb; border: 1.5px solid #4a7fd0; border-radius: 5pt; padding: 3pt 8pt; margin: 0 0 3pt; font-size: 12pt; }
+.ice { width: 82%; margin: 0 auto; text-align: center; font-size: 12pt; }
+.ice .tip { background: #e6effb; clip-path: polygon(30% 0, 70% 0, 82% 100%, 18% 100%); padding: 10pt 22% 6pt; }
+.ice .water { border-top: 3px dashed #4a7fd0; color: #4a7fd0; font-size: 12pt; text-align: right; padding-right: 4pt; }
+.ice .under { background: #bcd3f2; clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); padding: 12pt 18% 18pt; }
+.mx td, .mx th { text-align: center; vertical-align: middle; height: 56pt; font-size: 12.5pt; }
+.mx td { background: #fdf3c4; }
+.hub { display: grid; grid-template-columns: 1fr auto 1.6fr auto 1fr; align-items: center; gap: 4pt; }
+.rings { position: relative; width: 250pt; height: 170pt; margin: 0 auto; }
+.rings div { position: absolute; border-radius: 50%; text-align: center; font-size: 12pt; box-sizing: border-box; }
+.rings .r3 { inset: 0; border: 2px solid #8a63d2; background: #ece3fb; padding-top: 8pt; }
+.rings .r2 { left: 28pt; right: 28pt; top: 30pt; bottom: 8pt; border: 2px solid #4a7fd0; background: #dde9fb; padding-top: 8pt; }
+.rings .r1 { left: 66pt; right: 66pt; top: 66pt; bottom: 16pt; border: 2px solid #3f9e6a; background: #dcf3e6; padding-top: 14pt; }
+small { font-size: 12pt; }
+.page-end { break-after: page; }
+</style></head><body>
+
+<!-- ============== 1. FIVE FORCES ============== -->
+<h1 class="first">1. Porter's five forces (Ch 3)</h1>
+<div class="strip">Profit = <b>one pizza</b>; each force takes a slice. <b>Strong force = less profit.</b> Example: <b>a cafe in Dhaka</b>.</div>
+<div class="cross">
+  <div class="card or" style="grid-column:1/4;margin:0 14%"><h3><svg viewBox="0 0 32 32"><rect x="15" y="3" width="13" height="26" rx="2" fill="none" stroke="#c0661a" stroke-width="2.5"/><path d="M2 16h14M11 11l5 5-5 5" fill="none" stroke="#c0661a" stroke-width="2.5"/></svg>New entrants &darr;</h3>
+    <p><b>Means:</b> new firms may join your market.</p>
+    <p><b>Strong when:</b> profits are high; easy and cheap to start (<b>low barriers to entry</b>); customers not loyal.</p>
+    <p><b>Cafe:</b> a new cafe opens next door with lower prices.</p>
+    <p><b>IT fights it:</b> a system that is costly or hard to copy (app + loyalty data) = a barrier to entry.</p></div>
+
+  <div class="card bl"><h3><svg viewBox="0 0 32 32"><rect x="2" y="9" width="17" height="13" fill="none" stroke="#2c5fae" stroke-width="2.5"/><path d="M19 13h6l4 5v4H19z" fill="none" stroke="#2c5fae" stroke-width="2.5"/><circle cx="8" cy="25" r="3" fill="#2c5fae"/><circle cx="24" cy="25" r="3" fill="#2c5fae"/></svg>Supplier power &rarr;</h3>
+    <p><b>Means:</b> firms that sell you your inputs (the "market of inputs").</p>
+    <p><b>Strong when:</b> only 1-2 suppliers; strong brand; no other input you can use.</p>
+    <p><b>Cafe:</b> only two coffee-bean importers, so they set the price.</p>
+    <p><b>IT fights it:</b> online buying from many suppliers; SCM.</p></div>
+  <div class="card gr"><h3><svg viewBox="0 0 32 32"><path d="M4 4l22 22M28 4L6 26" stroke="#2a7a4f" stroke-width="3"/><path d="M20 26l6-6M6 20l6 6" stroke="#2a7a4f" stroke-width="3"/></svg>Rivalry (CENTRE)</h3>
+    <p><b>Means:</b> the fight between firms <b>already</b> in the market.</p>
+    <p><b>Why centre:</b> it is the <b>main</b> force.</p>
+    <p><b>Strong when:</b> many similar firms; price wars; big ads.</p>
+    <p><b>Cafe:</b> five cafes on one street cut prices.</p>
+    <p><b>IT fights it:</b> use IS for a strategy (sheet 2).</p></div>
+  <div class="card pk"><h3><svg viewBox="0 0 32 32"><path d="M2 5h5l4 15h15l3-10H9" fill="none" stroke="#b8344f" stroke-width="2.5"/><circle cx="13" cy="26" r="2.6" fill="#b8344f"/><circle cx="24" cy="26" r="2.6" fill="#b8344f"/></svg>&larr; Buyer power</h3>
+    <p><b>Means:</b> your customers (the "market of outputs").</p>
+    <p><b>Strong when:</b> easy to switch; prices compared online; few big buyers.</p>
+    <p><b>Cafe:</b> customers compare prices on Foodpanda.</p>
+    <p><b>IT fights it:</b> loyalty app / CRM, so leaving costs them points.</p></div>
+
+  <div class="card ye" style="grid-column:1/4;margin:0 14%"><h3><svg viewBox="0 0 32 32"><path d="M6 12a10 10 0 0 1 18-4" fill="none" stroke="#a88400" stroke-width="2.5"/><path d="M25 3v6h-6" fill="none" stroke="#a88400" stroke-width="2.5"/><path d="M26 20a10 10 0 0 1-18 4" fill="none" stroke="#a88400" stroke-width="2.5"/><path d="M7 29v-6h6" fill="none" stroke="#a88400" stroke-width="2.5"/></svg>Substitutes &uarr;</h3>
+    <p><b>Means:</b> a <b>different</b> product that meets the <b>same need</b>.</p>
+    <p><b>Strong when:</b> many cheaper options; easy to switch.</p>
+    <p><b>Cafe:</b> tea stall, energy drink, coffee made at home.</p>
+    <p><b>IT fights it:</b> a unique product + switching costs.</p></div>
+</div>
+<div class="g2" style="margin-top:7pt">
+  <div class="note"><b>Exam line:</b> The <b>intensity</b> of the five forces decides <b>how profitable</b> the industry is.</div>
+  <div class="note"><b>How to rate a force:</b> ask "Can it push my <b>price down</b> or my <b>cost up</b>?" Yes, easily = <b>strong</b>.</div>
+  <div class="note"><b>Trap:</b> <b>Rival</b> = same product, another cafe. <b>Substitute</b> = different product, same need (tea). <b>New entrant</b> = a cafe not open yet.</div>
+  <div class="note"><b>Airline:</b> rivalry, suppliers, buyers HIGH; entrants LOW-MED; substitutes MED &rarr; <b>low profit</b>.</div>
+</div>
+
+<!-- ============== 2. STRATEGIES ============== -->
+<h1>2. Four ways to win: generic strategies (Ch 3)</h1>
+<div class="strip"><b>Forces = the danger. Strategies = how you win anyway.</b> Hook: <b>Cheapest - Different - Narrow - Close</b>.</div>
+<div class="g2">
+  <div class="card gr"><h3><span class="big">$</span>&nbsp;CHEAPEST = Low-cost leadership</h3>
+    <p><b>Idea:</b> be the cheapest, keep quality and service.</p>
+    <p><b>IS helps:</b> cut waste: automatic restocking, efficient logistics.</p>
+    <p><b>Example:</b> Walmart, Asda, easyJet.</p>
+    <p><b>Beats:</b> powerful buyers and price wars (rivals avoid fighting the cheapest).</p></div>
+  <div class="card pk"><h3><span class="big">*</span>&nbsp;DIFFERENT = Product differentiation</h3>
+    <p><b>Idea:</b> offer something unique others cannot copy easily.</p>
+    <p><b>IS helps:</b> new products, better customer experience.</p>
+    <p><b>Example:</b> Apple iPhone, Google.</p>
+    <p><b>Beats:</b> substitutes and buyer power (loyal buyers do not switch).</p></div>
+  <div class="card bl"><h3><span class="big">&#9678;</span>&nbsp;NARROW = Focus on market niche</h3>
+    <p><b>Idea:</b> serve one small market better than anyone.</p>
+    <p><b>IS helps:</b> data on that customer group to target it well.</p>
+    <p><b>Example:</b> Hilton Hotels; Amazon Prime (slide MCQ).</p>
+    <p><b>Beats:</b> rivals (they cannot meet the niche's needs).</p></div>
+  <div class="card or"><h3><span class="big">&#9829;</span>&nbsp;CLOSE = Customer and supplier intimacy</h3>
+    <p><b>Idea:</b> strong ties so customers and suppliers stay.</p>
+    <p><b>IS helps:</b> CRM, SCM, loyalty programs raise <b>switching costs</b>.</p>
+    <p><b>Example:</b> Tesco, Amazon, DHL.</p>
+    <p><b>Beats:</b> buyer power and substitutes (leaving costs them).</p></div>
+</div>
+<h2>What the Internet did to the forces</h2>
+<div class="g4">
+  <div class="card or"><b>&uarr; New entrants</b><br>cheap to start online</div>
+  <div class="card ye"><b>&uarr; Substitutes</b><br>new online options</div>
+  <div class="card pk"><b>&uarr; Buyer power</b><br>all prices visible</div>
+  <div class="card gr"><b>&uarr; Rivalry</b><br>wider market, more rivals</div>
+</div>
+<p><b>Destroyed or changed:</b> travel agencies, printed encyclopedias, newspapers. <b>Good side:</b> new ways to build a brand and loyal customers online.</p>
+<h2>Four quick terms</h2>
+<div class="g4">
+  <div class="card pu"><b>Synergy</b><br>units share outputs and markets: costs down (bank mergers)</div>
+  <div class="card pu"><b>Core competency</b><br>what the firm is world-class at</div>
+  <div class="card pu"><b>Network economics</b><br>each new user adds value at ~zero cost (Facebook)</div>
+  <div class="card pu"><b>Scalability</b><br>grow sales, costs do not grow as fast (apps)</div>
+</div>
+
+<!-- ============== 3. WHAT IS AN IS ============== -->
+<h1>3. What an information system is (Ch 1)</h1>
+<h2>Data becomes information</h2>
+<div class="flow">
+  <div class="card ye"><b>DATA</b> (raw fact)<br>"331 Brite Dish Soap 1.29"<br><small>one beep at one checkout</small></div>
+  <div class="arrow">&rarr;</div>
+  <div class="card gr" style="flex:.7;text-align:center"><b>process</b><br>sort, add up</div>
+  <div class="arrow">&rarr;</div>
+  <div class="card pk"><b>INFORMATION</b> (useful)<br>"Northwest: 7,156 units sold, $9,231 this year"<br><small>a manager can act on it</small></div>
+</div>
+<h2>An IS does 4 things (UPS example = Case 1)</h2>
+<div class="flow">
+  <div class="card or"><b>1. INPUT</b><br>capture raw data<br><small>UPS: bar-code scan; DIAD records signature</small></div>
+  <div class="arrow">&rarr;</div>
+  <div class="card bl"><b>2. PROCESSING</b><br>sort, calculate<br><small>UPS: update package status; ORION plans routes</small></div>
+  <div class="arrow">&rarr;</div>
+  <div class="card gr"><b>3. OUTPUT</b><br>give it to people<br><small>UPS: tracking page, proof of delivery, driver routes</small></div>
+</div>
+<div class="loop"><span>4. FEEDBACK: output goes back to check and correct the input</span></div>
+<p style="margin-top:12pt"><b>Trap:</b> a computer is <b>not</b> an information system. It is only the tool inside it.</p>
+<h2>Three dimensions: O-M-T</h2>
+<div class="venn">
+  <div class="c o"><b>ORGANIZATION</b><br>people, levels, departments, culture</div>
+  <div class="c m"><b>MANAGEMENT</b><br>see problems, decide, plan</div>
+  <div class="c t"><b>TECHNOLOGY</b><br>hardware, software, data, networks</div>
+  <div class="is">IS</div>
+</div>
+<div class="strip"><b>Complementary assets</b> = a gym membership works only if you change your habits. Technology gives value only with new processes, training, management support and the right culture.</div>
+
+<!-- ============== 4. SIX OBJECTIVES ============== -->
+<h1>4. Six business objectives: why firms buy IS (Ch 1)</h1>
+<div class="strip">Hook: "<b>O</b>ur <b>N</b>ew <b>C</b>ustomers <b>I</b>ncrease <b>C</b>ompany <b>S</b>urvival"</div>
+<div class="g3">
+  <div class="card or"><span class="big">O</span><h3>Operational excellence</h3><p>Same work, faster and cheaper.</p><p><b>Ex:</b> Walmart; UPS ORION saves ~100 million miles a year.</p></div>
+  <div class="card pk"><span class="big">N</span><h3>New products, services, models</h3><p>New things to sell, new ways to earn.</p><p><b>Ex:</b> iPhone + iTunes; Netflix.</p></div>
+  <div class="card gr"><span class="big">C</span><h3>Customer and supplier intimacy</h3><p>Know them well, so they stay.</p><p><b>Ex:</b> hotels remember each guest's preferences.</p></div>
+  <div class="card bl"><span class="big">I</span><h3>Improved decision making</h3><p>Decide with real-time data, not guesses.</p><p><b>Ex:</b> Verizon's real-time dashboard.</p></div>
+  <div class="card ye"><span class="big">C</span><h3>Competitive advantage</h3><p>Better than rivals: price, quality, speed.</p><p><b>Ex:</b> Apple, Walmart, UPS.</p></div>
+  <div class="card pu"><span class="big">S</span><h3>Survival</h3><p>You must have it to stay in business.</p><p><b>Ex:</b> after Citibank's ATMs, every bank needed ATMs.</p></div>
+</div>
+<div class="note" style="margin-top:10pt"><b>Trap: survival vs competitive advantage.</b> Everyone has it and you need it to stay alive = <b>survival</b>. It puts you <b>ahead</b> = <b>competitive advantage</b>.</div>
+
+<!-- ============== 5. SYSTEM TYPES ============== -->
+<h1>5. Four system types by management level (Ch 2)</h1>
+<div class="strip"><b>TPS records. MIS reports. DSS asks what-if. ESS looks outside.</b></div>
+<div class="pyr">
+  <div class="l1"><b class="s">ESS</b>senior managers<br><small>looks OUTSIDE + future; judgment</small></div>
+  <div class="l2"><div><b class="s">MIS</b><br>middle managers<br><small>fixed reports: sales vs target</small></div><div><b class="s">DSS</b><br>middle managers, analysts<br><small>models: "what if...?"</small></div></div>
+  <div class="l3"><b class="s">TPS</b>operational staff<br><small>RECORDS every transaction; routine; feeds data to all the others</small></div>
+</div>
+<p style="text-align:center"><b>Decisions:</b> bottom = routine, structured &nbsp;&uarr;&nbsp; top = non-routine, needs judgment</p>
+<h2>One supermarket (like Shwapno), four systems</h2>
+<div class="flow">
+  <div class="card gr"><b>TPS</b><br>checkout records each sale</div><div class="arrow">&rarr;</div>
+  <div class="card bl"><b>MIS</b><br>monthly report: branch sales vs target</div><div class="arrow">&rarr;</div>
+  <div class="card bl"><b>DSS</b><br>"If rice is 5% cheaper, what happens to profit?"</div><div class="arrow">&rarr;</div>
+  <div class="card pk"><b>ESS</b><br>CEO: "Open 20 new branches?" (+ competitors, inflation)</div>
+</div>
+<div class="g2" style="margin-top:8pt">
+  <div class="note"><b>Trap 1, MIS vs DSS:</b> MIS answers questions decided in advance. DSS answers a <b>new</b> question with a <b>model</b>.</div>
+  <div class="note"><b>Trap 2, DSS vs ESS:</b> ESS is for the <b>top</b> and brings in <b>outside</b> data.</div>
+</div>
+
+<!-- ============== 6. ENTERPRISE APPS ============== -->
+<h1>6. Whole-company systems and the Internet family (Ch 2)</h1>
+<div class="hub">
+  <div class="card bl" style="text-align:center"><b>SUPPLIERS</b></div>
+  <div style="text-align:center"><b>SCM</b><br>&harr;</div>
+  <div class="card gr" style="text-align:center"><b>THE FIRM</b><br><b>ERP</b> = one system, one central database for sales, HR, finance, production<br><small>no duplicated data</small></div>
+  <div style="text-align:center"><b>CRM</b><br>&harr;</div>
+  <div class="card pk" style="text-align:center"><b>CUSTOMERS</b></div>
+</div>
+<div class="card ye" style="width:46%;margin:6pt auto 0;text-align:center"><b>KMS</b>: saves and shares employees' know-how</div>
+<div class="strip" style="margin-top:8pt">Hook: <b>S</b>CM = <b>S</b>uppliers. <b>C</b>RM = <b>C</b>ustomers. <b>K</b>MS = <b>K</b>nowledge. <b>E</b>RP = <b>E</b>veryone inside, one database.</div>
+<div class="g2">
+  <div><h2>Who can see the website?</h2>
+  <div class="rings"><div class="r3"><b>Internet</b>: everyone</div><div class="r2"><b>Extranet</b>: + authorized suppliers</div><div class="r1"><b>Intranet</b>: employees only</div></div></div>
+  <div><h2>E-words</h2>
+  <div class="card pu" style="padding:8pt"><b>E-business</b>: run the whole business digitally
+    <div class="card gr" style="margin-top:6pt"><b>E-commerce</b>: buying and selling online (Daraz). A <b>part of</b> e-business.</div></div>
+  <div class="card bl" style="margin-top:6pt"><b>E-government</b>: government online (NID, passport, tax)</div></div>
+</div>
+<h2>Business process</h2>
+<div class="flow">
+  <div class="card pk"><b>Sales</b><br>takes the order</div><div class="arrow">&rarr;</div>
+  <div class="card ye"><b>Accounting</b><br>checks credit, bills</div><div class="arrow">&rarr;</div>
+  <div class="card gr"><b>Production / warehouse</b><br>ships it</div>
+</div>
+<p><b>Order fulfillment</b> = one process across three departments = <b>cross-functional</b>.</p>
+
+<!-- ============== 7. COLLABORATION ============== -->
+<h1>7. Collaboration and knowledge (Ch 2 + Case 2)</h1>
+<div class="strip"><b>Collaboration</b> = working with others to achieve <b>shared and explicit goals</b>. Benefits: <b>P</b>roductivity, <b>Q</b>uality, <b>I</b>nnovation, <b>C</b>ustomer service, <b>F</b>inancial performance ("Please Quit Ignoring Customer Feedback").</div>
+<h2>Time/space matrix: which tool?</h2>
+<table class="mx">
+<tr><th></th><th>SAME place</th><th>DIFFERENT place</th></tr>
+<tr><th>SAME time</th><td>face-to-face meeting, whiteboard</td><td>Zoom / Teams call, instant messaging</td></tr>
+<tr><th>DIFFERENT time</th><td>team rooms, shared displays, shift work</td><td>email, wikis, shared Google Doc, group calendar</td></tr>
+</table>
+<div class="g2">
+  <div><h2>Knowledge iceberg</h2>
+  <div class="ice"><div class="tip"><b>EXPLICIT</b><br>written down: manuals, reports</div><div class="water">water line</div><div class="under"><b>TACIT</b><br>in people's heads, never written: a senior engineer's "feel" for a machine</div></div></div>
+  <div><h2>Case 2: virtual meetings</h2>
+  <div class="card gr"><b>+ Help:</b> work from anywhere, real-time across places, less travel, screen sharing</div>
+  <div class="card pk" style="margin-top:5pt"><b>- Hurt (O-M-T):</b><br><b>M:</b> too many meetings; cameras used to watch staff<br><b>O:</b> always online; remote staff left out<br><b>T:</b> video is tiring ("Zoom fatigue"); audio-only teams did better</div>
+  <div class="card bl" style="margin-top:5pt"><b>Fix:</b> fewer, shorter meetings; shared doc instead; breaks; cameras optional; meeting-free days</div></div>
+</div>
+
+<!-- ============== 8. VALUE CHAIN ============== -->
+<h1>8. Value chain and value web (Ch 3)</h1>
+<div class="strip"><b>Value chain:</b> the firm is a chain of steps; each step adds value. Put IS where it adds the <b>most</b> value.</div>
+<p><b>Support activities</b> (make the main steps possible): "the office, the people, the tech, the buying"</p>
+<div class="bar"><b>Organization infrastructure</b>: administration, management</div>
+<div class="bar"><b>Human resources</b>: hire, train, pay</div>
+<div class="bar"><b>Technology</b>: improve products and processes</div>
+<div class="bar"><b>Procurement</b>: buying inputs</div>
+<p style="margin-top:6pt"><b>Primary activities</b> (follow the product: comes in &rarr; is made &rarr; goes out &rarr; is sold &rarr; is serviced)</p>
+<div class="chev">
+  <div><b>Inbound logistics</b><small>receive fabric</small></div>
+  <div><b>Operations</b><small>sew shirts</small></div>
+  <div><b>Outbound logistics</b><small>ship to buyer</small></div>
+  <div><b>Sales and marketing</b><small>win orders</small></div>
+  <div><b>Service</b><small>handle returns</small></div>
+  <div class="end">VALUE for the customer</div>
+</div>
+<p><small>Example under each step: a garment factory.</small></p>
+<h2>Value web: many firms, linked by IT</h2>
+<svg viewBox="0 0 520 210" style="width:100%;height:auto;font-family:'Ink Free','Segoe Print',cursive">
+  <g stroke="#8a63d2" stroke-width="2" stroke-dasharray="6 4">
+    <line x1="260" y1="105" x2="90" y2="40"/><line x1="260" y1="105" x2="430" y2="40"/>
+    <line x1="260" y1="105" x2="90" y2="170"/><line x1="260" y1="105" x2="430" y2="170"/><line x1="260" y1="105" x2="260" y2="20"/>
+    <line x1="90" y1="40" x2="260" y2="20"/><line x1="430" y1="40" x2="260" y2="20"/><line x1="90" y1="170" x2="430" y2="170"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="#14246b">
+    <ellipse cx="260" cy="105" rx="70" ry="28" fill="#fde0e6" stroke="#e0607a" stroke-width="2"/><text x="260" y="110" font-weight="bold">CUSTOMER</text>
+    <ellipse cx="260" cy="22" rx="62" ry="18" fill="#dcf3e6" stroke="#3f9e6a" stroke-width="2"/><text x="260" y="27">platform</text>
+    <ellipse cx="90" cy="40" rx="62" ry="18" fill="#dde9fb" stroke="#4a7fd0" stroke-width="2"/><text x="90" y="45">seller</text>
+    <ellipse cx="430" cy="40" rx="62" ry="18" fill="#fdf3c4" stroke="#d9b100" stroke-width="2"/><text x="430" y="45">payment firm</text>
+    <ellipse cx="90" cy="170" rx="62" ry="18" fill="#fde3c8" stroke="#e8913a" stroke-width="2"/><text x="90" y="175">courier</text>
+    <ellipse cx="430" cy="170" rx="62" ry="18" fill="#ece3fb" stroke="#8a63d2" stroke-width="2"/><text x="430" y="175">bank</text>
+    <text x="260" y="196" font-size="13" fill="#8a63d2">dashed lines = IT links between independent firms</text>
+  </g>
+</svg>
+<div class="g2">
+  <div class="card gr"><b>Value CHAIN</b>: one firm, a straight line of steps.</div>
+  <div class="card pu"><b>Value WEB</b>: many independent firms, a flexible network, driven by the customer.</div>
+</div>
+</body></html>

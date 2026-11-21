@@ -1,0 +1,443 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MIS Crash Notes - Ch 1-3</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="hand.css">
+<style>
+body { font-size: 13.5pt; }
+table { font-size: 13pt; }
+.plain { background: #e6effb; border-left: 5px solid #5b8bd6; padding: 4pt 9pt; margin: 6pt 0; break-inside: avoid; }
+.exam { border: 2px dashed #14246b; padding: 4pt 9pt; margin: 6pt 0; break-inside: avoid; }
+.trap { background: #fbe9e9; border-left: 5px solid #8a1c1c; padding: 4pt 9pt; margin: 6pt 0; break-inside: avoid; }
+.time { color: #8a1c1c; font-size: 13pt; margin: 0 0 6pt; }
+.keypage { break-before: page; }
+.recall { font-size: 12.5pt; line-height: 1.25; column-count: 2; column-gap: 14pt; }
+.recall div { break-inside: avoid; margin-bottom: 4pt; }
+.recall ul { margin: 0; padding-left: 14pt; }
+</style></head><body>
+
+<h1 class="first">MIS Midterm Crash Notes: Ch 1, 2, 3</h1>
+<p>Midterm: <b>Tue 10 Nov, 09:00-11:00</b>. Only Ch 1-3, plus Case 1 (UPS), Case 2 (virtual meetings) and the airline group discussion. Everything you need is in these pages. You do not need the big packs.</p>
+
+<h2>Your plan: about 2 hours 30 minutes</h2>
+<table>
+<tr><th>Block</th><th>Time</th><th>What you learn</th><th>Pages</th><th>Done</th></tr>
+<tr><td>1</td><td>25 min</td><td>Ch 1: what an information system is (+ UPS case)</td><td class="pg">2-4</td><td>&#9744;</td></tr>
+<tr><td>2</td><td>25 min</td><td>Ch 2: business processes, the four system types, enterprise apps</td><td class="pg">5-7</td><td>&#9744;</td></tr>
+<tr><td>3</td><td>20 min</td><td>Ch 2: collaboration, knowledge, IS jobs + Case 2</td><td class="pg">8-10</td><td>&#9744;</td></tr>
+<tr><td>4</td><td>25 min</td><td>Ch 3: Porter's five forces (the teacher said to memorize these)</td><td class="pg">11-13</td><td>&#9744;</td></tr>
+<tr><td>5</td><td>25 min</td><td>Ch 3: four strategies, Internet effect, value chain, value web</td><td class="pg">14-16</td><td>&#9744;</td></tr>
+<tr><td>6</td><td>30 min</td><td>How to write answers + airline model answer + 15 MCQs</td><td class="pg">17-20</td><td>&#9744;</td></tr>
+<tr><td>Last</td><td>5 min</td><td>One-page recall sheet (tonight once, tomorrow morning once)</td><td class="pg">21</td><td>&#9744;</td></tr>
+</table>
+<p>Take a <b>5-minute break</b> after every block: stand up, water, no phone.</p>
+
+<h2>Do every block the same way</h2>
+<ol>
+<li>Timer on. Phone in another room.</li>
+<li>Read the <b>blue box ("In simple words")</b> first. It gives you the idea.</li>
+<li>Then read the <b>dashed box ("Exam words")</b>. That is the sentence you write in the exam.</li>
+<li>Cover the <b>yellow box</b> and say it out loud. Then write it once on paper.</li>
+<li>Answer the <b>3 green questions</b> before you look at the answers. Wrong? Re-read only that part.</li>
+</ol>
+<div class="trap"><b>Mind drifting?</b> Stand up, say the block title out loud, and restart the timer for just 10 minutes. Red boxes = common mistakes. Read them twice.</div>
+
+
+
+<!-- ================= BLOCK 1 ================= -->
+<h1>Block 1: Ch 1 - What an information system is</h1>
+<p class="time">25 minutes. Then a 5-minute break.</p>
+
+<h2>1. Data vs information</h2>
+<div class="plain"><b>In simple words:</b> Data is raw facts. Alone they mean little. Information is data that has been processed so a person can use it to decide something.</div>
+<table>
+<tr><th>Data (raw)</th><th>Information (useful)</th></tr>
+<tr><td>"331 Brite Dish Soap 1.29" - one beep at one supermarket checkout</td><td>"Brite Dish Soap, Northwest region: 7,156 units sold, $9,231.24 this year"</td></tr>
+</table>
+<p>A manager cannot act on one beep. A manager <b>can</b> act on the regional total: reorder stock, run a promotion.</p>
+<div class="exam"><b>Exam words:</b> <b>Data</b> = streams of raw facts representing events. <b>Information</b> = data shaped into a form that is meaningful and useful to human beings.</div>
+
+<h2>2. An information system does 4 things</h2>
+<div class="plain"><b>In simple words:</b> An information system takes data in, works on it, gives useful results out, and uses the results to correct itself.</div>
+<div class="exam"><b>Exam words:</b> An <b>information system</b> is a set of interrelated components that collect, process, store and distribute information to support decision making and control in an organization.</div>
+<div class="key"><b>Memorize:</b> <b>Input</b> (capture raw data) &rarr; <b>Processing</b> (classify, arrange, calculate) &rarr; <b>Output</b> (send information to the people who need it) + <b>Feedback</b> (output sent back to check or correct the input).</div>
+<h3>Example: UPS package tracking (this is Case 1, Q1)</h3>
+<table>
+<tr><th>Input</th><th>Processing</th><th>Output</th></tr>
+<tr><td>Bar-code label scanned at every stop. The driver's handheld <b>DIAD</b> records the signature and delivery.</td><td>Central computers update each package's status. <b>ORION</b> (AI) works out each driver's best route.</td><td>Tracking page for customers. Proof of delivery. Daily route for each driver. Reports for managers.</td></tr>
+</table>
+<div class="trap"><b>Trap:</b> A computer is <b>not</b> an information system. The computer only stores and processes. The information system also needs people, procedures, data and the organization around it.</div>
+
+<h2>3. Three dimensions: Organization, Management, Technology</h2>
+<div class="plain"><b>In simple words:</b> Technology alone does nothing. People inside an organization must use it, and managers must decide what to do with it. So every information system has three sides.</div>
+<table>
+<tr><th>Dimension</th><th>What it means</th><th>UPS example</th></tr>
+<tr><td><b>Organization</b></td><td>The people, the levels (senior, middle, operational), the departments (sales, HR, finance, production) and the culture</td><td>Drivers, dispatchers; culture of "best service, lowest rates"</td></tr>
+<tr><td><b>Management</b></td><td>Managers see problems, make decisions and make action plans</td><td>Managers decided to use AI routing to cut fuel and miles</td></tr>
+<tr><td><b>Technology</b></td><td>Hardware, software, data management, networks and telecommunications</td><td>DIAD, bar codes, central computers, mobile network, website and app</td></tr>
+</table>
+<div class="key"><b>Memorize: O-M-T.</b> Use it as your answer frame. Whenever a question says "management, organization and technology factors", write three short paragraphs: Organization, Management, Technology.</div>
+<div class="plain"><b>Complementary assets, in simple words:</b> Buying a system is like buying a gym membership. It only gives value if you also change your habits. Firms must also change processes, train people and get management support.</div>
+<div class="exam"><b>Exam words:</b> <b>Complementary assets</b> are the assets required to derive value from a primary investment (new business processes, training, management support, a supportive culture). This is why two firms that buy the same system get different results.</div>
+
+<h2>4. Six business objectives: why firms spend on information systems</h2>
+<div class="key"><b>Memorize (6), in this order:</b> Operational excellence, New products/services/business models, Customer and supplier intimacy, Improved decision making, Competitive advantage, Survival.<br><b>Hook:</b> "<b>O</b>ur <b>N</b>ew <b>C</b>ustomers <b>I</b>ncrease <b>C</b>ompany <b>S</b>urvival".</div>
+<table>
+<tr><th>Objective</th><th>In simple words</th><th>Example</th></tr>
+<tr><td>1. Operational excellence</td><td>Do the same work faster and cheaper</td><td>Walmart; UPS ORION saves about 100 million miles a year</td></tr>
+<tr><td>2. New products, services, business models</td><td>IS makes new things to sell, or new ways to earn</td><td>Apple iPhone + iTunes; Netflix</td></tr>
+<tr><td>3. Customer and supplier intimacy</td><td>Know customers and suppliers well, so they stay</td><td>Luxury hotels remember each guest's preferences</td></tr>
+<tr><td>4. Improved decision making</td><td>Decide with real-time data, not guesses</td><td>Verizon's real-time web dashboard</td></tr>
+<tr><td>5. Competitive advantage</td><td>Do things better than rivals: lower price, better quality, faster</td><td>Apple, Walmart, UPS</td></tr>
+<tr><td>6. Survival</td><td>You must have it to stay in business: the industry or the law forces it</td><td>Citibank's ATMs forced other banks to install ATMs</td></tr>
+</table>
+<div class="trap"><b>Trap: survival vs competitive advantage.</b> Everyone already has it and you need it just to stay alive = <b>survival</b>. It puts you ahead of rivals = <b>competitive advantage</b>.</div>
+
+<div class="check"><b class="t">Self-check: Block 1</b>
+<ol><li>"Branch 3 total sales in October: Tk 12 lakh." Data or information? Why?</li>
+<li>A UPS driver's DIAD records a customer's signature. Which of the 4 activities is this?</li>
+<li>A bank installs a mobile app only because every other bank already has one. Which objective?</li></ol>
+<div class="ans"><b>Answers:</b> 1. Information: it is processed and summarized so a manager can use it. 2. Input. 3. Survival.</div></div>
+
+<!-- ================= BLOCK 2 ================= -->
+<h1>Block 2: Ch 2 - Business processes and the four system types</h1>
+<p class="time">25 minutes. This is the most important part of Ch 2.</p>
+
+<h2>1. Business process</h2>
+<div class="plain"><b>In simple words:</b> A business process is the set of steps a company follows to get one job done, for example taking an order and delivering it.</div>
+<div class="exam"><b>Exam words:</b> A <b>business process</b> is the collection of activities required to produce a product or service, together with the way the firm coordinates work, information and knowledge.</div>
+<ul>
+<li><b>Order fulfillment is cross-functional:</b> sales takes the order, accounting checks credit and bills, production or the warehouse ships it. One process, three departments.</li>
+<li>IT improves processes in two ways: it makes <b>old steps faster</b> (automatic credit checks, e-invoices), or it creates <b>new processes</b> (streaming music instead of selling CDs; sending money with bKash instead of going to a bank).</li>
+</ul>
+
+<h2>2. The four system types: one company story</h2>
+<div class="plain"><b>In simple words:</b> Different managers need different information. Staff at the bottom record what happens. Middle managers check performance and test options. Top managers look at the future and the outside world.</div>
+<p><b>Story: a supermarket chain like Shwapno.</b></p>
+<ul>
+<li><b>TPS:</b> every checkout records each sale and updates stock. It does the same routine job every time.</li>
+<li><b>MIS:</b> each month the regional manager gets a report: sales of each branch vs target. It summarizes TPS data in a fixed format.</li>
+<li><b>DSS:</b> the manager asks, "If we cut the price of rice by 5%, how much will profit change?" It runs a model on the data: a <b>what-if</b> question.</li>
+<li><b>ESS:</b> the CEO's dashboard shows company totals plus <b>outside</b> data (competitors, inflation) to decide "Should we open 20 new branches?"</li>
+</ul>
+<table>
+<tr><th>System</th><th>Who uses it</th><th>Input</th><th>Output</th><th>Decision type</th></tr>
+<tr><td><b>TPS</b> Transaction processing</td><td>Operational staff and managers</td><td>Transactions (sales, timecards)</td><td>Detailed reports, lists, payslips</td><td>Routine, structured, rules decided in advance</td></tr>
+<tr><td><b>MIS</b> Management information</td><td>Middle managers</td><td>Summarized TPS data</td><td>Summary and exception reports</td><td>Routine questions decided in advance</td></tr>
+<tr><td><b>DSS</b> Decision support</td><td>Middle managers, analysts</td><td>Internal + external data + analytical models</td><td>Interactive "what-if" analysis</td><td>Non-routine, unique, fast-changing</td></tr>
+<tr><td><b>ESS</b> Executive support</td><td>Senior managers</td><td>Summarized internal data + external events (tax laws, competitors)</td><td>Dashboard (portal), projections</td><td>Non-routine; needs judgment and insight</td></tr>
+</table>
+<div class="key"><b>Memorize:</b> <b>TPS records. MIS reports. DSS asks what-if. ESS looks outside.</b><br>Levels: TPS = bottom (operational). MIS and DSS = middle. ESS = top (senior).</div>
+<div class="trap"><b>Trap 1, MIS vs DSS:</b> MIS answers questions decided in advance (the same monthly report). DSS answers a <b>new</b> question using a <b>model</b>.<br><b>Trap 2, DSS vs ESS:</b> ESS is for <b>top</b> managers and brings in <b>external</b> data.</div>
+<ul>
+<li><b>TPS is the main source of data for all the other systems.</b> If the TPS fails, the business stops.</li>
+<li>MIS, DSS and ESS are called <b>business intelligence</b> systems: tools that organize and analyze data so managers decide better.</li>
+</ul>
+
+<h2>3. Enterprise applications: whole-company systems</h2>
+<div class="plain"><b>In simple words:</b> Instead of each department having its own separate system, one system links the whole company, or links the company with outside partners.</div>
+<table>
+<tr><th>Application</th><th>What it does</th><th>Why</th></tr>
+<tr><td><b>ERP</b> (enterprise system)</td><td>One software system and one central database for all departments</td><td>No duplicated or conflicting data</td></tr>
+<tr><td><b>SCM</b> supply chain management</td><td>Links the firm with suppliers and logistics firms: orders, stock, delivery</td><td>Right amount, shortest time, lowest cost</td></tr>
+<tr><td><b>CRM</b> customer relationship management</td><td>Everything about customers: sales, marketing, service</td><td>Keep customers and sell more to them</td></tr>
+<tr><td><b>KMS</b> knowledge management</td><td>Captures and shares employees' knowledge</td><td>Expert know-how is not lost</td></tr>
+</table>
+<div class="key"><b>Hook:</b> <b>S</b>CM = <b>S</b>uppliers. <b>C</b>RM = <b>C</b>ustomers. <b>K</b>MS = <b>K</b>nowledge. <b>E</b>RP = <b>E</b>veryone inside, one database.</div>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Intranet</td><td>Internal company website, employees only</td></tr>
+<tr><td>Extranet</td><td>Company website also open to authorized suppliers and vendors</td></tr>
+<tr><td>E-business</td><td>Running the firm's major business processes with digital technology and the Internet</td></tr>
+<tr><td>E-commerce</td><td>Buying and selling online (Daraz). A <b>part of</b> e-business.</td></tr>
+<tr><td>E-government</td><td>Government serving citizens and businesses online (NID, passport, tax)</td></tr>
+</table>
+
+<div class="check"><b class="t">Self-check: Block 2</b>
+<ol><li>A Pathao manager tests "What if we raise fares at 8 pm?" with a model. Which system?</li>
+<li>Which system is the main data source for all the others, and why?</li>
+<li>Which enterprise application links a firm with its suppliers?</li></ol>
+<div class="ans"><b>Answers:</b> 1. DSS (a new question, needs a model). 2. TPS, because it records every transaction the others summarize. 3. SCM.</div></div>
+
+<!-- ================= BLOCK 3 ================= -->
+<h1>Block 3: Ch 2 - Collaboration, knowledge, IS jobs, Case 2</h1>
+<p class="time">20 minutes.</p>
+
+<h2>1. Collaboration</h2>
+<div class="plain"><b>In simple words:</b> People working together toward the same clear goal.</div>
+<div class="exam"><b>Exam words:</b> <b>Collaboration</b> is working with others to achieve shared and explicit goals. A <b>team</b> is a formal group with a specific mission.</div>
+<div class="key"><b>Benefits (5):</b> Productivity, Quality, Innovation, Customer service, Financial performance.<br><b>Hook:</b> "<b>P</b>lease <b>Q</b>uit <b>I</b>gnoring <b>C</b>ustomer <b>F</b>eedback".</div>
+<ul>
+<li>Tools alone are not enough. Good collaboration needs <b>collaboration capability</b> (open culture, decentralized structure) <b>plus</b> collaboration technology. Buying Microsoft Teams changes nothing if the boss decides everything alone.</li>
+<li><b>Social business</b> = using social networks to engage employees, customers and suppliers. Key word: <b>conversations</b>.</li>
+</ul>
+
+<h2>2. Time/space matrix: which tool fits</h2>
+<div class="plain"><b>In simple words:</b> Ask two questions. Are we working at the same time? Are we in the same place?</div>
+<table>
+<tr><th></th><th>Same place</th><th>Different place</th></tr>
+<tr><td><b>Same time</b></td><td>Face-to-face meeting, interactive whiteboard</td><td>Video call (Zoom, Teams), instant messaging</td></tr>
+<tr><td><b>Different time</b></td><td>Team rooms, shared displays, shift work</td><td>Email, wikis, shared Google Doc, group calendars</td></tr>
+</table>
+
+<h2>3. Knowledge</h2>
+<ul>
+<li><b>Tacit knowledge</b> = in people's heads, never written down (how a senior engineer knows a machine is about to fail).</li>
+<li><b>Explicit knowledge</b> = written down (manuals, reports).</li>
+<li>Three types of KMS: <b>enterprise-wide KMS</b>, <b>knowledge work systems</b>, <b>intelligent techniques</b>.</li>
+</ul>
+
+<h2>4. Who does what in IS (MCQ favourites)</h2>
+<table>
+<tr><th>Job</th><th>Does</th></tr>
+<tr><td>Systems analyst</td><td>Translates business problems into system requirements: the bridge between business and IS</td></tr>
+<tr><td>Programmer</td><td>Writes the software instructions</td></tr>
+<tr><td>CIO / CSO / CPO</td><td>Head of IT / information security / data privacy law compliance</td></tr>
+<tr><td>CKO / CDO / CAIO</td><td>Knowledge management / data governance / AI strategy</td></tr>
+</table>
+<p><b>IT governance</b> = who decides about IT (<b>decision rights</b>) and who answers for it (<b>accountability</b>).</p>
+
+<h2>5. Case 2: Do virtual meetings help collaboration?</h2>
+<ul>
+<li><b>Facts to quote:</b> "Zoom fatigue" (tiredness and burnout from constant video calls; UNC Charlotte survey of 150 employees). Carnegie Mellon study: <b>audio-only teams did better</b> than video teams. Meta, Slack and Asana use no-meeting days.</li>
+<li><b>They help:</b> work from anywhere, real-time meetings across locations, less travel, screen sharing and recordings.</li>
+</ul>
+<p><b>They hurt: answer with O-M-T</b></p>
+<table>
+<tr><th>Factor</th><th>Problem</th></tr>
+<tr><td>Management</td><td>Too many meetings; meetings in the most productive hours; cameras used to watch staff</td></tr>
+<tr><td>Organization</td><td>Culture of always being online; no informal contact; remote staff feel left out</td></tr>
+<tr><td>Technology</td><td>Video pulls attention from voice cues; always-on camera and self-view are tiring; staff with weak tech skills get excluded</td></tr>
+</table>
+<p><b>Fixes:</b> fewer, shorter meetings with an agenda; work asynchronously (shared doc instead of a meeting); breaks; a moderator so everyone speaks; cameras optional, self-view off; meeting-free days.</p>
+
+<div class="check"><b class="t">Self-check: Block 3</b>
+<ol><li>Define collaboration.</li>
+<li>Team members edit one Google Doc from their homes at different hours. Which cell of the time/space matrix?</li>
+<li>Give one management, one organization and one technology problem of virtual meetings.</li></ol>
+<div class="ans"><b>Answers:</b> 1. Working with others to achieve shared and explicit goals. 2. Different time, different place. 3. Management: too many meetings. Organization: remote staff feel left out. Technology: always-on video is tiring.</div></div>
+
+<!-- ================= BLOCK 4 ================= -->
+<h1>Block 4: Ch 3 - Porter's five forces</h1>
+<p class="time">25 minutes. The teacher's slide 7 says: "Please remember this, because I won't provide them with the question."</p>
+
+<div class="plain"><b>In simple words:</b> Think of an industry's profit as one pizza. Five forces decide how much of it the firms in the industry keep. The stronger the forces, the smaller the slice, so the less profit.</div>
+<div class="exam"><b>Exam words:</b> Porter's <b>competitive forces model</b> is a framework for analyzing a firm's competitive environment. The <b>intensity of the five forces determines how profitable the industry is</b>.</div>
+<table class="forces">
+<tr><td class="e"></td><td class="f">Threat of new entrants</td><td class="e"></td></tr>
+<tr><td class="f">Bargaining power of suppliers</td><td class="c">Rivalry among existing competitors (the firm)</td><td class="f">Bargaining power of customers</td></tr>
+<tr><td class="e"></td><td class="f">Threat of substitute products or services</td><td class="e"></td></tr>
+</table>
+
+<h2>The five forces one by one</h2>
+<table>
+<tr><th>Force</th><th>Why it hurts profit</th><th>Strong when</th><th>How IS fights it</th></tr>
+<tr><td><b>1. Threat of new entrants</b></td><td>High profits attract new firms. They sell cheaper to win customers, so everyone's prices and margins fall.</td><td>Margins are high and <b>barriers to entry</b> are low</td><td>A system that is expensive or hard to copy becomes a barrier to entry (UPS's tracking network)</td></tr>
+<tr><td><b>2. Bargaining power of suppliers</b></td><td>Powerful suppliers raise prices or set terms, so your costs rise.</td><td>Few suppliers, strong brand, no substitute input, you buy only a little</td><td>Online buying from many suppliers; SCM</td></tr>
+<tr><td><b>3. Bargaining power of customers</b></td><td>Powerful buyers push prices down and demand more quality.</td><td>Few big buyers, easy to switch, prices easy to compare online</td><td>CRM and loyalty programs raise <b>switching costs</b></td></tr>
+<tr><td><b>4. Threat of substitutes</b></td><td>A different product meets the same need, so you cannot raise prices.</td><td>Many substitutes, low switching costs</td><td>Switching costs; unique products</td></tr>
+<tr><td><b>5. Rivalry among existing competitors</b> (centre)</td><td>Firms in the same industry fight with price cuts, advertising and R&amp;D, so margins fall.</td><td>Many similar firms, low entry barriers, many substitutes</td><td>Use IS for one of the four strategies (Block 5)</td></tr>
+</table>
+
+<div class="key"><b>Exam wording (write these from memory):</b>
+<ol>
+<li><b>New entrants:</b> Industries with large profit margins attract new firms, which sell at lower prices to win market share. This pushes margins down. The threat depends on the strength of barriers to entry.</li>
+<li><b>Suppliers:</b> Suppliers of raw materials, components, labor and services (the market of inputs) can raise prices or set terms when they are few, powerful or have no substitutes.</li>
+<li><b>Customers:</b> Customers (the market of outputs) can push prices down and demand better quality and terms, especially when switching is easy.</li>
+<li><b>Substitutes:</b> A substitute uses a different technology to meet the same need. More substitutes push prices and margins down.</li>
+<li><b>Rivalry:</b> Rivalry among existing competitors is the main determinant of industry competitiveness, so it sits in the centre. Fierce rivalry cuts margins through price wars, advertising and R&amp;D.</li>
+</ol></div>
+
+<div class="trap"><b>Trap: rival vs substitute vs new entrant.</b><br>
+<b>Rival</b> = same product, another firm already in the industry (Starbucks vs another coffee shop).<br>
+<b>Substitute</b> = different product, same need (coffee vs tea or juice).<br>
+<b>New entrant</b> = a firm not in the industry yet, about to join.</div>
+
+<h2>The slide 20-21 MCQs (short form)</h2>
+<table>
+<tr><th>Situation</th><th>Answer</th></tr>
+<tr><td>Store has no 2TB hard drive, Messie buys a 1TB flash drive instead</td><td>Threat of substitution</td></tr>
+<tr><td>Two graduates start computer repairs at home, competing with Maradona's shop</td><td>Threat of new entrants</td></tr>
+<tr><td>Drug companies patent their medicines. Customers' power is...</td><td>Decreased (no other seller)</td></tr>
+<tr><td>To judge supplier power you need...</td><td>Number of suppliers to choose from</td></tr>
+<tr><td>The intensity of the five forces determines...</td><td>How profitable the industry is</td></tr>
+<tr><td>Suppliers have the most power when...</td><td>A single vendor supplies many stores</td></tr>
+<tr><td>Least affected by substitutes</td><td>A firm selling the only drug for a disease</td></tr>
+</table>
+
+<div class="check"><b class="t">Self-check: Block 4</b>
+<ol><li>Which force sits in the centre of the model, and why?</li>
+<li>For Foodpanda: Pathao Food is a ____. People cooking at home instead is a ____.</li>
+<li>How can an information system reduce the threat of new entrants?</li></ol>
+<div class="ans"><b>Answers:</b> 1. Rivalry among existing competitors: it is the main determinant of how competitive the industry is. 2. Rival (rivalry); substitute. 3. A system that is expensive or hard to copy acts as a barrier to entry.</div></div>
+
+<!-- ================= BLOCK 5 ================= -->
+<h1>Block 5: Ch 3 - Strategies, Internet, value chain, value web</h1>
+<p class="time">25 minutes.</p>
+
+<h2>1. The four generic strategies</h2>
+<div class="plain"><b>In simple words:</b> The five forces show the danger. The four strategies are the four ways to win anyway. Information systems help with each one.</div>
+<table>
+<tr><th>Strategy</th><th>Idea</th><th>How IS helps</th><th>Example</th></tr>
+<tr><td><b>Low-cost leadership</b></td><td>Be the cheapest while keeping quality and service</td><td>Cut waste: automatic restocking, efficient logistics</td><td>Walmart, Asda, easyJet</td></tr>
+<tr><td><b>Product differentiation</b></td><td>Offer something unique that others cannot easily copy</td><td>Create new products or a better customer experience</td><td>Apple iPhone, Google</td></tr>
+<tr><td><b>Focus on market niche</b></td><td>Serve one narrow market better than anyone</td><td>Data on that customer group to target it well</td><td>Hilton Hotels; Amazon Prime</td></tr>
+<tr><td><b>Customer and supplier intimacy</b></td><td>Build strong ties so customers and suppliers stay</td><td>CRM, SCM, loyalty programs raise switching costs</td><td>Tesco, Amazon, DHL</td></tr>
+</table>
+<div class="key"><b>Memorize (4) in plain words:</b> <b>Cheapest - Different - Narrow - Close.</b><br>= Low-cost leadership, Product differentiation, Focus on market niche, Customer and supplier intimacy.</div>
+<p><b>How strategies answer forces</b> (from the group discussion note): a cost leader can survive price wars and powerful buyers; differentiation makes buyers loyal, so they have less power and ignore substitutes; a niche firm meets needs rivals cannot; intimacy raises switching costs, so buyers do not leave.</p>
+
+<h2>2. The Internet's effect on the forces</h2>
+<ul>
+<li>Lower barriers to entry, so <b>more new entrants</b>. More <b>substitutes</b>.</li>
+<li>Customers see all prices online, so <b>buyer power goes up</b>.</li>
+<li><b>Rivalry is more intense</b>: wider market, more competitors, fewer differences between them.</li>
+<li>Some industries were transformed or destroyed: travel agencies, printed encyclopedias, newspapers.</li>
+<li>The good side: new ways to build a brand and loyal customers online.</li>
+</ul>
+
+<h2>3. Value chain</h2>
+<div class="plain"><b>In simple words:</b> See the firm as a chain of steps. Each step adds value to the product. Put information systems where they add the most value.</div>
+<div class="exam"><b>Exam words:</b> The <b>value chain model</b> sees the firm as a series of activities that add value to its products. It shows where competitive strategies can best be applied and where information systems have the most strategic impact.</div>
+<table>
+<tr><th>Primary activities (make and deliver the product)</th><th>Support activities (make the primary ones possible)</th></tr>
+<tr><td>1. Inbound logistics: receive and store materials<br>2. Operations: turn inputs into products<br>3. Outbound logistics: store and ship products<br>4. Sales and marketing<br>5. Service: after-sales support</td>
+<td>1. Organization infrastructure: administration, management<br>2. Human resources<br>3. Technology: improve products and processes<br>4. Procurement: buying inputs</td></tr>
+</table>
+<div class="key"><b>Remember primary by following the product:</b> it <b>comes in</b> &rarr; <b>is made</b> &rarr; <b>goes out</b> &rarr; <b>is sold</b> &rarr; <b>is serviced</b>.<br><b>Support:</b> the office, the people, the tech, the buying.</div>
+<p><b>Example, a garment factory:</b> receiving fabric (inbound) &rarr; sewing (operations) &rarr; shipping to the buyer (outbound) &rarr; winning orders (sales) &rarr; handling returns (service). Customers decide how much value each step adds.</p>
+
+<h2>4. Value web</h2>
+<div class="plain"><b>In simple words:</b> Instead of one firm doing every step, many independent firms link up with IT and serve the customer together.</div>
+<div class="exam"><b>Exam words:</b> A <b>value web</b> is a collection of independent firms that use IT to coordinate their value chains to produce a product or service for a market collectively. It is more customer-driven and less linear than a value chain.</div>
+<table>
+<tr><th></th><th>Value chain</th><th>Value web</th></tr>
+<tr><td>Scope</td><td>One firm</td><td>Many independent firms linked by IT</td></tr>
+<tr><td>Shape</td><td>Straight line of steps</td><td>Flexible network, driven by customers</td></tr>
+</table>
+
+<h2>5. Four quick terms (MCQ)</h2>
+<ul>
+<li><b>Synergies:</b> units or firms share outputs, markets and expertise, so costs fall and profits rise (JP Morgan Chase's bank mergers).</li>
+<li><b>Core competency:</b> an activity where a firm is world-class.</li>
+<li><b>Network economics:</b> each extra user adds value at almost no extra cost (Facebook, eBay).</li>
+<li><b>Scalability:</b> the business can grow sales without costs rising in proportion (apps, online stores, McDonald's franchising).</li>
+</ul>
+
+<div class="check"><b class="t">Self-check: Block 5</b>
+<ol><li>Name the four generic strategies.</li>
+<li>List the five primary activities in order.</li>
+<li>Give one difference between a value chain and a value web.</li></ol>
+<div class="ans"><b>Answers:</b> 1. Low-cost leadership, product differentiation, focus on market niche, customer and supplier intimacy. 2. Inbound logistics, operations, outbound logistics, sales and marketing, service. 3. A value chain is one firm's activities; a value web links many independent firms with IT to serve a market together.</div></div>
+
+<!-- ================= BLOCK 6 ================= -->
+<h1>Block 6: Exam practice - how to write answers</h1>
+<p class="time">30 minutes.</p>
+<div class="key"><b>What the exam rewards (course outline):</b> 50 marks. Remember 5, Understand 15, Apply 15, Analyze 10, Evaluate 5. Only 5 marks are pure memory. The other 45 come from <b>explaining</b> an idea and <b>using it on a company</b>. This block shows how.</div>
+
+<h2>1. The 4-step answer for any written question</h2>
+<div class="key"><b>P-E-E-E:</b> <b>P</b>oint (name the model or term) &rarr; <b>E</b>xplain (one sentence of exam words) &rarr; <b>E</b>xample (use the company in the question) &rarr; <b>E</b>ffect (so what: profit, cost, customers).</div>
+<p><b>Example question:</b> "How does a DSS help a Pathao manager?"<br>
+<b>Point:</b> A DSS is a decision support system. <b>Explain:</b> it supports non-routine decisions by combining data with analytical models for "what-if" analysis. <b>Example:</b> a Pathao manager can test what happens to rides and income if fares rise 10% in rush hour. <b>Effect:</b> better pricing decisions and higher profit without guessing.</p>
+
+<h2>2. Five forces question: the frame</h2>
+<ol>
+<li>One opening line: "Porter's competitive forces model analyzes the competitive environment; the intensity of the five forces determines industry profitability."</li>
+<li>For <b>each</b> force: <b>rating</b> (high / medium / low) + <b>one reason</b> with a fact + <b>one IS response</b>.</li>
+<li>Conclusion: is the industry attractive? Which of the four strategies should the firm use?</li>
+</ol>
+
+<h2>3. Model answer: the airline industry (your group discussion)</h2>
+<table>
+<tr><th>Force</th><th>Rating</th><th>Reason</th></tr>
+<tr><td>Rivalry</td><td><b>High</b></td><td>Delta, United, American plus low-cost Southwest, JetBlue, Spirit. Fares are about the same everywhere, so no firm earns extra profit. High exit barriers keep firms fighting.</td></tr>
+<tr><td>New entrants</td><td><b>Low to medium</b></td><td>Huge capital, operating costs and complex regulation. No airline started in this century has even 2% market share.</td></tr>
+<tr><td>Suppliers</td><td><b>High</b></td><td>Three main inputs: fuel (world oil price), aircraft (only Airbus and Boeing), labor (strong unions).</td></tr>
+<tr><td>Customers</td><td><b>High</b></td><td>Comparison websites show every fare; switching costs are near zero.</td></tr>
+<tr><td>Substitutes</td><td><b>Medium</b></td><td>Road, rail and water compete on short routes; weak on long international routes where time matters.</td></tr>
+</table>
+<p><b>Conclusion:</b> Most forces are strong, so airline profits are low. Airlines use <b>low-cost leadership</b> (Southwest, easyJet) or <b>customer intimacy</b> (Delta's loyalty rewards) to survive.</p>
+
+<h2>4. Case question frame</h2>
+<p>1. State the problem in one line. 2. Name the model (O-M-T, five forces, system types, objectives). 3. Use 2-3 <b>facts from the case</b>. 4. End with a recommendation.</p>
+
+<div class="check"><b class="t">Self-check: Block 6</b>
+<ol><li>What are the four steps of a P-E-E-E answer?</li>
+<li>In a five forces answer, what three things do you write for each force?</li>
+<li>Why is airline supplier power high? Name the three inputs.</li></ol>
+<div class="ans"><b>Answers:</b> 1. Point, Explain, Example, Effect. 2. Rating, one reason with a fact, one IS response. 3. Few powerful suppliers: fuel, aircraft (only Airbus and Boeing), labor (unions).</div></div>
+
+<h2>5. Final test: 15 MCQs (answers on the next page, do not peek)</h2>
+<div class="mcq"><p><b>1.</b> Raw facts such as "331 Brite Dish Soap 1.29" are: A) information B) data C) knowledge D) output</p></div>
+<div class="mcq"><p><b>2.</b> Output returned to evaluate or correct the input is: A) processing B) feedback C) input D) storage</p></div>
+<div class="mcq"><p><b>3.</b> The three dimensions of information systems are: A) hardware, software, data B) organizations, management, technology C) input, processing, output D) TPS, MIS, ESS</p></div>
+<div class="mcq"><p><b>4.</b> Assets needed to get value from an IT investment are: A) complementary assets B) core competencies C) fixed assets D) current assets</p></div>
+<div class="mcq"><p><b>5.</b> Citibank's ATMs forced other banks to install ATMs. For those banks the objective was: A) operational excellence B) new products C) survival D) customer intimacy</p></div>
+<div class="mcq"><p><b>6.</b> A supermarket checkout recording each sale is a: A) DSS B) ESS C) TPS D) MIS</p></div>
+<div class="mcq"><p><b>7.</b> Monthly "sales vs target" reports for middle managers come from: A) TPS B) MIS C) ESS D) KMS</p></div>
+<div class="mcq"><p><b>8.</b> Supports senior managers' non-routine decisions using external data: A) TPS B) MIS C) DSS D) ESS</p></div>
+<div class="mcq"><p><b>9.</b> Shares order and inventory data with suppliers: A) CRM B) SCM C) KMS D) intranet</p></div>
+<div class="mcq"><p><b>10.</b> Email and wikis belong in: A) same time, same place B) same time, different place C) different time, different place D) different time, same place</p></div>
+<div class="mcq"><p><b>11.</b> Knowledge in employees' heads that is not written down: A) explicit B) tacit C) structured D) taxonomy</p></div>
+<div class="mcq"><p><b>12.</b> The force at the centre of Porter's model: A) new entrants B) suppliers C) substitutes D) rivalry among existing competitors</p></div>
+<div class="mcq"><p><b>13.</b> A customer drinks tea instead of Starbucks coffee. For Starbucks this is: A) rivalry B) a new entrant C) a substitute D) supplier power</p></div>
+<div class="mcq"><p><b>14.</b> Amazon Prime serving a narrow target market better than rivals uses: A) low-cost leadership B) market niche C) differentiation D) customer intimacy</p></div>
+<div class="mcq"><p><b>15.</b> Independent firms using IT to coordinate their value chains to serve a market together: A) value chain B) value web C) synergy D) business process</p></div>
+
+<div class="keypage">
+<h2>Answer key: 15 MCQs</h2>
+<table>
+<tr><th>Q</th><th>Ans</th><th>Why</th></tr>
+<tr><td>1</td><td>B</td><td>Raw, unprocessed fact</td></tr>
+<tr><td>2</td><td>B</td><td>Feedback goes back to correct the input</td></tr>
+<tr><td>3</td><td>B</td><td>O-M-T</td></tr>
+<tr><td>4</td><td>A</td><td>Complementary assets</td></tr>
+<tr><td>5</td><td>C</td><td>They needed ATMs just to stay in business</td></tr>
+<tr><td>6</td><td>C</td><td>TPS records transactions</td></tr>
+<tr><td>7</td><td>B</td><td>MIS reports, fixed format</td></tr>
+<tr><td>8</td><td>D</td><td>ESS looks outside, top level</td></tr>
+<tr><td>9</td><td>B</td><td>S for suppliers</td></tr>
+<tr><td>10</td><td>C</td><td>Not at the same time, not in the same place</td></tr>
+<tr><td>11</td><td>B</td><td>Tacit = in heads</td></tr>
+<tr><td>12</td><td>D</td><td>Main determinant of competitiveness</td></tr>
+<tr><td>13</td><td>C</td><td>Different product, same need</td></tr>
+<tr><td>14</td><td>B</td><td>Narrow market = niche</td></tr>
+<tr><td>15</td><td>B</td><td>Many firms linked by IT</td></tr>
+</table>
+<p>Score: ___ / 15. For every miss, go back to that block and re-read only its yellow box.</p>
+</div>
+
+<!-- ================= RECALL ================= -->
+<h1>Recall sheet: every list on one page</h1>
+<p>Tonight: read once, then write the five forces and four strategies from memory. Tomorrow morning: read once more. Nothing new.</p>
+<div class="recall">
+<div><b>Ch 1</b><ul>
+<li><b>Data</b> = raw facts. <b>Information</b> = data made meaningful and useful.</li>
+<li><b>4 activities:</b> Input, Processing, Output + Feedback.</li>
+<li><b>3 dimensions (O-M-T):</b> Organization, Management, Technology.</li>
+<li><b>Complementary assets:</b> what you need around the tech to get value from it.</li>
+<li><b>6 objectives (O-N-C-I-C-S):</b> Operational excellence; New products/services/models; Customer and supplier intimacy; Improved decisions; Competitive advantage; Survival.</li>
+</ul></div>
+<div><b>Ch 2</b><ul>
+<li><b>Business process:</b> activities to produce a product or service; order fulfillment is cross-functional.</li>
+<li><b>TPS</b> records (operational). <b>MIS</b> reports (middle). <b>DSS</b> what-if (middle). <b>ESS</b> looks outside (senior). TPS feeds all.</li>
+<li><b>ERP</b> one database; <b>SCM</b> suppliers; <b>CRM</b> customers; <b>KMS</b> knowledge.</li>
+<li><b>Collaboration benefits (P-Q-I-C-F):</b> Productivity, Quality, Innovation, Customer service, Financial performance.</li>
+<li><b>Time/space:</b> email/wiki = different time, different place.</li>
+<li><b>Tacit</b> = in heads; <b>explicit</b> = written.</li>
+<li><b>Systems analyst</b> = bridge between business and IS.</li>
+</ul></div>
+<div><b>Ch 3</b><ul>
+<li><b>5 forces:</b> new entrants; suppliers; customers; substitutes; rivalry (centre). Intensity decides industry profit.</li>
+<li><b>Rival</b> = same product. <b>Substitute</b> = different product, same need.</li>
+<li><b>4 strategies (Cheapest-Different-Narrow-Close):</b> low-cost leadership; product differentiation; market niche; customer and supplier intimacy.</li>
+<li><b>Internet:</b> more entrants and substitutes, stronger buyers, fiercer rivalry.</li>
+<li><b>Value chain primary:</b> inbound logistics, operations, outbound logistics, sales and marketing, service. <b>Support:</b> infrastructure, HR, technology, procurement.</li>
+<li><b>Value web:</b> independent firms coordinate value chains with IT to serve a market together.</li>
+<li><b>Scalability:</b> grow without costs rising in proportion.</li>
+</ul></div>
+<div><b>In the exam</b><ul>
+<li>Every written answer: <b>P-E-E-E</b> (Point, Explain, Example, Effect).</li>
+<li>Five forces: rating + reason + IS response for each, then a conclusion.</li>
+<li>"Management, organization, technology factors" = answer in O-M-T.</li>
+</ul></div>
+</div>
+</body></html>
